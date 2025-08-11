@@ -7,131 +7,132 @@
 <style>
     body {
         margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: #fafafa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f8f8;
         color: #333;
-        line-height: 1.6;
-        overflow-x: hidden;
     }
     header {
-        background: white;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        animation: fadeDown 1s ease;
+        background-color: white;
+        padding: 15px 30px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     header img {
-        max-height: 80px;
+        height: 60px;
     }
-    h1 {
-        font-size: 2rem;
-        margin-top: 15px;
+    nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
     }
-    .tagline {
-        color: #ff4081;
-        font-size: 1.2rem;
-        font-weight: bold;
-        animation: fadeIn 2s ease;
+    nav a:hover {
+        color: #007BFF;
+    }
+    .hero {
+        height: 90vh;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACAAAAAN+CAYAAACBiOt7AAAAAXNSR0IArs4c6QAAIABJREFUeF7svevzZUdxIJj33l9364WEECCB...');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        background-attachment: fixed;
+    }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        animation: fadeInDown 1s ease-out;
+    }
+    .hero p {
+        font-size: 1.2em;
+        max-width: 600px;
+        animation: fadeInUp 1s ease-out;
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
     .section {
-        max-width: 900px;
+        padding: 50px 20px;
+        max-width: 1100px;
         margin: auto;
-        padding: 40px 20px;
-        animation: fadeUp 1.5s ease;
     }
-    .section p {
-        margin-bottom: 20px;
-        font-size: 1rem;
+    .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
     }
-    hr {
-        border: none;
-        border-top: 2px solid #eee;
-        margin: 30px 0;
-    }
-    .cta {
+    .service-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        padding: 20px;
         text-align: center;
-        margin-top: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .cta a {
-        background: #25D366;
-        color: white;
-        padding: 15px 25px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s ease;
-    }
-    .cta a:hover {
-        background: #1ebf57;
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
     footer {
-        background: white;
+        background-color: #333;
+        color: white;
         text-align: center;
         padding: 20px;
-        margin-top: 40px;
-        box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
-    }
-    .social-icons a {
-        margin: 0 10px;
-        text-decoration: none;
-        color: #555;
-        font-size: 1.5rem;
-        transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-        color: #ff4081;
-    }
-
-    /* Animations */
-    @keyframes fadeUp {
-        from {opacity: 0; transform: translateY(20px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeDown {
-        from {opacity: 0; transform: translateY(-20px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
+        font-size: 0.9em;
     }
 </style>
-<!-- Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <header>
-    <!-- Embedded logo -->
-    <img src="data:image/jpeg;base64,{{LOGO_BASE64}}" alt="Home Economics Logo">
-    <h1>Home Economics</h1>
-    <div class="tagline">Smart. Stylish. Sorted.</div>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACAAAAAMjCAYAAAAxmPBSAAAAAXNSR0IArs4c6QAAIABJREFUeF7sXdGW4zaubOc1s5nJ//9rvEem..." alt="Home Economics Logo">
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<section class="section">
+<section class="hero" id="home">
+    <h1>Smart. Stylish. Sorted.</h1>
     <p>Because your home deserves better than a “figure it out yourself” manual.</p>
-    <hr>
-    <p>Welcome to Home Economics — where we turn your “Where did all my socks go?” moments into “Wow, I actually have space for everything” miracles. Founded by an IIT Delhi grad who knows a thing or two about solving complex problems (like why your kitchen looks like a tornado hit it), we’re here to make adulting at home less of a headache and more of a happy dance.</p>
-    <p>Think of us as your home’s personal trainer—but instead of burpees, we declutter. Instead of kale smoothies, we serve up smart AI-powered tips to make your space look stunning and work smarter. Whether you’re drowning in laundry piles or trying to figure out where to put that new IKEA shelf without losing your sanity, Home Economics has got your back.</p>
-    <p>Why waste time Googling “how to fix my chaotic closet” when you can have a squad of Home Strategists armed with AI, good taste, and a sprinkle of magic? We don’t just do home makeovers—we do home make-betters.</p>
-    <p>So, if your living room looks like a game of Tetris gone wrong, or your kitchen lighting feels like a horror movie set, let’s chat. Because life’s too short for clutter, bad décor, and awkward furniture arrangements.</p>
-    <hr>
-    <p><strong>Home Economics:</strong> Making your home smarter, your life easier, and your in-laws impressed (or at least mildly less confused).</p>
-    <hr>
-    <p>Want more of this magic? Follow us on Insta and Facebook—because even your feed deserves a little style boost.</p>
-    <div class="cta">
-        <a href="https://wa.me/919667722988" target="_blank">📲 Book on WhatsApp</a>
+</section>
+
+<section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="service-card">
+            <h3>Wardrobe Organisation</h3>
+            <p>We transform your chaotic closet into a functional fashion haven.</p>
+        </div>
+        <div class="service-card">
+            <h3>Space Optimisation</h3>
+            <p>Maximise every inch of your home with clever, stylish solutions.</p>
+        </div>
+        <div class="service-card">
+            <h3>Lighting Makeovers</h3>
+            <p>Brighten up your home with lighting that works for your mood and space.</p>
+        </div>
     </div>
 </section>
 
-<footer>
-    <div class="social-icons">
-        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-    </div>
-    <p>📞 +91 9667722988 | ✉️ contact@homeeconomics.com</p>
+<footer id="contact">
+    <p>Contact us via WhatsApp or Email for a consultation.</p>
+    <p>© 2025 Home Economics</p>
 </footer>
 
 </body>
 </html>
+
