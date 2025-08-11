@@ -1,226 +1,75 @@
-Got it, Tejas! Here’s an upgraded version of your Home Economics site with a more vibrant, standout, and unique aesthetic while keeping usability intact. I’m adding:
-	•	Bold gradients and neon accent colors
-	•	Glassmorphism sections with blur and translucency
-	•	Cool custom fonts (Google Fonts)
-	•	Smooth hover animations & micro-interactions
-	•	A more dynamic hero with layered text and shapes
-	•	Subtle animations for portfolio images and buttons
-	•	Distinct section backgrounds to break monotony
-
-Check this complete enhanced version below (I left your content intact, just restyled heavily):
-
 <!doctype html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home Economics — Smart. Stylish. Sorted.</title>
-  <meta name="description" content="Home Economics — smart home-help and lifestyle solutions. Space optimization, decor, smart home recommendations and AI-driven layout planning." />
-  <!-- Tailwind CDN -->
+  <title>Home Economics — Subtle & Regal</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts: Montserrat & Pacifico for contrast -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* Base font override */
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #eee;
-    }
-    /* Neon accent */
-    .accent {
-      color: #FF6EC4;
-      text-shadow: 0 0 8px #FF6EC4, 0 0 20px #FF6EC4;
-    }
-    /* Glassmorphism card */
-    .glass-card {
-      background: rgba(255 255 255 / 0.12);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255 255 255 / 0.25);
-      box-shadow: 0 8px 32px rgba(255 110 196, 0.2);
-      border-radius: 16px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .glass-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(255 110 196, 0.5);
-    }
-    /* Button gradient */
-    .btn-whatsapp {
-      background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
-      box-shadow: 0 0 8px #25D366;
-      transition: box-shadow 0.3s ease;
-    }
-    .btn-whatsapp:hover {
-      box-shadow: 0 0 20px #25D366;
-    }
-    /* Navigation */
-    header {
-      background: rgba(15, 32, 39, 0.85);
-      backdrop-filter: saturate(180%) blur(20px);
-      box-shadow: 0 2px 8px rgba(255 110 196 / 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    /* Hero title with layered neon shadow */
-    h2.text-4xl {
-      font-family: 'Pacifico', cursive;
-      font-weight: 700;
-      color: #FF6EC4;
-      text-shadow:
-        0 0 6px #FF6EC4,
-        0 0 20px #FF6EC4,
-        0 0 30px #FF6EC4,
-        0 0 40px #FF6EC4;
-    }
-    /* Paragraphs with subtle glow */
-    p.text-gray-600 {
-      color: #eee;
-      text-shadow: 0 0 3px rgba(255,110,196,0.3);
-    }
-    /* Smooth button */
-    a.px-5.py-3.rounded-md {
-      background: linear-gradient(90deg, #FF6EC4, #7873F5);
-      color: white;
-      font-weight: 600;
-      box-shadow: 0 0 15px #FF6EC4;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-    }
-    a.px-5.py-3.rounded-md:hover {
-      background: linear-gradient(90deg, #7873F5, #FF6EC4);
-      box-shadow: 0 0 30px #FF6EC4;
-    }
-    /* Portfolio images zoom */
-    #portfolio img {
-      border-radius: 12px;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      filter: brightness(0.85);
-      cursor: pointer;
-    }
-    #portfolio img:hover {
-      transform: scale(1.05);
-      filter: brightness(1);
-      box-shadow: 0 0 25px #FF6EC4;
-      z-index: 10;
-      position: relative;
-    }
-    /* Form styling */
-    form input, form textarea {
-      background: rgba(255 255 255 / 0.15);
-      border: 1px solid #FF6EC4;
-      color: white;
-      transition: border-color 0.3s ease;
-    }
-    form input:focus, form textarea:focus {
-      outline: none;
-      border-color: #7873F5;
-      background: rgba(255 255 255 / 0.25);
-      box-shadow: 0 0 10px #7873F5;
-      color: white;
-    }
-    /* Footer */
-    footer {
-      background: rgba(15, 32, 39, 0.85);
-      color: #FF6EC4;
-      text-shadow: 0 0 10px #FF6EC4;
-    }
-    footer a {
-      color: #FF6EC4;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    footer a:hover {
-      color: #fff;
-      text-shadow: 0 0 15px #FF6EC4;
-    }
+    body { font-family: 'Lato', sans-serif; background-color: #0E141B; color: #F7F5F2; }
+    .accent { color: #C5A572; }
+    h2, h3 { font-family: 'Playfair Display', serif; }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(6px); border: 1px solid rgba(197,165,114,0.3); border-radius: 12px; }
+    .btn { background: #C5A572; color: #0E141B; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; }
+    .btn:hover { background: #D4B87C; }
   </style>
 </head>
 <body class="antialiased">
 
-  <!-- NAV / HERO -->
-  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-    <div class="flex items-center gap-5">
-      <img src="assets/logo.png" alt="Home Economics logo" class="h-16 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,110,196,0.6)]" />
-      <div>
-        <h1 class="text-2xl font-semibold accent tracking-wide">Home Economics</h1>
-        <p class="text-sm text-gray-300 uppercase font-semibold tracking-wider">Smart. Stylish. Sorted.</p>
-      </div>
-    </div>
-    <nav class="flex items-center gap-6 text-gray-300 font-semibold tracking-wide uppercase text-sm">
-      <a href="#services" class="hover:text-pink-400 hover:underline transition">Services</a>
-      <a href="#approach" class="hover:text-pink-400 hover:underline transition">Approach</a>
-      <a href="#contact" class="hover:text-pink-400 hover:underline transition">Contact</a>
-      <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="ml-6 inline-flex items-center gap-3 px-5 py-3 rounded-full text-white btn-whatsapp font-bold tracking-wide shadow-lg hover:scale-105 transition-transform duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 .1 11.99 11.99 0 0 0 .1 12c0 2.12.55 4.12 1.6 5.87L.1 24l6.3-1.66A11.9 11.9 0 0 0 12 23.9C20.2 23.9 24 15.6 24 12a11.9 11.9 0 0 0-3.48-8.52z"/><path d="M17.05 14.27c-.31-.15-1.82-.9-2.1-1--.29-.1-.5-.15-.71.15-.2.31-.78 1-.96 1.2-.18.2-.36.22-.67.07-.31-.15-1.3-.48-2.47-1.52-.91-.81-1.52-1.8-1.7-2.11-.18-.31-.02-.48.13-.63.13-.13.31-.36.46-.54.15-.18.2-.31.3-.51.1-.2.05-.38-.02-.53-.07-.15-.71-1.7-.98-2.34-.26-.61-.53-.53-.72-.54l-.61-.01c-.2 0-.52.07-.8.38-.28.31-1.07 1.05-1.07 2.56s1.1 2.96 1.25 3.17c.15.2 2.16 3.5 5.23 4.9 3.07 1.4 3.07.93 3.62.87.56-.06 1.82-.74 2.08-1.45.26-.71.26-1.32.18-1.45-.07-.13-.26-.2-.57-.35z"/></svg>
-        Book on WhatsApp
-      </a>
-    </nav>
-  </header>
+<!-- HEADER -->
+<header class="px-6 py-8 max-w-5xl mx-auto flex justify-between items-center">
+  <h1 class="text-3xl font-bold accent">Home Economics</h1>
+  <a href="https://wa.me/919667722988" class="btn">Book on WhatsApp</a>
+</header>
 
-  <main class="max-w-6xl mx-auto px-6 pb-20">
+<!-- HERO -->
+<section class="max-w-5xl mx-auto py-12 text-center">
+  <h2 class="text-5xl mb-4 accent">Subtle. Classy. Regal.</h2>
+  <p class="text-lg max-w-2xl mx-auto text-gray-300">
+    We craft elegant lifestyle solutions that feel personal, refined, and timeless.
+  </p>
+</section>
 
-    <!-- Hero -->
-    <section class="grid md:grid-cols-2 gap-12 items-center py-20 relative overflow-visible">
-      <div class="relative z-10">
-        <h2 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-wide drop-shadow-[0_0_15px_rgba(255,110,196,0.7)]">Smart. Stylish. <span class="accent">Sorted.</span></h2>
-        <p class="mt-6 max-w-xl text-gray-300 text-lg leading-relaxed drop-shadow-md">Home Economics helps urban households solve practical domestic issues — from cluttered kitchens to uninspired home aesthetics — with curated, tech-enabled solutions that blend design and efficiency.</p>
-        <div class="mt-8 flex gap-6 items-center">
-          <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="inline-flex items-center gap-4 px-7 py-4 rounded-full text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 font-extrabold tracking-wide shadow-lg hover:scale-105 transition-transform duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 .1 11.99 11.99 0 0 0 .1 12c0 2.12.55 4.12 1.6 5.87L.1 24l6.3-1.66A11.9 11.9 0 0 0 12 23.9C20.2 23.9 24 15.6 24 12a11.9 11.9 0 0 0-3.48-8.52z"/><path d="M17.05 14.27c-.31-.15-1.82-.9-2.1-1--.29-.1-.5-.15-.71.15-.2.31-.78 1-.96 1.2-.18.2-.36.22-.67.07-.31-.15-1.3-.48-2.47-1.52-.91-.81-1.52-1.8-1.7-2.11-.18-.31-.02-.48.13-.63.13-.13.31-.36.46-.54.15-.18.2-.31.3-.51.1-.2.05-.38-.02-.53-.07-.15-.71-1.7-.98-2.34-.26-.61-.53-.53-.72-.54l-.61-.01c-.2 0-.52.07-.8.38-.28.31-1.07 1.05-1.07 2.56s1.1 2.96 1.25 3.17c.15.2 2.16 3.5 5.23 4.9 3.07 1.4 3.07.93 3.62.87.56-.06 1.82-.74 2.08-1.45.26-.71.26-1.32.18-1.45-.07-.13-.26-.2-.57-.35z"/></svg>
-            Book on WhatsApp
-          </a>
-          <a href="#contact" class="px-7 py-4 border-2 border-pink-500 rounded-full text-pink-400 font-semibold hover:bg-pink-500 hover:text-white transition">Contact Us</a>
-        </div>
-      </div>
-      <div class="rounded-3xl glass-card p-10 flex justify-center items-center drop-shadow-[0_0_25px_rgba(255,110,196,0.6)]">
-        <img src="assets/logo.png" alt="brand" class="max-w-xs drop-shadow-[0_0_15px_rgba(255,110,196,0.8)]" />
-      </div>
+<!-- IMAGE GRID -->
+<section class="max-w-5xl mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="glass overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Luxury Living Room" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+  </div>
+  <div class="glass overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1588854337221-4d84bb60a2f2" alt="Elegant Kitchen" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+  </div>
+  <div class="glass overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1618213837799-3be2b9c7b4e1" alt="Refined Bedroom" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+  </div>
+</section>
 
-      <!-- Hero floating shapes -->
-      <div aria-hidden="true" class="absolute -top-20 -left-20 w-48 h-48 rounded-full bg-gradient-to-tr from-pink-400 to-purple-600 opacity-40 blur-3xl animate-pulse"></div>
-      <div aria-hidden="true" class="absolute bottom-10 right-10 w-72 h-72 rounded-full bg-gradient-to-tr from-indigo-600 to-pink-400 opacity-30 blur-2xl animate-spin-slow"></div>
-    </section>
+<!-- ABOUT ME -->
+<section id="about" class="max-w-5xl mx-auto py-12">
+  <h3 class="text-3xl font-semibold accent mb-4 text-center">About Me</h3>
+  <div class="glass p-6">
+    <p class="mb-4">
+      I’m Tejas, an IIT Delhi alumnus passionate about blending thoughtful design with intelligent solutions.
+      My work centers on creating spaces that feel luxurious, comfortable, and uniquely yours.
+    </p>
+    <p>
+      Explore more on my 
+      <a href="https://bento.me/tejas7102003" class="text-c5a572 underline">Bento profile</a>.
+    </p>
+  </div>
+</section>
 
-    <!-- About -->
-    <section id="about" class="py-14 px-4 max-w-4xl mx-auto glass-card">
-      <h3 class="text-3xl font-bold accent mb-4 tracking-wide text-center drop-shadow-md">About Home Economics</h3>
-      <p class="text-center max-w-3xl mx-auto text-gray-200 text-lg leading-relaxed">Home Economics is a modern home-help and lifestyle solutions company founded by an IIT Delhi alumnus. We believe household management should be seamless, smart, and delightful. We combine creative Home Strategists with AI-driven tools to personalize and streamline home solutions.</p>
-    </section>
+<!-- CONTACT -->
+<section id="contact" class="max-w-5xl mx-auto py-12 text-center">
+  <h3 class="text-3xl font-semibold accent mb-4">Get in Touch</h3>
+  <p class="mb-6">Call / WhatsApp: <a href="tel:9667722988" class="accent">9667-722988</a></p>
+  <a href="https://wa.me/919667722988" class="btn inline-block">Chat on WhatsApp</a>
+</section>
 
-    <!-- Services -->
-    <section id="services" class="py-14 px-6">
-      <h3 class="text-3xl font-bold accent mb-8 tracking-wide text-center drop-shadow-md">What We Do</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="p-7 glass-card hover:shadow-pink-400/50 hover:scale-[1.04] transition-transform">
-          <h4 class="font-semibold text-lg accent mb-2">Space Optimization & Decluttering</h4>
-          <p class="text-gray-300 text-sm leading-relaxed">Smart storage, layout changes and editing your belongings for a calmer home.</p>
-        </div>
-        <div class="p-7 glass-card hover:shadow-pink-400/50 hover:scale-[1.04] transition-transform">
-          <h4 class="font-semibold text-lg accent mb-2">Aesthetic Decor & DIY Interiors</h4>
-          <p class="text-gray-300 text-sm leading-relaxed">Budget-friendly styling and DIY tricks to uplift your space instantly.</p>
-        </div>
-        <div class="p-7 glass-card hover:shadow-pink-400/50 hover:scale-[1.04] transition-transform">
-          <h4 class="font-semibold text-lg accent mb-2">Smart Home Recommendations</h4>
-          <p class="text-gray-300 text-sm leading-relaxed">Curated product suggestions that balance function, price and design.</p>
-        </div>
-        <div class="p-7 glass-card hover:shadow-pink-400/50 hover:scale-[1.04] transition-transform">
-          <h4 class="font-semibold text-lg accent mb-2">Utility Planning</h4>
-          <p class="text-gray-300 text-sm leading-relaxed">Lighting, storage, and furniture planning for daily efficiency.</p>
-        </div>
-        <div class="p-7 glass-card hover:shadow-pink-400/50 hover:scale-[1.04] transition-transform">
-          <h4 class="font-semibold text-lg accent mb-2">Home Wellness Audits</h4>
-          <p class="text-gray-300 text-sm leading-relaxed">Weekly or monthly checks to keep your home functional and tidy.</p>
-        </div>
-        <div class="p-7 glass-card hover:shadow-pink-400/50 hover:scale-[1.04] transition-transform">
-          <h4 class="font-semibold text-lg accent mb-2">Personalized Setup for Renters & Bachelors</h4>
-          <p class="text-gray-300 text-sm leading-relaxed">Temporary and thoughtful setups that look great and are easy to remove.</p>
-        </div>
-      </div>
-    </section>
+<!-- FOOTER -->
+<footer class="py-8 text-center text-gray-500">
+  © 2025 Home Economics • All Rights Reserved
+</footer>
 
-    <!-- Approach -->
-    <section id="approach" class="py-14 px-6 bg-gradient-to-tr from-pink-700/20 via-purple-800/20 to-indigo-900/20 rounded-3xl max-w-6xl mx-auto shadow-lg">
-      <h3 class="text-3xl font-bold accent mb-10 tracking-wide text-center drop-shadow-md">Our Approach</
+</body>
+</html>
