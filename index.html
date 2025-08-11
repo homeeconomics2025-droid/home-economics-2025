@@ -1,75 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home Economics — Subtle & Regal</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Lato', sans-serif; background-color: #0E141B; color: #F7F5F2; }
-    .accent { color: #C5A572; }
-    h2, h3 { font-family: 'Playfair Display', serif; }
-    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(6px); border: 1px solid rgba(197,165,114,0.3); border-radius: 12px; }
-    .btn { background: #C5A572; color: #0E141B; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; }
-    .btn:hover { background: #D4B87C; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Economics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="antialiased">
+<body class="bg-[#fdfdfd] text-gray-800 font-sans">
 
-<!-- HEADER -->
-<header class="px-6 py-8 max-w-5xl mx-auto flex justify-between items-center">
-  <h1 class="text-3xl font-bold accent">Home Economics</h1>
-  <a href="https://wa.me/919667722988" class="btn">Book on WhatsApp</a>
-</header>
+    <!-- Header -->
+    <header class="bg-[#faf7f2] py-12 shadow-sm">
+        <div class="max-w-5xl mx-auto text-center px-6">
+            <h1 class="font-['Playfair_Display'] text-5xl text-gray-900 mb-2">Home Economics</h1>
+            <p class="text-xl italic text-gray-600">Smart. Stylish. Sorted.</p>
+        </div>
+    </header>
 
-<!-- HERO -->
-<section class="max-w-5xl mx-auto py-12 text-center">
-  <h2 class="text-5xl mb-4 accent">Subtle. Classy. Regal.</h2>
-  <p class="text-lg max-w-2xl mx-auto text-gray-300">
-    We craft elegant lifestyle solutions that feel personal, refined, and timeless.
-  </p>
-</section>
+    <!-- Hero Image -->
+    <section class="mt-8">
+        <img src="https://source.unsplash.com/1600x600/?interior,modern,luxury" alt="Elegant Living Space" class="w-full h-auto object-cover">
+    </section>
 
-<!-- IMAGE GRID -->
-<section class="max-w-5xl mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-  <div class="glass overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Luxury Living Room" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-  </div>
-  <div class="glass overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1588854337221-4d84bb60a2f2" alt="Elegant Kitchen" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-  </div>
-  <div class="glass overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1618213837799-3be2b9c7b4e1" alt="Refined Bedroom" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-  </div>
-</section>
+    <!-- Overview -->
+    <section class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="font-['Playfair_Display'] text-3xl text-gray-900 mb-4">Overview</h2>
+        <p class="text-gray-700 leading-relaxed">
+            Home Economics is a modern home-help and lifestyle solutions company that brings function, style, and ease to everyday living. Founded by an IIT Delhi alumnus, the company is built on the belief that household management shouldn’t feel like a second job—it should be seamless, smart, and even delightful. We enhance this experience further by integrating AI-based tools to personalize, simplify, and streamline home solutions.
+        </p>
+    </section>
 
-<!-- ABOUT ME -->
-<section id="about" class="max-w-5xl mx-auto py-12">
-  <h3 class="text-3xl font-semibold accent mb-4 text-center">About Me</h3>
-  <div class="glass p-6">
-    <p class="mb-4">
-      I’m Tejas, an IIT Delhi alumnus passionate about blending thoughtful design with intelligent solutions.
-      My work centers on creating spaces that feel luxurious, comfortable, and uniquely yours.
-    </p>
-    <p>
-      Explore more on my 
-      <a href="https://bento.me/tejas7102003" class="text-c5a572 underline">Bento profile</a>.
-    </p>
-  </div>
-</section>
+    <!-- What We Do -->
+    <section class="bg-[#faf7f2] py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="font-['Playfair_Display'] text-3xl text-gray-900 mb-4">What We Do</h2>
+            <p class="mb-6 text-gray-700 leading-relaxed">
+                We help urban households solve practical, day-to-day domestic issues—be it a cluttered kitchen, poor lighting, messy wardrobes, or uninspired home aesthetics. But we do it differently: through carefully curated solutions that blend design, efficiency, affordability, and tech-enabled insights.
+            </p>
+            <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Space Optimization & Decluttering</li>
+                <li>Aesthetic Decor & DIY Interiors</li>
+                <li>Smart Home Product Recommendations</li>
+                <li>Utility Planning (Lighting, Storage, Furniture)</li>
+                <li>Weekly/Monthly Home Wellness Audits</li>
+                <li>Personalized Setup for Renters & Bachelors</li>
+                <li>AI-Based Layout & Product Recommendations</li>
+                <li>Routine and Utility Optimization via Lifestyle Mapping</li>
+            </ul>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact" class="max-w-5xl mx-auto py-12 text-center">
-  <h3 class="text-3xl font-semibold accent mb-4">Get in Touch</h3>
-  <p class="mb-6">Call / WhatsApp: <a href="tel:9667722988" class="accent">9667-722988</a></p>
-  <a href="https://wa.me/919667722988" class="btn inline-block">Chat on WhatsApp</a>
-</section>
+    <!-- Why -->
+    <section class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="font-['Playfair_Display'] text-3xl text-gray-900 mb-4">Why Home Economics?</h2>
+        <ul class="list-disc pl-6 space-y-1 text-gray-700">
+            <li>Because good design should work just as hard as you do.</li>
+            <li>Because your home deserves a plan, not patchwork.</li>
+            <li>Because adulting is hard enough—let us make your space easier to live in.</li>
+            <li>Because AI can now help you plan smarter than ever before.</li>
+        </ul>
+    </section>
 
-<!-- FOOTER -->
-<footer class="py-8 text-center text-gray-500">
-  © 2025 Home Economics • All Rights Reserved
-</footer>
+    <!-- Approach -->
+    <section class="bg-[#faf7f2] py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="font-['Playfair_Display'] text-3xl text-gray-900 mb-4">Our Approach</h2>
+            <p class="text-gray-700 leading-relaxed">
+                We don’t just send carpenters or stylists. We send Home Strategists—trained, creative problem-solvers who understand lifestyle, aesthetics, and budgets. Backed by intelligent systems and recommendation engines, we offer solutions that are both personal and data-driven. We operate at the intersection of interior intelligence and everyday practicality. Think of us as your home’s best friend—with a Pinterest board, a spreadsheet, and a neural net.
+            </p>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="font-['Playfair_Display'] text-3xl text-gray-900 mb-4">Our Clients</h2>
+        <p class="text-gray-700 leading-relaxed">
+            From working professionals and young couples to students, expats, and elderly parents living alone—we serve all those who value their time, space, and peace of mind. Whether you’re setting up your first home or looking to make your old space feel new again, we bring clarity to your chaos.
+        </p>
+    </section>
+
+    <!-- Promise -->
+    <section class="bg-[#faf7f2] py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="font-['Playfair_Display'] text-3xl text-gray-900 mb-4">Our Promise</h2>
+            <p class="text-gray-700 leading-relaxed">
+                No jargon. No chaos. No costly overhauls. Just honest, effective solutions tailored to your home and habits—with a dash of smart tech where it counts.
+                In other words: A better home, minus the headache.
+            </p>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-5xl mx-auto text-center px-6">
+            <p class="mb-4 font-['Playfair_Display'] text-xl">Find us on</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" class="hover:underline">Instagram</a>
+                <a href="https://www.facebook.com/share/12Lux1R2FNP/?mibextid=wwXIfr" target="_blank" class="hover:underline">Facebook</a>
+            </div>
+            <p class="mt-6 text-gray-400 text-sm">&copy; 2025 Home Economics. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
