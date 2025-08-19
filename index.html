@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Home Economics — Smart. Stylish. Sorted.</title>
+  <meta name="description" content="Home Economics — Smart, stylish, and effortless solutions for modern living. Decluttering, design, and AI-driven home optimization." />
 
   <!-- Fonts + Tailwind -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -11,10 +12,10 @@
 
   <style>
     :root{
-      --bg:#0f1416;      /* deep base */
-      --ivory:#F6F4EF;   /* text */
-      --gold:#C9A66B;    /* accent */
-      --muted:#dcd6cc;   /* soft text */
+      --bg:#0f1416;
+      --ivory:#F6F4EF;
+      --gold:#C9A66B;
+      --muted:#dcd6cc;
     }
     html,body{height:100%}
     body {
@@ -30,8 +31,6 @@
     /* Subtle glass card */
     .glass {
       background: transparent;
-      border: none;
-      backdrop-filter: none;
       border-radius: 12px;
       padding: 1.25rem;
     }
@@ -96,7 +95,9 @@
     .link-underline:hover::after{ width:100%; }
 
     /* responsive hero overlay */
-    .hero-overlay{ background: linear-gradient(180deg, rgba(11,14,15,0.45) 0%, rgba(11,14,15,0.65) 60%); }
+    .hero-overlay{
+      background: linear-gradient(180deg, rgba(11,14,15,0.45) 0%, rgba(11,14,15,0.65) 60%);
+    }
   </style>
 </head>
 <body>
@@ -106,8 +107,8 @@
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <div class="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center shadow-md bg-white">
-  <img src="./Logo.jpg" alt="Home Economics Logo" class="w-full h-full object-contain" />
-</div>
+          <img src="./Logo.jpg" alt="Home Economics Logo" class="w-full h-full object-contain" />
+        </div>
 
         <div>
           <h1 class="text-2xl md:text-3xl font-semibold heading-glow">Home Economics</h1>
@@ -128,15 +129,12 @@
   </header>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden" aria-hidden="false">
-    <div class="h-[56vh] md:h-[60vh] w-full" style="background-image:url('https://images.unsplash.com/photo-1505691723518-36a0f4b5b3d6?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center;">
+  <section class="relative overflow-hidden">
+    <div class="h-[56vh] md:h-[60vh] w-full bg-black" style="background-image:url('https://images.unsplash.com/photo-1505691723518-36a0f4b5b3d6?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center;">
       <div class="w-full h-full hero-overlay flex items-center">
         <div class="max-w-6xl mx-auto px-6 py-12">
-          <div class="max-w-2xl reveal" style="animation-delay:.15s">
-            <h2 class="text-4xl md:text-5xl font-bold heading-glow text-white">
-  Smart. Stylish. Sorted.
-</h2>
-
+          <div class="max-w-2xl reveal">
+            <h2 class="text-4xl md:text-5xl font-bold heading-glow text-white">Smart. Stylish. Sorted.</h2>
             <p class="mt-4 text-gray-200 leading-relaxed">Making everyday living effortless with thoughtful design, practical systems and modern tools.</p>
             <div class="mt-6 flex gap-4 flex-wrap">
               <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-5 py-3 rounded-full font-semibold" style="background: #e9d9b2; color:#081018;">
@@ -153,7 +151,7 @@
   <!-- MAIN CONTENT -->
   <main class="max-w-6xl mx-auto px-6 -mt-12">
     <!-- Overview -->
-    <section id="overview" class="glass mb-8 reveal" style="animation-delay:.25s">
+    <section id="overview" class="glass mb-8 reveal">
       <h3 class="text-2xl font-semibold gold-shimmer">Overview</h3>
       <p class="mt-3 text-base text-gray-300 leading-relaxed">
         Home Economics is a modern home-help and lifestyle solutions company that brings function, style, and ease to everyday living.
@@ -162,12 +160,14 @@
       </p>
     </section>
 
-    <!-- What We Do -->
-    <section id="services" class="mb-8 reveal" style="animation-delay:.35s">
+    <!-- Services -->
+    <section id="services" class="mb-8 reveal">
       <div class="grid md:grid-cols-2 gap-6">
         <div class="glass">
           <h3 class="text-xl font-semibold">What We Do</h3>
-          <p class="mt-3 text-gray-300 leading-relaxed">We help urban households solve practical, day-to-day domestic issues—be it a cluttered kitchen, poor lighting, messy wardrobes, or uninspired home aesthetics. We deliver curated solutions combining design, efficiency, affordability, and tech-enabled insight.</p>
+          <p class="mt-3 text-gray-300 leading-relaxed">
+            We help urban households solve practical, day-to-day domestic issues—be it a cluttered kitchen, poor lighting, messy wardrobes, or uninspired home aesthetics. We deliver curated solutions combining design, efficiency, affordability, and tech-enabled insight.
+          </p>
 
           <ul class="mt-4 list-disc pl-5 text-gray-300 space-y-1">
             <li>Space Optimization & Decluttering</li>
@@ -183,10 +183,10 @@
 
         <div class="space-y-4">
           <div class="media-card glass overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Luxury living room" class="w-full h-56 object-cover rounded-md" />
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Luxury living room with elegant furniture" class="w-full h-56 object-cover rounded-md" />
           </div>
           <div class="media-card glass overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1560448079-9a95b6c87234?auto=format&fit=crop&w=1400&q=80" alt="Elegant kitchen" class="w-full h-56 object-cover rounded-md" />
+            <img src="https://images.unsplash.com/photo-1560448079-9a95b6c87234?auto=format&fit=crop&w=1400&q=80" alt="Modern elegant kitchen interior" class="w-full h-56 object-cover rounded-md" />
           </div>
         </div>
       </div>
@@ -194,7 +194,7 @@
 
     <!-- Why + Approach -->
     <section class="grid md:grid-cols-2 gap-6 mb-8">
-      <div class="glass reveal" style="animation-delay:.45s">
+      <div class="glass reveal">
         <h3 class="text-xl font-semibold">Why Home Economics?</h3>
         <ul class="mt-3 list-disc pl-5 text-gray-300 space-y-1">
           <li>Because good design should work just as hard as you do.</li>
@@ -204,7 +204,7 @@
         </ul>
       </div>
 
-      <div class="glass reveal" style="animation-delay:.55s">
+      <div class="glass reveal">
         <h3 class="text-xl font-semibold">Our Approach</h3>
         <p class="mt-3 text-gray-300 leading-relaxed">
           We don’t just send carpenters or stylists. We send <strong>Home Strategists</strong>—trained, creative problem-solvers who understand lifestyle, aesthetics, and budgets. Backed by intelligent systems and recommendation engines, we offer solutions that are both personal and data-driven.
@@ -213,33 +213,36 @@
     </section>
 
     <!-- Clients & Promise -->
-    <section class="glass mb-8 reveal" style="animation-delay:.65s">
+    <section class="glass mb-8 reveal">
       <h3 class="text-xl font-semibold">Our Clients</h3>
       <p class="mt-3 text-gray-300 leading-relaxed">
         From working professionals and young couples to students, expats, and elderly parents living alone—we serve all those who value their time, space, and peace of mind. Whether you’re setting up your first home or looking to make your old space feel new again, we bring clarity to your chaos.
       </p>
 
       <h3 class="mt-6 text-lg font-semibold">Our Promise</h3>
-      <p class="mt-2 text-gray-300">No jargon. No chaos. No costly overhauls. Just honest, effective solutions tailored to your home and habits—with a dash of smart tech where it counts. A better home, minus the headache.</p>
+      <p class="mt-2 text-gray-300">
+        No jargon. No chaos. No costly overhauls. Just honest, effective solutions tailored to your home and habits—with a dash of smart tech where it counts. A better home, minus the headache.
+      </p>
     </section>
 
     <!-- About Me -->
-    <section class="grid md:grid-cols-3 gap-6 mb-12 reveal" style="animation-delay:.75s">
+    <section class="grid md:grid-cols-3 gap-6 mb-12 reveal">
       <div class="md:col-span-2 glass">
         <h3 class="text-xl font-semibold">About Me</h3>
         <p class="mt-3 text-gray-300 leading-relaxed">
           I’m Tejas, an IIT Delhi alumnus passionate about blending thoughtful design with intelligent solutions. I create spaces that feel luxurious, comfortable and uniquely yours—combining practical systems with elegant styling and AI-backed recommendations.
         </p>
-        <p class="mt-3 text-sm text-gray-400">More: <a class="link-underline" href="https://bento.me/tejas7102003" target="_blank" rel="noopener">Bento profile</a></p>
+        <p class="mt-3 text-sm text-gray-400">
+          More: <a class="link-underline" href="https://bento.me/tejas7102003" target="_blank" rel="noopener">Bento profile</a>
+        </p>
       </div>
       <div class="glass flex items-center justify-center">
-        <img src="./me.jpeg" alt="My Photo" class="w-36 h-36 object-cover rounded-full shadow-md" />
-
+        <img src="./me.jpeg" alt="Portrait of Tejas, founder of Home Economics" class="w-36 h-36 object-cover rounded-full shadow-md" />
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="glass reveal" style="animation-delay:.85s">
+    <section id="contact" class="glass reveal">
       <h3 class="text-xl font-semibold gold-shimmer">Get in Touch</h3>
       <p class="mt-3 text-gray-300 leading-relaxed">
         <strong>Phone / WhatsApp:</strong>
