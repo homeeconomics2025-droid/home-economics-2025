@@ -6,61 +6,100 @@
   <title>Home Economics — Smart. Stylish. Sorted.</title>
   <meta name="description" content="Home Economics — Smart, stylish, and effortless solutions for modern living. Decluttering, design, and AI-driven home optimization." />
 
-  <!-- Fonts + Tailwind -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root{
-      --bg:#0f1416;        /* base black */
-      --ivory:#F6F4EF;     /* text */
-      --gold:#C9A66B;      /* accent */
-      --muted:#dcd6cc;     /* soft text */
-      --surface:#11171a;   /* card surface on dark */
+      --bg:#0f1416;         /* base black */
+      --ivory:#F6F4EF;       /* text */
+      --gold:#C9A66B;        /* accent */
+      --muted:#dcd6cc;       /* soft text */
+      --surface:#11171a;     /* card surface on dark */
     }
-    html,body{height:100%}
+    html,body{
+        height:100%;
+        scroll-behavior: smooth;
+    }
     body {
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      /* subtle monochrome background */
       background: linear-gradient(180deg, #0b0f10 0%, #111418 100%);
       color: var(--ivory);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      overflow-x: hidden; /* Prevent horizontal scrollbars */
     }
     h1,h2,h3{ font-family: "Playfair Display", serif; color:var(--ivory) }
     a { color: inherit; }
 
-    /* Subtle surface card (prevents hero bleed-through) */
+    /* === NEW: Interactive Spotlight Effect === */
+    #spotlight {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(201, 166, 107, 0.06), transparent 60%);
+        border-radius: 50%;
+        pointer-events: none; /* Allows clicking through the element */
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+        z-index: 9999;
+    }
+
+    /* === MODIFIED: Glass Cards with Glow on Hover === */
     .glass {
-      background: rgba(17, 23, 26, 0.82);           /* <- key change */
+      background: rgba(17, 23, 26, 0.82);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 12px;
       padding: 1.25rem;
       box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(4px); /* Slightly increased blur */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .glass:hover {
+        transform: translateY(-8px);
+        border-color: rgba(201, 166, 107, 0.5);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 24px rgba(201, 166, 107, 0.1);
     }
 
-    /* Entrance animations */
+    /* === MODIFIED: Entrance Animations === */
     .reveal {
       opacity: 0;
-      transform: translateY(14px);
-      animation: revealUp 0.8s cubic-bezier(.2,.9,.2,1) forwards;
+      transform: translateY(20px) scale(0.98);
+      filter: blur(3px);
+      animation: revealUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
     @keyframes revealUp {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
     }
 
-    /* Heading gold shimmer */
+    /* === MODIFIED: Animated Gold Shimmer on Hover === */
     .gold-shimmer {
       position: relative;
       color: var(--gold);
-      background: linear-gradient(90deg, rgba(201,166,107,0.14), rgba(255,255,255,0.02));
+      background: linear-gradient(90deg, #EAD6B1, var(--gold), #EAD6B1);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-size: 200% 100%;
+      animation: shimmer-idle 5s infinite linear;
+      transition: background-position 0.6s ease;
     }
+    @keyframes shimmer-idle {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    .gold-shimmer:hover {
+        background-position: 0% 0;
+    }
+
     .heading-glow {
-      text-shadow: 0 6px 24px rgba(201,166,107,0.06);
+      text-shadow: 0 6px 24px rgba(201,166,107,0.1);
     }
 
     /* Floating whatsapp */
@@ -77,9 +116,12 @@
       justify-content:center;
       background: linear-gradient(180deg,#25D366,#128C7E);
       box-shadow: 0 12px 30px rgba(18,140,126,0.22);
-      transition: transform .18s ease;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .whatsapp-fab:hover{ transform: translateY(-6px); }
+    .whatsapp-fab:hover{
+        transform: translateY(-6px) scale(1.05);
+        box-shadow: 0 16px 35px rgba(18,140,126,0.3);
+    }
 
     /* image card hover */
     .media-card img{ transition: transform .6s ease, filter .4s ease; transform-origin:center; }
@@ -108,59 +150,64 @@
         rgba(11,14,15,0) 100%
       );
     }
+
+    /* === NEW: Enhanced Button Styles === */
+    .btn {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAV / HEADER -->
-  <header class="py-8">
+  <div id="spotlight"></div>
+
+  <header class="py-8 fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <div class="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center shadow-md bg-white">
-          <img src="./Logo.jpg" alt="Home Economics Logo" class="w-full h-full object-contain" />
+          <img src="https://assets-global.website-files.com/6493415456345e697333671f/6493415456345e697333675a_logo-colour.svg" alt="Home Economics Logo" class="w-full h-full object-contain" />
         </div>
-
         <div>
           <h1 class="text-2xl md:text-3xl font-semibold heading-glow">Home Economics</h1>
           <p class="text-sm text-gray-300 mt-0">Smart. Stylish. Sorted.</p>
         </div>
       </div>
-
       <nav class="hidden md:flex items-center gap-6 text-sm text-gray-300 uppercase tracking-wide">
-        <a href="#overview" class="hover:text-white">Overview</a>
-        <a href="#services" class="hover:text-white">Services</a>
-        <a href="#approach" class="hover:text-white">Approach</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-        <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="ml-4 inline-flex items-center gap-3 px-4 py-2 rounded-full font-semibold" style="background: linear-gradient(90deg,var(--gold), #a88f5a); color:#081018;">
+        <a href="#overview" class="link-underline hover:text-white">Overview</a>
+        <a href="#services" class="link-underline hover:text-white">Services</a>
+        <a href="#approach" class="link-underline hover:text-white">Approach</a>
+        <a href="#contact" class="link-underline hover:text-white">Contact</a>
+        <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="ml-4 inline-flex items-center gap-3 px-4 py-2 rounded-full font-semibold btn" style="background: linear-gradient(90deg,var(--gold), #a88f5a); color:#081018;">
           📲 Book on WhatsApp
         </a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden">
-    <div class="h-[56vh] md:h-[60vh] w-full bg-black" style="background-image:url('https://images.unsplash.com/photo-1505691723518-36a0f4b5b3d6?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center;">
-      <div class="w-full h-full hero-overlay flex items-center">
-        <div class="max-w-6xl mx-auto px-6 py-12">
+  <section class="relative overflow-hidden h-[75vh] md:h-screen">
+      <div id="hero-bg" class="h-full w-full bg-black absolute top-0 left-0" style="background-image:url('https://images.unsplash.com/photo-1505691723518-36a0f4b5b3d6?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center;"></div>
+      <div class="w-full h-full hero-overlay flex items-center relative z-10">
+        <div class="max-w-6xl mx-auto px-6 py-12 mt-[10vh]">
           <div class="max-w-2xl reveal">
-            <h2 class="text-4xl md:text-5xl font-bold heading-glow text-white">Smart. Stylish. Sorted.</h2>
-            <p class="mt-4 text-gray-200 leading-relaxed">Making everyday living effortless with thoughtful design, practical systems and modern tools.</p>
-            <div class="mt-6 flex gap-4 flex-wrap">
-              <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-5 py-3 rounded-full font-semibold" style="background: #e9d9b2; color:#081018;">
+            <h2 class="text-5xl md:text-6xl font-bold heading-glow text-white">Smart. Stylish. Sorted.</h2>
+            <p class="mt-4 text-gray-200 leading-relaxed text-lg">Making everyday living effortless with thoughtful design, practical systems and modern tools.</p>
+            <div class="mt-8 flex gap-4 flex-wrap">
+              <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="btn inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold" style="background: #e9d9b2; color:#081018;">
                 📲 Book on WhatsApp
               </a>
-              <a href="#services" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-gray-200 text-gray-200 hover:bg-white hover:text-black transition">Our Services</a>
+              <a href="#services" class="btn inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-gray-200 text-gray-200 hover:bg-white hover:text-black transition-colors">Our Services</a>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 
-  <!-- MAIN CONTENT (now above hero) -->
-  <main class="relative z-10 max-w-6xl mx-auto px-6 -mt-12">
-    <!-- Overview -->
+  <main class="relative z-10 max-w-6xl mx-auto px-6 -mt-24 bg-[#0f1416] rounded-t-2xl">
+    <div class="pt-12">
     <section id="overview" class="glass mb-8 reveal">
       <h3 class="text-2xl font-semibold gold-shimmer">Overview</h3>
       <p class="mt-3 text-base text-gray-300 leading-relaxed">
@@ -170,15 +217,13 @@
       </p>
     </section>
 
-    <!-- Services -->
     <section id="services" class="mb-8 reveal">
       <div class="grid md:grid-cols-2 gap-6">
         <div class="glass">
-          <h3 class="text-xl font-semibold">What We Do</h3>
+          <h3 class="text-xl font-semibold gold-shimmer">What We Do</h3>
           <p class="mt-3 text-gray-300 leading-relaxed">
             We help urban households solve practical, day-to-day domestic issues—be it a cluttered kitchen, poor lighting, messy wardrobes, or uninspired home aesthetics. We deliver curated solutions combining design, efficiency, affordability, and tech-enabled insight.
           </p>
-
           <ul class="mt-4 list-disc pl-5 text-gray-300 space-y-1">
             <li>Space Optimization & Decluttering</li>
             <li>Aesthetic Decor & DIY Interiors</li>
@@ -190,22 +235,20 @@
             <li>Routine & Utility Optimization via Lifestyle Mapping</li>
           </ul>
         </div>
-
         <div class="space-y-4">
           <div class="media-card glass overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Luxury living room with elegant furniture" class="w-full h-56 object-cover rounded-md" />
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Luxury living room with elegant furniture" class="w-full h-56 object-cover" />
           </div>
           <div class="media-card glass overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1560448079-9a95b6c87234?auto=format&fit=crop&w=1400&q=80" alt="Modern elegant kitchen interior" class="w-full h-56 object-cover rounded-md" />
+            <img src="https://images.unsplash.com/photo-1560448079-9a95b6c87234?auto=format&fit=crop&w=1400&q=80" alt="Modern elegant kitchen interior" class="w-full h-56 object-cover" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Why + Approach -->
     <section class="grid md:grid-cols-2 gap-6 mb-8">
       <div class="glass reveal">
-        <h3 class="text-xl font-semibold">Why Home Economics?</h3>
+        <h3 class="text-xl font-semibold gold-shimmer">Why Home Economics?</h3>
         <ul class="mt-3 list-disc pl-5 text-gray-300 space-y-1">
           <li>Because good design should work just as hard as you do.</li>
           <li>Because your home deserves a plan, not patchwork.</li>
@@ -213,32 +256,29 @@
           <li>Because AI can now help you plan smarter than ever before.</li>
         </ul>
       </div>
-
       <div class="glass reveal">
-        <h3 class="text-xl font-semibold">Our Approach</h3>
+        <h3 class="text-xl font-semibold gold-shimmer">Our Approach</h3>
         <p class="mt-3 text-gray-300 leading-relaxed">
           We don’t just send carpenters or stylists. We send <strong>Home Strategists</strong>—trained, creative problem-solvers who understand lifestyle, aesthetics, and budgets. Backed by intelligent systems and recommendation engines, we offer solutions that are both personal and data-driven.
         </p>
       </div>
     </section>
 
-    <!-- Clients & Promise -->
     <section class="glass mb-8 reveal">
-      <h3 class="text-xl font-semibold">Our Clients</h3>
+      <h3 class="text-xl font-semibold gold-shimmer">Our Clients</h3>
       <p class="mt-3 text-gray-300 leading-relaxed">
         From working professionals and young couples to students, expats, and elderly parents living alone—we serve all those who value their time, space, and peace of mind. Whether you’re setting up your first home or looking to make your old space feel new again, we bring clarity to your chaos.
       </p>
 
-      <h3 class="mt-6 text-lg font-semibold">Our Promise</h3>
+      <h3 class="mt-6 text-lg font-semibold gold-shimmer">Our Promise</h3>
       <p class="mt-2 text-gray-300">
         No jargon. No chaos. No costly overhauls. Just honest, effective solutions tailored to your home and habits—with a dash of smart tech where it counts. A better home, minus the headache.
       </p>
     </section>
 
-    <!-- About Me -->
     <section class="grid md:grid-cols-3 gap-6 mb-12 reveal">
       <div class="md:col-span-2 glass">
-        <h3 class="text-xl font-semibold">About Me</h3>
+        <h3 class="text-xl font-semibold gold-shimmer">About Me</h3>
         <p class="mt-3 text-gray-300 leading-relaxed">
           I’m Tejas, an IIT Delhi alumnus passionate about blending thoughtful design with intelligent solutions. I create spaces that feel luxurious, comfortable and uniquely yours—combining practical systems with elegant styling and AI-backed recommendations.
         </p>
@@ -247,11 +287,10 @@
         </p>
       </div>
       <div class="glass flex items-center justify-center">
-        <img src="./me.jpeg" alt="Portrait of Tejas, founder of Home Economics" class="w-36 h-36 object-cover rounded-full shadow-md" />
+        <img src="https://media.licdn.com/dms/image/D4D03AQF0t6_C33G38A/profile-displayphoto-shrink_800_800/0/1718044738721?e=1728518400&v=beta&t=H3-g2L-0s9Ww70r1XvW2wTjJ3R9F_bY3D0k2V9C8N-U" alt="Portrait of Tejas, founder of Home Economics" class="w-36 h-36 object-cover rounded-full shadow-lg border-2 border-[var(--gold)]" />
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="glass reveal">
       <h3 class="text-xl font-semibold gold-shimmer">Get in Touch</h3>
       <p class="mt-3 text-gray-300 leading-relaxed">
@@ -262,22 +301,21 @@
         <strong>Email:</strong>
         <a href="mailto:homeeconomics2025@gmail.com" class="link-underline ml-2">homeeconomics2025@gmail.com</a>
       </p>
-
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background:var(--gold); color:#081018; font-weight:600;">
+        <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="btn inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background:var(--gold); color:#081018; font-weight:600;">
           📲 Book on WhatsApp
         </a>
-        <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 text-gray-300">
+        <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" rel="noopener" class="btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:bg-gray-700/50 transition-colors">
           📷 Instagram
         </a>
-        <a href="https://www.facebook.com/share/12Lux1R2FNP/?mibextid=wwXIfr" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 text-gray-300">
+        <a href="https://www.facebook.com/share/12Lux1R2FNP/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:bg-gray-700/50 transition-colors">
           📘 Facebook
         </a>
       </div>
     </section>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer class="mt-12 py-8 text-center text-gray-400">
     <div class="max-w-6xl mx-auto px-6">
       <div class="mb-3 text-sm">&copy; 2025 Home Economics — Smart. Stylish. Sorted.</div>
@@ -285,7 +323,6 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp FAB -->
   <a class="whatsapp-fab" href="https://wa.me/919667722988" target="_blank" rel="noopener" aria-label="Book on WhatsApp">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M20.52 3.48A11.9 11.9 0 0 0 12 .1 11.99 11.99 0 0 0 .1 12c0 2.12.55 4.12 1.6 5.87L.1 24l6.3-1.66A11.9 11.9 0 0 0 12 23.9C20.2 23.9 24 15.6 24 12a11.9 11.9 0 0 0-3.48-8.52z"/>
@@ -294,10 +331,44 @@
   </a>
 
   <script>
-    // stagger reveal animation by index
     document.addEventListener('DOMContentLoaded', () => {
+      // === NEW: JavaScript for animations ===
+
+      // 1. Spotlight Cursor Effect
+      const spotlight = document.getElementById('spotlight');
+      window.addEventListener('mousemove', (e) => {
+        // Use requestAnimationFrame for smoother performance
+        requestAnimationFrame(() => {
+            spotlight.style.left = e.clientX + 'px';
+            spotlight.style.top = e.clientY + 'px';
+        });
+      });
+
+      // 2. Parallax Hero Background Effect
+      const heroBg = document.getElementById('hero-bg');
+      window.addEventListener('scroll', () => {
+        const scrollValue = window.scrollY;
+        // Move the background slower than the scroll speed
+        heroBg.style.transform = `translateY(${scrollValue * 0.4}px)`;
+      });
+
+      // 3. Staggered reveal animation
+      // Using Intersection Observer for better performance
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                  // Add delay based on the element's position in the nodelist
+                  const delay = entry.target.dataset.index * 120; // 120ms delay between elements
+                  entry.target.style.animationDelay = delay + 'ms';
+                  entry.target.classList.add('in-view'); // Use a class to trigger animation
+                  observer.unobserve(entry.target); // Stop observing once it's visible
+              }
+          });
+      }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
       document.querySelectorAll('.reveal').forEach((el, i) => {
-        el.style.animationDelay = (0.12 * (i+1)) + 's';
+          el.dataset.index = i; // Store index for delay calculation
+          observer.observe(el);
       });
     });
   </script>
