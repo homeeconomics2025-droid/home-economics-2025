@@ -29,48 +29,8 @@
       -moz-osx-font-smoothing:grayscale;
       overflow-x: hidden; /* Prevent horizontal scrollbars */
     }
-    
-    /* === NEW: Prevent scroll during curtain animation === */
-    body.loading {
-      overflow: hidden;
-    }
-
     h1,h2,h3{ font-family: "Playfair Display", serif; color:var(--ivory) }
     a { color: inherit; }
-
-    /* === NEW: Curtain Raiser Animation === */
-    #curtain-raiser {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10000;
-        display: flex;
-        pointer-events: none;
-    }
-    .curtain {
-        width: 50.1%; /* Slight overlap to prevent gap */
-        height: 100%;
-        background-color: #8B0000; /* Deep "theater" red */
-        background-image:
-            /* Vertical shadows for folds */
-            linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 10%, transparent 90%, rgba(0,0,0,0.6) 100%),
-            /* Top and bottom lighting/shadow */
-            linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.7) 100%);
-        box-shadow: 0 0 50px rgba(0,0,0,0.8) inset;
-        transition: transform 2.5s cubic-bezier(0.65, 0, 0.35, 1);
-    }
-    .curtain.left {
-        transform: translateX(-100%);
-    }
-    .curtain.right {
-        transform: translateX(100%);
-    }
-    /* Trigger class to close (reveal) the curtains */
-    #curtain-raiser.closed .curtain {
-        transform: translateX(0);
-    }
 
     /* === NEW: Interactive Spotlight Effect === */
     #spotlight {
@@ -81,7 +41,7 @@
         height: 400px;
         background: radial-gradient(circle, rgba(201, 166, 107, 0.06), transparent 60%);
         border-radius: 50%;
-        pointer-events: none;
+        pointer-events: none; /* Allows clicking through the element */
         transform: translate(-50%, -50%);
         transition: width 0.3s, height 0.3s;
         z-index: 9999;
@@ -202,11 +162,6 @@
   </style>
 </head>
 <body>
-
-  <div id="curtain-raiser">
-    <div class="curtain left"></div>
-    <div class="curtain right"></div>
-  </div>
 
   <div id="spotlight"></div>
 
@@ -377,54 +332,42 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // === JavaScript for ALL animations ===
-      const body = document.body;
+      // === NEW: JavaScript for animations ===
+
+      // 1. Spotlight Cursor Effect
       const spotlight = document.getElementById('spotlight');
-      const heroBg = document.getElementById('hero-bg');
-      const curtainRaiser = document.getElementById('curtain-raiser');
-
-      // --- 1. Curtain Raiser Logic ---
-      body.classList.add('loading'); // Prevent scrolling initially
-      // Start with curtains closed
-      curtainRaiser.classList.add('closed');
-      // After a short moment, trigger the opening animation
-      setTimeout(() => {
-        curtainRaiser.classList.remove('closed');
-      }, 250); // Small delay before opening
-      // After the animation finishes, remove the curtains and allow scrolling
-      setTimeout(() => {
-        curtainRaiser.style.display = 'none';
-        body.classList.remove('loading');
-      }, 2750); // Must be > animation duration (2.5s) + delay (0.25s)
-
-
-      // --- 2. Spotlight Cursor Effect ---
       window.addEventListener('mousemove', (e) => {
+        // Use requestAnimationFrame for smoother performance
         requestAnimationFrame(() => {
             spotlight.style.left = e.clientX + 'px';
             spotlight.style.top = e.clientY + 'px';
         });
       });
 
-      // --- 3. Parallax Hero Background Effect ---
+      // 2. Parallax Hero Background Effect
+      const heroBg = document.getElementById('hero-bg');
       window.addEventListener('scroll', () => {
         const scrollValue = window.scrollY;
+        // Move the background slower than the scroll speed
         heroBg.style.transform = `translateY(${scrollValue * 0.4}px)`;
       });
 
-      // --- 4. Staggered reveal animation on scroll ---
+      // 3. Staggered reveal animation
+      // Using Intersection Observer for better performance
       const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
+          entries.forEach((entry, index) => {
               if (entry.isIntersecting) {
-                  const delay = entry.target.dataset.index * 120;
+                  // Add delay based on the element's position in the nodelist
+                  const delay = entry.target.dataset.index * 120; // 120ms delay between elements
                   entry.target.style.animationDelay = delay + 'ms';
-                  observer.unobserve(entry.target);
+                  entry.target.classList.add('in-view'); // Use a class to trigger animation
+                  observer.unobserve(entry.target); // Stop observing once it's visible
               }
           });
-      }, { threshold: 0.1 });
-      
+      }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
       document.querySelectorAll('.reveal').forEach((el, i) => {
-          el.dataset.index = i;
+          el.dataset.index = i; // Store index for delay calculation
           observer.observe(el);
       });
     });
