@@ -1,473 +1,148 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home Economics — Smart. Stylish. Sorted.</title>
-  <meta name="description" content="Home Economics — Smart, stylish, and effortless solutions for modern living. Decluttering, design, and AI-driven home optimization." />
+<section id="products" class="mb-12">
+  <h2 class="text-3xl font-semibold text-center mb-8 gold-shimmer reveal animate-zoom-in">Our Products</h2>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <div class="grid md:grid-cols-2 gap-6">
 
-  <style>
-    :root{
-      --bg:#0f1416;          /* base black */
-      --ivory:#F6F4EF;        /* text */
-      --gold:#C9A66B;         /* accent */
-      --muted:#dcd6cc;        /* soft text */
-      --surface:#11171a;      /* card surface on dark */
-    }
-    html,body{height:100%; width: 100%; overflow-x: hidden;}
-    body {
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background-color: var(--bg);
-      color: var(--ivory);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      cursor: none;
-      position: relative;
-    }
+    <div class="glass reveal animate-fade-in-left h-full">
+      <h3 class="text-2xl font-semibold gold-shimmer">Essential Oils</h3>
+      <p class="text-lg text-gray-200 -mt-1 mb-3">The Soul of Nature, Captured in a Drop</p>
+      
+      <p class="text-gray-300 leading-relaxed">
+        In every drop of essential oil lies a story of the earth - pure, potent, and alive.
+        These oils aren't just fragrances; they're nature's chemistry carefully distilled from flowers, woods, roots, and resins, bringing balance to your mind, body, and space.
+      </p>
+      <p class="mt-3 text-gray-300 leading-relaxed">
+        At Home Economics, we believe your surroundings should smell as good as they feel. That's why our essential oils are crafted to do more than scent your home—they soothe, energize, and transform it.
+      </p>
 
-    /* --- NEW: Red Curtain Animation Styles --- */
-    .curtain-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: 10000;
-      pointer-events: none; /* Allows clicks through initially */
-    }
-    .curtain {
-      position: absolute;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      background-color: #8B0000; /* A deep red color */
-      background-image: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 90%, rgba(0,0,0,0.2) 100%);
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    }
-    .curtain-left {
-      left: 0;
-      animation: reveal-left 2.5s 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-    }
-    .curtain-right {
-      right: 0;
-      animation: reveal-right 2.5s 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-    }
-    @keyframes reveal-left {
-      from { transform: translateX(0); }
-      to { transform: translateX(-100%); }
-    }
-    @keyframes reveal-right {
-      from { transform: translateX(0); }
-      to { transform: translateX(100%); }
-    }
-    /* --- End of Curtain Styles --- */
+      <h4 class="text-xl font-semibold text-white mt-6 mb-4">We present to you our following fragrances:</h4>
 
-    /* Aurora Background Effect */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 20%, rgba(201, 166, 107, 0.1), transparent 30%),
-                  radial-gradient(circle at 80% 70%, rgba(107, 137, 201, 0.1), transparent 30%);
-      z-index: -2;
-      animation: aurora 25s infinite linear;
-      opacity: 0.7;
-    }
-    @keyframes aurora {
-      0% { transform: rotate(0deg) scale(1.5); }
-      50% { transform: rotate(180deg) scale(1.6); }
-      100% { transform: rotate(360deg) scale(1.5); }
-    }
-
-    /* Lighter, more performant Custom Cursor */
-    .custom-cursor {
-        position: fixed;
-        width: 28px;
-        height: 28px;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-        z-index: 9999;
-        will-change: transform;
-    }
-    .custom-cursor::after {
-        content: '';
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background-color: var(--gold);
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: all 0.3s ease;
-    }
-    .custom-cursor.hovered {
-        width: 50px;
-        height: 50px;
-        background-color: rgba(201, 166, 107, 0.1);
-        border-color: transparent;
-    }
-    .custom-cursor.hovered::after {
-        width: 8px;
-        height: 8px;
-    }
-
-    /* Particle canvas styling */
-    #tsparticles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 70vh;
-        z-index: 0;
-        pointer-events: none; /* FIX: Prevents cursor getting stuck */
-    }
-    .relative.z-10 { z-index: 2; }
-
-    h1,h2,h3{ font-family: "Playfair Display", serif; color:var(--ivory) }
-    a { color: inherit; cursor: none; }
-
-    .glass {
-      background: rgba(17, 23, 26, 0.82);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 1.25rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-      backdrop-filter: blur(8px);
-      transform-style: preserve-3d;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      will-change: transform;
-    }
-
-    .reveal {
-      opacity: 0;
-      transition: all 1s cubic-bezier(.2,.9,.2,1);
-    }
-    .animate-fade-in-up { transform: translateY(30px); }
-    .animate-fade-in-left { transform: translateX(-40px); }
-    .animate-fade-in-right { transform: translateX(40px); }
-    .animate-zoom-in { transform: scale(0.9); }
-    
-    .is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .gold-shimmer {
-      position: relative;
-      color: var(--gold);
-      background: linear-gradient(90deg, #EAD6B1, var(--gold));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .heading-glow { text-shadow: 0 6px 24px rgba(201,166,107,0.06); }
-    .whatsapp-fab {
-      position: fixed; right: 20px; bottom: 20px; z-index: 60;
-      width: 56px; height: 56px; border-radius: 9999px; display:flex;
-      align-items:center; justify-content:center;
-      background: linear-gradient(180deg,#25D366,#128C7E);
-      box-shadow: 0 12px 30px rgba(18,140,126,0.22);
-      transition: transform .18s ease;
-    }
-    .whatsapp-fab:hover{ transform: translateY(-6px); }
-    .media-card img{ transition: transform .6s ease, filter .4s ease; transform-origin:center; }
-    .media-card:hover img{ transform: scale(1.04); filter:brightness(1.02); }
-    .link-underline { position: relative; display:inline-block; }
-    .link-underline::after{
-      content:""; position:absolute; left:0; bottom:-2px;
-      height:2px; width:0%;
-      background: linear-gradient(90deg,var(--gold), rgba(201,166,107,0.6));
-      transition: width .28s ease; border-radius:2px;
-    }
-    .link-underline:hover::after{ width:100%; }
-    .hero-overlay{
-      background: linear-gradient(180deg, rgba(11,14,15,0) 0%, rgba(11,14,15,0.45) 30%, var(--bg) 95%);
-    }
-
-  </style>
-</head>
-<body>
-
-<div class="curtain-container">
-  <div class="curtain curtain-left"></div>
-  <div class="curtain curtain-right"></div>
-</div>
-
-<div class="custom-cursor"></div>
-
-<div id="tsparticles"></div>
-
-  <header class="py-8 relative z-50">
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center shadow-md bg-white">
-          <img src="./Logo.jpg" alt="Home Economics Logo" class="w-full h-full object-contain" />
+      <div class="space-y-4">
+        <div>
+          <h5 class="font-semibold gold-shimmer">1. SAVAGE FIRE: Raw elegance - igniting the spirit of...</h5>
+          <p class="text-gray-400 text-sm leading-relaxed ml-4 pl-2 border-l border-gray-700">
+            A bold blend that captures the essence of wild freedom with top notes of bergamot and pepper, grounded by amber, cedar wood, and vetiver. Each whiff is a spark of confidence - earthy, masculine, and endlessly magnetic. Crafted for those who live unapologetically.
+          </p>
         </div>
         <div>
-          <h1 class="text-2xl md:text-3xl font-semibold heading-glow">Home Economics</h1>
-          <p class="text-sm text-gray-300 mt-0">Smart. Stylish. Sorted.</p>
-        </div>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-300 uppercase tracking-wide">
-        <a href="#overview" class="hover:text-white">Overview</a>
-        <a href="#services" class="hover:text-white">Services</a>
-        <a href="#approach" class="hover:text-white">Approach</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-        <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="ml-4 inline-flex items-center gap-3 px-4 py-2 rounded-full font-semibold" style="background: linear-gradient(90deg,var(--gold), #a88f5a); color:#081018;">
-          📲 Book on WhatsApp
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="relative overflow-hidden -mt-36">
-    <div class="h-[70vh] w-full bg-cover bg-center" style="background-image:url('./background.jpg');">
-      <div class="w-full h-full hero-overlay flex items-center justify-center text-center">
-        <div class="max-w-6xl mx-auto px-6 py-12 relative z-10">
-          <div class="max-w-2xl mx-auto reveal animate-fade-in-up">
-            <h2 class="text-4xl md:text-5xl font-bold heading-glow text-white">Smart. Stylish. Sorted.</h2>
-            <p class="mt-4 text-gray-200 leading-relaxed">Making everyday living effortless with thoughtful design, practical systems and modern tools.</p>
-            <div class="mt-6 flex gap-4 flex-wrap justify-center">
-              <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-5 py-3 rounded-full font-semibold" style="background: #e9d9b2; color:#081018;">
-                📲 Book on WhatsApp
-              </a>
-              <a href="#services" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-gray-200 text-gray-200 hover:bg-white hover:text-black transition">Our Services</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <main class="relative z-10 max-w-6xl mx-auto px-6 -mt-12">
-    <section id="overview" class="glass mb-8 reveal animate-fade-in-up">
-      <h3 class="text-2xl font-semibold gold-shimmer">Overview</h3>
-      <p class="mt-3 text-base text-gray-300 leading-relaxed">
-        Home Economics is a modern home-help and lifestyle solutions company that brings function, style, and ease to everyday living.
-        Founded by an IIT Delhi alumnus, we believe household management shouldn’t feel like a second job — it should be seamless, smart, and even delightful.
-        We integrate AI-driven tools to personalize and streamline home solutions.
-      </p>
-    </section>
-
-    <section id="services" class="mb-8">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="glass reveal animate-fade-in-left">
-          <h3 class="text-xl font-semibold">What We Do</h3>
-          <p class="mt-3 text-gray-300 leading-relaxed">
-            We help urban households solve practical, day-to-day domestic issues—be it a cluttered kitchen, poor lighting, messy wardrobes, or uninspired home aesthetics. We deliver curated solutions combining design, efficiency, affordability, and tech-enabled insight.
+          <h5 class="font-semibold gold-shimmer">2. COOL DRIFT: Oceanic clarity meets radiant freshness...</h5>
+          <p class="text-gray-400 text-sm leading-relaxed ml-4 pl-2 border-l border-gray-700">
+            Inspired by crashing waves and open skies, Cool Drift balances mint, citrus, and lavender for a refreshing, breezy aroma. Perfect for diffusers, workspace calm, or that morning energy boost - it's your daily breath of ocean air, bottled with care.
           </p>
-          <ul class="mt-4 list-disc pl-5 text-gray-300 space-y-1">
-            <li>Space Optimization & Decluttering</li>
-            <li>Aesthetic Decor & DIY Interiors</li>
-            <li>Smart Home Product Recommendations</li>
-            <li>Utility Planning (Lighting, Storage, Furniture)</li>
-            <li>Weekly/Monthly Home Wellness Audits</li>
-            <li>Personalized Setup for Renters & Bachelors</li>
-            <li>AI-Based Layout & Product Recommendations</li>
-            <li>Routine & Utility Optimization via Lifestyle Mapping</li>
-          </ul>
         </div>
-        <div class="space-y-4 reveal animate-fade-in-right">
-          <div class="media-card glass overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Luxury living room with elegant furniture" class="w-full h-56 object-cover rounded-md" />
-          </div>
-          <div class="media-card glass overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" alt="Modern elegant kitchen interior" class="w-full h-56 object-cover rounded-md" />
-          </div>
+        <div>
+          <h5 class="font-semibold gold-shimmer">3. BLEU D CHANEL: Freedom bottled in blue...</h5>
+          <p class="text-gray-400 text-sm leading-relaxed ml-4 pl-2 border-l border-gray-700">
+            An aquatic-woody fragrance with grapefruit, incense, and sandalwood notes that embody confidence and calm. Smooth, sophisticated, and unforgettably fresh - Bleu D Chanel by Home Economics is more than a scent; it's a statement.
+          </p>
+        </div>
+        <div>
+          <h5 class="font-semibold gold-shimmer">4. STONE WOOD: Strength sculpted by nature...</h5>
+          <p class="text-gray-400 text-sm leading-relaxed ml-4 pl-2 border-l border-gray-700">
+            Deep, earthy tones of musk, cedar, and patchouli form a fragrance that feels like walking through ancient forests. Grounding yet luxurious, it's designed for meditation, reflection, and moments of calm strength.
+          </p>
+        </div>
+        <div>
+          <h5 class="font-semibold gold-shimmer">5. KESARIYA: Nectar in a bottle - radiating the warmth of saffron...</h5>
+          <p class="text-gray-400 text-sm leading-relaxed ml-4 pl-2 border-l border-gray-700">
+            A rich, Indian-inspired aroma made with saffron strands, rose petals, and vetiver roots - pure, devotional, and deeply soothing. This is heritage meets harmony - the essence of tradition in a modern, soulful blend.
+          </p>
         </div>
       </div>
-    </section>
 
-    <section class="grid md:grid-cols-2 gap-6 mb-8">
-      <div class="glass reveal animate-fade-in-left">
-        <h3 class="text-xl font-semibold">Why Home Economics?</h3>
-        <ul class="mt-3 list-disc pl-5 text-gray-300 space-y-1">
-          <li>Because good design should work just as hard as you do.</li>
-          <li>Because your home deserves a plan, not patchwork.</li>
-          <li>Because adulting is hard enough—let us make your space easier to live in.</li>
-          <li>Because AI can now help you plan smarter than ever before.</li>
-        </ul>
-      </div>
-      <div class="glass reveal animate-fade-in-right">
-        <h3 class="text-xl font-semibold">Our Approach</h3>
-        <p class="mt-3 text-gray-300 leading-relaxed">
-          We don’t just send carpenters or stylists. We send <strong>Home Strategists</strong>—trained, creative problem-solvers who understand lifestyle, aesthetics, and budgets. Backed by intelligent systems and recommendation engines, we offer solutions that are both personal and data-driven.
-        </p>
-      </div>
-    </section>
-
-    <section class="glass mb-8 reveal animate-fade-in-up">
-      <h3 class="text-xl font-semibold">Our Clients</h3>
+      <p class="mt-6 text-gray-300 leading-relaxed">
+        Each fragrance in our collection is more than a scent - it's an experience, handcrafted to bring balance, warmth, and elegance to everyday living.
+      </p>
       <p class="mt-3 text-gray-300 leading-relaxed">
-        From working professionals and young couples to students, expats, and elderly parents living alone—we serve all those who value their time, space, and peace of mind. Whether you’re setting up your first home or looking to make your old space feel new again, we bring clarity to your chaos.
+        We're also open to bulk, festival, and commercial gifting orders, offering personalised blends and elegant packaging for every occasion. Because at Home Economics, every drop is designed not just to scent your space - but to tell your story.
       </p>
-      <h3 class="mt-6 text-lg font-semibold">Our Promise</h3>
-      <p class="mt-2 text-gray-300">
-        No jargon. No chaos. No costly overhauls. Just honest, effective solutions tailored to your home and habits—with a dash of smart tech where it counts. A better home, minus the headache.
-      </p>
-    </section>
-
-    <section id="testimonials" class="mb-12 reveal animate-zoom-in">
-      <h3 class="text-3xl font-semibold text-center mb-8 gold-shimmer">What Our Clients Say</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="glass flex flex-col h-full">
-          <div class="flex items-center mb-3" style="color: var(--gold);">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-          </div>
-          <blockquote class="text-gray-300 leading-relaxed flex-grow">"The AI-driven layout suggestions were a game-changer. My small apartment feels twice as big now."</blockquote>
-          <footer class="mt-4 pt-4 border-t border-gray-800"><p class="font-semibold text-white">Ananya Sharma</p><p class="text-sm text-gray-400">Startup Founder, Bangalore</p></footer>
-        </div>
-        <div class="glass flex flex-col h-full">
-          <div class="flex items-center mb-3" style="color: var(--gold);"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div>
-          <blockquote class="text-gray-300 leading-relaxed flex-grow">"Finally, a service that understands the needs of a busy professional. The Home Strategist decluttered my entire kitchen in a day."</blockquote>
-          <footer class="mt-4 pt-4 border-t border-gray-800"><p class="font-semibold text-white">Rohan Mehra</p><p class="text-sm text-gray-400">Marketing Director, Mumbai</p></footer>
-        </div>
-        <div class="glass flex flex-col h-full">
-          <div class="flex items-center mb-3" style="color: var(--gold);"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div>
-          <blockquote class="text-gray-300 leading-relaxed flex-grow">"Setting up my first home felt overwhelming. The 'Personalized Setup for Renters' was exactly what I needed."</blockquote>
-          <footer class="mt-4 pt-4 border-t border-gray-800"><p class="font-semibold text-white">Priya Singh</p><p class="text-sm text-gray-400">Graphic Designer, Delhi</p></footer>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid md:grid-cols-3 gap-6 mb-12">
-      <div class="md:col-span-2 glass reveal animate-fade-in-left">
-        <h3 class="text-xl font-semibold">About Me</h3>
-        <p class="mt-3 text-gray-300 leading-relaxed">I put IIT Delhi brains into couches and kitchens—so your home doesn’t just look good, it outsmarts you on lazy days!</p>
-        <p class="mt-3 text-sm text-gray-400">More: <a class="link-underline" href="https://www.linkedin.com/in/tejas-singh-arora/" target="_blank" rel="noopener">Check me out !</a></p>
-      </div>
-      <div class="glass flex items-center justify-center reveal animate-fade-in-right">
-        <img src="./me.jpeg" alt="Portrait of Tejas, founder of Home Economics" class="w-36 h-36 object-cover rounded-full shadow-md" />
-      </div>
-      <div class="md:col-span-2 glass reveal animate-fade-in-left">
-        <h3 class="text-xl font-semibold">About Co-Founder</h3>
-        <p class="mt-3 text-gray-300 leading-relaxed">IIT Delhi grad who builds what people actually need — Home Economics (making “adulting” less dumb).Let’s just say I’m dangerously curious, mildly opinionated, and very bad at doing just one thing.</p>
-        <p class="mt-3 text-sm text-gray-400">More: <a class="link-underline" href="https://www.linkedin.com/in/rishiraj-sihra-54a5b5282/" target="_blank" rel="noopener">Check me out !</a></p>
-      </div>
-      <div class="glass flex items-center justify-center reveal animate-fade-in-right">
-        <img src="./cofounder.jpg" alt="Portrait of Co-Founder of Home Economics" class="w-36 h-36 object-cover rounded-full shadow-md" />
-      </div>
-    </section>
-
-    <section id="contact" class="glass reveal animate-fade-in-up">
-      <h3 class="text-xl font-semibold gold-shimmer">Get in Touch</h3>
-      <p class="mt-3 text-gray-300 leading-relaxed"><strong>Phone / WhatsApp:</strong><a href="tel:+919667722988" class="link-underline ml-2">+91 96677 22988</a></p>
-      <p class="mt-2 text-gray-300 leading-relaxed"><strong>Email:</strong><a href="mailto:homeeconomics2025@gmail.com" class="link-underline ml-2">homeeconomics2025@gmail.com</a></p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://wa.me/919667722988" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background:var(--gold); color:#081018; font-weight:600;">📲 Book on WhatsApp</a>
-        <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 text-gray-300">📷 Instagram</a>
-        <a href="https://www.facebook.com/share/12Lux1R2FNP/?mibextid=wwXIfr" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 text-gray-300">📘 Facebook</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="mt-12 py-8 text-center text-gray-400">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="mb-3 text-sm">&copy; 2025 Home Economics — Smart. Stylish. Sorted.</div>
-      <div class="text-xs">Registered contact: <a href="tel:+919667722988" class="link-underline">+91 96677 22988</a></div>
     </div>
-  </footer>
 
-  <a class="whatsapp-fab" href="https://wa.me/919667722988" target="_blank" rel="noopener" aria-label="Book on WhatsApp">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 .1 11.99 11.99 0 0 0 .1 12c0 2.12.55 4.12 1.6 5.87L.1 24l6.3-1.66A11.9 11.9 0 0 0 12 23.9C20.2 23.9 24 15.6 24 12a11.9 11.9 0 0 0-3.48-8.52z"/><path d="M17.05 14.27c-.31-.15-1.82-.9-2.1-1-.29-.1-.5-.15-.71.15-.2.31-.78 1-.96 1.2-.18.2-.36.22-.67.07-.31-.15-1.3-.48-2.47-1.52-.91-.81-1.52-1.8-1.7-2.11-.18-.31-.02-.48.13-.63.13-.13.31-.36.46-.54.15-.18.2-.31.3-.51.1-.2.05-.38-.02-.53-.07-.15-.71-1.7-.98-2.34-.26-.61-.53-.53-.72-.54l-.61-.01c-.2 0-.52.07-.8.38-.28.31-1.07 1.05-1.07 2.56s1.1 2.96 1.25 3.17c.15.2 2.16 3.5 5.23 4.9 3.07 1.4 3.07.93 3.62.87.56-.06 1.82-.74 2.08-1.45.26-.71.26-1.32.18-1.45-.07-.13-.26-.2-.57-.35z"/></svg>
-  </a>
+    <div class="glass reveal animate-fade-in-right h-full">
+      <h3 class="text-2xl font-semibold gold-shimmer">Home Care Range</h3>
+      <p class="text-lg text-gray-200 -mt-1 mb-3">Powerful. Safe. Naturally Effective.</p>
+      
+      <p class="text-gray-300 leading-relaxed">
+        Our Home Care Range brings together science, scent, and sensibility—crafted to make every corner of your home shine with effortless freshness. Each product is powerful yet gentle, designed to clean deeply, smell divine, and keep your space truly cared for.
+      </p>
+      <p class="mt-3 text-gray-300 leading-relaxed">
+        Formulated with safe, high-quality ingredients and infused with subtle natural fragrances, these cleaners go beyond hygiene—they elevate your routine. It's cleanliness that's not just seen, but felt.
+      </p>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // --- NEW: Curtain Animation Control ---
-    const curtainContainer = document.querySelector('.curtain-container');
-    const rightCurtain = document.querySelector('.curtain-right');
+      <div class="space-y-6 mt-6">
+        <div>
+          <h4 class="text-xl font-semibold text-white">1. FABRIC CLEANER - Gentle on Clothes, Tough on Dirt</h4>
+          <p class="mt-2 text-gray-300 leading-relaxed">
+            Our Fabric Cleaner effectively removes stains and odour while preserving the natural texture and colour of your clothes. Enriched with plant-based cleansing agents and light essential oils, it ensures freshness without harsh chemicals.
+          </p>
+          <h5 class="font-semibold text-gray-200 mt-3 mb-1">Usage:</h5>
+          <ul class="list-disc pl-5 text-gray-400 text-sm space-y-1">
+            <li>Mix in a 1:1 ratio with water before use.</li>
+            <li>Suitable for both machine wash and hand wash.</li>
+            <li>For stubborn stains, use a slightly higher concentration directly on the spot before washing.</li>
+          </ul>
+          <p class="mt-3 text-sm font-medium" style="color: var(--gold);">Gentle | Non-toxic | Biodegradable</p>
+          <p class="text-xs text-gray-500 mt-2 uppercase tracking-wider">Available in 250mL and 500mL bottles.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-semibold text-white">2. FLOOR CLEANER (CONC.) - Deep Clean, Naturally Fresh</h4>
+          <p class="mt-2 text-gray-300 leading-relaxed">
+            Our Floor Cleaner is a concentrated blend of natural surfactants and disinfecting essential oils that eliminate germs, dirt, and odour—without the need for harsh phenyl or bleach.
+          </p>
+          <h5 class="font-semibold text-gray-200 mt-3 mb-1">Usage:</h5>
+          <ul class="list-disc pl-5 text-gray-400 text-sm space-y-1">
+            <li>Dilute 2-3 caps of cleaner in 1L of water.</li>
+            <li>Use the diluted solution as required in your cleaning bucket with water.</li>
+            <li>Safe for marble, tiles, and all common floor types.</li>
+          </ul>
+          <p class="mt-3 text-sm font-medium" style="color: var(--gold);">Child-safe | Pet-friendly | Chemical-free</p>
+          <p class="text-xs text-gray-500 mt-2 uppercase tracking-wider">Available in 250mL and 500mL bottles.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-semibold text-white">3. TILE CLEANER - Brightens, Revives, Restores</h4>
+          <p class="mt-2 text-gray-300 leading-relaxed">
+            This powerful Tile Cleaner is designed to tackle hard water marks, soap scum, and tough floor stains without using harsh acids. It restores brightness and sheen, keeping your tiles fresh and smooth.
+          </p>
+          <h5 class="font-semibold text-gray-200 mt-3 mb-1">Usage:</h5>
+          <ul class="list-disc pl-5 text-gray-400 text-sm space-y-1">
+            <li>Apply a small amount directly on the stain.</li>
+            <li>Rub gently with a cloth or brush until the stain loosens.</li>
+            <li>Rinse thoroughly with plenty of water - do not leave the cleaner on the surface without washing, as prolonged contact may cause damage.</li>
+          </ul>
+          <p class="mt-3 text-sm font-medium" style="color: var(--gold);">Harmful Acid-free | Fast-acting | Restorative care</p>
+          <p class="text-xs text-gray-500 mt-2 uppercase tracking-wider">Available in 250mL and 500mL bottles.</p>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold text-white">4. TOILET CLEANER - Hygiene That Respects Your Home</h4>
+          <p class="mt-2 text-gray-300 leading-relaxed">
+            Our Toilet Cleaner uses a natural, balanced formula with antibacterial essential oils to remove stains, kill odour-causing bacteria, and leave your bathroom smelling refreshingly clean.
+          </p>
+          <h5 class="font-semibold text-gray-200 mt-3 mb-1">Usage:</h5>
+          <ul class="list-disc pl-5 text-gray-400 text-sm space-y-1">
+            <li>Apply directly under the rim and across the bowl.</li>
+            <li>Leave for 5-10 minutes, scrub, and flush clean.</li>
+          </ul>
+          <p class="mt-3 text-sm font-medium" style="color: var(--gold);">Non-acidic | Safe for septic tanks | Eco-conscious</p>
+          <p class="text-xs text-gray-500 mt-2 uppercase tracking-wider">Available in 250mL and 500mL bottles.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-semibold text-white">5. GLASS AND WINDOW CLEANER - Clarity, Naturally</h4>
+          <p class="mt-2 text-gray-300 leading-relaxed">
+            Formulated with vinegar extract and citrus-based solvents, our Glass Cleaner clears dust, grease, and smudges without leaving streaks or ammonia fumes.
+          </p>
+          <h5 class="font-semibold text-gray-200 mt-3 mb-1">Usage:</h5>
+          <ul class="list-disc pl-5 text-gray-400 text-sm space-y-1">
+            <li>Spray lightly and wipe with a clean microfiber or cotton cloth for streak-free brilliance.</li>
+          </ul>
+          <p class="mt-3 text-sm font-medium" style="color: var(--gold);">Streak-free | Ammonia-free | Quick-dry</p>
+          <p class="text-xs text-gray-500 mt-2 uppercase tracking-wider">Available in 250mL and 500mL bottles.</p>
+        </div>
+      </div>
+    </div>
     
-    // Listen for the animation on one of the curtains to end
-    rightCurtain.addEventListener('animationend', () => {
-      // Hide the curtain container after animation is complete
-      curtainContainer.style.display = 'none';
-    });
-
-    // --- PARTICLE BACKGROUND INITIALIZATION ---
-    tsParticles.load("tsparticles", {
-        fpsLimit: 60,
-        particles: {
-            number: { value: 60, density: { enable: true, value_area: 800 } },
-            color: { value: "#C9A66B" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-            size: { value: 2, random: true, anim: { enable: false } },
-            line_linked: { enable: true, distance: 150, color: "#C9A66B", opacity: 0.2, width: 1 },
-            move: { enable: true, speed: 1, direction: "none", random: false, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: false }, resize: true },
-            modes: { grab: { distance: 140, line_opacity: 0.4 }, repulse: { distance: 200, duration: 0.4 } }
-        },
-        retina_detect: true,
-    });
-
-    // --- CUSTOM CURSOR LOGIC ---
-    const cursor = document.querySelector('.custom-cursor');
-    const interactiveElements = document.querySelectorAll('a, button');
-    
-    window.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
-    });
-
-    // --- ADVANCED SCROLL ANIMATION (Intersection Observer) ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-    });
-    
-    // --- 3D CARD TILT EFFECT ---
-    const cards = document.querySelectorAll('.glass');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const width = rect.width;
-            const height = rect.height;
-            const rotateY = (x / width - 0.5) * -25;
-            const rotateX = (y / height - 0.5) * 25;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
-    });
-});
-  </script>
-</body>
-</html>
+  </div>
+</section>
