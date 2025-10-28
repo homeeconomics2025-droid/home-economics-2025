@@ -1,314 +1,186 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home Economics — Crafted with Care.</title>
-  <meta name="description" content="Home Economics — premium home care & fragrance essentials. Crafted with care, designed for living." />
+/* Fonts and Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #003820, #000);
+  color: #f4f4f4;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+/* Hero Section */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(145deg, #00482a, #001a10);
+  color: #fff;
+}
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 1rem;
+  animation: fadeIn 1.2s ease;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #d4af37;
+  letter-spacing: 1px;
+}
+.tagline {
+  font-size: 1.2rem;
+  margin-top: 0.8rem;
+  color: #fff8dc;
+}
+.subtext {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: #ddd;
+}
 
-  <style>
-    :root{
-      --emerald-900: #05291f;   /* very deep */
-      --emerald-800: #073a2b;
-      --emerald-700: #0b5b44;
-      --emerald-500: #137a5a;
-      --gold: #C9A66B;
-      --gold-rich: #D4B36A;
-      --ivory: #FAF8F4;
-      --muted: #bfc6bf;
-      --card: rgba(8, 16, 14, 0.62);
-    }
+/* About Section */
+.about {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #002414, #001209);
+}
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+.about p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #ddd;
+  line-height: 1.6;
+}
 
-    /* base */
-    html,body{height:100%; width:100%; overflow-x:hidden; font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-    body{
-      margin:0;
-      color:var(--ivory);
-      background: linear-gradient(180deg, var(--emerald-900) 0%, #021913 35%, #04120f 100%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      position:relative;
-      cursor: none;
-    }
+/* Products Section */
+.products {
+  background: linear-gradient(180deg, #001209, #002414);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+.products h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 2.5rem;
+}
+.product-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+  background: rgba(255, 255, 255, 0.08);
+}
+.product-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: #f7e9b2;
+  margin-bottom: 0.6rem;
+}
+.product-card p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
 
-    /* background sheen */
-    body::before{
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(800px 400px at 12% 18%, rgba(20,120,90,0.08), transparent 10%),
-        radial-gradient(700px 350px at 82% 78%, rgba(201,166,107,0.06), transparent 12%);
-      mix-blend-mode: overlay;
-      pointer-events: none;
-      animation: slow-rotate 30s linear infinite;
-      opacity: 0.9;
-    }
-    @keyframes slow-rotate { 0%{transform:rotate(0)} 50%{transform:rotate(180deg)} 100%{transform:rotate(360deg)} }
+/* Contact Section */
+.contact {
+  background: linear-gradient(180deg, #002414, #000);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.contact p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  background: #d4af37;
+  color: #002414;
+}
 
-    /* curtain (keeps your opening animation) */
-    .curtain-container{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:10000;pointer-events:none}
-    .curtain{position:absolute;top:0;width:50%;height:100%;background:linear-gradient(90deg,#0b402e,#083626);box-shadow:0 0 40px rgba(0,0,0,0.6)}
-    .curtain-left{left:0;animation:reveal-left 2.2s 0.6s cubic-bezier(.65,0,.35,1) forwards}
-    .curtain-right{right:0;animation:reveal-right 2.2s 0.6s cubic-bezier(.65,0,.35,1) forwards}
-    @keyframes reveal-left{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-    @keyframes reveal-right{from{transform:translateX(0)}to{transform:translateX(100%)}}
+/* Footer */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 1.2rem;
+  color: #aaa;
+  font-size: 0.85rem;
+}
 
-    /* particles container */
-    #tsparticles{position:fixed;inset:0;height:60vh;z-index:-1;pointer-events:none}
+/* Shimmer Effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  animation: shimmer 3s infinite;
+}
+@keyframes shimmer {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
 
-    /* cursor (subtle) */
-    .custom-cursor{position:fixed;width:26px;height:26px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:all .22s ease;z-index:9999}
-    .custom-cursor::after{content:'';position:absolute;width:6px;height:6px;border-radius:50%;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%)}
-    .custom-cursor.hovered{width:46px;height:46px;background:rgba(201,166,107,0.06);border-color:transparent}
-    .custom-cursor.hovered::after{width:8px;height:8px}
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    /* typography */
-    h1,h2,h3{font-family:"Playfair Display", serif;margin:0}
-    p{margin:0}
-    .gold-shimmer{background:linear-gradient(90deg,var(--gold-rich),#EAD6B1);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .muted{color:var(--muted)}
-
-    /* layout */
-    header{padding:28px 0;z-index:50;position:relative}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-
-    /* logo block */
-    .brand{
-      display:flex;align-items:center;gap:14px;
-    }
-    .brand-mark{
-      width:56px;height:56px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.04);
-      box-shadow:0 6px 18px rgba(2,11,9,0.6);
-    }
-    .brand-mark .initial{font-family:"Playfair Display";font-weight:700;color:var(--gold);font-size:20px;letter-spacing:0.4px}
-
-    /* hero */
-    .hero{
-      min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:56px 0 80px;
-      z-index:10;
-    }
-    .hero-inner{max-width:820px;padding:40px;border-radius:14px;background:linear-gradient(180deg, rgba(2,6,5,0.30), rgba(2,6,5,0.22));border:1px solid rgba(255,255,255,0.04)}
-    .tagline{font-size:2.6rem;line-height:1.02;font-weight:700;color:var(--ivory);text-shadow:0 6px 28px rgba(2,10,8,0.6)}
-    .sub{margin-top:14px;color:var(--muted);font-size:1.02rem}
-
-    .cta{
-      display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:12px 18px;border-radius:999px;font-weight:600;cursor:pointer;
-      background:linear-gradient(90deg,var(--gold), #b88b43); color:#081018; border:none; text-decoration:none;
-      box-shadow:0 10px 30px rgba(20,20,20,0.35);
-    }
-
-    /* sections */
-    section{padding:48px 0}
-    .glass{
-      background:var(--card);
-      border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.04);
-      backdrop-filter: blur(8px);
-      transition:transform .28s cubic-bezier(.2,.9,.2,1);
-    }
-
-    /* products preview */
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .product-card{padding:28px;border-radius:12px;text-align:left;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
-    .product-title{font-weight:600;font-size:1.05rem}
-    .product-desc{color:var(--muted);margin-top:8px;font-size:0.95rem}
-    .product-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,10,8,0.45)}
-
-    /* footer */
-    footer{padding:28px 0;color:var(--muted);font-size:0.9rem;text-align:center}
-
-    /* small screens */
-    @media (max-width:900px){
-      .tagline{font-size:1.8rem}
-      .grid-3{grid-template-columns:repeat(1,1fr)}
-      .brand-mark{width:48px;height:48px}
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Open curtain -->
-  <div class="curtain-container">
-    <div class="curtain curtain-left"></div>
-    <div class="curtain curtain-right"></div>
-  </div>
-
-  <!-- custom cursor -->
-  <div class="custom-cursor"></div>
-
-  <!-- particles -->
-  <div id="tsparticles"></div>
-
-  <header class="container">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
-      <div class="brand">
-        <div class="brand-mark"><div class="initial">HE</div></div>
-        <div>
-          <div style="font-weight:600;letter-spacing:0.2px">Home Economics</div>
-          <div class="muted" style="font-size:0.82rem;margin-top:2px">Crafted with care</div>
-        </div>
-      </div>
-
-      <nav style="display:flex;gap:12px;align-items:center">
-        <a href="#products" class="muted" style="font-weight:600;text-decoration:none">Products</a>
-        <a href="#about" class="muted" style="font-weight:600;text-decoration:none">About</a>
-        <a href="#contact" class="cta" style="text-decoration:none">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-inner glass">
-        <h1 class="tagline gold-shimmer">Crafted with Care. Designed for Living.</h1>
-        <p class="sub muted">Premium home care essentials & fragrances — rooted in research, designed for modern homes.</p>
-        <a href="#contact" class="cta" style="display:inline-block">📲 Book / Connect</a>
-      </div>
-    </section>
-
-    <!-- ABOUT (short) -->
-    <section id="about">
-      <div class="container">
-        <div class="glass" style="display:flex;align-items:center;gap:18px;justify-content:space-between;flex-wrap:wrap">
-          <div style="flex:1;min-width:220px">
-            <h3 style="font-size:1.15rem;margin-bottom:6px">Where science meets simplicity</h3>
-            <p class="muted" style="margin-top:6px">Founded by Tejas Singh Arora (IIT Delhi), Home Economics blends formulation-led products with sustainable design.</p>
-          </div>
-          <div style="min-width:220px;text-align:right">
-            <a href="#products" class="cta" style="text-decoration:none">Explore Products</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products">
-      <div class="container">
-        <h3 style="font-size:1.25rem;margin-bottom:16px" class="gold-shimmer">Our Range</h3>
-        <div class="grid-3">
-          <div class="product-card glass">
-            <div>
-              <div class="product-title">Home Care Essentials</div>
-              <div class="product-desc">Floor cleaners, fabric care — effective, low-odor, sustainable formulas.</div>
-            </div>
-            <div style="margin-top:12px"><small class="muted">Crafted for everyday living</small></div>
-          </div>
-
-          <div class="product-card glass">
-            <div>
-              <div class="product-title">Essential Oils</div>
-              <div class="product-desc">Distilled blends for calm, focus, and freshness.</div>
-            </div>
-            <div style="margin-top:12px"><small class="muted">Concentrated, clean, elegant</small></div>
-          </div>
-
-          <div class="product-card glass">
-            <div>
-              <div class="product-title">Attars & Fragrance</div>
-              <div class="product-desc">Traditional attars reimagined with modern sensibilities.</div>
-            </div>
-            <div style="margin-top:12px"><small class="muted">Artisan-first</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <div class="glass" style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
-          <div style="flex:1;min-width:220px">
-            <h3 style="font-size:1.1rem;margin-bottom:8px">Let’s collaborate</h3>
-            <p class="muted" style="margin-top:6px">Partnerships, bulk orders or press — reach out and we’ll respond with care.</p>
-          </div>
-          <div style="min-width:220px;text-align:right">
-            <a href="mailto:homeeconomics2025@gmail.com" class="cta" style="text-decoration:none">✉️ Email Us</a>
-            <div style="margin-top:8px" class="muted">or WhatsApp: <a href="https://wa.me/919667722988" class="muted" style="text-decoration:underline">+91 96677 22988</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div style="opacity:.9">&copy; <strong>Home Economics</strong> — Crafted with Care. 2025</div>
-    </div>
-  </footer>
-
-  <script>
-    /* curtain hide after animation */
-    document.addEventListener('DOMContentLoaded', () => {
-      const curtainContainer = document.querySelector('.curtain-container');
-      const rightCurtain = document.querySelector('.curtain-right');
-      if (rightCurtain) rightCurtain.addEventListener('animationend', () => { curtainContainer.style.display = 'none'; });
-
-      // --- PARTICLES (emerald + gold) ---
-      tsParticles.load("tsparticles", {
-        fpsLimit: 60,
-        particles: {
-          number: { value: 50, density: { enable: true, value_area: 900 } },
-          color: { value: ["#C9A66B", "#9fd8b0", "#6ad79a"] },
-          shape: { type: "circle" },
-          opacity: { value: 0.5, random: true },
-          size: { value: 2.5, random: { enable: true, minimumValue: 1 } },
-          links: { enable: true, distance: 160, color: "#0b523f", opacity: 0.12, width: 1 },
-          move: { enable: true, speed: 0.9, outModes: { default: "out" } }
-        },
-        interactivity: {
-          detectsOn: "canvas",
-          events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: false }, resize: true },
-          modes: { grab: { distance: 140, links: { opacity: 0.2 } } }
-        },
-        detectRetina: true
-      });
-
-      // custom cursor
-      const cursor = document.querySelector('.custom-cursor');
-      const interactive = document.querySelectorAll('a, button, .cta');
-      window.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-      });
-      interactive.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
-      });
-
-      // reveal on scroll
-      const reveals = document.querySelectorAll('.glass');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(en => {
-          if (en.isIntersecting) { en.target.style.transform = 'translateY(0)'; en.target.style.opacity = 1; io.unobserve(en.target); }
-        });
-      }, { threshold: 0.12 });
-      reveals.forEach(r => { r.style.opacity = 0; r.style.transform = 'translateY(12px)'; io.observe(r); });
-
-      // simple tilt for product cards
-      const cards = document.querySelectorAll('.product-card');
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width;
-          const y = (e.clientY - rect.top) / rect.height;
-          const rotateY = (x - 0.5) * 6;
-          const rotateX = (0.5 - y) * 6;
-          card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-        });
-        card.addEventListener('mouseleave', () => { card.style.transform = 'none'; });
-      });
-    });
-  </script>
-
-</body>
-</html>
+/* Responsive */
+@media (max-width: 768px) {
+  .logo { font-size: 2.4rem; }
+  .about, .products, .contact { padding: 3.5rem 1.5rem; }
+  .product-card { padding: 1.5rem 1rem; }
+}
+@media (max-width: 480px) {
+  .logo { font-size: 2rem; }
+  .tagline { font-size: 1rem; }
+}
