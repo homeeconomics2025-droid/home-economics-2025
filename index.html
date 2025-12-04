@@ -8,20 +8,23 @@
   <meta name="description" content="Home Economics — thoughtfully designed daily essentials for Indian homes. Essential oils & home care range." />
   <style>
     :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa7b2;
-      --accent:#8bd3c7;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
+      /* luxurious cool palette */
+      --bg:#04121a;             /* deep midnight */
+      --card:#071826;           /* near-black blue */
+      --muted:#9fb6bf;          /* soft cool gray */
+      --accent:#62d6c2;         /* teal aqua */
+      --accent-2:#7b9cff;       /* cool sapphire */
+      --gold:#c9a055;           /* muted gold accent */
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
     }
     *{box-sizing:border-box}
     html,body{height:100%;}
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,#071021 0%, #071829 60%);
-      color:#e6eef3;
+      background:linear-gradient(180deg,var(--bg) 0%, #062231 60%);
+      color:#e8f6f5;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       line-height:1.45;
@@ -31,7 +34,7 @@
 
     header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
     .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:62px;height:62px;border-radius:14px;background:linear-gradient(135deg,#0ea5a5, #7dd3fc);display:flex;align-items:center;justify-content:center;font-weight:800;color:#04263a;font-size:20px;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    .logo{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021827;font-size:20px;box-shadow:0 8px 34px rgba(3,11,18,0.7)}
     .brand h1{margin:0;font-size:20px;letter-spacing:0.3px}
     .brand p{margin:0;color:var(--muted);font-size:13px}
 
@@ -40,19 +43,19 @@
     nav a:hover{background:var(--glass);color:#fff}
 
     .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:30px}
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:34px;border-radius:18px;box-shadow:0 12px 30px rgba(2,6,23,0.6);}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:34px;border-radius:18px;box-shadow:0 14px 36px rgba(2,6,23,0.6);border:1px solid rgba(124,156,255,0.04)}
     .eyebrow{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:0.6px}
-    .headline{font-size:34px;margin:8px 0 12px}
+    .headline{font-size:34px;margin:8px 0 12px;color:#f1fbfa}
     .sub{color:var(--muted);font-size:15px}
-    .cta{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,#06b6d4,#7c3aed);color:#021827;text-decoration:none;font-weight:700}
+    .cta{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021827;text-decoration:none;font-weight:700;box-shadow:0 8px 18px rgba(98,214,194,0.12)}
 
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.03)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:20px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.02)}
 
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
     /* Essential oils list */
     .oil{display:flex;gap:14px;align-items:flex-start}
-    .swatch{width:64px;height:64px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263a}
+    .swatch{width:68px;height:68px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;color:#021827;box-shadow:0 8px 26px rgba(3,12,20,0.5)}
     .oil h3{margin:0;font-size:16px}
     .oil p{margin:6px 0 0;color:var(--muted);font-size:14px}
 
@@ -61,14 +64,14 @@
 
     /* Home care grid */
     .home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .home-item{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .home-item{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
     .home-item h4{margin:0 0 6px}
     .home-item p{margin:0;color:var(--muted);font-size:14px}
 
     /* About and founder */
-    .about{padding:20px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02);margin-top:12px}
+    .about{padding:20px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02);margin-top:12px}
     .founder{display:flex;gap:14px;align-items:center;margin-top:12px}
-    .founder .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,#7dd3fc,#0ea5a5);display:flex;align-items:center;justify-content:center;color:#04263a;font-weight:800}
+    .founder .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),var(--gold));display:flex;align-items:center;justify-content:center;color:#021827;font-weight:800}
     .founder p{margin:0;color:var(--muted)}
 
     footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px}
@@ -132,9 +135,9 @@
           </div>
         </div>
 
-        <div class="card" style="margin-top:12px">
-          <h4 style="margin:0 0 8px">A Tribute</h4>
-          <p class="muted" style="margin:0">A tribute to the Armed Forces — with gratitude in our heart and quality in every bottle.</p>
+        <div class="card" style="margin-top:12px;border-left:4px solid var(--gold)">
+          <h4 style="margin:0">A Tribute</h4>
+          <p class="muted" style="margin:0;margin-top:8px">A tribute to the Armed Forces — with gratitude in our heart and quality in every bottle.</p>
         </div>
       </div>
     </section>
@@ -147,7 +150,7 @@
       <div class="grid-2">
         <div class="card">
           <div class="oil">
-            <div class="swatch" style="background:linear-gradient(135deg,#f97316,#fbcfe8)">SF</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#1e3a8a,#62d6c2)">SF</div>
             <div>
               <h3>Savage Fire</h3>
               <p>Raw elegance — Igniting the spirit of untamed sophistication.</p>
@@ -155,7 +158,7 @@
           </div>
 
           <div class="oil">
-            <div class="swatch" style="background:linear-gradient(135deg,#60a5fa,#c7d2fe)">CD</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#02475e,#7b9cff)">CD</div>
             <div>
               <h3>Cool Drift</h3>
               <p>Oceanic clarity meets radiant freshness, carried by the wind of endless possibility.</p>
@@ -163,7 +166,7 @@
           </div>
 
           <div class="oil">
-            <div class="swatch" style="background:linear-gradient(135deg,#93c5fd,#bfdbfe)">BC</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#083344,#93c5fd)">BC</div>
             <div>
               <h3>Bleu D Chanel</h3>
               <p>Freedom bottled in blue, elegance wrapped in woody whispers.</p>
@@ -173,7 +176,7 @@
 
         <div class="card">
           <div class="oil">
-            <div class="swatch" style="background:linear-gradient(135deg,#a3e635,#fef08a)">SW</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#0b3b2e,#a3e635)">SW</div>
             <div>
               <h3>Stone Wood</h3>
               <p>Strength sculpted by nature — timeless, grounded, and quietly powerful.</p>
@@ -181,7 +184,7 @@
           </div>
 
           <div class="oil">
-            <div class="swatch" style="background:linear-gradient(135deg,#fb7185,#fca5a5)">KE</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#a16207,#fb7185)">KE</div>
             <div>
               <h3>Kesariya</h3>
               <p>Nectar in a bottle — radiating the warmth of saffron, wrapped in royal elegance.</p>
@@ -240,7 +243,7 @@
     <section id="founders" style="margin-top:18px">
       <h3>Founders</h3>
       <div class="founder card">
-        <div class="avatar" style="width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#7dd3fc,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:800;color:#04263a">TS</div>
+        <div class="avatar" style="width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021827">TS</div>
         <div>
           <strong>Tejas Singh Arora</strong>
           <p class="muted" style="margin:6px 0 0">Founded by Tejas Singh Arora and Rishiraj Sihra, a duo of IIT engineers who thought, “If we can optimise algorithms, we can definitely optimise everyday essentials.” So they did. Now the IIT brains are officially at your service — building products that make sense.</p>
