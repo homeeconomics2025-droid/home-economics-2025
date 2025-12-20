@@ -3,62 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home Economics — Redefining Everyday Essentials</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Home Economics — Everyday Essentials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <meta name="description" content="Home Economics — Engineering mindset meets everyday living. Premium Attars, Daily Essentials, and Home Care." />
   <style>
-    :root{
-      /* Premium Dark Palette */
-      --bg: #030f16;            /* Deepest midnight */
-      --card-bg: #061621;       /* Slightly lighter for cards */
-      --text-main: #eef7f6;     /* Off-white text */
-      --text-muted: #94a3b8;    /* Cool gray */
+    :root {
+      /* --- The "Matte Luxury" Palette --- */
       
-      /* Accents */
-      --accent-teal: #5eead4;   /* Bright teal for highlights */
-      --accent-blue: #60a5fa;   /* Soft blue */
-      --gold: #d4af37;          /* Classic Gold for premium touches */
+      /* Base Tones */
+      --bg-body: #121212;       /* Matte Charcoal (Not Pitch Black) */
+      --bg-card: #1c1c1c;       /* Soft Onyx */
+      --bg-hover: #232323;      /* Lighter Onyx for hover */
       
-      /* Utilities */
-      --glass: rgba(255, 255, 255, 0.03);
-      --border: rgba(255, 255, 255, 0.04);
-      --radius: 12px;
-      --radius-lg: 20px;
+      /* Typography */
+      --text-main: #ececec;     /* Soft White */
+      --text-muted: #9e9e9e;    /* Neutral Grey */
+      --text-dim: #555555;      /* Darker Grey for borders/details */
+
+      /* Accents (Pastel & Earthy) */
+      --pastel-sage: #b6cbbd;   /* Organic Green */
+      --pastel-gold: #e0d8c3;   /* Champagne */
+      --pastel-blue: #b0c4de;   /* Dusty Blue */
+      --pastel-rose: #d8b4b4;   /* Muted Rose */
+
+      /* Structural */
+      --border: 1px solid rgba(255, 255, 255, 0.06);
+      --radius: 8px;            /* Sharper corners look more "engineered" */
+      --container: 1080px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    
+
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg-body);
       color: var(--text-main);
       line-height: 1.6;
+      font-weight: 300; /* Lighter font weight looks more premium */
       -webkit-font-smoothing: antialiased;
     }
 
-    /* --- Typography & Layout --- */
-    h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; }
-    p { margin: 0; }
-    
+    h1, h2, h3, h4 { margin: 0; font-weight: 400; letter-spacing: -0.01em; }
+    p { margin: 0; color: var(--text-muted); }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+    /* --- Layout Utilities --- */
     .container {
-      max-width: 1140px;
+      max-width: var(--container);
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 0 24px;
     }
-
-    .section-label {
+    
+    .section-spacing { padding: 100px 0; border-bottom: var(--border); }
+    
+    .eyebrow {
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 2px;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: block;
+      color: var(--pastel-gold);
+      margin-bottom: 16px;
+      display: inline-block;
     }
-
-    .muted { color: var(--text-muted); font-size: 15px; }
 
     /* --- Header --- */
     header {
@@ -66,375 +73,318 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 40px;
-      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(18, 18, 18, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: var(--border);
     }
-    
-    .brand { display: flex; align-items: center; gap: 16px; }
+
     .logo {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
-      color: #021827;
-      border-radius: 10px;
-      display: grid; place-items: center;
-      font-weight: 800; font-size: 18px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: var(--text-main);
     }
-    .brand-text h1 { font-size: 18px; font-weight: 700; color: #fff; }
-    .brand-text span { font-size: 13px; color: var(--text-muted); font-weight: 400; }
 
-    nav { display: flex; gap: 24px; }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-    nav a:hover { color: var(--accent-teal); }
+    nav { display: flex; gap: 30px; }
+    nav a { font-size: 13px; color: var(--text-muted); }
+    nav a:hover { color: var(--pastel-sage); }
 
-    /* --- Hero Section --- */
+    /* --- Hero Section (Editorial Style) --- */
     .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: start;
-      margin-bottom: 80px;
+      text-align: center;
+      padding: 120px 0 100px;
+      max-width: 800px;
+      margin: 0 auto;
     }
     
-    .hero-content h2 {
-      font-size: 42px;
+    .hero h1 {
+      font-size: 48px;
       line-height: 1.1;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #fff, #94a3b8);
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #fff, #a0a0a0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    
-    .hero-desc {
-      color: var(--text-muted);
+
+    .hero p {
       font-size: 16px;
-      margin-bottom: 30px;
-      max-width: 90%;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      color: var(--text-muted);
     }
 
-    .philosophy-card {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      padding: 30px;
-      border-radius: var(--radius-lg);
-      position: relative;
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--text-main);
+      color: var(--bg-body);
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: transform 0.2s;
     }
-    .philosophy-card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-      background: var(--gold); border-radius: 4px 0 0 4px;
-    }
-
-    /* --- Categories Layout --- */
-    .category-header {
-      margin-top: 80px;
-      margin-bottom: 30px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .category-header h2 { font-size: 28px; }
+    .btn:hover { transform: translateY(-2px); }
 
     /* --- Grid Systems --- */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
-    /* --- Cards --- */
+    /* --- Cards (Minimalist) --- */
     .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: var(--bg-card);
+      border: var(--border);
+      padding: 32px;
       border-radius: var(--radius);
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-      border-color: rgba(255,255,255,0.1);
+      background: var(--bg-hover);
+      border-color: rgba(255,255,255,0.15);
     }
 
-    /* --- Product Specifics: Attars --- */
-    .attar-item { display: flex; gap: 16px; align-items: center; }
+    /* --- Section: Personal Care --- */
+    .pillar-header { margin-bottom: 40px; }
+    .pillar-header h2 { font-size: 28px; color: var(--text-main); }
+    .pillar-header p { margin-top: 8px; max-width: 500px; }
+
+    /* Attars Styling */
+    .attar-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
     .swatch {
-      width: 50px; height: 50px;
-      border-radius: 12px;
+      width: 48px; height: 48px;
+      border-radius: 50%; /* Circle looks more organic/perfume-like */
       flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 12px; color: #000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0.8;
     }
-    .attar-info h4 { font-size: 16px; color: #fff; margin-bottom: 4px; }
-    .attar-info span { font-size: 13px; color: var(--text-muted); }
+    .attar-details h4 { font-size: 15px; margin-bottom: 4px; }
+    .attar-details span { font-size: 13px; color: var(--text-muted); }
 
-    /* --- Product Specifics: Daily Care --- */
-    .daily-item {
+    /* Daily Essentials Styling (Clean List) */
+    .daily-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .daily-pill {
+      background: rgba(255,255,255,0.03);
+      border: var(--border);
+      padding: 16px;
       text-align: center;
-      padding: 24px 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%);
+      border-radius: 6px;
+      transition: 0.2s;
     }
-    .daily-icon {
-      width: 40px; height: 40px; margin: 0 auto 12px;
-      background: rgba(94, 234, 212, 0.1);
-      color: var(--accent-teal);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-    }
-    .daily-item h4 { font-size: 15px; margin-bottom: 6px; }
+    .daily-pill:hover { background: rgba(255,255,255,0.06); border-color: var(--pastel-sage); }
+    .daily-pill h4 { font-size: 13px; font-weight: 500; }
 
-    /* --- Product Specifics: Home Care --- */
-    .home-item {
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
+    /* --- Section: Home Care --- */
+    .home-card {
+      padding: 30px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .home-item h4 { font-size: 18px; margin-bottom: 8px; color: var(--accent-blue); }
+    .home-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--pastel-blue); }
     
     /* --- Founders --- */
-    .founder-card {
-      background: linear-gradient(135deg, #071a26, #04121a);
-      border: 1px solid var(--border);
-      padding: 40px;
-      border-radius: var(--radius-lg);
-      margin-top: 60px;
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
+    .founder-section {
+      background: var(--bg-card);
+      border-top: var(--border);
+      border-bottom: var(--border);
+      padding: 60px 0;
     }
-    .founder-img {
+    .founder-content {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .founder-avatar {
       width: 80px; height: 80px;
-      background: var(--gold);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; font-weight: 800; color: #021827;
-      flex-shrink: 0;
+      background: var(--pastel-gold);
+      color: var(--bg-body);
+      display: grid; place-items: center;
+      font-weight: 700; font-size: 20px;
+      border-radius: 50%;
     }
 
+    /* --- Footer --- */
     footer {
+      padding: 60px 0;
       text-align: center;
-      font-size: 13px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      padding-top: 40px;
-      margin-top: 60px;
+      font-size: 12px;
+      color: var(--text-dim);
     }
 
     /* --- Responsive --- */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
-      header { flex-direction: column; gap: 20px; align-items: flex-start; }
-      nav { flex-wrap: wrap; gap: 16px; }
-      .founder-card { flex-direction: column; }
-    }
-    @media (max-width: 500px) {
-      .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .category-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 36px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .daily-grid { grid-template-columns: 1fr 1fr; }
+      nav { display: none; } /* Simplified for demo, ideally a hamburger menu */
+      .founder-content { grid-template-columns: 1fr; text-align: center; justify-items: center; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    
     <header>
-      <div class="brand">
-        <div class="logo">HE</div>
-        <div class="brand-text">
-          <h1>Home Economics</h1>
-          <span>Redefining Everyday Essentials</span>
-        </div>
-      </div>
+      <div class="logo">Home Economics</div>
       <nav>
-        <a href="#personal-care">Personal Care</a>
-        <a href="#home-care">Home Care</a>
-        <a href="#about">Philosophy</a>
-        <a href="#founder">Founders</a>
+        <a href="#personal">Personal Care</a>
+        <a href="#home">Home Care</a>
+        <a href="#about">About</a>
       </nav>
     </header>
 
     <section class="hero">
-      <div class="hero-content">
-        <span class="section-label">The Vision</span>
-        <h2>Simpler.<br>Cleaner.<br>Smarter.</h2>
-        <p class="hero-desc">
-          We blend a strong engineering mindset with real household needs, turning routine products into thoughtfully formulated solutions you can trust. No noise. No gimmicks. Just products that work.
-        </p>
-        <a href="#personal-care" style="display:inline-block; padding:12px 24px; background:var(--text-main); color:var(--bg); text-decoration:none; font-weight:600; border-radius:8px;">Explore Collections</a>
+      <span class="eyebrow">Engineering × Lifestyle</span>
+      <h1>Simpler. Cleaner. Smarter.</h1>
+      <p>
+        We blend a strong engineering mindset with real household needs, turning routine products into thoughtfully formulated solutions you can trust. No noise. No gimmicks. Just products that work.
+      </p>
+      <a href="#personal" class="btn">View the Collection</a>
+    </section>
+
+    <section id="about" style="margin-bottom: 80px;">
+      <div class="grid-2">
+        <div style="border-left: 2px solid var(--pastel-gold); padding-left: 24px;">
+          <h3 style="color:var(--text-main); margin-bottom:12px">Our Philosophy</h3>
+          <p>At Home Economics, we design everyday essentials with one clear goal — make daily living simpler. Our portfolio is built around two focused pillars: <strong>Personal Care</strong> and <strong>Home Care</strong>, each crafted for consistency.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="color:var(--text-dim)">The Promise</p>
+          <p>Smart formulations. Honest essentials. Quietly efficient products made for real homes and real routines.</p>
+        </div>
       </div>
+    </section>
+
+    <section id="personal" class="section-spacing">
+      <div class="pillar-header">
+        <span class="eyebrow" style="color:var(--pastel-sage)">Pillar 01</span>
+        <h2>Personal Care</h2>
+        <p>A curated range bringing together indulgence and utility.</p>
+      </div>
+
+      <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px; color:var(--text-dim)">i. The Attar Collection</h3>
       
-      <div class="philosophy-card" id="about">
-        <h3 style="color:var(--gold); margin-bottom:12px">Our Philosophy</h3>
-        <p class="muted" style="margin-bottom:16px">
-          At Home Economics, we design everyday essentials with one clear goal — make daily living simpler and smarter.
-        </p>
-        <p class="muted">
-          Our portfolio is built around two focused pillars: <strong>Personal Care</strong> and <strong>Home Care</strong>, each crafted for consistency, comfort, and everyday reliability.
-        </p>
-      </div>
-    </section>
-
-    <section id="personal-care">
-      <div class="category-header">
-        <div>
-          <span class="section-label">Pillar 01</span>
-          <h2>Personal Care</h2>
-        </div>
-        <p class="muted" style="max-width:400px; text-align:right;">Where indulgence meets utility.</p>
-      </div>
-
-      <h3 style="margin-bottom:20px; font-weight:500; color:var(--text-muted)">i. Attars Collection</h3>
-      <div class="grid-3" style="margin-bottom:40px;">
-        <div class="card attar-item">
-          <div class="swatch" style="background: linear-gradient(135deg, #475569, #94a3b8);">SW</div>
-          <div class="attar-info">
+      <div class="grid-3" style="margin-bottom: 40px;">
+        <div class="card attar-card">
+          <div class="swatch" style="background: linear-gradient(135deg, #595652, #8c8883);"></div>
+          <div class="attar-details">
             <h4>StoneWood</h4>
-            <span>Earthy, grounded, timeless.</span>
+            <span>Timeless & Earthy</span>
           </div>
         </div>
-        <div class="card attar-item">
-          <div class="swatch" style="background: linear-gradient(135deg, #b91c1c, #f87171);">DR</div>
-          <div class="attar-info">
+        <div class="card attar-card">
+          <div class="swatch" style="background: linear-gradient(135deg, #783535, #b86e6e);"></div>
+          <div class="attar-details">
             <h4>Diřeo</h4>
-            <span>Bold spice and warmth.</span>
+            <span>Bold Spice</span>
           </div>
         </div>
-        <div class="card attar-item">
-          <div class="swatch" style="background: linear-gradient(135deg, #d97706, #fbbf24);">MK</div>
-          <div class="attar-info">
+        <div class="card attar-card">
+          <div class="swatch" style="background: linear-gradient(135deg, #c49a6c, #e0cda6);"></div>
+          <div class="attar-details">
             <h4>Malaka</h4>
-            <span>Rich, royal, exotic notes.</span>
+            <span>Royal Exotic</span>
           </div>
         </div>
-        <div class="card attar-item">
-          <div class="swatch" style="background: linear-gradient(135deg, #1e3a8a, #60a5fa);">BL</div>
-          <div class="attar-info">
+        <div class="card attar-card">
+          <div class="swatch" style="background: linear-gradient(135deg, #3b526e, #7da1cc);"></div>
+          <div class="attar-details">
             <h4>Bleu</h4>
-            <span>Cool freedom, ocean breeze.</span>
+            <span>Oceanic Freedom</span>
           </div>
         </div>
-        <div class="card attar-item">
-          <div class="swatch" style="background: linear-gradient(135deg, #f0f9ff, #cbd5e1);">WM</div>
-          <div class="attar-info">
+        <div class="card attar-card">
+          <div class="swatch" style="background: linear-gradient(135deg, #e6e6e6, #ffffff);"></div>
+          <div class="attar-details">
             <h4>White Musk</h4>
-            <span>Pure, subtle, clean.</span>
+            <span>Pure Clean</span>
           </div>
         </div>
-        <div class="card attar-item">
-          <div class="swatch" style="background: linear-gradient(135deg, #ec4899, #fbcfe8);">FL</div>
-          <div class="attar-info">
+        <div class="card attar-card">
+          <div class="swatch" style="background: linear-gradient(135deg, #d4a5b8, #ead1db);"></div>
+          <div class="attar-details">
             <h4>Flora</h4>
-            <span>Blooming vitality.</span>
-          </div>
-        </div>
-        <div class="card attar-item">
-          <div class="swatch" style="background: linear-gradient(135deg, #0f766e, #2dd4bf);">KH</div>
-          <div class="attar-info">
-            <h4>Khaliq</h4>
-            <span>Divine depth and mystery.</span>
+            <span>Soft Bloom</span>
           </div>
         </div>
       </div>
 
-      <h3 style="margin-bottom:20px; font-weight:500; color:var(--text-muted)">ii. Daily Care Essentials</h3>
-      <div class="grid-4">
-        <div class="card daily-item">
-          <div class="daily-icon">AV</div>
-          <h4>Aloe Vera</h4>
-          <p class="muted" style="font-size:13px">Pure hydration.</p>
+      <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px; color:var(--text-dim)">ii. Daily Care Essentials</h3>
+      <div class="daily-grid">
+        <div class="daily-pill"><h4>Aloe Vera</h4></div>
+        <div class="daily-pill"><h4>Glycerine</h4></div>
+        <div class="daily-pill"><h4>Petroleum Jelly</h4></div>
+        <div class="daily-pill"><h4>Papaya Moisturiser</h4></div>
+        <div class="daily-pill"><h4>Mosquito Repellent</h4></div>
+        <div class="daily-pill"><h4>Body Wash</h4></div>
+        <div class="daily-pill"><h4>Liquid Hand Wash</h4></div>
+      </div>
+    </section>
+
+    <section id="home" class="section-spacing">
+      <div class="pillar-header">
+        <span class="eyebrow" style="color:var(--pastel-blue)">Pillar 02</span>
+        <h2>Home Care Range</h2>
+        <p>Performance you can rely on. Science-forward formulas that are gentle on your home.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card home-card">
+          <div>
+            <h3>Toilet Cleaner</h3>
+            <p>Hygiene that respects your home. Powerful sanitation designed for modern living.</p>
+          </div>
         </div>
-        <div class="card daily-item">
-          <div class="daily-icon">GL</div>
-          <h4>Glycerine</h4>
-          <p class="muted" style="font-size:13px">Moisture lock.</p>
+        <div class="card home-card">
+          <div>
+            <h3>Tile Cleaner</h3>
+            <p>Tough on stains, gentle on shine. Brightens, revives, and restores surfaces.</p>
+          </div>
         </div>
-        <div class="card daily-item">
-          <div class="daily-icon">PJ</div>
-          <h4>Petroleum Jelly</h4>
-          <p class="muted" style="font-size:13px">Skin barrier.</p>
+        <div class="card home-card">
+          <div>
+            <h3>Essenced Floor Cleaner</h3>
+            <p>Deep clean with natural freshness. Available in multiple fragrances.</p>
+          </div>
         </div>
-        <div class="card daily-item">
-          <div class="daily-icon">PM</div>
-          <h4>Papaya Moist.</h4>
-          <p class="muted" style="font-size:13px">Soft & glowing.</p>
-        </div>
-        <div class="card daily-item">
-          <div class="daily-icon">MR</div>
-          <h4>Mosquito Repel.</h4>
-          <p class="muted" style="font-size:13px">Safe protection.</p>
-        </div>
-        <div class="card daily-item">
-          <div class="daily-icon">BW</div>
-          <h4>Body Wash</h4>
-          <p class="muted" style="font-size:13px">Gentle cleanse.</p>
-        </div>
-        <div class="card daily-item">
-          <div class="daily-icon">HW</div>
-          <h4>Hand Wash</h4>
-          <p class="muted" style="font-size:13px">Liquid hygiene.</p>
+        <div class="card home-card">
+          <div>
+            <h3>Liquid Detergent</h3>
+            <p>Engineered to clean thoroughly while being easy on fabrics.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="home-care">
-      <div class="category-header">
+    <section class="founder-section">
+      <div class="container founder-content">
+        <div class="founder-avatar">TS</div>
         <div>
-          <span class="section-label">Pillar 02</span>
-          <h2>Home Care Range</h2>
-        </div>
-        <p class="muted" style="max-width:400px; text-align:right;">Performance you can rely on.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card home-item">
-          <h4>Toilet Cleaner</h4>
-          <p class="muted">Powerful sanitation designed for modern living. Toughest stains, gone.</p>
-        </div>
-        <div class="card home-item">
-          <h4>Tile Cleaner</h4>
-          <p class="muted">Tough on grime, gentle on shine. Restores the original look of your surfaces.</p>
-        </div>
-        <div class="card home-item">
-          <h4>Floor Cleaners</h4>
-          <p class="muted">Essenced formulas available in multiple fragrances. Clean floors, fresh rooms.</p>
-        </div>
-        <div class="card home-item">
-          <h4>Liquid Detergent</h4>
-          <p class="muted">Engineered to clean thoroughly while protecting fabric integrity.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="founder">
-      <div class="founder-card">
-        <div class="founder-img">TS</div>
-        <div>
-          <span class="section-label" style="color:var(--gold)">The Founders</span>
-          <h3 style="font-size:24px; margin-bottom:12px; color:white">Tejas Singh Arora & Rishiraj Sihra</h3>
-          <p class="muted">
-            Founded by a duo of IIT engineers who thought, “If we can optimise algorithms, we can definitely optimise everyday essentials.” So they did. Now the IIT brains are officially at your service — building smart formulations, honest essentials, and quietly efficient products made for real homes.
+          <h3 style="margin-bottom:16px">The Engineering Mindset</h3>
+          <p>Founded by <strong>Tejas Singh Arora</strong> and <strong>Rishiraj Sihra</strong>.</p>
+          <p style="margin-top:12px; font-size:15px; color:var(--text-muted)">
+            A duo of IIT engineers who thought, “If we can optimise algorithms, we can definitely optimise everyday essentials.” So they did. Now the IIT brains are officially at your service — building products that make sense.
           </p>
         </div>
       </div>
     </section>
 
     <footer>
-      <p>&copy; <span id="year"></span> Home Economics. Made for Indian Homes.</p>
+      <p>&copy; <span id="year"></span> Home Economics. All rights reserved.</p>
     </footer>
-
   </div>
 
   <script>
