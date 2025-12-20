@@ -85,6 +85,14 @@
     
     .logo { font-size: 20px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
     
+    /* Navigation Menu */
+    .main-nav { display: flex; gap: 32px; }
+    .nav-link {
+        font-size: 14px; font-weight: 600; color: var(--text-body);
+        position: relative;
+    }
+    .nav-link:hover { color: var(--accent-blue); transform: translateY(-1px); }
+
     .contact-nav { display: flex; gap: 12px; align-items: center; }
     .icon-link {
       width: 42px; height: 42px; border-radius: 50%;
@@ -153,6 +161,9 @@
     }
 
     /* --- Sections --- */
+    /* Added scroll-margin-top to prevent header from covering title when clicking nav links */
+    section { scroll-margin-top: 100px; }
+
     .section-header { 
       margin-bottom: 40px; display: flex; align-items: flex-end; justify-content: space-between; 
       border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 20px; 
@@ -237,6 +248,8 @@
       .header-inner { flex-direction: column; gap: 16px; }
       .contact-nav { width: 100%; justify-content: center; }
       .founder-card { flex-direction: column; text-align: center; align-items: center; }
+      /* Hide nav links on mobile to keep it clean */
+      .main-nav { display: none; }
     }
   </style>
 </head>
@@ -247,6 +260,13 @@
       <div class="logo">
         <i class="ph-fill ph-flask" style="color:var(--text-main)"></i> Home Economics
       </div>
+      
+      <nav class="main-nav">
+        <a href="#personal" class="nav-link">Personal Care</a>
+        <a href="#home" class="nav-link">Home Care</a>
+        <a href="#founders" class="nav-link">Founders</a>
+      </nav>
+
       <div class="contact-nav">
         <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" class="icon-link" title="Instagram">
           <i class="ph-fill ph-instagram-logo"></i>
@@ -439,7 +459,7 @@
       </div>
     </section>
 
-    <section class="founders-section">
+    <section id="founders" class="founders-section">
       <h2 class="section-title" style="text-align:center">The Engineers</h2>
       <p style="color:var(--text-body); text-align:center">The minds behind the formulations.</p>
       
