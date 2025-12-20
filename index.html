@@ -4,31 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home Economics — Everyday Essentials</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <meta name="description" content="Home Economics — Engineering mindset meets everyday living. Premium Attars, Daily Essentials, and Home Care." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* --- The "Matte Luxury" Palette --- */
+      /* --- THE "VIBRANT DAYLIGHT" PALETTE --- */
       
-      /* Base Tones */
-      --bg-body: #121212;       /* Matte Charcoal (Not Pitch Black) */
-      --bg-card: #1c1c1c;       /* Soft Onyx */
-      --bg-hover: #232323;      /* Lighter Onyx for hover */
+      /* Base */
+      --bg-body: #ffffff;
+      --bg-surface: #f8fafc; /* Very light cool grey for sections */
       
       /* Typography */
-      --text-main: #ececec;     /* Soft White */
-      --text-muted: #9e9e9e;    /* Neutral Grey */
-      --text-dim: #555555;      /* Darker Grey for borders/details */
+      --text-main: #0f172a;    /* Deep Navy (High contrast, premium) */
+      --text-body: #334155;    /* Slate Grey */
+      --text-muted: #64748b;   /* Soft Grey */
 
-      /* Accents (Pastel & Earthy) */
-      --pastel-sage: #b6cbbd;   /* Organic Green */
-      --pastel-gold: #e0d8c3;   /* Champagne */
-      --pastel-blue: #b0c4de;   /* Dusty Blue */
-      --pastel-rose: #d8b4b4;   /* Muted Rose */
+      /* Lively Accents */
+      --accent-primary: #0ea5e9;   /* Sky Blue (Trust/Clean) */
+      --accent-energy: #f43f5e;    /* Vibrant Coral (Passion/Scent) */
+      --accent-fresh: #10b981;     /* Emerald Green (Natural/Safe) */
+      --accent-sun: #f59e0b;       /* Warm Amber (Optimism) */
 
-      /* Structural */
-      --border: 1px solid rgba(255, 255, 255, 0.06);
-      --radius: 8px;            /* Sharper corners look more "engineered" */
+      /* UI Elements */
+      --radius: 16px;
+      --shadow-soft: 0 4px 20px rgba(148, 163, 184, 0.1);
+      --shadow-hover: 0 10px 25px rgba(148, 163, 184, 0.2);
+      --border: 1px solid #e2e8f0;
+      
       --container: 1080px;
     }
 
@@ -39,352 +40,308 @@
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
       background-color: var(--bg-body);
-      color: var(--text-main);
+      color: var(--text-body);
       line-height: 1.6;
-      font-weight: 300; /* Lighter font weight looks more premium */
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, h4 { margin: 0; font-weight: 400; letter-spacing: -0.01em; }
+    h1, h2, h3, h4 { margin: 0; color: var(--text-main); letter-spacing: -0.02em; }
     p { margin: 0; color: var(--text-muted); }
-    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    a { text-decoration: none; color: inherit; transition: 0.2s ease; }
 
-    /* --- Layout Utilities --- */
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    /* --- Utilities --- */
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+    .section-spacing { padding: 80px 0; }
     
-    .section-spacing { padding: 100px 0; border-bottom: var(--border); }
-    
-    .eyebrow {
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--pastel-gold);
-      margin-bottom: 16px;
+    .badge {
       display: inline-block;
+      padding: 6px 12px;
+      background: #e0f2fe; /* Light blue tint */
+      color: var(--accent-primary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 20px;
+      margin-bottom: 16px;
     }
 
     /* --- Header --- */
     header {
-      padding: 30px 0;
+      padding: 24px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
       position: sticky;
       top: 0;
-      background: rgba(18, 18, 18, 0.85);
-      backdrop-filter: blur(12px);
       z-index: 100;
       border-bottom: var(--border);
     }
 
     .logo {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: var(--text-main);
-    }
-
-    nav { display: flex; gap: 30px; }
-    nav a { font-size: 13px; color: var(--text-muted); }
-    nav a:hover { color: var(--pastel-sage); }
-
-    /* --- Hero Section (Editorial Style) --- */
-    .hero {
-      text-align: center;
-      padding: 120px 0 100px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .hero h1 {
-      font-size: 48px;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      background: linear-gradient(180deg, #fff, #a0a0a0);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-primary);
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-energy));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
+    nav { display: flex; gap: 24px; }
+    nav a { font-weight: 500; font-size: 14px; color: var(--text-body); }
+    nav a:hover { color: var(--accent-primary); }
+
+    /* --- Hero Section --- */
+    .hero {
+      text-align: center;
+      padding: 100px 0 80px;
+      background: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 70%);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
     .hero p {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      color: var(--text-body);
     }
 
-    .btn {
+    .btn-main {
       display: inline-block;
-      padding: 14px 32px;
       background: var(--text-main);
-      color: var(--bg-body);
-      font-size: 13px;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 50px;
       font-weight: 600;
-      border-radius: 4px;
-      transition: transform 0.2s;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
     }
-    .btn:hover { transform: translateY(-2px); }
+    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3); }
 
-    /* --- Grid Systems --- */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-
-    /* --- Cards (Minimalist) --- */
-    .card {
-      background: var(--bg-card);
-      border: var(--border);
-      padding: 32px;
+    /* --- Philosophy Cards --- */
+    .philo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    .philo-card {
+      background: var(--bg-surface);
+      padding: 40px;
       border-radius: var(--radius);
-      transition: 0.3s ease;
+      border: var(--border);
+    }
+
+    /* --- Section Styling --- */
+    .section-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+    .section-sub { font-size: 16px; margin-bottom: 40px; }
+
+    /* --- Personal Care (Attars) --- */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    
+    .card {
+      background: #fff;
+      border: var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
     .card:hover {
-      background: var(--bg-hover);
-      border-color: rgba(255,255,255,0.15);
+      border-color: transparent;
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
     }
 
-    /* --- Section: Personal Care --- */
-    .pillar-header { margin-bottom: 40px; }
-    .pillar-header h2 { font-size: 28px; color: var(--text-main); }
-    .pillar-header p { margin-top: 8px; max-width: 500px; }
-
-    /* Attars Styling */
-    .attar-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-    }
+    .attar-card { display: flex; align-items: center; gap: 18px; }
     .swatch {
-      width: 48px; height: 48px;
-      border-radius: 50%; /* Circle looks more organic/perfume-like */
+      width: 56px; height: 56px;
+      border-radius: 16px;
       flex-shrink: 0;
-      opacity: 0.8;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    .attar-details h4 { font-size: 15px; margin-bottom: 4px; }
-    .attar-details span { font-size: 13px; color: var(--text-muted); }
+    .attar-info h4 { font-size: 16px; margin-bottom: 4px; font-weight: 700; }
+    .attar-info span { font-size: 13px; color: var(--text-muted); }
 
-    /* Daily Essentials Styling (Clean List) */
+    /* --- Daily Essentials (Colorful Pills) --- */
     .daily-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
     }
-    .daily-pill {
-      background: rgba(255,255,255,0.03);
+    .daily-item {
+      background: #fff;
       border: var(--border);
-      padding: 16px;
+      padding: 20px 10px;
       text-align: center;
-      border-radius: 6px;
+      border-radius: 12px;
       transition: 0.2s;
     }
-    .daily-pill:hover { background: rgba(255,255,255,0.06); border-color: var(--pastel-sage); }
-    .daily-pill h4 { font-size: 13px; font-weight: 500; }
-
-    /* --- Section: Home Care --- */
-    .home-card {
-      padding: 30px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .daily-item:hover {
+      border-color: var(--accent-fresh);
+      background: #ecfdf5; /* Very light mint green hover */
+      color: var(--accent-fresh);
     }
-    .home-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--pastel-blue); }
+    .daily-item h4 { font-size: 14px; font-weight: 600; color: inherit; }
+
+    /* --- Home Care --- */
+    .home-card {
+      text-align: left;
+      border-top: 4px solid var(--accent-primary); /* Colorful top border */
+    }
+    .home-card h3 { margin-bottom: 10px; color: var(--text-main); }
     
     /* --- Founders --- */
-    .founder-section {
-      background: var(--bg-card);
-      border-top: var(--border);
-      border-bottom: var(--border);
-      padding: 60px 0;
-    }
-    .founder-content {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 30px;
-      align-items: start;
-    }
-    .founder-avatar {
-      width: 80px; height: 80px;
-      background: var(--pastel-gold);
-      color: var(--bg-body);
-      display: grid; place-items: center;
-      font-weight: 700; font-size: 20px;
-      border-radius: 50%;
+    .founder-bg {
+      background: linear-gradient(135deg, #eff6ff 0%, #fefce8 100%); /* Blue to Yellow soft gradient */
+      border-radius: var(--radius);
+      padding: 60px;
+      text-align: center;
+      margin-top: 60px;
     }
 
-    /* --- Footer --- */
     footer {
-      padding: 60px 0;
+      margin-top: 80px;
+      padding: 40px 0;
       text-align: center;
-      font-size: 12px;
-      color: var(--text-dim);
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: var(--border);
     }
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
       .hero h1 { font-size: 36px; }
-      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .grid-3, .philo-grid { grid-template-columns: 1fr; }
       .daily-grid { grid-template-columns: 1fr 1fr; }
-      nav { display: none; } /* Simplified for demo, ideally a hamburger menu */
-      .founder-content { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      nav { display: none; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+    
     <header>
-      <div class="logo">Home Economics</div>
+      <div class="logo">HE.</div>
       <nav>
         <a href="#personal">Personal Care</a>
         <a href="#home">Home Care</a>
-        <a href="#about">About</a>
+        <a href="#about">Philosophy</a>
       </nav>
     </header>
 
     <section class="hero">
-      <span class="eyebrow">Engineering × Lifestyle</span>
-      <h1>Simpler. Cleaner. Smarter.</h1>
+      <div class="badge">Engineered for Living</div>
+      <h1>Simpler. Cleaner.<br> <span style="color:var(--accent-primary)">Smarter.</span></h1>
       <p>
-        We blend a strong engineering mindset with real household needs, turning routine products into thoughtfully formulated solutions you can trust. No noise. No gimmicks. Just products that work.
+        Thoughtfully designed daily essentials for Indian homes. 
+        Better quality, fair prices, and seamless access.
       </p>
-      <a href="#personal" class="btn">View the Collection</a>
+      <a href="#personal" class="btn-main">Explore the Range</a>
     </section>
 
-    <section id="about" style="margin-bottom: 80px;">
-      <div class="grid-2">
-        <div style="border-left: 2px solid var(--pastel-gold); padding-left: 24px;">
-          <h3 style="color:var(--text-main); margin-bottom:12px">Our Philosophy</h3>
-          <p>At Home Economics, we design everyday essentials with one clear goal — make daily living simpler. Our portfolio is built around two focused pillars: <strong>Personal Care</strong> and <strong>Home Care</strong>, each crafted for consistency.</p>
-        </div>
-        <div>
-          <p class="eyebrow" style="color:var(--text-dim)">The Promise</p>
-          <p>Smart formulations. Honest essentials. Quietly efficient products made for real homes and real routines.</p>
-        </div>
+    <section id="about" class="philo-grid">
+      <div class="philo-card">
+        <h3 style="margin-bottom:12px; color:var(--accent-energy)">The Mission</h3>
+        <p>To blend a strong engineering mindset with real household needs. We turn routine products into formulated solutions you can trust.</p>
+      </div>
+      <div class="philo-card">
+        <h3 style="margin-bottom:12px; color:var(--accent-primary)">The Pillars</h3>
+        <p>Our work is built on two focused pillars: <strong>Personal Care</strong> and <strong>Home Care</strong>. No noise. No gimmicks. Just products that work.</p>
       </div>
     </section>
 
     <section id="personal" class="section-spacing">
-      <div class="pillar-header">
-        <span class="eyebrow" style="color:var(--pastel-sage)">Pillar 01</span>
-        <h2>Personal Care</h2>
-        <p>A curated range bringing together indulgence and utility.</p>
-      </div>
+      <div class="badge" style="color:var(--accent-energy); background:#ffe4e6">Pillar 01</div>
+      <h2 class="section-title">Personal Care</h2>
+      <p class="section-sub">Indulgence meets everyday utility.</p>
 
-      <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px; color:var(--text-dim)">i. The Attar Collection</h3>
-      
-      <div class="grid-3" style="margin-bottom: 40px;">
+      <h3 style="font-size:14px; text-transform:uppercase; color:var(--text-muted); margin-bottom:20px; letter-spacing:1px">i. Attars Collection</h3>
+      <div class="grid-3" style="margin-bottom:40px">
         <div class="card attar-card">
-          <div class="swatch" style="background: linear-gradient(135deg, #595652, #8c8883);"></div>
-          <div class="attar-details">
-            <h4>StoneWood</h4>
-            <span>Timeless & Earthy</span>
-          </div>
+          <div class="swatch" style="background: linear-gradient(135deg, #1e293b, #475569)"></div>
+          <div class="attar-info"><h4>StoneWood</h4><span>Timeless & Earthy</span></div>
         </div>
         <div class="card attar-card">
-          <div class="swatch" style="background: linear-gradient(135deg, #783535, #b86e6e);"></div>
-          <div class="attar-details">
-            <h4>Diřeo</h4>
-            <span>Bold Spice</span>
-          </div>
+          <div class="swatch" style="background: linear-gradient(135deg, #dc2626, #fca5a5)"></div>
+          <div class="attar-info"><h4>Diřeo</h4><span>Bold Spice</span></div>
         </div>
         <div class="card attar-card">
-          <div class="swatch" style="background: linear-gradient(135deg, #c49a6c, #e0cda6);"></div>
-          <div class="attar-details">
-            <h4>Malaka</h4>
-            <span>Royal Exotic</span>
-          </div>
+          <div class="swatch" style="background: linear-gradient(135deg, #d97706, #fcd34d)"></div>
+          <div class="attar-info"><h4>Malaka</h4><span>Royal Exotic</span></div>
         </div>
         <div class="card attar-card">
-          <div class="swatch" style="background: linear-gradient(135deg, #3b526e, #7da1cc);"></div>
-          <div class="attar-details">
-            <h4>Bleu</h4>
-            <span>Oceanic Freedom</span>
-          </div>
+          <div class="swatch" style="background: linear-gradient(135deg, #2563eb, #93c5fd)"></div>
+          <div class="attar-info"><h4>Bleu</h4><span>Oceanic Freedom</span></div>
         </div>
         <div class="card attar-card">
-          <div class="swatch" style="background: linear-gradient(135deg, #e6e6e6, #ffffff);"></div>
-          <div class="attar-details">
-            <h4>White Musk</h4>
-            <span>Pure Clean</span>
-          </div>
+          <div class="swatch" style="background: linear-gradient(135deg, #ec4899, #fbcfe8)"></div>
+          <div class="attar-info"><h4>Flora</h4><span>Blooming Vitality</span></div>
         </div>
         <div class="card attar-card">
-          <div class="swatch" style="background: linear-gradient(135deg, #d4a5b8, #ead1db);"></div>
-          <div class="attar-details">
-            <h4>Flora</h4>
-            <span>Soft Bloom</span>
-          </div>
+          <div class="swatch" style="background: linear-gradient(135deg, #059669, #6ee7b7)"></div>
+          <div class="attar-info"><h4>Khaliq</h4><span>Divine Depth</span></div>
         </div>
       </div>
 
-      <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px; color:var(--text-dim)">ii. Daily Care Essentials</h3>
+      <h3 style="font-size:14px; text-transform:uppercase; color:var(--text-muted); margin-bottom:20px; letter-spacing:1px">ii. Daily Essentials</h3>
       <div class="daily-grid">
-        <div class="daily-pill"><h4>Aloe Vera</h4></div>
-        <div class="daily-pill"><h4>Glycerine</h4></div>
-        <div class="daily-pill"><h4>Petroleum Jelly</h4></div>
-        <div class="daily-pill"><h4>Papaya Moisturiser</h4></div>
-        <div class="daily-pill"><h4>Mosquito Repellent</h4></div>
-        <div class="daily-pill"><h4>Body Wash</h4></div>
-        <div class="daily-pill"><h4>Liquid Hand Wash</h4></div>
+        <div class="daily-item"><h4>Aloe Vera</h4></div>
+        <div class="daily-item"><h4>Glycerine</h4></div>
+        <div class="daily-item"><h4>Petroleum Jelly</h4></div>
+        <div class="daily-item"><h4>Papaya Moist.</h4></div>
+        <div class="daily-item"><h4>Mosquito Repel.</h4></div>
+        <div class="daily-item"><h4>Body Wash</h4></div>
+        <div class="daily-item"><h4>Hand Wash</h4></div>
       </div>
     </section>
 
-    <section id="home" class="section-spacing">
-      <div class="pillar-header">
-        <span class="eyebrow" style="color:var(--pastel-blue)">Pillar 02</span>
-        <h2>Home Care Range</h2>
-        <p>Performance you can rely on. Science-forward formulas that are gentle on your home.</p>
-      </div>
+    <section id="home" class="section-spacing" style="border-top:1px dashed #e2e8f0">
+      <div class="badge" style="color:var(--accent-primary); background:#e0f2fe">Pillar 02</div>
+      <h2 class="section-title">Home Care Range</h2>
+      <p class="section-sub">Performance you can rely on. Science-forward formulas.</p>
 
-      <div class="grid-2">
-        <div class="card home-card">
-          <div>
-            <h3>Toilet Cleaner</h3>
-            <p>Hygiene that respects your home. Powerful sanitation designed for modern living.</p>
-          </div>
+      <div class="grid-3">
+        <div class="card home-card" style="border-top-color: var(--accent-primary)">
+          <h3>Toilet Cleaner</h3>
+          <p>Hygiene that respects your home. Powerful sanitation designed for modern living.</p>
         </div>
-        <div class="card home-card">
-          <div>
-            <h3>Tile Cleaner</h3>
-            <p>Tough on stains, gentle on shine. Brightens, revives, and restores surfaces.</p>
-          </div>
+        <div class="card home-card" style="border-top-color: var(--accent-energy)">
+          <h3>Tile Cleaner</h3>
+          <p>Tough on stains, gentle on shine. Brightens, revives, and restores.</p>
         </div>
-        <div class="card home-card">
-          <div>
-            <h3>Essenced Floor Cleaner</h3>
-            <p>Deep clean with natural freshness. Available in multiple fragrances.</p>
-          </div>
+        <div class="card home-card" style="border-top-color: var(--accent-fresh)">
+          <h3>Essenced Floor Cleaner</h3>
+          <p>Deep clean with natural freshness. Available in multiple bright fragrances.</p>
         </div>
-        <div class="card home-card">
-          <div>
-            <h3>Liquid Detergent</h3>
-            <p>Engineered to clean thoroughly while being easy on fabrics.</p>
-          </div>
+        <div class="card home-card" style="border-top-color: var(--accent-sun)">
+          <h3>Liquid Detergent</h3>
+          <p>Engineered to clean thoroughly while being easy on fabric integrity.</p>
         </div>
       </div>
     </section>
 
-    <section class="founder-section">
-      <div class="container founder-content">
-        <div class="founder-avatar">TS</div>
-        <div>
-          <h3 style="margin-bottom:16px">The Engineering Mindset</h3>
-          <p>Founded by <strong>Tejas Singh Arora</strong> and <strong>Rishiraj Sihra</strong>.</p>
-          <p style="margin-top:12px; font-size:15px; color:var(--text-muted)">
-            A duo of IIT engineers who thought, “If we can optimise algorithms, we can definitely optimise everyday essentials.” So they did. Now the IIT brains are officially at your service — building products that make sense.
-          </p>
-        </div>
-      </div>
+    <section class="founder-bg">
+      <h3 style="margin-bottom:16px; font-size:24px;">The Founders</h3>
+      <div style="font-weight:700; font-size:18px; color:var(--text-main); margin-bottom:12px;">Tejas Singh Arora & Rishiraj Sihra</div>
+      <p style="max-width:600px; margin:0 auto; color:var(--text-body)">
+        A duo of IIT engineers who thought, “If we can optimise algorithms, we can definitely optimise everyday essentials.” Now the IIT brains are officially at your service.
+      </p>
     </section>
 
     <footer>
-      <p>&copy; <span id="year"></span> Home Economics. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Home Economics. Made for Indian Homes.</p>
     </footer>
+
   </div>
 
   <script>
