@@ -9,10 +9,17 @@
   
   <style>
     :root {
-      /* --- DREAMY PALETTE --- */
+      /* --- DREAMY AURORA PALETTE --- */
+      --bg-base: #fffbf7; /* Warm white base */
+      
+      /* Gradient Colors extracted from your image */
+      --color-peach: #ffdac1;
+      --color-rose: #ffc2d1;
+      --color-sky: #c7ceea;
+      --color-white: rgba(255, 255, 255, 0.6);
       
       /* Brand Colors */
-      --primary: #0f172a;       /* Dark Navy */
+      --primary: #0f172a;       /* Dark Navy (Sharp Contrast) */
       --accent-blue: #0ea5e9;   /* Bright Blue */
       --accent-teal: #14b8a6;   /* Teal */
       
@@ -22,10 +29,10 @@
       --text-muted: #94a3b8;
 
       /* UI Styles */
-      --radius: 20px; 
+      --radius: 20px; /* Softer, rounder corners like the image vibe */
       --border: 1px solid rgba(255, 255, 255, 0.6);
       
-      /* Shadows */
+      /* New Premium Shadows */
       --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       --shadow-hover: 0 20px 40px -5px rgba(50, 50, 93, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.1);
     }
@@ -38,15 +45,15 @@
       font-family: 'Inter', sans-serif;
       color: var(--text-body);
       line-height: 1.6;
-      
-      /* --- BACKGROUND IMAGE CONFIGURATION --- */
-      background-color: #fffbf7;
-      /* Make sure your image is named 'background.jpg' */
-      background-image: url('background.jpg');
-      background-size: cover;       /* Ensures image covers the whole screen */
-      background-position: center;  /* Centers the pretty gradients */
-      background-attachment: fixed; /* Keeps bg still while you scroll */
-      background-repeat: no-repeat;
+      /* --- THE GRADIENT BACKGROUND --- */
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(at 0% 0%, var(--color-peach) 0px, transparent 50%), 
+        radial-gradient(at 100% 0%, var(--color-sky) 0px, transparent 50%), 
+        radial-gradient(at 100% 100%, var(--color-rose) 0px, transparent 50%), 
+        radial-gradient(at 0% 100%, #e0f2fe 0px, transparent 50%);
+      background-attachment: fixed; /* Keeps gradient stable while scrolling */
+      background-size: 100% 100%;
     }
 
     h1, h2, h3, h4 { color: var(--text-main); margin: 0; letter-spacing: -0.02em; }
@@ -65,37 +72,26 @@
       backdrop-filter: blur(4px);
     }
     
-    /* --- Header --- */
+    /* --- Header (Glass Effect) --- */
     header {
-      background: rgba(255, 255, 255, 0.6); /* Frosted Glass */
+      background: rgba(255, 255, 255, 0.7); /* Frosted Glass */
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
       position: sticky; top: 0; z-index: 100;
-      padding: 12px 0;
+      padding: 16px 0;
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     
-    /* LOGO STYLING */
-    .logo-container {
-      display: flex; align-items: center;
-    }
-    .logo-img {
-      height: 70px; /* Adjust size as needed */
-      width: 70px;
-      object-fit: cover;
-      border-radius: 50%; /* Makes the square image a perfect circle */
-      border: 2px solid rgba(255,255,255,0.8); /* Optional ring around logo */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
+    .logo { font-size: 20px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
+    
     .contact-nav { display: flex; gap: 12px; align-items: center; }
     .icon-link {
       width: 42px; height: 42px; border-radius: 50%;
       background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.8);
       color: var(--text-main);
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      font-size: 20px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy hover */
     }
     .icon-link:hover { background: white; color: var(--accent-blue); transform: scale(1.15) rotate(5deg); }
     
@@ -112,17 +108,16 @@
     /* --- Hero --- */
     .hero {
       text-align: center;
-      padding: 100px 0 80px;
+      padding: 120px 0 100px;
     }
     .hero h1 { 
       font-size: 56px; line-height: 1.05; margin-bottom: 24px; font-weight: 800; 
-      color: var(--text-main);
-      /* Make text pop against the colorful background */
-      text-shadow: 0 2px 20px rgba(255,255,255,0.8);
+      background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .hero p { font-size: 19px; max-width: 640px; margin: 0 auto 32px; color: var(--text-body); }
+    .hero p { font-size: 19px; max-width: 640px; margin: 0 auto 32px; color: var(--text-body); opacity: 0.9; }
     
-    /* --- Glass Cards (The White/Transparent Boxes) --- */
+    /* --- Cards Base Style (The Glassy White Look) --- */
     .glass-card {
       background: rgba(255, 255, 255, 0.65); /* Semi-transparent white */
       backdrop-filter: blur(12px);
@@ -130,40 +125,49 @@
       border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: var(--radius);
       box-shadow: var(--shadow-sm);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
     }
 
-    /* --- HOVER ANIMATIONS --- */
+    /* --- HOVER ANIMATION LOGIC --- */
     .hover-float:hover {
-      transform: translateY(-8px) scale(1.01); 
-      background: rgba(255, 255, 255, 0.9); 
+      transform: translateY(-8px) scale(1.01); /* Moves up and grows slightly */
+      background: rgba(255, 255, 255, 0.95); /* Becomes solid white on hover */
       box-shadow: var(--shadow-hover);
       border-color: white;
       cursor: pointer;
     }
 
-    /* --- Sections --- */
+    /* --- The Standard Section --- */
     .standard-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
       margin-bottom: 80px;
     }
-    .standard-card { padding: 32px 24px; text-align: left; }
+    .standard-card {
+      padding: 32px 24px;
+      text-align: left;
+    }
     .standard-icon { 
       font-size: 32px; color: var(--accent-blue); margin-bottom: 16px; display: block; 
       background: white; width: 56px; height: 56px; border-radius: 14px;
       display: grid; place-items: center; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
     }
 
+    /* --- Sections --- */
     .section-header { 
       margin-bottom: 40px; display: flex; align-items: flex-end; justify-content: space-between; 
-      border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 20px; 
+      border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 20px; 
     }
     .section-title { font-size: 32px; font-weight: 700; }
     
+    /* --- Product Grids --- */
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
     
-    .product-card { padding: 24px; display: flex; flex-direction: column; }
+    .product-card {
+      padding: 24px;
+      display: flex; flex-direction: column;
+    }
     
+    /* Attars Styling */
     .attar-top { display: flex; gap: 16px; margin-bottom: 12px; align-items: center; }
     .swatch {
       width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
@@ -171,6 +175,7 @@
     }
     .tag { font-size: 12px; color: var(--text-muted); font-weight: 500; display: block; margin-top: 2px; }
     
+    /* Home Care Styling */
     .care-icon {
       width: 52px; height: 52px; background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
       color: var(--accent-blue); border-radius: 14px;
@@ -178,6 +183,7 @@
       margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.8);
     }
     
+    /* Daily Essentials Grid */
     .daily-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
     .daily-card {
       padding: 24px 16px; text-align: center;
@@ -189,10 +195,14 @@
     }
     .daily-card:hover .daily-icon { transform: scale(1.2); }
 
+    /* --- Founders Section --- */
     .founders-section { margin-top: 100px; }
     .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
     
-    .founder-card { padding: 32px; display: flex; gap: 24px; align-items: flex-start; }
+    .founder-card {
+      padding: 32px;
+      display: flex; gap: 24px; align-items: flex-start;
+    }
     .founder-avatar {
       width: 72px; height: 72px; 
       background: linear-gradient(135deg, var(--text-main), #334155); 
@@ -207,9 +217,10 @@
       margin-bottom: 8px;
     }
 
+    /* --- Footer --- */
     footer {
       margin-top: 100px; padding: 60px 0;
-      background: rgba(255,255,255,0.4); 
+      background: rgba(255,255,255,0.5); 
       border-top: 1px solid rgba(255,255,255,0.3);
       text-align: center;
     }
@@ -233,8 +244,8 @@
 
   <header>
     <div class="container header-inner">
-      <div class="logo-container">
-        <img src="logo.jpg" alt="Home Economics" class="logo-img">
+      <div class="logo">
+        <i class="ph-fill ph-flask" style="color:var(--text-main)"></i> Home Economics
       </div>
       <div class="contact-nav">
         <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" class="icon-link" title="Instagram">
