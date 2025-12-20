@@ -9,26 +9,32 @@
   
   <style>
     :root {
-      /* --- PREMIUM DAYLIGHT PALETTE --- */
-      --bg-body: #f8fafc;
-      --bg-card: #ffffff;
+      /* --- DREAMY AURORA PALETTE --- */
+      --bg-base: #fffbf7; /* Warm white base */
+      
+      /* Gradient Colors extracted from your image */
+      --color-peach: #ffdac1;
+      --color-rose: #ffc2d1;
+      --color-sky: #c7ceea;
+      --color-white: rgba(255, 255, 255, 0.6);
       
       /* Brand Colors */
-      --primary: #0284c7;       /* Engineering Blue */
-      --secondary: #0d9488;     /* Teal (Clean/Safe) */
-      --accent: #f59e0b;        /* Amber (Warmth) */
-      --instagram: #E1306C;     /* Insta Gradient Base */
+      --primary: #0f172a;       /* Dark Navy (Sharp Contrast) */
+      --accent-blue: #0ea5e9;   /* Bright Blue */
+      --accent-teal: #14b8a6;   /* Teal */
       
       /* Text */
-      --text-main: #0f172a;
+      --text-main: #1e293b;
       --text-body: #475569;
-      --text-light: #94a3b8;
+      --text-muted: #94a3b8;
 
       /* UI Styles */
-      --radius: 16px;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      --border: 1px solid #e2e8f0;
+      --radius: 20px; /* Softer, rounder corners like the image vibe */
+      --border: 1px solid rgba(255, 255, 255, 0.6);
+      
+      /* New Premium Shadows */
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 20px 40px -5px rgba(50, 50, 93, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.1);
     }
 
     * { box-sizing: border-box; }
@@ -37,163 +43,200 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-body);
-      /* Subtle engineered grid pattern */
-      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-      background-size: 32px 32px;
       color: var(--text-body);
       line-height: 1.6;
+      /* --- THE GRADIENT BACKGROUND --- */
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(at 0% 0%, var(--color-peach) 0px, transparent 50%), 
+        radial-gradient(at 100% 0%, var(--color-sky) 0px, transparent 50%), 
+        radial-gradient(at 100% 100%, var(--color-rose) 0px, transparent 50%), 
+        radial-gradient(at 0% 100%, #e0f2fe 0px, transparent 50%);
+      background-attachment: fixed; /* Keeps gradient stable while scrolling */
+      background-size: 100% 100%;
     }
 
     h1, h2, h3, h4 { color: var(--text-main); margin: 0; letter-spacing: -0.02em; }
-    a { text-decoration: none; transition: 0.2s; }
+    a { text-decoration: none; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     p { margin: 0; }
 
-    /* --- Utilities --- */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     
     .badge {
       display: inline-flex; align-items: center; gap: 6px;
-      background: #e0f2fe; color: var(--primary);
-      padding: 6px 12px; border-radius: 20px;
+      background: rgba(255, 255, 255, 0.5); 
+      border: 1px solid rgba(0,0,0,0.05);
+      color: var(--text-main);
+      padding: 6px 12px; border-radius: 30px;
       font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
     }
     
-    /* --- Header --- */
+    /* --- Header (Glass Effect) --- */
     header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: var(--border);
+      background: rgba(255, 255, 255, 0.7); /* Frosted Glass */
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
       position: sticky; top: 0; z-index: 100;
       padding: 16px 0;
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     
     .logo { font-size: 20px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
-    .logo span { color: var(--primary); }
     
     .contact-nav { display: flex; gap: 12px; align-items: center; }
     .icon-link {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: #f1f5f9; color: var(--text-main);
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.8);
+      color: var(--text-main);
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px; transition: 0.2s;
+      font-size: 20px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy hover */
     }
-    .icon-link:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+    .icon-link:hover { background: white; color: var(--accent-blue); transform: scale(1.15) rotate(5deg); }
+    
     .btn-contact {
       display: flex; align-items: center; gap: 8px;
-      padding: 10px 20px; border-radius: 50px;
+      padding: 10px 24px; border-radius: 50px;
       font-size: 13px; font-weight: 600;
       background: var(--text-main); color: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .btn-contact:hover { background: var(--primary); box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); }
+    .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
 
     /* --- Hero --- */
     .hero {
       text-align: center;
-      padding: 100px 0 80px;
-      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+      padding: 120px 0 100px;
     }
-    .hero h1 { font-size: 52px; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
-    .hero p { font-size: 18px; max-width: 640px; margin: 0 auto 32px; color: var(--text-body); }
+    .hero h1 { 
+      font-size: 56px; line-height: 1.05; margin-bottom: 24px; font-weight: 800; 
+      background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p { font-size: 19px; max-width: 640px; margin: 0 auto 32px; color: var(--text-body); opacity: 0.9; }
     
-    /* --- "The Standard" Section (New Lines Added) --- */
+    /* --- Cards Base Style (The Glassy White Look) --- */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.65); /* Semi-transparent white */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
+    }
+
+    /* --- HOVER ANIMATION LOGIC --- */
+    .hover-float:hover {
+      transform: translateY(-8px) scale(1.01); /* Moves up and grows slightly */
+      background: rgba(255, 255, 255, 0.95); /* Becomes solid white on hover */
+      box-shadow: var(--shadow-hover);
+      border-color: white;
+      cursor: pointer;
+    }
+
+    /* --- The Standard Section --- */
     .standard-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
       margin-bottom: 80px;
     }
     .standard-card {
-      background: var(--bg-card); padding: 32px 24px; border-radius: var(--radius);
-      border: var(--border); text-align: left; box-shadow: var(--shadow);
-      position: relative; overflow: hidden;
+      padding: 32px 24px;
+      text-align: left;
     }
-    .standard-card::top { content:''; height:4px; width:100%; background:red; }
-    .standard-icon { font-size: 32px; color: var(--primary); margin-bottom: 16px; display: block; }
-    .standard-card h4 { margin-bottom: 8px; font-size: 18px; }
-    .standard-card p { font-size: 14px; color: var(--text-light); }
+    .standard-icon { 
+      font-size: 32px; color: var(--accent-blue); margin-bottom: 16px; display: block; 
+      background: white; width: 56px; height: 56px; border-radius: 14px;
+      display: grid; place-items: center; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+    }
 
-    /* --- Section Styles --- */
-    .section-header { margin-bottom: 40px; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
+    /* --- Sections --- */
+    .section-header { 
+      margin-bottom: 40px; display: flex; align-items: flex-end; justify-content: space-between; 
+      border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 20px; 
+    }
     .section-title { font-size: 32px; font-weight: 700; }
     
     /* --- Product Grids --- */
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
     
-    /* Product Card */
     .product-card {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      border: var(--border);
       padding: 24px;
-      transition: all 0.3s ease;
       display: flex; flex-direction: column;
-      position: relative;
     }
-    .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
     
-    /* Attars */
+    /* Attars Styling */
     .attar-top { display: flex; gap: 16px; margin-bottom: 12px; align-items: center; }
     .swatch {
-      width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid white;
     }
-    .tag { font-size: 12px; color: var(--text-light); font-weight: 500; display: block; }
+    .tag { font-size: 12px; color: var(--text-muted); font-weight: 500; display: block; margin-top: 2px; }
     
-    /* Home Care */
+    /* Home Care Styling */
     .care-icon {
-      width: 48px; height: 48px; background: #f0f9ff;
-      color: var(--primary); border-radius: 10px;
+      width: 52px; height: 52px; background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+      color: var(--accent-blue); border-radius: 14px;
       display: grid; place-items: center; font-size: 24px;
-      margin-bottom: 16px;
+      margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.8);
     }
     
     /* Daily Essentials Grid */
     .daily-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
     .daily-card {
-      background: var(--bg-card); border: var(--border);
-      padding: 20px; border-radius: 12px; text-align: center;
-      transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 24px 16px; text-align: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
-    .daily-card:hover { border-color: var(--secondary); box-shadow: var(--shadow); transform: scale(1.02); }
-    .daily-icon { color: var(--secondary); font-size: 28px; margin-bottom: 10px; }
+    .daily-icon { 
+      color: var(--accent-teal); font-size: 28px; margin-bottom: 10px; 
+      transition: transform 0.3s ease;
+    }
+    .daily-card:hover .daily-icon { transform: scale(1.2); }
 
     /* --- Founders Section --- */
-    .founders-section { margin-top: 80px; }
+    .founders-section { margin-top: 100px; }
     .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
     
     .founder-card {
-      background: #fff; border: var(--border); padding: 32px;
-      border-radius: var(--radius); box-shadow: var(--shadow);
-      display: flex; gap: 20px; align-items: flex-start;
+      padding: 32px;
+      display: flex; gap: 24px; align-items: flex-start;
     }
     .founder-avatar {
-      width: 64px; height: 64px; background: var(--text-main); color: white;
-      border-radius: 12px; display: grid; place-items: center;
-      font-weight: 700; font-size: 20px; flex-shrink: 0;
+      width: 72px; height: 72px; 
+      background: linear-gradient(135deg, var(--text-main), #334155); 
+      color: white;
+      border-radius: 18px; display: grid; place-items: center;
+      font-weight: 700; font-size: 22px; flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     .degree-tag {
-      display: inline-block; background: #f1f5f9; padding: 4px 8px;
-      border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--text-body);
-      margin-bottom: 8px; border: 1px solid #cbd5e1;
+      display: inline-block; background: rgba(0,0,0,0.04); padding: 4px 10px;
+      border-radius: 8px; font-size: 11px; font-weight: 600; color: var(--text-main);
+      margin-bottom: 8px;
     }
 
     /* --- Footer --- */
     footer {
-      margin-top: 80px; padding: 60px 0;
-      background: #0f172a; color: white;
-      text-align: center; border-radius: 24px 24px 0 0;
+      margin-top: 100px; padding: 60px 0;
+      background: rgba(255,255,255,0.5); 
+      border-top: 1px solid rgba(255,255,255,0.3);
+      text-align: center;
     }
     .footer-links { display: flex; justify-content: center; gap: 24px; margin: 30px 0; }
-    .footer-link { color: #94a3b8; font-size: 24px; transition: 0.2s; }
-    .footer-link:hover { color: white; transform: scale(1.1); }
-    .footer-cta { margin-bottom: 30px; }
+    .footer-link { 
+      color: var(--text-main); font-size: 24px; transition: 0.3s; opacity: 0.7;
+    }
+    .footer-link:hover { opacity: 1; transform: translateY(-4px); color: var(--accent-blue); }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 36px; }
+      .hero h1 { font-size: 38px; }
       .standard-grid, .grid-3, .founder-grid { grid-template-columns: 1fr; }
       .header-inner { flex-direction: column; gap: 16px; }
       .contact-nav { width: 100%; justify-content: center; }
+      .founder-card { flex-direction: column; text-align: center; align-items: center; }
     }
   </style>
 </head>
@@ -202,7 +245,7 @@
   <header>
     <div class="container header-inner">
       <div class="logo">
-        <i class="ph-fill ph-flask"></i> Home Economics<span>.</span>
+        <i class="ph-fill ph-flask" style="color:var(--text-main)"></i> Home Economics
       </div>
       <div class="contact-nav">
         <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" class="icon-link" title="Instagram">
@@ -212,7 +255,7 @@
           <i class="ph-fill ph-envelope-simple"></i>
         </a>
         <a href="https://wa.me/919667722988" class="btn-contact">
-          <i class="ph-fill ph-whatsapp-logo"></i> Chat with Us
+          <i class="ph-fill ph-whatsapp-logo"></i> Chat on WhatsApp
         </a>
       </div>
     </div>
@@ -222,7 +265,7 @@
     
     <section class="hero">
       <div class="badge">IIT Delhi Formulations</div>
-      <h1>Everyday Essentials.<br><span style="color:var(--primary)">Engineered for Purity.</span></h1>
+      <h1>Everyday Essentials.<br>Engineered for Purity.</h1>
       <p>
         We blend a strong engineering mindset with real household needs. 
         Better ingredients, smarter formulations, and fair pricing. No noise. Just products that work.
@@ -230,35 +273,35 @@
     </section>
 
     <section class="standard-grid">
-      <div class="standard-card">
-        <i class="ph-duotone ph-atom standard-icon"></i>
+      <div class="glass-card standard-card hover-float">
+        <div class="standard-icon"><i class="ph-duotone ph-atom"></i></div>
         <h4>Precision Formulated</h4>
-        <p>Every product is developed with biochemical precision. We balance pH levels and active ingredients to ensure maximum efficacy without harsh side effects.</p>
+        <p style="font-size:14px; color:var(--text-body);">Every product is developed with biochemical precision. We balance pH levels and active ingredients for maximum efficacy.</p>
       </div>
-      <div class="standard-card">
-        <i class="ph-duotone ph-scales standard-icon"></i>
+      <div class="glass-card standard-card hover-float">
+        <div class="standard-icon"><i class="ph-duotone ph-scales"></i></div>
         <h4>Transparent Economics</h4>
-        <p>Quality shouldn't break the bank. By optimizing our supply chain and cutting out middlemen, we bring you premium essentials at honest prices.</p>
+        <p style="font-size:14px; color:var(--text-body);">Quality shouldn't break the bank. By optimizing supply chains, we bring premium essentials at honest prices.</p>
       </div>
-      <div class="standard-card">
-        <i class="ph-duotone ph-shield-check standard-icon"></i>
+      <div class="glass-card standard-card hover-float">
+        <div class="standard-icon"><i class="ph-duotone ph-shield-check"></i></div>
         <h4>Safety First</h4>
-        <p>From skin-friendly daily essentials to non-corrosive home cleaners, safety is the bedrock of our design philosophy.</p>
+        <p style="font-size:14px; color:var(--text-body);">From skin-friendly daily essentials to non-corrosive home cleaners, safety is the bedrock of our design.</p>
       </div>
     </section>
 
     <section id="personal">
       <div class="section-header">
         <div>
-          <span style="color:var(--accent); font-weight:700; font-size:12px; letter-spacing:1px; text-transform:uppercase;">Pillar 01</span>
+          <span style="color:var(--text-main); font-weight:700; font-size:12px; letter-spacing:1px; text-transform:uppercase;">Pillar 01</span>
           <h2 class="section-title">Personal Care</h2>
         </div>
-        <p style="font-size:14px; color:var(--text-light); text-align:right;">Attars & Daily Essentials</p>
+        <p style="font-size:14px; color:var(--text-body); text-align:right;">Attars & Daily Essentials</p>
       </div>
 
-      <h3 style="font-size:16px; margin-bottom:20px; color:var(--text-main); font-weight:600;">i. The Attar Collection <span style="font-weight:400; color:var(--text-light); font-size:14px;">(Alcohol Free)</span></h3>
+      <h3 style="font-size:16px; margin-bottom:20px; color:var(--text-main); font-weight:600;">i. The Attar Collection <span style="font-weight:400; opacity:0.6; font-size:14px;">(Alcohol Free)</span></h3>
       <div class="grid-3">
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="attar-top">
             <div class="swatch" style="background: linear-gradient(135deg, #374151, #6b7280)"></div>
             <div>
@@ -269,7 +312,7 @@
           <p style="font-size:14px; color:var(--text-body)">Grounded sophistication. A long-lasting scent designed for presence and calm.</p>
         </div>
 
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="attar-top">
             <div class="swatch" style="background: linear-gradient(135deg, #b91c1c, #fca5a5)"></div>
             <div>
@@ -280,7 +323,7 @@
           <p style="font-size:14px; color:var(--text-body)">Ignite the spirit with untamed warmth. For those who stand out.</p>
         </div>
 
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="attar-top">
             <div class="swatch" style="background: linear-gradient(135deg, #0369a1, #7dd3fc)"></div>
             <div>
@@ -291,7 +334,7 @@
           <p style="font-size:14px; color:var(--text-body)">Freedom bottled in blue. Crisp, airy, and undeniably fresh.</p>
         </div>
         
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="attar-top">
             <div class="swatch" style="background: linear-gradient(135deg, #be185d, #fbcfe8)"></div>
             <div>
@@ -302,7 +345,7 @@
           <p style="font-size:14px; color:var(--text-body)">A blooming garden in a bottle. Subtle sweetness.</p>
         </div>
 
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="attar-top">
             <div class="swatch" style="background: linear-gradient(135deg, #d97706, #fcd34d)"></div>
             <div>
@@ -313,7 +356,7 @@
           <p style="font-size:14px; color:var(--text-body)">Rich, royal notes perfect for the evening.</p>
         </div>
         
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="attar-top">
             <div class="swatch" style="background: linear-gradient(135deg, #047857, #6ee7b7)"></div>
             <div>
@@ -327,32 +370,32 @@
 
       <h3 style="font-size:16px; margin-bottom:20px; color:var(--text-main); font-weight:600;">ii. Daily Care Essentials</h3>
       <div class="daily-grid">
-        <div class="daily-card">
+        <div class="glass-card daily-card hover-float">
           <i class="ph-duotone ph-plant daily-icon"></i>
           <h4>Aloe Vera</h4>
           <span class="tag">Pure Gel</span>
         </div>
-        <div class="daily-card">
+        <div class="glass-card daily-card hover-float">
           <i class="ph-duotone ph-drop daily-icon"></i>
           <h4>Glycerine</h4>
           <span class="tag">Moisture Lock</span>
         </div>
-        <div class="daily-card">
+        <div class="glass-card daily-card hover-float">
           <i class="ph-duotone ph-shield-check daily-icon"></i>
           <h4>Petroleum Jelly</h4>
           <span class="tag">Skin Barrier</span>
         </div>
-        <div class="daily-card">
+        <div class="glass-card daily-card hover-float">
           <i class="ph-duotone ph-sparkle daily-icon"></i>
           <h4>Papaya Moist.</h4>
           <span class="tag">Softening</span>
         </div>
-        <div class="daily-card">
+        <div class="glass-card daily-card hover-float">
           <i class="ph-duotone ph-bug daily-icon"></i>
           <h4>Mosquito Repel.</h4>
           <span class="tag">Safe & Effective</span>
         </div>
-        <div class="daily-card">
+        <div class="glass-card daily-card hover-float">
           <i class="ph-duotone ph-shower daily-icon"></i>
           <h4>Body Wash</h4>
           <span class="tag">Daily Fresh</span>
@@ -363,32 +406,32 @@
     <section id="home" style="margin-top: 80px;">
       <div class="section-header">
         <div>
-          <span style="color:var(--secondary); font-weight:700; font-size:12px; letter-spacing:1px; text-transform:uppercase;">Pillar 02</span>
+          <span style="color:var(--text-main); font-weight:700; font-size:12px; letter-spacing:1px; text-transform:uppercase;">Pillar 02</span>
           <h2 class="section-title">Home Care Range</h2>
         </div>
-        <p style="font-size:14px; color:var(--text-light); text-align:right;">Hygiene & Safety</p>
+        <p style="font-size:14px; color:var(--text-body); text-align:right;">Hygiene & Safety</p>
       </div>
 
       <div class="grid-3">
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="care-icon"><i class="ph-duotone ph-toilet"></i></div>
           <h4>Toilet Cleaner</h4>
           <p style="font-size:14px; color:var(--text-body); margin-top:8px;">Powerful sanitation designed for modern living. Removes tough stains and disinfects.</p>
         </div>
 
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="care-icon"><i class="ph-duotone ph-squares-four"></i></div>
           <h4>Tile Cleaner</h4>
           <p style="font-size:14px; color:var(--text-body); margin-top:8px;">Tough on grime, gentle on shine. Restores the original look of your surfaces.</p>
         </div>
 
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="care-icon"><i class="ph-duotone ph-waves"></i></div>
           <h4>Floor Cleaner</h4>
           <p style="font-size:14px; color:var(--text-body); margin-top:8px;">Essenced formulas in multiple fragrances. Leaves floors clinically clean and rooms smelling fresh.</p>
         </div>
 
-        <div class="product-card">
+        <div class="glass-card product-card hover-float">
           <div class="care-icon"><i class="ph-duotone ph-t-shirt"></i></div>
           <h4>Liquid Detergent</h4>
           <p style="font-size:14px; color:var(--text-body); margin-top:8px;">Engineered to clean thoroughly while protecting fabric integrity and color.</p>
@@ -397,11 +440,11 @@
     </section>
 
     <section class="founders-section">
-      <h2 class="section-title">The Engineers</h2>
-      <p style="color:var(--text-body);">The minds behind the formulations.</p>
+      <h2 class="section-title" style="text-align:center">The Engineers</h2>
+      <p style="color:var(--text-body); text-align:center">The minds behind the formulations.</p>
       
       <div class="founder-grid">
-        <div class="founder-card">
+        <div class="glass-card founder-card hover-float">
           <div class="founder-avatar">TS</div>
           <div>
             <div class="degree-tag">IITD '25 • Biochemical Engineering</div>
@@ -412,7 +455,7 @@
           </div>
         </div>
 
-        <div class="founder-card">
+        <div class="glass-card founder-card hover-float">
           <div class="founder-avatar">RS</div>
           <div>
             <div class="degree-tag">IITD '25 • Civil Engineering</div>
@@ -429,12 +472,10 @@
 
   <footer>
     <div class="container">
-      <div class="footer-cta">
-        <h2 style="color:white; margin-bottom:12px;">Ready to order?</h2>
-        <p style="color:#94a3b8; max-width:500px; margin:0 auto;">
-          We operate directly via WhatsApp and Email to keep costs low and service personal.
-        </p>
-      </div>
+      <h2 style="margin-bottom:12px;">Ready to order?</h2>
+      <p style="color:var(--text-body); max-width:500px; margin:0 auto;">
+        We operate directly via WhatsApp to keep costs low and service personal.
+      </p>
 
       <div class="footer-links">
         <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" class="footer-link"><i class="ph-fill ph-instagram-logo"></i></a>
@@ -442,7 +483,7 @@
         <a href="mailto:homeeconomics2025@gmail.com" class="footer-link"><i class="ph-fill ph-envelope-simple"></i></a>
       </div>
 
-      <p style="font-size:13px; color:#475569;">
+      <p style="font-size:13px; color:var(--text-muted);">
         &copy; <span id="year"></span> Home Economics. Made in New Delhi.
       </p>
     </div>
