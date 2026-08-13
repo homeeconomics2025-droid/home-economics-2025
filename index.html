@@ -1,2166 +1,1636 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home Economics — Engineered Essentials</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-  <style>
-    :root {
-      --bg:#f7f2ea;
-      --bg2:#efe8db;
-      --bg3:#e8dece;
-      --ink:#1c1612;
-      --ink2:#3a2f26;
-      --gold:#b08d57;
-      --gold2:#d4aa6f;
-      --gold3:#e8c98a;
-      --sage:#6b7c5e;
-      --rose:#c4897a;
-      --cream:#fdf9f3;
-      --muted:rgba(28,22,18,0.45);
-      --muted2:rgba(28,22,18,0.28);
-      --border:rgba(176,141,87,0.22);
-      --border2:rgba(28,22,18,0.10);
-      --radius:16px;
-      --font-serif:'Cormorant Garamond',serif;
-      --font-head:'Syne',sans-serif;
-      --font-body:'DM Sans',sans-serif;
-    }
-
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-
-    body{
-      background:var(--bg);
-      color:var(--ink);
-      font-family:var(--font-body);
-      line-height:1.6;
-      overflow-x:hidden;
-      cursor:none;
-    }
-
-    /* CURSOR */
-    .cursor{
-      position:fixed;width:8px;height:8px;background:var(--gold);
-      border-radius:50%;pointer-events:none;z-index:9999;
-      transition:transform .15s;mix-blend-mode:multiply;
-    }
-
-    .cursor-ring{
-      position:fixed;width:36px;height:36px;
-      border:1.5px solid var(--gold);border-radius:50%;
-      pointer-events:none;z-index:9998;
-      transition:all .22s cubic-bezier(.25,.46,.45,.94);
-      mix-blend-mode:multiply;
-    }
-
-    /* NOISE */
-    body::before{
-      content:'';
-      position:fixed;inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events:none;z-index:1;opacity:.6;
-    }
-
-    /* BACKGROUND ORBS */
-    .bg-orbs{
-      position:fixed;inset:0;z-index:0;
-      overflow:hidden;pointer-events:none;
-    }
-
-    .orb{
-      position:absolute;border-radius:50%;
-      filter:blur(100px);opacity:.25;
-      animation:drift 20s ease-in-out infinite alternate;
-    }
-
-    .orb1{
-      width:800px;height:800px;background:var(--gold3);
-      top:-300px;left:-200px;
-    }
-
-    .orb2{
-      width:600px;height:600px;background:var(--rose);
-      top:40%;right:-200px;
-      animation-delay:-6s;animation-duration:25s;
-    }
-
-    .orb3{
-      width:500px;height:500px;background:var(--sage);
-      bottom:-100px;left:25%;
-      animation-delay:-12s;animation-duration:18s;
-    }
-
-    @keyframes drift{
-      0%{transform:translate(0,0) scale(1)}
-      100%{transform:translate(50px,35px) scale(1.12)}
-    }
-
-    /* HEADER */
-    header{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      padding:20px 48px;
-      display:flex;justify-content:space-between;align-items:center;
-      background:rgba(247,242,234,.80);
-      backdrop-filter:blur(28px);
-      border-bottom:1px solid var(--border);
-      animation:slideDown .8s cubic-bezier(.34,1.56,.64,1) both;
-      transition:padding .3s ease;
-    }
-
-    @keyframes slideDown{
-      from{transform:translateY(-100%);opacity:0}
-      to{transform:translateY(0);opacity:1}
-    }
-
-    .logo{
-      font-family:var(--font-serif);
-      font-size:20px;font-weight:600;
-      letter-spacing:.06em;color:var(--ink);
-      display:flex;align-items:center;gap:12px;
-      font-style:italic;
-    }
-
-    .logo-icon{
-      width:36px;height:36px;background:var(--gold);
-      border-radius:8px;display:grid;place-items:center;
-      color:var(--cream);font-size:18px;
-      animation:pulse-glow 3.5s ease-in-out infinite;
-    }
-
-    @keyframes pulse-glow{
-      0%,100%{box-shadow:0 0 0 0 rgba(176,141,87,.35)}
-      50%{box-shadow:0 0 0 14px rgba(176,141,87,0)}
-    }
-
-    nav{display:flex;gap:32px}
-
-    .nav-link{
-      font-size:12px;font-weight:500;color:var(--muted);
-      text-decoration:none;letter-spacing:.09em;
-      text-transform:uppercase;position:relative;
-      transition:color .3s;
-    }
-
-    .nav-link::after{
-      content:'';
-      position:absolute;bottom:-3px;left:0;
-      width:0;height:1px;background:var(--gold);
-      transition:width .35s;
-    }
-
-    .nav-link:hover{color:var(--gold)}
-    .nav-link:hover::after{width:100%}
-
-    .header-cta{
-      display:flex;align-items:center;gap:10px;
-    }
-
-    .icon-btn{
-      width:38px;height:38px;border-radius:50%;
-      border:1px solid var(--border2);background:transparent;
-      color:var(--muted);display:grid;place-items:center;
-      font-size:18px;text-decoration:none;
-      transition:all .3s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .icon-btn:hover{
-      border-color:var(--gold);color:var(--gold);
-      transform:scale(1.2) rotate(8deg);
-    }
-
-    .wa-btn{
-      display:flex;align-items:center;gap:8px;
-      padding:10px 24px;border-radius:50px;
-      background:var(--gold);color:var(--cream);
-      font-family:var(--font-head);font-size:12px;font-weight:700;
-      text-decoration:none;letter-spacing:.04em;
-      transition:all .3s ease;position:relative;overflow:hidden;
-    }
-
-    .wa-btn::before{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(135deg,rgba(255,255,255,.18),transparent);
-      opacity:0;transition:opacity .3s;
-    }
-
-    .wa-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 12px 28px rgba(176,141,87,.35);
-    }
-
-    .wa-btn:hover::before{opacity:1}
-
-    /* HERO */
-    .hero{
-      position:relative;z-index:2;
-      min-height:100vh;
-      display:flex;align-items:center;justify-content:center;
-      text-align:center;padding:130px 24px 90px;
-      overflow:hidden;
-    }
-
-    .hero-inner{max-width:960px}
-
-    .hero-badge{
-      display:inline-flex;align-items:center;gap:8px;
-      border:1px solid var(--border);
-      background:rgba(176,141,87,.10);
-      color:var(--gold);
-      padding:8px 20px;border-radius:50px;
-      font-size:11px;font-weight:700;
-      letter-spacing:.12em;text-transform:uppercase;
-      margin-bottom:40px;
-      animation:fadeInUp .8s .2s both;
-    }
-
-    .badge-dot{
-      width:6px;height:6px;background:var(--sage);
-      border-radius:50%;
-      animation:blink 1.6s ease-in-out infinite;
-    }
-
-    @keyframes blink{
-      0%,100%{opacity:1}
-      50%{opacity:.2}
-    }
-
-    .hero h1{
-      font-family:var(--font-serif);
-      font-size:clamp(56px,9vw,114px);
-      font-weight:300;line-height:.92;
-      letter-spacing:-.01em;color:var(--ink);
-      margin-bottom:30px;
-      animation:fadeInUp .9s .35s both;
-    }
-
-    .hero h1 .line{
-      display:block;overflow:hidden;
-    }
-
-    .word-reveal{
-      display:inline-block;
-      animation:wordIn 1s cubic-bezier(.16,1,.3,1) both;
-    }
-
-    .word-reveal:nth-child(1){animation-delay:.4s}
-    .word-reveal:nth-child(2){animation-delay:.55s}
-    .word-reveal:nth-child(3){animation-delay:.70s}
-    .word-reveal:nth-child(4){animation-delay:.85s}
-    .word-reveal:nth-child(5){animation-delay:1s}
-
-    @keyframes wordIn{
-      from{transform:translateY(110%) skewY(6deg);opacity:0}
-      to{transform:translateY(0) skewY(0);opacity:1}
-    }
-
-    .gradient-text{
-      background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 55%,var(--rose) 100%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      font-style:italic;
-    }
-
-    .hero p{
-      font-size:17px;color:var(--muted);
-      max-width:560px;margin:0 auto 48px;
-      font-weight:300;line-height:1.8;
-      animation:fadeInUp .9s .9s both;
-    }
-
-    .hero-ctas{
-      display:flex;gap:16px;
-      justify-content:center;align-items:center;
-      animation:fadeInUp .9s 1.1s both;
-    }
-
-    .cta-primary{
-      display:flex;align-items:center;gap:10px;
-      padding:16px 38px;border-radius:50px;
-      background:var(--gold);color:var(--cream);
-      font-family:var(--font-head);
-      font-size:14px;font-weight:700;
-      text-decoration:none;
-      transition:all .4s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .cta-primary:hover{
-      transform:scale(1.05);
-      box-shadow:0 20px 48px rgba(176,141,87,.38);
-    }
-
-    .cta-secondary{
-      display:flex;align-items:center;gap:8px;
-      padding:16px 28px;border-radius:50px;
-      border:1.5px solid var(--border2);
-      color:var(--ink);
-      font-family:var(--font-head);
-      font-size:13px;font-weight:600;
-      text-decoration:none;
-      transition:all .3s;
-    }
-
-    .cta-secondary:hover{
-      border-color:var(--gold);
-      background:rgba(176,141,87,.06);
-    }
-
-    .scroll-hint{
-      position:absolute;bottom:44px;left:50%;
-      transform:translateX(-50%);
-      display:flex;flex-direction:column;
-      align-items:center;gap:8px;
-      color:var(--muted2);font-size:10px;
-      letter-spacing:.12em;text-transform:uppercase;
-      animation:fadeInUp 1s 1.5s both;
-    }
-
-    .scroll-line{
-      width:1px;height:50px;
-      background:linear-gradient(to bottom,var(--gold),transparent);
-      animation:scrollLine 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollLine{
-      0%{transform:scaleY(0);transform-origin:top}
-      50%{transform:scaleY(1);transform-origin:top}
-      51%{transform:scaleY(1);transform-origin:bottom}
-      100%{transform:scaleY(0);transform-origin:bottom}
-    }
-
-    @keyframes fadeInUp{
-      from{opacity:0;transform:translateY(28px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-
-    /* MARQUEE */
-    .marquee-wrap{
-      position:relative;z-index:2;
-      border-top:1px solid var(--border);
-      border-bottom:1px solid var(--border);
-      background:rgba(176,141,87,.07);
-      padding:14px 0;
-      overflow:hidden;white-space:nowrap;
-    }
-
-    .marquee-track{
-      display:inline-flex;
-      animation:marquee 28s linear infinite;
-    }
-
-    .marquee-item{
-      display:inline-flex;align-items:center;gap:14px;
-      font-family:var(--font-head);
-      font-size:11px;font-weight:700;
-      letter-spacing:.13em;text-transform:uppercase;
-      color:var(--gold);padding:0 36px;
-    }
-
-    .marquee-sep{color:var(--muted2)}
-
-    @keyframes marquee{
-      0%{transform:translateX(0)}
-      100%{transform:translateX(-50%)}
-    }
-
-    /* SECTIONS */
-    .section{
-      position:relative;z-index:2;
-      padding:100px 0;
-    }
-
-    .container{
-      max-width:1140px;
-      margin:0 auto;
-      padding:0 48px;
-    }
-
-    .section-eyebrow{
-      font-size:10px;font-weight:700;
-      letter-spacing:.18em;text-transform:uppercase;
-      color:var(--gold);margin-bottom:10px;
-    }
-
-    .section-title{
-      font-family:var(--font-serif);
-      font-size:clamp(38px,5vw,60px);
-      font-weight:300;line-height:1;
-      letter-spacing:.01em;color:var(--ink);
-    }
-
-    .section-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      margin-bottom:56px;
-      padding-bottom:24px;
-      border-bottom:1px solid var(--border2);
-    }
-
-    .section-sub{
-      font-size:13px;color:var(--muted);
-      font-style:italic;
-      font-family:var(--font-serif);
-    }
-
-    /* PILLARS */
-    .pillars-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;margin-bottom:90px;
-    }
-
-    .pillar-card{
-      padding:36px 30px;
-      background:var(--cream);
-      border:1px solid var(--border2);
-      border-radius:var(--radius);
-      position:relative;overflow:hidden;
-      transition:all .5s cubic-bezier(.25,.46,.45,.94);
-      box-shadow:0 2px 20px rgba(28,22,18,.04);
-    }
-
-    .pillar-card:hover{
-      transform:translateY(-10px);
-      border-color:rgba(176,141,87,.35);
-      box-shadow:0 20px 50px rgba(28,22,18,.10);
-    }
-
-    .pillar-icon{
-      width:56px;height:56px;border-radius:14px;
-      background:rgba(176,141,87,.10);
-      border:1px solid rgba(176,141,87,.22);
-      color:var(--gold);font-size:26px;
-      display:grid;place-items:center;
-      margin-bottom:20px;
-      transition:all .4s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .pillar-card:hover .pillar-icon{
-      transform:scale(1.15) rotate(-5deg);
-      background:rgba(176,141,87,.18);
-    }
-
-    .pillar-card h4{
-      font-family:var(--font-head);
-      font-size:17px;font-weight:700;
-      color:var(--ink);margin-bottom:10px;
-    }
-
-    .pillar-card p{
-      font-size:14px;color:var(--muted);
-      line-height:1.75;
-    }
-
-    .sub-head{
-      font-family:var(--font-serif);
-      font-size:22px;font-weight:400;
-      color:var(--ink);margin-bottom:28px;
-      font-style:italic;
-    }
-
-    .sub-head em{
-      color:var(--muted);font-style:normal;
-      font-size:13px;font-family:var(--font-body);
-      margin-left:8px;
-    }
-
-    /* ATTAR GRID */
-    .attar-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;margin-bottom:60px;
-    }
-
-    .attar-card{
-      padding:22px 18px;
-      background:var(--cream);
-      border:1px solid var(--border2);
-      border-radius:14px;
-      position:relative;overflow:hidden;
-      transition:all .4s cubic-bezier(.25,.46,.45,.94);
-      cursor:none;
-    }
-
-    .attar-card::after{
-      content:'';
-      position:absolute;bottom:0;left:0;right:0;
-      height:3px;background:var(--swatch-a,var(--gold));
-      transform:scaleX(0);transform-origin:left;
-      transition:transform .4s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .attar-card:hover{
-      transform:translateY(-6px) scale(1.02);
-      border-color:rgba(176,141,87,.3);
-      box-shadow:0 20px 50px rgba(28,22,18,.10);
-    }
-
-    .attar-card:hover::after{transform:scaleX(1)}
-
-    .attar-swatch{
-      width:42px;height:42px;border-radius:10px;
-      margin-bottom:14px;
-      border:2px solid rgba(28,22,18,.10);
-      box-shadow:0 4px 12px rgba(28,22,18,.12);
-    }
-
-    .attar-card h4{
-      font-family:var(--font-head);
-      font-size:14px;font-weight:700;
-      color:var(--ink);margin-bottom:4px;
-    }
-
-    .attar-tag{
-      font-size:10px;color:var(--muted);
-      letter-spacing:.06em;text-transform:uppercase;
-      display:block;margin-bottom:8px;
-    }
-
-    .attar-card p{
-      font-size:12px;color:var(--muted);
-      line-height:1.65;
-    }
-
-    /* ENHANCED DAILY ESSENTIALS */
-    .daily-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .daily-card{
-      padding:30px 24px;
-      background:var(--cream);
-      border:1px solid var(--border2);
-      border-radius:var(--radius);
-      transition:all .4s cubic-bezier(.34,1.56,.64,1);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .daily-card::before{
-      content:'';
-      position:absolute;
-      left:0;right:0;top:0;
-      height:3px;
-      background:var(--product-accent,var(--sage));
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .45s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .daily-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(107,124,94,.35);
-      box-shadow:0 18px 42px rgba(28,22,18,.09);
-    }
-
-    .daily-card:hover::before{
-      transform:scaleX(1);
-    }
-
-    .daily-icon{
-      width:54px;height:54px;
-      display:grid;place-items:center;
-      border-radius:14px;
-      background:rgba(107,124,94,.10);
-      border:1px solid rgba(107,124,94,.20);
-      color:var(--sage);
-      font-size:27px;
-      margin-bottom:18px;
-      transition:transform .5s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .daily-card:hover .daily-icon{
-      transform:scale(1.12) rotate(-6deg);
-    }
-
-    .daily-card h4{
-      font-family:var(--font-head);
-      font-size:16px;font-weight:700;
-      color:var(--ink);
-      margin-bottom:10px;
-    }
-
-    .daily-card > p{
-      font-size:12.5px;
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    .product-features{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      margin-top:16px;
-    }
-
-    .product-features span{
-      padding:5px 8px;
-      border-radius:50px;
-      background:rgba(107,124,94,.08);
-      border:1px solid rgba(107,124,94,.14);
-      font-size:8px;
-      font-weight:700;
-      letter-spacing:.07em;
-      text-transform:uppercase;
-      color:var(--sage);
-    }
-
-    .variant-heading{
-      margin-top:18px;
-      padding-top:15px;
-      border-top:1px solid var(--border2);
-      font-size:9px;
-      font-weight:700;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-
-    .variant-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      margin-top:9px;
-    }
-
-    .variant-list span{
-      font-size:9px;
-      font-weight:600;
-      padding:5px 8px;
-      border-radius:6px;
-      color:var(--ink2);
-      background:var(--bg);
-      border:1px solid var(--border2);
-    }
-
-    .volume{
-      display:block;
-      margin-top:14px;
-      font-size:10px;
-      color:var(--muted);
-      font-weight:500;
-    }
-
-    /* HOME CARE */
-    .home-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
-    }
-
-    .home-card{
-      padding:32px 24px;
-      background:var(--cream);
-      border:1px solid var(--border2);
-      border-radius:var(--radius);
-      position:relative;overflow:hidden;
-      transition:all .4s cubic-bezier(.25,.46,.45,.94);
-      box-shadow:0 2px 14px rgba(28,22,18,.04);
-    }
-
-    .home-card::before{
-      content:attr(data-num);
-      position:absolute;top:16px;right:18px;
-      font-family:var(--font-serif);
-      font-size:54px;font-weight:300;
-      color:rgba(28,22,18,.05);
-      line-height:1;
-    }
-
-    .home-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(107,124,94,.3);
-      box-shadow:0 20px 46px rgba(28,22,18,.10);
-    }
-
-    .home-icon{
-      width:52px;height:52px;border-radius:13px;
-      background:rgba(107,124,94,.10);
-      border:1px solid rgba(107,124,94,.20);
-      color:var(--sage);font-size:24px;
-      display:grid;place-items:center;
-      margin-bottom:18px;
-      transition:all .4s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .home-card:hover .home-icon{
-      transform:scale(1.15) rotate(8deg);
-    }
-
-    .home-card h4{
-      font-family:var(--font-head);
-      font-size:16px;font-weight:700;
-      color:var(--ink);margin-bottom:8px;
-    }
-
-    .home-card p{
-      font-size:13px;color:var(--muted);
-      line-height:1.75;
-    }
-
-    .home-card.featured-cleaner{
-      border-color:rgba(107,124,94,.22);
-    }
-
-    .cleaner-tagline{
-      display:block;
-      margin-bottom:10px;
-      color:var(--sage);
-      font-size:9px;
-      font-weight:700;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-    }
-
-    /* HOME DECOR */
-    .decor-intro{
-      padding:56px;margin-bottom:56px;
-      background:var(--cream);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      position:relative;overflow:hidden;
-      box-shadow:0 4px 30px rgba(28,22,18,.06);
-    }
-
-    .decor-intro::before{
-      content:'';
-      position:absolute;inset:0;
-      background:radial-gradient(
-        ellipse at 80% 50%,
-        rgba(176,141,87,.10),
-        transparent 65%
-      );
-    }
-
-    .decor-intro-inner{
-      position:relative;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:48px;
-      align-items:center;
-    }
-
-    .decor-intro h3{
-      font-family:var(--font-serif);
-      font-size:clamp(32px,3.5vw,48px);
-      font-weight:300;line-height:1.15;
-      color:var(--ink);margin-bottom:20px;
-      font-style:italic;
-    }
-
-    .decor-intro p{
-      font-size:14px;color:var(--muted);
-      line-height:1.85;
-    }
-
-    .decor-pillars{
-      display:flex;flex-direction:column;
-      gap:12px;
-    }
-
-    .decor-pillar{
-      display:flex;align-items:center;gap:14px;
-      padding:14px 18px;border-radius:10px;
-      background:rgba(176,141,87,.06);
-      border:1px solid var(--border);
-      transition:all .3s;
-    }
-
-    .decor-pillar:hover{
-      background:rgba(176,141,87,.12);
-      transform:translateX(6px);
-    }
-
-    .decor-pillar i{
-      font-size:20px;color:var(--gold);
-      flex-shrink:0;
-    }
-
-    .decor-pillar span{
-      font-size:13px;color:var(--ink2);
-      font-weight:500;
-    }
-
-    .decor-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;margin-bottom:28px;
-    }
-
-    .decor-card{
-      padding:28px 20px;
-      background:var(--cream);
-      border:1px solid var(--border2);
-      border-radius:var(--radius);
-      position:relative;overflow:hidden;
-      transition:all .45s cubic-bezier(.25,.46,.45,.94);
-      box-shadow:0 2px 16px rgba(28,22,18,.04);
-    }
-
-    .decor-card::before{
-      content:'';
-      position:absolute;top:0;left:0;right:0;
-      height:3px;background:var(--accent,var(--gold));
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .5s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .decor-card:hover{
-      transform:translateY(-10px);
-      border-color:rgba(176,141,87,.35);
-      box-shadow:0 24px 54px rgba(28,22,18,.12);
-    }
-
-    .decor-card:hover::before{
-      transform:scaleX(1);
-    }
-
-    .decor-icon{
-      width:60px;height:60px;
-      border-radius:16px;
-      margin-bottom:18px;
-      background:var(--icon-bg,rgba(176,141,87,.10));
-      border:1px solid var(--icon-border,rgba(176,141,87,.20));
-      color:var(--icon-color,var(--gold));
-      font-size:28px;
-      display:grid;place-items:center;
-      transition:all .45s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .decor-card:hover .decor-icon{
-      transform:scale(1.18) rotate(-6deg);
-    }
-
-    .decor-card h4{
-      font-family:var(--font-head);
-      font-size:15px;font-weight:700;
-      color:var(--ink);margin-bottom:6px;
-    }
-
-    .decor-card p{
-      font-size:12px;color:var(--muted);
-      line-height:1.7;
-    }
-
-    .decor-values-wrap{margin-top:56px}
-
-    .decor-values-title{
-      font-family:var(--font-serif);
-      font-size:24px;font-weight:300;
-      color:var(--ink);margin-bottom:24px;
-      font-style:italic;text-align:center;
-    }
-
-    .decor-values{
-      display:flex;gap:16px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-
-    .decor-value{
-      padding:14px 28px;
-      border-radius:50px;
-      border:1px solid var(--border);
-      background:var(--cream);
-      font-size:13px;font-weight:600;
-      color:var(--ink2);
-      letter-spacing:.04em;
-      transition:all .3s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .decor-value:hover{
-      background:var(--gold);
-      color:var(--cream);
-      border-color:var(--gold);
-      transform:scale(1.05) translateY(-3px);
-      box-shadow:0 8px 24px rgba(176,141,87,.25);
-    }
-
-    /* FOUNDERS */
-    .founders-wrap{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;margin-top:48px;
-    }
-
-    .founder-card{
-      padding:36px;
-      display:flex;gap:24px;
-      background:var(--cream);
-      border:1px solid var(--border2);
-      border-radius:var(--radius);
-      position:relative;overflow:hidden;
-      transition:all .5s cubic-bezier(.25,.46,.45,.94);
-      box-shadow:0 2px 18px rgba(28,22,18,.04);
-    }
-
-    .founder-card:hover{
-      border-color:rgba(176,141,87,.3);
-      transform:translateY(-6px);
-      box-shadow:0 20px 48px rgba(28,22,18,.10);
-    }
-
-    .founder-av{
-      width:68px;height:68px;
-      border-radius:16px;flex-shrink:0;
-      background:linear-gradient(135deg,var(--gold),#7a5c1a);
-      color:var(--cream);
-      font-family:var(--font-head);
-      font-weight:900;font-size:22px;
-      display:grid;place-items:center;
-      box-shadow:0 8px 24px rgba(176,141,87,.22);
-    }
-
-    .founder-degree{
-      font-size:10px;font-weight:700;
-      letter-spacing:.10em;text-transform:uppercase;
-      color:var(--gold);
-      background:rgba(176,141,87,.08);
-      border:1px solid rgba(176,141,87,.22);
-      padding:4px 10px;border-radius:6px;
-      display:inline-block;margin-bottom:10px;
-    }
-
-    .founder-card h3{
-      font-family:var(--font-serif);
-      font-size:22px;font-weight:600;
-      color:var(--ink);margin-bottom:10px;
-    }
-
-    .founder-card p{
-      font-size:13px;color:var(--muted);
-      line-height:1.80;
-    }
-
-    /* MENTOR */
-    .mentor-wrap{
-      margin-top:80px;padding:60px;
-      background:var(--cream);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      text-align:center;
-      position:relative;overflow:hidden;
-      box-shadow:0 4px 30px rgba(28,22,18,.06);
-    }
-
-    .mentor-wrap::before{
-      content:'';
-      position:absolute;inset:0;
-      background:radial-gradient(
-        circle at 50% 0%,
-        rgba(176,141,87,.07),
-        transparent 60%
-      );
-    }
-
-    .mentor-av{
-      width:80px;height:80px;
-      border-radius:20px;
-      margin:0 auto 28px;
-      background:linear-gradient(135deg,var(--rose),#8a3a2b);
-      color:var(--cream);
-      font-family:var(--font-head);
-      font-weight:900;font-size:26px;
-      display:grid;place-items:center;
-      box-shadow:0 10px 30px rgba(196,137,122,.28);
-    }
-
-    .mentor-wrap h3{
-      font-family:var(--font-serif);
-      font-size:30px;font-weight:300;
-      color:var(--ink);margin-bottom:20px;
-      font-style:italic;
-    }
-
-    .mentor-wrap p{
-      font-size:15px;color:var(--muted);
-      line-height:1.95;
-      max-width:640px;margin:0 auto;
-    }
-
-    .divider{
-      height:1px;
-      background:linear-gradient(
-        to right,
-        transparent,
-        var(--border),
-        transparent
-      );
-      margin:80px 0;
-    }
-
-    /* FOOTER */
-    footer{
-      position:relative;z-index:2;
-      border-top:1px solid var(--border);
-      background:rgba(247,242,234,.90);
-      padding:80px 0 50px;
-      text-align:center;
-    }
-
-    footer h2{
-      font-family:var(--font-serif);
-      font-size:clamp(40px,5vw,64px);
-      font-weight:300;
-      letter-spacing:.01em;
-      color:var(--ink);
-      margin-bottom:16px;
-      line-height:1.05;
-      font-style:italic;
-    }
-
-    footer p{
-      color:var(--muted);
-      max-width:440px;
-      margin:0 auto 36px;
-      font-size:14px;
-    }
-
-    .foot-icons{
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      margin-bottom:48px;
-    }
-
-    .foot-icon{
-      width:52px;height:52px;
-      border-radius:50%;
-      border:1px solid var(--border2);
-      color:var(--muted);
-      font-size:24px;
-      display:grid;place-items:center;
-      text-decoration:none;
-      transition:all .4s cubic-bezier(.34,1.56,.64,1);
-      background:var(--cream);
-    }
-
-    .foot-icon:hover{
-      border-color:var(--gold);
-      color:var(--gold);
-      transform:scale(1.2) translateY(-4px);
-      box-shadow:0 12px 28px rgba(176,141,87,.18);
-    }
-
-    .foot-copy{
-      font-size:11px;
-      color:var(--muted2);
-      letter-spacing:.10em;
-    }
-
-    /* REVEAL */
-    .reveal{
-      opacity:0;
-      transform:translateY(36px);
-      transition:
-        opacity .85s cubic-bezier(.16,1,.3,1),
-        transform .85s cubic-bezier(.16,1,.3,1);
-    }
-
-    .reveal.visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    .reveal-delay-1{transition-delay:.10s}
-    .reveal-delay-2{transition-delay:.20s}
-    .reveal-delay-3{transition-delay:.30s}
-    .reveal-delay-4{transition-delay:.40s}
-
-    /* RESPONSIVE */
-    @media(max-width:960px){
-      header{padding:14px 20px}
-      nav{display:none}
-      .container{padding:0 20px}
-      .pillars-grid{grid-template-columns:1fr}
-      .attar-grid{grid-template-columns:repeat(2,1fr)}
-      .daily-grid{grid-template-columns:1fr}
-      .home-grid{grid-template-columns:repeat(2,1fr)}
-      .decor-grid{grid-template-columns:repeat(2,1fr)}
-      .decor-intro-inner{grid-template-columns:1fr;gap:32px}
-      .founders-wrap{grid-template-columns:1fr}
-      .mentor-wrap{padding:40px 24px}
-      .founder-card{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-      }
-    }
-
-    @media(max-width:560px){
-      .attar-grid{grid-template-columns:1fr 1fr}
-      .home-grid{grid-template-columns:1fr}
-      .decor-grid{grid-template-columns:1fr 1fr}
-      .hero-ctas{flex-direction:column}
-      .header-cta .icon-btn{display:none}
-      .wa-btn{padding:9px 14px}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MarketFix — Recover Your Marketing Score</title>
+
+<style>
+:root {
+    --bg: #f7f8fc;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #697386;
+    --primary: #635bff;
+    --primary-dark: #4d46d8;
+    --secondary: #12b981;
+    --danger: #ef5350;
+    --warning: #f59e0b;
+    --border: #e8eaf0;
+    --shadow: 0 12px 35px rgba(26, 32, 44, .08);
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 72px;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 850;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 26px;
+    align-items: center;
+}
+
+.nav-links button {
+    border: none;
+    background: none;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.nav-links button:hover {
+    color: var(--primary);
+}
+
+.profile {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ecebff;
+    color: var(--primary);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 90px 24px 65px;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #eeedff;
+    color: var(--primary);
+    border-radius: 30px;
+    padding: 7px 13px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    max-width: 700px;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 620px;
+    margin-bottom: 30px;
+}
+
+.cta-row {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.primary-btn {
+    border: none;
+    background: var(--primary);
+    color: white;
+    padding: 13px 21px;
+    border-radius: 12px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(99,91,255,.25);
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text);
+    padding: 13px 21px;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+/* =========================
+   SCORE CARD
+========================= */
+
+.score-preview {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.score-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.score-title {
+    font-weight: 800;
+}
+
+.score-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.score-circle {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 20px auto;
+    background: conic-gradient(var(--primary) 0 58%, #eeeef4 58% 100%);
+    display: grid;
+    place-items: center;
+}
+
+.score-circle-inner {
+    width: 125px;
+    height: 125px;
+    background: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.score-number {
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.score-label {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.target-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.progress {
+    height: 9px;
+    border-radius: 10px;
+    background: #ececf2;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--primary);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 24px;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.feature-card {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: var(--radius);
+    transition: .2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #f0efff;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    font-size: 21px;
+}
+
+.feature-card h3 {
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    display: none;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 24px 80px;
+}
+
+.dashboard.active {
+    display: block;
+}
+
+.landing.hidden {
+    display: none;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+}
+
+.dashboard-header p {
+    color: var(--muted);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(20,20,40,.03);
+}
+
+.card h3 {
+    margin-bottom: 17px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 13px;
+}
+
+.stat {
+    background: #f8f8fc;
+    padding: 18px;
+    border-radius: 14px;
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.stat-value {
+    font-size: 27px;
+    font-weight: 900;
+    margin-top: 3px;
+}
+
+.stat-change {
+    font-size: 12px;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+/* =========================
+   TOPIC LIST
+========================= */
+
+.topic {
+    margin-bottom: 17px;
+}
+
+.topic:last-child {
+    margin-bottom: 0;
+}
+
+.topic-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.topic-name {
+    font-weight: 700;
+}
+
+.topic-score {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.topic-progress {
+    height: 8px;
+    background: #ececf2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.topic-fill {
+    height: 100%;
+    border-radius: inherit;
+}
+
+.weak {
+    background: var(--danger);
+}
+
+.medium {
+    background: var(--warning);
+}
+
+.strong {
+    background: var(--secondary);
+}
+
+/* =========================
+   RECOVERY PLAN
+========================= */
+
+.plan-item {
+    display: flex;
+    gap: 14px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.plan-item:last-child {
+    border: none;
+}
+
+.plan-number {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #eeedff;
+    color: var(--primary);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+}
+
+.plan-item h4 {
+    margin-bottom: 3px;
+}
+
+.plan-item p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice-section {
+    margin-top: 18px;
+}
+
+.question {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 13px;
+}
+
+.question-number {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.question-text {
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.options {
+    display: grid;
+    gap: 8px;
+}
+
+.option {
+    border: 1px solid var(--border);
+    padding: 11px 13px;
+    border-radius: 10px;
+    background: white;
+    text-align: left;
+}
+
+.option:hover {
+    border-color: var(--primary);
+    background: #fafaff;
+}
+
+.option.correct {
+    border-color: var(--secondary);
+    background: #effcf7;
+}
+
+.option.incorrect {
+    border-color: var(--danger);
+    background: #fff2f2;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(20,24,35,.55);
+    display: none;
+    place-items: center;
+    z-index: 300;
+    padding: 20px;
+}
+
+.modal.active {
+    display: grid;
+}
+
+.modal-content {
+    width: min(560px, 100%);
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.close {
+    border: none;
+    background: #f2f2f6;
+    border-radius: 9px;
+    width: 35px;
+    height: 35px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #161827;
+    color: white;
+    padding: 45px 6%;
+    margin-top: 30px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+footer p {
+    color: #a6a9b8;
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+<!-- =========================
+     NAVBAR
+========================= -->
 
-  <div class="bg-orbs">
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-  </div>
+<nav class="navbar">
 
-  <!-- HEADER -->
-  <header>
     <div class="logo">
-      <div class="logo-icon">
-        <i class="ph-fill ph-flask"></i>
-      </div>
-      Home Economics
+        Market<span>Fix</span>
     </div>
 
-    <nav>
-      <a href="#personal" class="nav-link">Personal</a>
-      <a href="#homecare" class="nav-link">Home Care</a>
-      <a href="#decor" class="nav-link">Décor</a>
-      <a href="#founders" class="nav-link">Team</a>
-    </nav>
-
-    <div class="header-cta">
-      <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" class="icon-btn">
-        <i class="ph-fill ph-instagram-logo"></i>
-      </a>
-
-      <a href="mailto:homeeconomics2025@gmail.com" class="icon-btn">
-        <i class="ph-fill ph-envelope-simple"></i>
-      </a>
-
-      <a href="https://wa.me/919667722988" class="wa-btn">
-        <i class="ph-fill ph-whatsapp-logo"></i>
-        WhatsApp
-      </a>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-
-      <div class="hero-badge">
-        <div class="badge-dot"></div>
-        IIT Delhi — New Delhi · Three Pillars of Living
-      </div>
-
-      <h1>
-        <span class="line">
-          <span class="word-reveal">Pure.</span>
-          <span class="word-reveal gradient-text">Beautiful.</span>
-        </span>
-
-        <span class="line">
-          <span class="word-reveal">Engineered</span>
-          <span class="word-reveal">for</span>
-          <span class="word-reveal gradient-text">Life.</span>
-        </span>
-      </h1>
-
-      <p>
-        From precision-formulated personal care and powerful home hygiene
-        to timeless décor that transforms your spaces — everything crafted
-        with intention, honesty, and an engineer's eye.
-      </p>
-
-      <div class="hero-ctas">
-        <a href="https://wa.me/919667722988" class="cta-primary">
-          <i class="ph-fill ph-whatsapp-logo"></i>
-          Order on WhatsApp
-        </a>
-
-        <a href="#personal" class="cta-secondary">
-          Explore Products
-          <i class="ph ph-arrow-down"></i>
-        </a>
-      </div>
+    <div class="nav-links">
+        <button onclick="scrollToSection('how')">How it works</button>
+        <button onclick="scrollToSection('topics')">Marketing topics</button>
+        <button onclick="openDiagnostic()">Start diagnostic</button>
     </div>
 
-    <div class="scroll-hint">
-      <div class="scroll-line"></div>
-      Scroll
-    </div>
-  </section>
+    <div class="profile">T</div>
 
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
+</nav>
 
-      <span class="marquee-item">
-        Precision Formulated <span class="marquee-sep">✦</span>
-      </span>
 
-      <span class="marquee-item">
-        IIT Delhi Engineered <span class="marquee-sep">✦</span>
-      </span>
+<!-- =========================
+     LANDING PAGE
+========================= -->
 
-      <span class="marquee-item">
-        Transparent Pricing <span class="marquee-sep">✦</span>
-      </span>
+<div id="landing" class="landing">
 
-      <span class="marquee-item">
-        Alcohol-Free Attars <span class="marquee-sep">✦</span>
-      </span>
+<section class="hero">
 
-      <span class="marquee-item">
-        Luxury Home Décor <span class="marquee-sep">✦</span>
-      </span>
+    <div>
 
-      <span class="marquee-item">
-        Timeless Aesthetics <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Safety First Always <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Made in New Delhi <span class="marquee-sep">✦</span>
-      </span>
-
-      <!-- DUPLICATED FOR CONTINUOUS LOOP -->
-
-      <span class="marquee-item">
-        Precision Formulated <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        IIT Delhi Engineered <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Transparent Pricing <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Alcohol-Free Attars <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Luxury Home Décor <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Timeless Aesthetics <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Safety First Always <span class="marquee-sep">✦</span>
-      </span>
-
-      <span class="marquee-item">
-        Made in New Delhi <span class="marquee-sep">✦</span>
-      </span>
-
-    </div>
-  </div>
-
-  <div class="container">
-
-    <!-- PILLARS -->
-    <section class="section" style="padding-top:80px;">
-
-      <div class="pillars-grid">
-
-        <div class="pillar-card reveal">
-          <div class="pillar-icon">
-            <i class="ph-duotone ph-atom"></i>
-          </div>
-
-          <h4>Precision Formulated</h4>
-
-          <p>
-            Every product developed with biochemical precision.
-            Balanced pH levels and active ingredients for maximum efficacy.
-          </p>
+        <div class="badge">
+            ✦ Built for struggling marketing students
         </div>
 
-        <div class="pillar-card reveal reveal-delay-1">
-          <div class="pillar-icon">
-            <i class="ph-duotone ph-scales"></i>
-          </div>
-
-          <h4>Transparent Economics</h4>
-
-          <p>
-            Quality without the premium markup. Optimized supply chains
-            bringing honest prices to your doorstep.
-          </p>
-        </div>
-
-        <div class="pillar-card reveal reveal-delay-2">
-          <div class="pillar-icon">
-            <i class="ph-duotone ph-sparkle"></i>
-          </div>
-
-          <h4>Curated Elegance</h4>
-
-          <p>
-            From engineered essentials to timeless décor — everything chosen
-            for its beauty, function, and lasting character.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PERSONAL CARE -->
-    <section id="personal" class="section" style="scroll-margin-top:80px;">
-
-      <div class="section-header reveal">
-        <div>
-          <div class="section-eyebrow">Pillar 01</div>
-          <h2 class="section-title">Personal Care</h2>
-        </div>
-
-        <span class="section-sub">
-          Attars & Daily Essentials
-        </span>
-      </div>
-
-      <!-- ATTARS -->
-      <h3 class="sub-head reveal">
-        The Attar Collection
-        <em>(Alcohol Free)</em>
-      </h3>
-
-      <div class="attar-grid">
-
-        <div class="attar-card reveal" style="--swatch-a:#6b7280;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#374151,#6b7280)"></div>
-          <h4>StoneWood</h4>
-          <span class="attar-tag">Woody & Earthy</span>
-          <p>Grounded sophistication. A long-lasting scent for presence and calm.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-1" style="--swatch-a:#b91c1c;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#b91c1c,#fca5a5)"></div>
-          <h4>Diřeo</h4>
-          <span class="attar-tag">Spicy & Bold</span>
-          <p>Ignite the spirit with untamed warmth. For those who stand out.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-2" style="--swatch-a:#0369a1;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#0369a1,#7dd3fc)"></div>
-          <h4>Bleu</h4>
-          <span class="attar-tag">Fresh & Oceanic</span>
-          <p>Freedom bottled in blue. Crisp, airy, and undeniably fresh.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-3" style="--swatch-a:#be185d;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#be185d,#fbcfe8)"></div>
-          <h4>Flora</h4>
-          <span class="attar-tag">Floral & Sweet</span>
-          <p>A blooming garden in a bottle. Subtle sweetness.</p>
-        </div>
-
-        <div class="attar-card reveal" style="--swatch-a:#d97706;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#d97706,#fcd34d)"></div>
-          <h4>Malaka</h4>
-          <span class="attar-tag">Royal & Musky</span>
-          <p>Rich, royal notes perfect for the evening.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-1" style="--swatch-a:#047857;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#047857,#6ee7b7)"></div>
-          <h4>Khaliq</h4>
-          <span class="attar-tag">Mysterious</span>
-          <p>Divine depth with a touch of nature's mystery.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-2" style="--swatch-a:#78350f;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#78350f,#92400e)"></div>
-          <h4>Whiskey Tobacco</h4>
-          <span class="attar-tag">Smoky & Amber</span>
-          <p>Smoky warmth meets rich amber. Bold and contemplative.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-3" style="--swatch-a:#b08d57;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#fef3c7,#e8c98a)"></div>
-          <h4>Jasmine Bliss</h4>
-          <span class="attar-tag">Floral & Pure</span>
-          <p>Pure essence of white blossoms. Intoxicatingly sweet.</p>
-        </div>
-
-        <div class="attar-card reveal" style="--swatch-a:#9ca3af;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#f3f4f6,#e5e7eb)"></div>
-          <h4>White Musk</h4>
-          <span class="attar-tag">Clean & Soft</span>
-          <p>Velvet softness on the skin. Clean, powdery, timeless.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-1" style="--swatch-a:#ef4444;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#ef4444,#b91c1c)"></div>
-          <h4>Savage Fire</h4>
-          <span class="attar-tag">Intense & Spicy</span>
-          <p>Blazing spice and heat. Intense, energetic, and raw.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-2" style="--swatch-a:#3b82f6;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#3b82f6,#2563eb)"></div>
-          <h4>Blue Pulse</h4>
-          <span class="attar-tag">Electric & Cool</span>
-          <p>Electric aquatic notes. Cool, sharp, and pulsating.</p>
-        </div>
-
-        <div class="attar-card reveal reveal-delay-3" style="--swatch-a:#10b981;">
-          <div class="attar-swatch" style="background:linear-gradient(135deg,#10b981,#059669)"></div>
-          <h4>Lomani</h4>
-          <span class="attar-tag">Aromatic Zest</span>
-          <p>Classic crispness. Herbs and citrus for timeless freshness.</p>
-        </div>
-
-      </div>
-
-      <!-- DAILY CARE -->
-      <h3 class="sub-head reveal" style="margin-top:48px;">
-        Daily Care Essentials
-      </h3>
-
-      <div class="daily-grid">
-
-        <!-- ALOE VERA -->
-        <div class="daily-card reveal" style="--product-accent:#6b7c5e;">
-
-          <div class="daily-icon">
-            <i class="ph-duotone ph-plant"></i>
-          </div>
-
-          <h4>Aloe Vera Gel</h4>
-
-          <p>
-            Formulated with pure aloe vera extract, this lightweight gel
-            absorbs instantly into the skin, delivering deep moisture
-            without any sticky residue. Suitable for daily use across
-            all skin types.
-          </p>
-
-          <div class="product-features">
-            <span>Pure Aloe Extract</span>
-            <span>Deep Moisture</span>
-            <span>Non-Sticky</span>
-            <span>Daily Use</span>
-          </div>
-
-        </div>
-
-        <!-- PAPAYA -->
-        <div class="daily-card reveal reveal-delay-1" style="--product-accent:#d97706;">
-
-          <div class="daily-icon" style="color:#d97706;background:rgba(217,119,6,.08);border-color:rgba(217,119,6,.18);">
-            <i class="ph-duotone ph-sparkle"></i>
-          </div>
-
-          <h4>Papaya Moisturiser</h4>
-
-          <p>
-            A rich yet lightweight moisturiser that harnesses the
-            brightening power of papaya enzymes. Provides lasting
-            hydration while promoting a natural, healthy glow —
-            perfect for morning and night routines.
-          </p>
-
-          <div class="product-features">
-            <span>Papaya Enzymes</span>
-            <span>Brightening</span>
-            <span>Hydrating</span>
-            <span>AM & PM</span>
-          </div>
-
-        </div>
-
-        <!-- BODY WASH -->
-        <div class="daily-card reveal reveal-delay-2" style="--product-accent:#6b82a8;">
-
-          <div class="daily-icon" style="color:#6b82a8;background:rgba(107,130,168,.09);border-color:rgba(107,130,168,.20);">
-            <i class="ph-duotone ph-shower"></i>
-          </div>
-
-          <h4>Body Wash</h4>
-
-          <p>
-            A versatile gentle cleansing formula designed for
-            whole-body use — body, face, and hands. Available in
-            five distinctive variants to suit every mood. Suitable
-            for daily use.
-          </p>
-
-          <div class="product-features">
-            <span>Body</span>
-            <span>Face</span>
-            <span>Hand</span>
-            <span>Gentle Formula</span>
-            <span>Daily Use</span>
-          </div>
-
-          <div class="variant-heading">
-            Available in 5 variants
-          </div>
-
-          <div class="variant-list">
-            <span>Rose</span>
-            <span>White Musk</span>
-            <span>Activated Charcoal</span>
-            <span>Green Deo</span>
-            <span>Sandalwood</span>
-          </div>
-
-          <span class="volume">
-            Net Volume: 300mL
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- HOME CARE -->
-    <section id="homecare" class="section" style="scroll-margin-top:80px;">
-
-      <div class="section-header reveal">
-        <div>
-          <div class="section-eyebrow">Pillar 02</div>
-          <h2 class="section-title">Home Care</h2>
-        </div>
-
-        <span class="section-sub">
-          Hygiene & Safety
-        </span>
-      </div>
-
-      <div class="home-grid">
-
-        <div class="home-card reveal" data-num="01">
-
-          <div class="home-icon">
-            <i class="ph-duotone ph-toilet"></i>
-          </div>
-
-          <h4>Toilet Cleaner</h4>
-
-          <p>
-            Powerful sanitation for modern living.
-            Removes tough stains and disinfects thoroughly.
-          </p>
-
-        </div>
-
-        <div class="home-card reveal reveal-delay-1" data-num="02">
-
-          <div class="home-icon">
-            <i class="ph-duotone ph-squares-four"></i>
-          </div>
-
-          <h4>Tile Cleaner</h4>
-
-          <p>
-            Tough on grime, gentle on shine.
-            Restores the original look of your surfaces.
-          </p>
-
-        </div>
-
-        <!-- ENHANCED FLOOR CLEANER -->
-        <div class="home-card featured-cleaner reveal reveal-delay-2" data-num="03">
-
-          <div class="home-icon">
-            <i class="ph-duotone ph-waves"></i>
-          </div>
-
-          <h4>Room Freshener Floor Cleaner</h4>
-
-          <span class="cleaner-tagline">
-            Cleans · Deodorises · Freshens
-          </span>
-
-          <p>
-            A scented floor cleaner that deep-cleans surfaces,
-            eliminates odours, and leaves a lasting fresh fragrance
-            throughout your home. Available in four aromatic variants.
-            Powerful yet gentle for everyday use.
-          </p>
-
-          <div class="product-features">
-            <span>Scented</span>
-            <span>Powerful Yet Gentle</span>
-            <span>Daily Use</span>
-          </div>
-
-          <div class="variant-heading">
-            Available in 4 variants
-          </div>
-
-          <div class="variant-list">
-            <span>Rose</span>
-            <span>Jasmine</span>
-            <span>Lavender</span>
-            <span>Orange</span>
-          </div>
-
-          <span class="volume">
-            Net Volume: 500mL
-          </span>
-
-        </div>
-
-        <div class="home-card reveal reveal-delay-3" data-num="04">
-
-          <div class="home-icon">
-            <i class="ph-duotone ph-t-shirt"></i>
-          </div>
-
-          <h4>Liquid Detergent</h4>
-
-          <p>
-            Engineered to clean thoroughly while protecting
-            fabric integrity and colour.
-          </p>
-
-        </div>
-
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- HOME DECOR -->
-    <section id="decor" class="section" style="scroll-margin-top:80px;">
-
-      <div class="section-header reveal">
-        <div>
-          <div class="section-eyebrow">Pillar 03</div>
-          <h2 class="section-title">Home Décor</h2>
-        </div>
-
-        <span class="section-sub">
-          Elegance & Ambiance
-        </span>
-      </div>
-
-      <div class="decor-intro reveal">
-
-        <div class="decor-intro-inner">
-
-          <div>
-            <h3>
-              Transform ordinary corners into visually rich experiences.
-            </h3>
-
-            <p>
-              Inspired by sophistication and functionality, our décor
-              collection blends elegance, warmth, and timeless design.
-              Every piece carries a story — curated for refined spaces
-              that feel both welcoming and extraordinary.
-            </p>
-          </div>
-
-          <div class="decor-pillars">
-
-            <div class="decor-pillar">
-              <i class="ph-fill ph-flower-tulip"></i>
-              <span>Artificial Flowers & Botanical Décor</span>
-            </div>
-
-            <div class="decor-pillar">
-              <i class="ph-fill ph-crown-simple"></i>
-              <span>Luxury Accents & Statement Pieces</span>
-            </div>
-
-            <div class="decor-pillar">
-              <i class="ph-fill ph-shooting-star"></i>
-              <span>Artistic Figurines & Collectibles</span>
-            </div>
-
-            <div class="decor-pillar">
-              <i class="ph-fill ph-medal-military"></i>
-              <span>Military-Inspired Décor & Memorabilia</span>
-            </div>
-
-            <div class="decor-pillar">
-              <i class="ph-fill ph-diamond"></i>
-              <span>Crystal, Glass & Metallic Collections</span>
-            </div>
-
-            <div class="decor-pillar">
-              <i class="ph-fill ph-gift"></i>
-              <span>Premium Gifting Solutions</span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="decor-grid">
-
-        <div class="decor-card reveal"
-             style="--accent:var(--rose);--icon-bg:rgba(196,137,122,.10);--icon-border:rgba(196,137,122,.22);--icon-color:var(--rose);">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-flower-tulip"></i>
-          </div>
-
-          <h4>Botanical Décor</h4>
-
-          <p>
-            Lifelike artificial flowers and botanical arrangements
-            that bring nature's beauty indoors without maintenance.
-          </p>
-        </div>
-
-        <div class="decor-card reveal reveal-delay-1">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-crown-simple"></i>
-          </div>
-
-          <h4>Luxury Accents</h4>
-
-          <p>
-            Statement pieces and accent objects that anchor a room —
-            chosen for timeless character and visual weight.
-          </p>
-        </div>
-
-        <div class="decor-card reveal reveal-delay-2"
-             style="--accent:var(--sage);--icon-bg:rgba(107,124,94,.10);--icon-border:rgba(107,124,94,.22);--icon-color:var(--sage);">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-shooting-star"></i>
-          </div>
-
-          <h4>Figurines & Art</h4>
-
-          <p>
-            Hand-selected artistic figurines and collectibles that
-            tell a story and elevate any shelf or surface.
-          </p>
-        </div>
-
-        <div class="decor-card reveal reveal-delay-3"
-             style="--accent:#7c6d5a;--icon-bg:rgba(124,109,90,.10);--icon-border:rgba(124,109,90,.22);--icon-color:#7c6d5a;">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-medal-military"></i>
-          </div>
-
-          <h4>Military Memorabilia</h4>
-
-          <p>
-            Bold military-inspired décor and commemorative pieces
-            that command respect and add distinctive character.
-          </p>
-        </div>
-
-        <div class="decor-card reveal"
-             style="--accent:#6b82a8;--icon-bg:rgba(107,130,168,.10);--icon-border:rgba(107,130,168,.22);--icon-color:#6b82a8;">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-diamond"></i>
-          </div>
-
-          <h4>Crystal & Glass</h4>
-
-          <p>
-            Exquisite crystal, glass, and metallic collections
-            that catch light and add brilliance to any corner.
-          </p>
-        </div>
-
-        <div class="decor-card reveal reveal-delay-1">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-clock-countdown"></i>
-          </div>
-
-          <h4>Wall Décor & Clocks</h4>
-
-          <p>
-            Curated wall art, statement clocks, and accessories
-            that bring structure and beauty to your walls.
-          </p>
-        </div>
-
-        <div class="decor-card reveal reveal-delay-2"
-             style="--accent:var(--rose);--icon-bg:rgba(196,137,122,.10);--icon-border:rgba(196,137,122,.22);--icon-color:var(--rose);">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-gift"></i>
-          </div>
-
-          <h4>Premium Gifting</h4>
-
-          <p>
-            Thoughtfully curated gift sets — the kind that leave an
-            impression and linger in memory long after.
-          </p>
-        </div>
-
-        <div class="decor-card reveal reveal-delay-3"
-             style="--accent:var(--sage);--icon-bg:rgba(107,124,94,.10);--icon-border:rgba(107,124,94,.22);--icon-color:var(--sage);">
-
-          <div class="decor-icon">
-            <i class="ph-duotone ph-house-line"></i>
-          </div>
-
-          <h4>Interior Styling</h4>
-
-          <p>
-            Holistic styling concepts for refined spaces.
-            We help you see your home through a designer's eye.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="decor-values-wrap reveal">
-
-        <p class="decor-values-title">
-          What We Stand For
-        </p>
-
-        <div class="decor-values">
-          <div class="decor-value">Timeless Aesthetics</div>
-          <div class="decor-value">Elegant Craftsmanship</div>
-          <div class="decor-value">Curated Luxury</div>
-          <div class="decor-value">Personalized Styling</div>
-          <div class="decor-value">Sophisticated Spaces</div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- FOUNDERS -->
-    <section id="founders" class="section" style="scroll-margin-top:80px;">
-
-      <div style="text-align:center;margin-bottom:16px;" class="reveal">
-        <div class="section-eyebrow">
-          The Team
-        </div>
-
-        <h2 class="section-title">
-          The Engineers
-        </h2>
-      </div>
-
-      <p style="text-align:center;color:var(--muted);margin-bottom:0;" class="reveal">
-        The minds behind the formulations.
-      </p>
-
-      <div class="founders-wrap">
-
-        <!-- TEJAS -->
-        <div class="founder-card reveal">
-
-          <div class="founder-av">
-            TS
-          </div>
-
-          <div>
-
-            <div class="founder-degree">
-              IITD '25 · Biochemical Engineering
-            </div>
-
-            <h3>
-              Tejas Singh Arora
-            </h3>
-
-            <p>
-              Leveraging a deep understanding of biochemical processes
-              to ensure every product is chemically balanced, safe for
-              skin, and highly effective. "We don't just mix ingredients;
-              we engineer solutions."
-            </p>
-
-          </div>
-        </div>
-
-        <!-- BALRAJ -->
-        <div class="founder-card reveal reveal-delay-1">
-
-          <div class="founder-av"
-               style="background:linear-gradient(135deg,#6b82a8,#2c4a72)">
-            BS
-          </div>
-
-          <div>
-
-            <div class="founder-degree">
-              IITD '25 · Civil Engineering
-            </div>
-
-            <h3>
-              Balraj Singh
-            </h3>
-
-            <p>
-              Bringing structural discipline to our operations.
-              Focused on building a robust supply chain and ensuring
-              that the "economics" in Home Economics stands for
-              durability and reliability.
-            </p>
-
-          </div>
-        </div>
-
-      </div>
-
-      <!-- MENTOR -->
-      <div class="mentor-wrap reveal">
-
-        <div class="mentor-av">
-          NA
-        </div>
-
-        <h3>
-          Nitasha Arora — The Mentor
-        </h3>
+        <h1>
+            Don't study more.
+            <span>Study what raises your score.</span>
+        </h1>
 
         <p>
-          Home Economics began as her idea — a simple belief that everyday
-          products deserved more thought and honesty. She saw the gap before
-          it was visible and imagined what could exist instead.
-          <br><br>
-
-          The engineers took that vision and built it into reality —
-          structured, tested, and engineered with precision. Her insight
-          set the direction; their execution made it tangible.
-          <br><br>
-
-          At Home Economics, every solution traces back to that first idea —
-          refined by engineering, driven by purpose.
+            MarketFix finds the marketing concepts you are losing marks on,
+            builds a personalised recovery plan, and helps you practice
+            until your score improves.
         </p>
 
-      </div>
+        <div class="cta-row">
 
-    </section>
+            <button class="primary-btn" onclick="openDiagnostic()">
+                Diagnose my weaknesses →
+            </button>
 
-  </div>
+            <button class="secondary-btn"
+                    onclick="scrollToSection('how')">
+                See how it works
+            </button>
 
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="container">
-
-      <h2>
-        Ready to
-        <span class="gradient-text">
-          Order?
-        </span>
-      </h2>
-
-      <p>
-        We operate directly via WhatsApp to keep costs low and service personal.
-      </p>
-
-      <div class="foot-icons">
-
-        <a href="https://www.instagram.com/homeeconomics2025/"
-           target="_blank"
-           class="foot-icon">
-          <i class="ph-fill ph-instagram-logo"></i>
-        </a>
-
-        <a href="https://wa.me/919667722988"
-           class="foot-icon">
-          <i class="ph-fill ph-whatsapp-logo"></i>
-        </a>
-
-        <a href="mailto:homeeconomics2025@gmail.com"
-           class="foot-icon">
-          <i class="ph-fill ph-envelope-simple"></i>
-        </a>
-
-      </div>
-
-      <p class="foot-copy">
-        © <span id="year"></span>
-        Home Economics. Made with precision in New Delhi.
-      </p>
+        </div>
 
     </div>
 
-  </footer>
 
-  <script>
+    <div class="score-preview">
 
-    /* CURRENT YEAR */
-    document.getElementById('year').textContent =
-      new Date().getFullYear();
+        <div class="score-header">
 
+            <div>
+                <div class="score-title">Marketing Score</div>
+                <div class="score-subtitle">Your recovery journey</div>
+            </div>
 
-    /* CUSTOM CURSOR */
+            <div>📈</div>
 
-    const cursor =
-      document.getElementById('cursor');
+        </div>
 
-    const ring =
-      document.getElementById('cursorRing');
+        <div class="score-circle">
 
-    let mx = 0;
-    let my = 0;
-    let rx = 0;
-    let ry = 0;
+            <div class="score-circle-inner">
 
+                <div>
+                    <div class="score-number">58%</div>
+                    <div class="score-label">Current score</div>
+                </div>
 
-    document.addEventListener('mousemove', e => {
+            </div>
 
-      mx = e.clientX;
-      my = e.clientY;
+        </div>
 
-      cursor.style.left =
-        mx - 4 + 'px';
+        <div class="target-row">
+            <span>Current</span>
+            <strong>58%</strong>
+        </div>
 
-      cursor.style.top =
-        my - 4 + 'px';
+        <div class="progress">
+            <div class="progress-fill" style="width:58%"></div>
+        </div>
 
-    });
+        <br>
 
+        <div class="target-row">
+            <span>Target</span>
+            <strong>75%</strong>
+        </div>
 
-    (function animRing(){
+        <div class="progress">
+            <div class="progress-fill"
+                 style="width:78%; background:#12b981"></div>
+        </div>
 
-      rx += (mx - rx) * .12;
-      ry += (my - ry) * .12;
+    </div>
 
-      ring.style.left =
-        rx - 18 + 'px';
-
-      ring.style.top =
-        ry - 18 + 'px';
-
-      requestAnimationFrame(animRing);
-
-    })();
-
-
-    /* CURSOR INTERACTIONS */
-
-    document.querySelectorAll(
-      'a, button, .attar-card, .pillar-card, .home-card, .daily-card, .founder-card, .decor-card, .decor-pillar, .decor-value'
-    ).forEach(el => {
-
-      el.addEventListener('mouseenter', () => {
-
-        cursor.style.transform =
-          'scale(2.5)';
-
-        ring.style.transform =
-          'scale(1.5)';
-
-        ring.style.borderColor =
-          'var(--rose)';
-
-      });
+</section>
 
 
-      el.addEventListener('mouseleave', () => {
+<section class="section" id="how">
 
-        cursor.style.transform =
-          'scale(1)';
+    <div class="section-heading">
 
-        ring.style.transform =
-          'scale(1)';
+        <h2>
+            A recovery system, not another content library.
+        </h2>
 
-        ring.style.borderColor =
-          'var(--gold)';
+        <p>
+            Most students already have notes, lectures and YouTube videos.
+            The missing piece is knowing exactly what to fix.
+        </p>
 
-      });
-
-    });
+    </div>
 
 
-    /* SCROLL REVEAL */
+    <div class="feature-grid">
 
-    const observer =
-      new IntersectionObserver(entries => {
+        <div class="feature-card">
 
-        entries.forEach(e => {
+            <div class="feature-icon">🔍</div>
 
-          if(e.isIntersecting){
-            e.target.classList.add('visible');
-          }
+            <h3>Diagnose</h3>
 
+            <p>
+                Take a short marketing assessment that identifies
+                your weakest concepts and question types.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🧠</div>
+
+            <h3>Learn</h3>
+
+            <p>
+                Get short explanations focused only on the concepts
+                responsible for your lost marks.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🎯</div>
+
+            <h3>Practice</h3>
+
+            <p>
+                Practice adaptive MCQs, case studies and exam-style
+                marketing questions.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">📈</div>
+
+            <h3>Recover</h3>
+
+            <p>
+                Retest yourself and watch your score improve from
+                one assessment to the next.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="topics">
+
+    <div class="section-heading">
+
+        <h2>Built specifically for marketing.</h2>
+
+        <p>
+            The diagnostic breaks marketing into the areas that actually
+            appear in university exams.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>STP</h3>
+            <p>Segmentation, targeting and positioning.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🛒</div>
+            <h3>Marketing Mix</h3>
+            <p>4Ps, 7Ps and marketing decisions.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>Consumer Behaviour</h3>
+            <p>Motivation, perception, decision-making and behaviour.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🏷️</div>
+            <h3>Branding</h3>
+            <p>Brand equity, identity, positioning and strategy.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Digital Marketing</h3>
+            <p>SEO, social media, content and digital funnels.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🔎</div>
+            <h3>Market Research</h3>
+            <p>Research design, data collection and insights.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Pricing</h3>
+            <p>Pricing strategies, elasticity and value perception.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📣</div>
+            <h3>Promotion</h3>
+            <p>Advertising, sales promotion and integrated communication.</p>
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<section id="dashboard" class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <div class="badge">
+                Your Marketing Recovery Plan
+            </div>
+
+            <h1>Welcome back, Tejas 👋</h1>
+
+            <p>
+                You're 17 marks away from your target.
+            </p>
+
+        </div>
+
+        <button class="primary-btn"
+                onclick="startPractice()">
+            Start practice →
+        </button>
+
+    </div>
+
+
+    <!-- Stats -->
+
+    <div class="card" style="margin-bottom:18px">
+
+        <div class="stats">
+
+            <div class="stat">
+                <div class="stat-label">Current score</div>
+                <div class="stat-value">58%</div>
+                <div class="stat-change">+8% this week</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Target score</div>
+                <div class="stat-value">75%</div>
+                <div class="stat-change">17 marks to go</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Questions solved</div>
+                <div class="stat-value">124</div>
+                <div class="stat-change">+26 this week</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <!-- Weakness analysis -->
+
+        <div class="card">
+
+            <h3>Where you're losing marks</h3>
+
+            <div class="topic">
+
+                <div class="topic-top">
+                    <span class="topic-name">Consumer Behaviour</span>
+                    <span class="topic-score">42%</span>
+                </div>
+
+                <div class="topic-progress">
+                    <div class="topic-fill weak"
+                         style="width:42%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="topic">
+
+                <div class="topic-top">
+                    <span class="topic-name">STP</span>
+                    <span class="topic-score">51%</span>
+                </div>
+
+                <div class="topic-progress">
+                    <div class="topic-fill weak"
+                         style="width:51%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="topic">
+
+                <div class="topic-top">
+                    <span class="topic-name">Marketing Mix</span>
+                    <span class="topic-score">67%</span>
+                </div>
+
+                <div class="topic-progress">
+                    <div class="topic-fill medium"
+                         style="width:67%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="topic">
+
+                <div class="topic-top">
+                    <span class="topic-name">Branding</span>
+                    <span class="topic-score">78%</span>
+                </div>
+
+                <div class="topic-progress">
+                    <div class="topic-fill strong"
+                         style="width:78%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="topic">
+
+                <div class="topic-top">
+                    <span class="topic-name">Digital Marketing</span>
+                    <span class="topic-score">84%</span>
+                </div>
+
+                <div class="topic-progress">
+                    <div class="topic-fill strong"
+                         style="width:84%"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Recovery plan -->
+
+        <div class="card">
+
+            <h3>Today's recovery plan</h3>
+
+            <div class="plan-item">
+
+                <div class="plan-number">1</div>
+
+                <div>
+                    <h4>Consumer motivation</h4>
+                    <p>10 min concept refresher</p>
+                </div>
+
+            </div>
+
+
+            <div class="plan-item">
+
+                <div class="plan-number">2</div>
+
+                <div>
+                    <h4>STP case study</h4>
+                    <p>5 exam-style questions</p>
+                </div>
+
+            </div>
+
+
+            <div class="plan-item">
+
+                <div class="plan-number">3</div>
+
+                <div>
+                    <h4>Mini test</h4>
+                    <p>10 questions · 8 minutes</p>
+                </div>
+
+            </div>
+
+
+            <div class="plan-item">
+
+                <div class="plan-number">4</div>
+
+                <div>
+                    <h4>Review mistakes</h4>
+                    <p>Turn errors into flashcards</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Progress -->
+
+    <div class="card">
+
+        <h3>Score recovery</h3>
+
+        <p style="color:var(--muted);font-size:13px;margin-bottom:20px">
+            Your last five assessments
+        </p>
+
+        <div style="
+            display:flex;
+            align-items:end;
+            gap:16px;
+            height:160px;
+            border-bottom:1px solid var(--border);
+            padding:0 20px;
+        ">
+
+            <div style="height:55%;width:45px;background:#e8e7ff;border-radius:8px 8px 0 0"></div>
+            <div style="height:61%;width:45px;background:#dddCff;border-radius:8px 8px 0 0"></div>
+            <div style="height:67%;width:45px;background:#cfcdff;border-radius:8px 8px 0 0"></div>
+            <div style="height:72%;width:45px;background:#b9b6ff;border-radius:8px 8px 0 0"></div>
+            <div style="height:78%;width:45px;background:var(--primary);border-radius:8px 8px 0 0"></div>
+
+        </div>
+
+        <div style="
+            display:flex;
+            justify-content:space-around;
+            color:var(--muted);
+            font-size:12px;
+            margin-top:8px;
+        ">
+
+            <span>Test 1</span>
+            <span>Test 2</span>
+            <span>Test 3</span>
+            <span>Test 4</span>
+            <span>Test 5</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Practice -->
+
+    <div class="card practice-section" id="practice">
+
+        <h3>Targeted practice</h3>
+
+        <p style="color:var(--muted);font-size:13px;margin-bottom:20px">
+            Questions are prioritised based on your weaknesses.
+        </p>
+
+        <div id="questions"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DIAGNOSTIC MODAL
+========================= -->
+
+<div class="modal" id="diagnosticModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>Build your recovery plan</h2>
+
+                <p style="color:var(--muted);font-size:13px">
+                    Tell us where you are starting.
+                </p>
+
+            </div>
+
+            <button class="close"
+                    onclick="closeDiagnostic()">×</button>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Current marketing score</label>
+
+            <input
+                id="currentScore"
+                type="number"
+                min="0"
+                max="100"
+                placeholder="e.g. 42">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Target score</label>
+
+            <input
+                id="targetScore"
+                type="number"
+                min="1"
+                max="100"
+                value="75">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Exam date</label>
+
+            <input
+                id="examDate"
+                type="date">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Which topic feels hardest?</label>
+
+            <select id="weakTopic">
+
+                <option>Consumer Behaviour</option>
+                <option>STP</option>
+                <option>Marketing Mix</option>
+                <option>Branding</option>
+                <option>Digital Marketing</option>
+                <option>Market Research</option>
+                <option>Pricing</option>
+                <option>Promotion</option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            style="width:100%"
+            onclick="createPlan()">
+
+            Create my recovery plan →
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+
+            <div class="logo">
+                Market<span>Fix</span>
+            </div>
+
+            <p style="margin-top:8px">
+                Helping marketing students turn weak scores
+                into measurable progress.
+            </p>
+
+        </div>
+
+        <p>
+            Diagnose · Practice · Improve
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function scrollToSection(id) {
+
+    document.getElementById(id)
+        .scrollIntoView({
+            behavior: "smooth"
         });
 
-      },{
-        threshold:.08,
-        rootMargin:'0px 0px -50px 0px'
-      });
+}
 
+
+/* =========================
+   DIAGNOSTIC MODAL
+========================= */
+
+function openDiagnostic() {
 
     document
-      .querySelectorAll('.reveal')
-      .forEach(el => observer.observe(el));
+        .getElementById("diagnosticModal")
+        .classList.add("active");
+
+}
 
 
-    /* ORB PARALLAX */
+function closeDiagnostic() {
 
-    document.addEventListener('mousemove', e => {
+    document
+        .getElementById("diagnosticModal")
+        .classList.remove("active");
 
-      const x =
-        (e.clientX / window.innerWidth - .5) * 28;
-
-      const y =
-        (e.clientY / window.innerHeight - .5) * 28;
+}
 
 
-      document.querySelector('.orb1')
-        .style.transform =
-        `translate(${x * .5}px, ${y * .5}px)`;
+/* =========================
+   CREATE RECOVERY PLAN
+========================= */
+
+function createPlan() {
+
+    const current =
+        Number(document.getElementById("currentScore").value);
+
+    const target =
+        Number(document.getElementById("targetScore").value);
+
+    const topic =
+        document.getElementById("weakTopic").value;
+
+    if (!current || current < 0 || current > 100) {
+
+        alert("Please enter a valid current score.");
+
+        return;
+
+    }
+
+    if (target <= current) {
+
+        alert("Your target should be higher than your current score.");
+
+        return;
+
+    }
+
+    closeDiagnostic();
+
+    document
+        .getElementById("landing")
+        .classList.add("hidden");
+
+    document
+        .getElementById("dashboard")
+        .classList.add("active");
+
+    document
+        .getElementById("dashboard")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+    /* Update dashboard values */
+
+    const statValues =
+        document.querySelectorAll(".stat-value");
+
+    statValues[0].textContent = current + "%";
+
+    statValues[1].textContent = target + "%";
+
+    const difference = target - current;
+
+    document.querySelector(
+        ".dashboard-header p"
+    ).textContent =
+        `You're ${difference} marks away from your target.`;
+
+    /* Update recovery plan */
+
+    document.querySelector(
+        ".plan-item h4"
+    ).textContent =
+        topic + " fundamentals";
+
+    document.querySelector(
+        ".plan-item p"
+    ).textContent =
+        "10 min targeted concept refresher";
+
+}
 
 
-      document.querySelector('.orb2')
-        .style.transform =
-        `translate(${x * -.6}px, ${y * -.6}px)`;
+/* =========================
+   PRACTICE QUESTIONS
+========================= */
+
+const questions = [
+
+    {
+        topic: "STP",
+        question:
+        "A company divides a broad market into groups based on age, income and lifestyle. Which STP stage is this?",
+        options: [
+            "Targeting",
+            "Segmentation",
+            "Positioning",
+            "Branding"
+        ],
+        answer: 1
+    },
+
+    {
+        topic: "Consumer Behaviour",
+        question:
+        "Which factor describes how a consumer interprets and gives meaning to marketing stimuli?",
+        options: [
+            "Perception",
+            "Distribution",
+            "Pricing",
+            "Positioning"
+        ],
+        answer: 0
+    },
+
+    {
+        topic: "Marketing Mix",
+        question:
+        "Which of the following is NOT traditionally one of the 4Ps?",
+        options: [
+            "Product",
+            "Price",
+            "People",
+            "Promotion"
+        ],
+        answer: 2
+    },
+
+    {
+        topic: "Branding",
+        question:
+        "Brand equity primarily refers to:",
+        options: [
+            "The physical size of a brand",
+            "The value created by consumer knowledge and associations",
+            "The number of products sold",
+            "The cost of advertising"
+        ],
+        answer: 1
+    }
+
+];
 
 
-      document.querySelector('.orb3')
-        .style.transform =
-        `translate(${x * .3}px, ${y * .8}px)`;
+function renderQuestions() {
+
+    const container =
+        document.getElementById("questions");
+
+    container.innerHTML = "";
+
+    questions.forEach((q, index) => {
+
+        const question =
+        document.createElement("div");
+
+        question.className = "question";
+
+        question.innerHTML = `
+
+            <div class="question-number">
+                QUESTION ${index + 1} · ${q.topic}
+            </div>
+
+            <div class="question-text">
+                ${q.question}
+            </div>
+
+            <div class="options">
+
+                ${q.options.map((option, i) => `
+
+                    <button
+                        class="option"
+                        onclick="answerQuestion(
+                            ${index},
+                            ${i},
+                            this
+                        )">
+
+                        ${option}
+
+                    </button>
+
+                `).join("")}
+
+            </div>
+        `;
+
+        container.appendChild(question);
+
+    });
+
+}
+
+
+function answerQuestion(
+    questionIndex,
+    optionIndex,
+    button
+) {
+
+    const question =
+        questions[questionIndex];
+
+    const buttons =
+        button.parentElement
+        .querySelectorAll(".option");
+
+    buttons.forEach(btn => {
+
+        btn.disabled = true;
 
     });
 
 
-    /* HEADER SHRINK */
+    if (optionIndex === question.answer) {
 
-    const header =
-      document.querySelector('header');
+        button.classList.add("correct");
+
+        button.textContent += " ✓";
+
+    } else {
+
+        button.classList.add("incorrect");
+
+        button.textContent += " ✕";
+
+        buttons[
+            question.answer
+        ].classList.add("correct");
+
+    }
+
+}
 
 
-    window.addEventListener('scroll', () => {
+/* =========================
+   START PRACTICE
+========================= */
 
-      if(window.innerWidth > 960){
+function startPractice() {
 
-        header.style.padding =
-          window.scrollY > 60
-            ? '10px 48px'
-            : '20px 48px';
+    document
+        .getElementById("practice")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
-      }
+}
 
-    });
 
-  </script>
+/* =========================
+   INITIALISE
+========================= */
+
+renderQuestions();
+
+</script>
 
 </body>
 </html>
