@@ -342,6 +342,13 @@
     .empty { grid-column: 1 / -1; text-align: center; padding: 60px 20px; border: 1px dashed var(--line-gold); border-radius: 24px; color: var(--muted); }
     .empty b { display: block; font-family: var(--serif); font-size: 28px; color: var(--ink); font-weight: 500; }
 
+    /* Product photos (white-background photos blend into the tinted card) */
+    .art .photo { position: absolute; inset: 8% 6% 10%; width: 88%; height: 82%; object-fit: contain; mix-blend-mode: multiply; z-index: 1; transition: transform .8s var(--ease); }
+    .card:hover .art .photo { transform: scale(1.06); }
+    .pd .art .photo { inset: 10%; width: 80%; height: 80%; }
+    .line-item .mini .photo { position: absolute; inset: 6%; width: 88%; height: 88%; object-fit: contain; mix-blend-mode: multiply; }
+    .art:has(.photo) .shadow { display: none; }
+
     /* ───────────────────────── Offers ───────────────────────── */
     .offers { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; }
     .offer {
@@ -374,6 +381,47 @@
     .ritual-list b { display: block; font-size: 14.5px; font-weight: 600; }
     .ritual-list small { color: var(--muted); font-size: 12px; }
     .ritual-list .p { margin-left: auto; font-family: var(--serif); font-size: 20px; font-weight: 600; }
+
+    .attar-banner { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 62%; border-radius: 18px; margin-bottom: 26px; background: #fff; transition: transform .8s var(--ease); }
+    .offer.dark:hover .attar-banner { transform: scale(1.015); }
+
+    /* ───────────────────────── Home décor ───────────────────────── */
+    .decor-wrap { background: linear-gradient(180deg, rgba(253,249,243,.0), rgba(239,232,219,.55) 30%, rgba(239,232,219,.55) 70%, rgba(253,249,243,0)); }
+    .decor-intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: end; margin-bottom: 34px; }
+    .decor-intro p { color: var(--ink2); font-size: 16.5px; }
+    .decor-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .decor-tags span { padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line-gold); font-size: 12.5px; color: var(--ink2); background: rgba(253,249,243,.7); }
+    .masonry { columns: 4 250px; column-gap: 18px; }
+    .dcard {
+      break-inside: avoid; margin-bottom: 18px; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid var(--line);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .3s; cursor: zoom-in;
+      opacity: 0; animation: cardIn .7s var(--ease) forwards; display: block; width: 100%; text-align: left;
+    }
+    .dcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--line-gold); }
+    .dcard .ph-wrap { overflow: hidden; background: #fff; }
+    .dcard img { display: block; width: 100%; height: auto; transition: transform 1s var(--ease); }
+    .dcard:hover img { transform: scale(1.05); }
+    .dcard .dmeta { padding: 14px 16px 16px; border-top: 1px solid var(--line); background: var(--cream); }
+    .dcard .dmeta small { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+    .dcard .dmeta b { display: block; font-family: var(--serif); font-size: 20px; font-weight: 600; line-height: 1.2; margin-top: 3px; }
+    .decor-more { display: flex; justify-content: center; margin-top: 16px; }
+
+    dialog.lightbox { width: min(1100px, calc(100% - 24px)); max-height: calc(100dvh - 24px); margin: auto; border-radius: 28px; background: #fff; }
+    dialog.lightbox[open] { animation: pop .5s var(--ease); }
+    .lb { display: grid; grid-template-columns: 1.4fr .6fr; height: min(760px, calc(100dvh - 24px)); }
+    .lb-img { position: relative; background: #fff; display: grid; place-items: center; overflow: hidden; }
+    .lb-img img { max-width: 92%; max-height: 92%; object-fit: contain; animation: fadeIn .5s var(--ease); cursor: zoom-in; transition: transform .6s var(--ease); }
+    .lb-img img.zoom { transform: scale(1.8); cursor: zoom-out; }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(253,249,243,.92); border: 1px solid var(--line); font-size: 20px; transition: transform .35s var(--ease), background .2s; }
+    .lb-nav:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+    .lb-prev { left: 16px; } .lb-next { right: 16px; }
+    .lb-info { padding: 46px 30px 30px; background: var(--cream); display: flex; flex-direction: column; gap: 12px; border-left: 1px solid var(--line); overflow-y: auto; }
+    .lb-info h3 { font-family: var(--serif); font-size: 32px; font-weight: 600; line-height: 1.1; }
+    .lb-info p { color: var(--ink2); font-size: 15px; }
+    .lb-info .note { font-size: 12.5px; color: var(--muted); }
+    .lb-info .btns { margin-top: auto; display: grid; gap: 10px; }
+    .lb-count { font-size: 12px; color: var(--muted); letter-spacing: .1em; }
 
     /* ───────────────────────── Promise / sourcing ───────────────────────── */
     .promise-wrap { background: linear-gradient(180deg, rgba(239,232,219,.7), rgba(239,232,219,.2)); border-block: 1px solid var(--line-gold); }
@@ -573,7 +621,10 @@
       .promise { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 900px) {
-      .hero, .offers, .founder, .visit { grid-template-columns: 1fr; }
+      .hero, .offers, .founder, .visit, .decor-intro { grid-template-columns: 1fr; }
+      .lb { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; height: calc(100dvh - 24px); }
+      .lb-info { border-left: 0; border-top: 1px solid var(--line); padding: 20px 20px 22px; }
+      .lb-info h3 { font-size: 26px; }
       .hero { padding-top: 20px; gap: 50px; }
       .shelf { max-width: 520px; width: 100%; margin-inline: auto; }
       .pd { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; max-height: calc(100dvh - 24px); overflow-y: auto; }
@@ -591,6 +642,11 @@
       .head-actions .icon-btn.hide-sm { display: none; }
       section.block { padding: 70px 0; }
       .collections { grid-template-columns: 1fr 1fr; }
+      .masonry { columns: 2 150px; column-gap: 12px; }
+      .dcard { margin-bottom: 12px; border-radius: 16px; }
+      .dcard .dmeta { padding: 10px 12px 12px; }
+      .dcard .dmeta b { font-size: 16px; }
+      .lb-nav { width: 40px; height: 40px; }
       .promise, .values, .benefits { grid-template-columns: 1fr; }
       .offer, .visit-card { padding: 28px 22px; }
       .search { flex: 1 1 100%; }
@@ -599,7 +655,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-      .reveal, .card, .fade-in { opacity: 1 !important; transform: none !important; }
+      .reveal, .card, .dcard, .fade-in { opacity: 1 !important; transform: none !important; }
       .hero h1 .w { transform: none; }
     }
   </style>
@@ -638,6 +694,7 @@
       <nav class="main" aria-label="Main">
         <a href="#shop">Shop</a>
         <a href="#offers">Offers</a>
+        <a href="#decor">Home Décor</a>
         <a href="#promise">Our Promise</a>
         <a href="#founder">Founder</a>
         <a href="#visit">Visit Store</a>
@@ -657,6 +714,7 @@
         <nav aria-label="Mobile">
           <a href="#shop">Shop all products</a>
           <a href="#offers">Offers</a>
+          <a href="#decor">Home Décor &amp; Artefacts</a>
           <a href="#promise">Our Promise</a>
           <a href="#founder">Founder — Nitasha Arora</a>
           <a href="#visit">Visit our store</a>
@@ -679,11 +737,12 @@
           <p class="lead fade-in d1">Artisanal body washes, bio-enzyme floor cleaners, herbal skin &amp; hair care, wellness pantry teas and alcohol-free Kannauj attars — poured in small batches, with care you can feel.</p>
           <div class="hero-ctas fade-in d2">
             <a href="#shop" class="btn btn-dark">Explore the collection <i class="ph ph-arrow-down"></i></a>
+            <a href="#decor" class="btn btn-line"><i class="ph ph-flower-tulip"></i> Home Décor</a>
             <a href="https://wa.me/919435719770?text=Hi%20Home%20Economics!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener" class="btn btn-line"><i class="ph ph-whatsapp-logo"></i> Order on WhatsApp</a>
           </div>
           <div class="hero-stats fade-in d3">
             <div><b id="statCount">26</b><span>Small-batch creations</span></div>
-            <div><b>6</b><span>Collections</span></div>
+            <div><b id="decorCount">52</b><span>Décor &amp; artefacts</span></div>
             <div><b>100%</b><span>Alcohol-free attars</span></div>
           </div>
         </div>
@@ -703,8 +762,8 @@
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Small-Batch Crafted</span><span>Kashmiri Saffron</span><span>Kannauj Distilled Attars</span><span>Bio-Enzyme Floor Care</span><span>Alcohol-Free</span><span>Butterfly Pea Blue Tea</span><span>Homegrown in New Delhi</span><span>Visit us at Santushti</span>
-        <span>Small-Batch Crafted</span><span>Kashmiri Saffron</span><span>Kannauj Distilled Attars</span><span>Bio-Enzyme Floor Care</span><span>Alcohol-Free</span><span>Butterfly Pea Blue Tea</span><span>Homegrown in New Delhi</span><span>Visit us at Santushti</span>
+        <span>Small-Batch Crafted</span><span>Kashmiri Saffron</span><span>Kannauj Distilled Attars</span><span>Bio-Enzyme Floor Care</span><span>Alcohol-Free</span><span>Butterfly Pea Blue Tea</span><span>Homegrown in New Delhi</span><span>Home Décor &amp; Artefacts</span><span>Visit us at Santushti</span>
+        <span>Small-Batch Crafted</span><span>Kashmiri Saffron</span><span>Kannauj Distilled Attars</span><span>Bio-Enzyme Floor Care</span><span>Alcohol-Free</span><span>Butterfly Pea Blue Tea</span><span>Homegrown in New Delhi</span><span>Home Décor &amp; Artefacts</span><span>Visit us at Santushti</span>
       </div>
     </div>
 
@@ -755,6 +814,7 @@
         </div>
         <div class="offers">
           <div class="offer dark reveal">
+            <img class="attar-banner" src="images/attar-collection.jpg" alt="The Home Economics attar collection — ornate gold flacons, a lantern and incense on a brass tray" loading="lazy" />
             <div class="eyebrow">Artisanal Attar Vault Special</div>
             <h3>Any 3 attars, one special price.</h3>
             <p>Hydro-distilled in traditional Kannauj copper degs and poured into ornate 15ml royal gold crown flacons. 100% alcohol-free pure perfume oils with an enduring, intimate sillage.</p>
@@ -771,6 +831,28 @@
             <button class="btn btn-dark" id="addRitual" type="button"><i class="ph ph-shopping-bag-open"></i> Add all 4 · <span id="ritualTotal"></span></button>
           </div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- HOME DÉCOR & ARTEFACTS -->
+    <section class="block decor-wrap" id="decor">
+      <div class="container">
+        <div class="decor-intro">
+          <div class="reveal">
+            <div class="eyebrow">New · Home Décor &amp; Artefacts</div>
+            <h2 class="title">Pieces that make a house feel <em>like home.</em></h2>
+          </div>
+          <div class="reveal r1">
+            <p>Hand-picked décor and artefacts from our Santushti store — sculpted vases, statement figurines, serveware, candlelight and thoughtful gifts. Every piece is chosen for warmth, character and timeless design.</p>
+            <div class="decor-tags"><span>One-of-a-kind finds</span><span>Gift-ready</span><span>See them in store</span></div>
+          </div>
+        </div>
+        <div class="toolbar reveal">
+          <div class="chips" id="decorChips" role="group" aria-label="Filter décor"></div>
+        </div>
+        <div class="masonry" id="decorGrid"></div>
+        <div class="decor-more"><button class="btn btn-line" type="button" id="decorMore"></button></div>
       </div>
     </section>
 
@@ -872,7 +954,7 @@
         <a class="btn btn-wa" href="https://wa.me/919435719770" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i> WhatsApp +91 94357 19770</a>
       </div>
       <div class="foot-links">
-        <a href="#shop">Shop</a><a href="#offers">Offers</a><a href="#founder">Founder</a><a href="#visit">Store</a>
+        <a href="#shop">Shop</a><a href="#offers">Offers</a><a href="#decor">Home Décor</a><a href="#founder">Founder</a><a href="#visit">Store</a>
         <a href="https://www.instagram.com/homeeconomics2025/" target="_blank" rel="noopener">Instagram</a>
         <a href="mailto:homeeconomics2025@gmail.com">Email</a>
       </div>
@@ -887,6 +969,9 @@
 
   <!-- Product details -->
   <dialog class="modal" id="productDialog" aria-label="Product details"></dialog>
+
+  <!-- Décor viewer -->
+  <dialog class="lightbox" id="lightbox" aria-label="Décor piece"></dialog>
 
   <!-- Bag -->
   <dialog class="drawer" id="bagDialog" aria-label="Your bag">
@@ -942,8 +1027,8 @@ const PRODUCTS = [
   {"id": "floor-cleaner-lavender", "cat": "floor-cleaners", "name": "French Lavender Calming Floor Cleaner", "scent": "French Lavender", "price": 200, "size": "500ml Regular Bottle", "sub": "500ml transparent bottle with white cap, blush-lavender liquid & lavender flower splashes", "tone": ["#9E86BA", "#F7F3FC", "#4A2F6E", "Mild Lavender Colour Liquid", "#9E86BA"], "desc": "Home Economics French Lavender Floor Cleaner is formulated in a 500ml transparent cylindrical pour bottle with a white ribbed screw cap and the Room Freshener Floor Cleaner label. Filled with soft blush lavender-colored liquid, surrounded by fresh lavender sprigs and soothing botanical liquid splashes.", "bestFor": "All hard floorings: Italian marble, vitrified tiles, polished hardwood, granite & slate", "helps": ["Calming Evening Aromatherapy & Odor Elimination", "Dissolving Daily Dust & Micro-Impurities", "Zero-Residue Floor Luster", "Safe on Delicate Flooring & Pet-Friendly"], "ritual": "Pour 1 measurement cap into warm mopping water for an evening calming ritual.", "notes": ["Crushed French Lavender Sprigs", "Wild Clary Sage & Rosemary Mist", "Warm Cedarwood Shavings"], "ingredients": ["Pure Lavender Essential Oil", "Clary Sage", "Pine Needle Bio-Solvent", "Biodegradable Soap Bark Extract"], "eco": ["Floor Cleaner Only", "Regular Pour Bottle", "Pet Friendly"], "pack": "500ml Transparent Bottle with White Screw Cap & Room Freshener Floor Cleaner Label"},
   {"id": "floor-cleaner-orange", "cat": "floor-cleaners", "name": "Zesty Sweet Orange Citrus Floor Cleaner", "scent": "Zesty Orange", "price": 200, "size": "500ml Regular Bottle", "sub": "500ml transparent bottle with white cap, citrus-orange liquid & orange slice splashes", "tone": ["#E8833A", "#FFF6ED", "#8A3E09", "Orange Liquid", "#E8833A"], "desc": "Home Economics Orange Floor Cleaner is a bio-enzyme floor cleaner presented in a 500ml transparent cylindrical pour bottle with a white ribbed screw cap and the Room Freshener Floor Cleaner label. Filled with bright translucent orange liquid, with fresh juicy orange slices and energetic citrus splashes in the background.", "bestFor": "Kitchens, dining areas, and heavily trafficked marble, tile & slate floors", "helps": ["Cutting Through Kitchen Floor Oil & Grease", "Sparkling Citrus Deodorization", "Zero Sticky Residue", "All-Natural Citrus Enzyme Disinfection"], "ritual": "Pour 1 cap into half a bucket of water for daily mopping or pour directly onto grease stains.", "notes": ["Sparkling Valencia Orange Zest", "Sunlit Tangerine & Bitter Neroli", "Warm Sweet Citrus Wood"], "ingredients": ["Cold-Pressed Orange Peel Terpenes (d-Limonene)", "Organic Lemon Juice Ferment", "Plant Surfactants"], "eco": ["Floor Cleaner Only", "Regular Pour Bottle", "Natural Degreaser"], "pack": "500ml Transparent Bottle with White Screw Cap & Room Freshener Floor Cleaner Label"},
   {"id": "floor-cleaner-jasmine", "cat": "floor-cleaners", "name": "Night Blooming Jasmine Sacred Floor Cleaner", "scent": "Night Jasmine", "price": 200, "size": "500ml Regular Bottle", "sub": "500ml transparent bottle with white cap, golden-yellow liquid & jasmine splashes", "tone": ["#B0A27A", "#FAF8F0", "#594F30", "Yellowish Colour Liquid", "#E4DEC8"], "desc": "Home Economics Jasmine Floor Cleaner is formulated in a 500ml transparent cylindrical pour bottle with a white ribbed screw cap and the Room Freshener Floor Cleaner label. Filled with radiant golden-yellow floral liquid, surrounded by fragrant star jasmine blossoms and soft luminous liquid splashes on clean tile.", "bestFor": "Living rooms, prayer rooms (puja ghars), bedrooms, and all fine hard flooring", "helps": ["Sacred Floral Room Freshening", "Neutralizing Stale Indoor Air", "Streak-Free Shine on Marble & Granite", "Gentle Ayurvedic Neem Disinfection"], "ritual": "Pour 1 cap into clean water for ceremonial and daily home floor freshness.", "notes": ["Nocturnal White Jasmine Buds", "Sweet Mogra & Magnolia", "Clean Green Leaves & Sandalwood"], "ingredients": ["Jasminum Sambac Distillate", "Mogra Floral Oil", "Coconut Glucoside", "Neem Leaf Infusion"], "eco": ["Floor Cleaner Only", "Regular Pour Cap", "100% Biodegradable"], "pack": "500ml Transparent Bottle with White Screw Cap & Room Freshener Floor Cleaner Label"},
-  {"id": "skincare-aloe-vera-gel", "cat": "skincare-hair", "name": "Pure Mountain Aloe Vera Gel (99.4%)", "price": 200, "size": "50g Frosted Jar", "sub": "Non-sticky, fast-absorbing crystal gel in frosted glass jar with brushed silver cap", "tone": ["#4A9462", "#EEF8F1", "#1D532F", "Crystal Aloe Clear", "#E2EFE4"], "desc": "Home Economics Pure Mountain Aloe Vera Gel is presented in a premium frosted clear glass jar with a brushed metallic silver cap, printed with \"NON STICKY | FAST ABSORBING\". Filled with 100% transparent crystal-clear soothing gel without artificial green dyes. Framed with a fresh living green aloe vera plant and succulent sliced aloe leaves with juicy gel pulp.", "bestFor": "Sun-stressed, sensitive, oily, combination, or dehydrated skin & dry scalp", "helps": ["Fast-Absorbing Non-Sticky Hydration", "Calming Sunburn, Razor Burn & Rashes", "Balancing Oily Skin Without Clogging Pores", "Post-Shave & Post-Wax Soothing"], "ritual": "Dip clean fingertips into the silver-capped frosted glass jar and smooth over cleansed face, body, or scalp for fast-absorbing hydration.", "ingredients": ["Cold-Pressed Aloe Barbadensis Leaf Juice (99.4%)", "Organic Cucumber Distillate", "Vegetable Glycerin", "Xanthan Gum", "Natural Vitamin E"], "eco": ["Frosted Silver Jar", "Non Sticky | Fast Absorbing", "Zero Artificial Dyes"], "pack": "50g Frosted Clear Glass Cosmetic Jar with Brushed Metallic Silver Cap"},
-  {"id": "skincare-papaya-moisturizer", "cat": "skincare-hair", "name": "Papaya Enzyme Dew Moisturizer", "price": 200, "size": "50g Frosted Jar", "sub": "Enriched with papaya extract in frosted glass jar with brushed silver cap", "tone": ["#E67E42", "#FFF5EE", "#8A380B", "Slight Orange Papaya Cream", "#F4C095"], "desc": "Home Economics Papaya Moisturizer is presented in a frosted clear glass jar with a brushed metallic silver cap, printed with \"PAPAYA MOISTURIZER | ENRICHED WITH PAPAYA EXTRACT\". Filled with silky, soft peach-orange cream that gently exfoliates with natural enzymes and hydrates deeply. Framed by juicy ripe sliced papaya fruit wedges and dark papaya seeds on textured stone.", "bestFor": "Normal, dry, combination skin seeking gentle enzyme renewal & radiant dewy glow", "helps": ["Fading Dullness & Uneven Skin Tone", "Gentle Daily Fruit Enzyme Exfoliation", "Restoring Plump Dewy Hydration Without Shine", "Softening Dry Patches with Kokum Butter"], "ritual": "Warm a pearl-sized drop from the silver-capped frosted glass jar between fingertips and press gently into face and neck.", "ingredients": ["Papaya Fruit Extract (Carica Papaya)", "Natural Papain Ferment", "Cold-Pressed Kokum Seed Butter", "Niacinamide (Vitamin B3)", "Hyaluronic Acid"], "eco": ["Frosted Silver Jar", "Enriched with Papaya Extract", "Non-Comedogenic"], "pack": "50g Frosted Clear Glass Cosmetic Jar with Brushed Metallic Silver Cap"},
+  {"id": "skincare-aloe-vera-gel", "cat": "skincare-hair", "name": "Pure Mountain Aloe Vera Gel (99.4%)", "price": 200, "size": "100ml Glass Jar", "sub": "Non-sticky, fast-absorbing crystal gel in a 100ml glass jar with gold cap", "tone": ["#4A9462", "#EEF8F1", "#1D532F", "Crystal Aloe Clear", "#E2EFE4"], "desc": "Home Economics Pure Mountain Aloe Vera Gel comes in a 100ml clear glass jar with a gold cap, labelled \"ALOE VERA GEL | NON-STICKY • FAST ABSORBING\". Filled with 100% transparent crystal-clear soothing gel without artificial green dyes. Framed with a fresh living green aloe vera plant and succulent sliced aloe leaves with juicy gel pulp.", "bestFor": "Sun-stressed, sensitive, oily, combination, or dehydrated skin & dry scalp", "helps": ["Fast-Absorbing Non-Sticky Hydration", "Calming Sunburn, Razor Burn & Rashes", "Balancing Oily Skin Without Clogging Pores", "Post-Shave & Post-Wax Soothing"], "ritual": "Dip clean fingertips into the gold-capped glass jar and smooth over cleansed face, body, or scalp for fast-absorbing hydration.", "ingredients": ["Cold-Pressed Aloe Barbadensis Leaf Juice (99.4%)", "Organic Cucumber Distillate", "Vegetable Glycerin", "Xanthan Gum", "Natural Vitamin E"], "eco": ["Glass Jar with Gold Cap", "Non Sticky | Fast Absorbing", "Zero Artificial Dyes"], "pack": "100ml Clear Glass Jar with Gold Cap", "img": "images/aloe-vera-gel.jpg"},
+  {"id": "skincare-papaya-moisturizer", "cat": "skincare-hair", "name": "Papaya Enzyme Dew Moisturizer", "price": 200, "size": "100ml Glass Jar", "sub": "Enriched with papaya extract in a 100ml glass jar with gold cap", "tone": ["#E67E42", "#FFF5EE", "#8A380B", "Slight Orange Papaya Cream", "#F4C095"], "desc": "Home Economics Papaya Moisturizer comes in a 100ml clear glass jar with a gold cap, labelled \"PAPAYA MOISTURISER | NATURAL GLOW • EVERYDAY HYDRATION\". Filled with silky, soft peach-orange cream that gently exfoliates with natural enzymes and hydrates deeply. Framed by juicy ripe sliced papaya fruit wedges and dark papaya seeds on textured stone.", "bestFor": "Normal, dry, combination skin seeking gentle enzyme renewal & radiant dewy glow", "helps": ["Fading Dullness & Uneven Skin Tone", "Gentle Daily Fruit Enzyme Exfoliation", "Restoring Plump Dewy Hydration Without Shine", "Softening Dry Patches with Kokum Butter"], "ritual": "Warm a pearl-sized drop from the gold-capped glass jar between fingertips and press gently into face and neck.", "ingredients": ["Papaya Fruit Extract (Carica Papaya)", "Natural Papain Ferment", "Cold-Pressed Kokum Seed Butter", "Niacinamide (Vitamin B3)", "Hyaluronic Acid"], "eco": ["Glass Jar with Gold Cap", "Enriched with Papaya Extract", "Non-Comedogenic"], "pack": "100ml Clear Glass Jar with Gold Cap", "img": "images/papaya-moisturiser.jpg"},
   {"id": "haircare-botanical-serum", "cat": "skincare-hair", "name": "Fortifying Botanical Hair Elixir Serum", "price": 200, "size": "30 ml Amber Dropper", "sub": "Moroccan argan & rosemary in 30ml amber dropper bottle with gold collar", "tone": ["#C8963E", "#FFF8EA", "#6E4E13", "Golden Amber Argan Elixir", "#C8963E"], "desc": "Home Economics Fortifying Hair Serum is packaged in a 30ml amber glass bottle with a polished metallic gold collar, black rubber bulb dropper, and official Home Economics Hair Serum label. Captured with a golden oil drop suspended from the pipette tip, surrounded by fragrant rosemary sprigs and cold-pressed argan nuts on stone. Smooths frizz and strengthens follicles.", "bestFor": "Frizzy, dry, heat-styled, or thinning hair and flaky scalps", "helps": ["Eliminating Frizz & Flyaways Without Heaviness", "Strengthening Hair Strands with Rosemary & Argan", "Heat Protection & Split-End Sealing", "Silky Gloss & Lightweight Definition"], "ritual": "Draw 3–4 drops with the pipette dropper and massage into damp mid-lengths to ends.", "ingredients": ["Pure Rosemary Essential Oil", "Virgin Argania Spinosa Kernel Oil", "Organic Black Seed Oil", "Golden Jojoba Seed", "Camellia Seed Oil"], "eco": ["30ml Amber Dropper Pipette", "100% Silicone-Free", "Thermal Protection"], "pack": "30 ml Amber Glass Bottle with Polished Gold Collar & Pipette Dropper"},
   {"id": "tech-lens-screen-cleaner", "cat": "lens-screen", "name": "Pure Clarity Blue Screen & Lens Cleaner", "price": 100, "size": "100 ml Fine Mist Sprayer", "sub": "Vibrant blue alcohol-free botanical mist + plush microfiber cloth", "tone": ["#2A82C7", "#EEF6FC", "#104B78", "Vibrant Azure Blue Liquid", "#2A82C7"], "desc": "Home Economics Blue Screen & Lens Cleaner is recognized by its vibrant azure-blue botanical solution in a 100ml clear cylindrical mist bottle with plush grey cloth. Surrounded by suspended fine blue mist and crystalline splash droplets, it removes smudges from spectacles, camera lenses, and OLED screens without alcohol or ammonia.", "ritual": "Spritz 1–2 times directly onto the included microfiber cloth and wipe gently in circular motions.", "ingredients": ["Deionized Botanical Water", "Bio-based Anti-Static Surfactant", "Mild Grain Ferment", "Distilled Witch Hazel"], "eco": ["Vibrant Blue Mist", "100% Alcohol-Free", "Safe on Anti-Reflective Coatings"], "pack": "100ml Clear Mist Sprayer Bottle with Microfiber Cloth"},
   {"id": "pantry-blue-butterfly-tea", "cat": "wellness-pantry", "name": "Butterfly Pea Flower Blue Herbal Tea", "price": 125, "size": "50g Zip-Lock Pouch", "sub": "In zip-lock pouch on its own with cup of vibrant blue tea & blue flowers", "tone": ["#2E5B9A", "#EEF4FC", "#133566", "Cobalt Blue Tea Brew", "#2E5B9A"], "desc": "Blue tea (made from the Clitoria ternatea or butterfly pea flower, also known as Aparajita) is a caffeine-free herbal infusion packed with antioxidants called anthocyanins. Home Economics Butterfly Pea Blue Tea is featured on its own in a modern zip-lock pouch, shown beside a delicate glass cup filled with clear, vibrant blue brewed tea with fresh whole blue butterfly pea flowers.", "bestFor": "Antioxidant protection, blood sugar regulation, weight management, glowing skin & hair health, cognitive clarity and evening calm.", "helps": ["Antioxidant & Anti-inflammatory (Anthocyanins & Ternatins)", "Blood Sugar Regulation & Metabolic Support", "Weight Management & Craving Control (0 Caffeine, 0 Sugar)", "Skin Hydration, Collagen Synthesis & Hair Health", "Cognitive Clarity & Relaxing Evening Calm (No Jitters)"], "benefits": [["Antioxidant & Anti-inflammatory", "High levels of delphinidin and ternatins protect cells from oxidative stress and reduce inflammation throughout the body."], ["Blood Sugar Regulation", "Helps slow down sugar absorption in the bloodstream and supports metabolic health and glucose balance."], ["Weight Management", "Free from caffeine, carbs, fats, and cholesterol; it helps curb junk food cravings and supports smooth digestion."], ["Skin and Hair Health", "Promotes skin hydration, collagen synthesis, and hair follicle nourishment thanks to bioflavonoids."], ["Cognitive & Calming Support", "Provides a gentle, caffeine-free mental lift or evening relaxation without jitters or sleep disruption."]], "ritual": "Warm Lemon-Infused Brew: Steep 5–6 dried petals (or 1 tsp) in hot water (85°C–90°C) for 5 minutes. Add fresh lemon juice to trigger the royal purple color transformation and boost antioxidant absorption. Best enjoyed 30 minutes post-meal or as a morning caffeine-free detox.", "guide": {"title": "Ways to Consume Blue Tea", "overview": "A caffeine-free herbal infusion renowned for its cobalt hue, earthy floral flavor, and magical pH-activated violet color shift.", "methods": [["Hot Classic Infusion", "Steeped plain in hot water for a mild, earthy, floral flavor."], ["Lemon-pH Color Changer", "Squeezing fresh lemon or lime juice turns the vibrant blue liquid into a bright purple or violet due to a pH change, while adding vitamin C."], ["Cold-Brewed Iced Tea", "Steeped overnight in cold water and served over ice with mint or honey."], ["Herbal Blends", "Mixed with ingredients like ginger, cinnamon, lemongrass, chamomile (for sleep), or green tea."], ["Latte or Mocktails", "Combined with plant-based milk or layered in aesthetic wellness drinks."]], "best": {"heading": "The Best Way to Consume It", "summary": "The best overall way to maximize its benefits is a warm lemon-infused brew prepared with whole dried flowers.", "steps": [["The Recipe", "Add 1 teaspoon (or 5–6 petals) of dried butterfly pea flowers to hot water (around 185°F–200°F / 85°C–90°C) and steep for 5 minutes."], ["The Enhancement", "Squeeze in a few drops of fresh lemon juice (to boost antioxidant absorption and trigger the purple color shift) and a touch of honey if you prefer sweetness."]], "dose": "1 to 2 cups daily (1 teaspoon or 5–6 whole petals per cup).", "timing": "Drink it about 30 minutes after a meal to aid digestion, or in the morning as a gentle, caffeine-free detox boost.", "why": "Steeping dried flowers at 85°C–90°C preserves delicate antioxidants, while lemon boosts bioavailability of anthocyanins and reveals the iconic purple hue."}}, "ingredients": ["100% Whole Sun-Dried Butterfly Pea Flowers (Clitoria Ternatea / Aparajita) — Rich in Anthocyanins (Delphinidin & Ternatins)"], "eco": ["Zip-Lock Pouch (50g)", "Caffeine-Free Whole Flower", "Rich in Anthocyanins", "pH Color Changing"], "pack": "50g Standup Zip-Lock Kraft Pouch with Window"},
@@ -961,6 +1046,73 @@ const PRODUCTS = [
   {"id": "attar-malaka", "cat": "attars", "name": "Malaka Royal Floral Wreath Attar", "scent": "Malaka", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with damask rose & frankincense", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Malaka Attar is presented in an ornate royal gold-framed glass flacon with a majestic ribbed crown finial cap and crystal tip, inscribed cleanly with \"HOME ECONOMICS\" and \"MALAKA\". Filled with precious golden champagne attar oil, blending Bulgarian and Indian damask rose, sacred frankincense, golden saffron, and honeyed amber.", "notes": ["Velvet Crimson Rose Petals & Golden Saffron", "Sacred Frankincense Tears & Honeyed Amber", "Smoky Guaiacwood & Creamy Imperial Sandalwood"], "ingredients": ["Centifolia & Damascena Rose Absolutes", "Oman Frankincense Resin", "Royal Saffron Infusion", "Golden Honey Accord"], "eco": ["Royal Gold Crown Flacon", "Royal Court Recipe", "Zero Alcohol Concentrate"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial",...ATTAR}
 ];
 
+  /* ═══════════════════════════════════════════════════════════════
+     HOME DÉCOR & ARTEFACTS — photos live in the /images folder
+     ═══════════════════════════════════════════════════════════════ */
+  const DECOR_GROUPS = [
+    { id: 'vases', label: 'Vases & Bowls' },
+    { id: 'figurines', label: 'Figurines & Sculptures' },
+    { id: 'trays', label: 'Trays & Serveware' },
+    { id: 'lighting', label: 'Candles & Lighting' },
+    { id: 'clocks', label: 'Clocks & Collectibles' },
+    { id: 'spiritual', label: 'Spiritual & Sacred' },
+    { id: 'gifting', label: 'Gift Sets' },
+  ];
+  const DECOR = [
+    {"file": "decor-green-ceramic-flower-bowl.jpg", "name": "Jade Ceramic Flower Bowl", "group": "vases", "desc": "Glazed jade-green bowl with sculpted ceramic roses on a gilded base.", "w": 1400, "h": 788},
+    {"file": "decor-champagne-glass-flower-bowl.jpg", "name": "Champagne Art-Glass Bowl", "group": "vases", "desc": "Free-form champagne glass bowl resting on a bed of ceramic roses.", "w": 1400, "h": 788},
+    {"file": "gift-bicycle-hamper-tray.jpg", "name": "Bicycle Gift Hamper Tray", "group": "gifting", "desc": "Woven tray with a miniature bicycle — ready to style as a festive gift hamper.", "w": 1400, "h": 788},
+    {"file": "gift-gold-glassware-set.jpg", "name": "Gilded Glassware Gift Set", "group": "gifting", "desc": "Glass jug with a gold handle and a set of gilded animal-head accents, gift-boxed.", "w": 1400, "h": 788},
+    {"file": "gift-lion-glasses-set.jpg", "name": "Lion Crest Glasses (Set of 2)", "group": "gifting", "desc": "A pair of glasses with sculpted lion heads, presented in a satin-lined box.", "w": 1400, "h": 788},
+    {"file": "gift-enamel-rose-wine-glasses.jpg", "name": "Enamel Rose Wine Glasses (Pair)", "group": "gifting", "desc": "Hand-painted rose stems on a pair of wine glasses, in a royal-blue satin box.", "w": 1400, "h": 933},
+    {"file": "decor-gold-glass-bowls-pair.jpg", "name": "Gold Footed Glass Bowls (Pair)", "group": "vases", "desc": "A pair of shimmering gold glass bowls on pedestal feet.", "w": 1400, "h": 788},
+    {"file": "decor-wall-clock-songbird.jpg", "name": "Songbird Floral Wall Clock", "group": "clocks", "desc": "Ivory dial with hand-painted songbirds and blossoms and raised gold numerals.", "w": 1400, "h": 788},
+    {"file": "decor-wall-clock-gold-mandala.jpg", "name": "Gold Mandala Wall Clock", "group": "clocks", "desc": "Ivory and gold mandala dial with a layered sunburst centre.", "w": 1400, "h": 788},
+    {"file": "decor-trays-tan-croc.jpg", "name": "Tan Croc-Texture Trays (Set)", "group": "trays", "desc": "Nesting serving trays in tan croc texture with gold handles.", "w": 1400, "h": 788},
+    {"file": "decor-round-tray-black-mandala.jpg", "name": "Black Mandala Round Tray", "group": "trays", "desc": "Glossy black round tray with a fine gold mandala.", "w": 1400, "h": 788},
+    {"file": "decor-trays-brown-leatherette.jpg", "name": "Espresso Leatherette Trays (Set)", "group": "trays", "desc": "Nesting trays in deep brown textured finish with gold handles.", "w": 1400, "h": 788},
+    {"file": "decor-trays-marble-gold.jpg", "name": "Marble & Gold Key Trays (Set)", "group": "trays", "desc": "Marble-effect trays framed with a gold Greek-key border.", "w": 1400, "h": 933},
+    {"file": "decor-trays-terrazzo-gold.jpg", "name": "Blush Terrazzo Trays (Set)", "group": "trays", "desc": "Blush terrazzo centre with a gold Greek-key frame.", "w": 1400, "h": 788},
+    {"file": "decor-mandala-tray-sunset.jpg", "name": "Sunset Mandala Wooden Tray", "group": "trays", "desc": "Wooden tray with a vivid hand-painted orange mandala under a glossy finish.", "w": 1197, "h": 1315},
+    {"file": "decor-mandala-tray-peacock.jpg", "name": "Peacock Mandala Wooden Tray", "group": "trays", "desc": "Wooden tray with an intricate blue-and-orange mandala.", "w": 1178, "h": 1335},
+    {"file": "decor-blue-silver-glass-platter.jpg", "name": "Ocean Blue Glass Platter", "group": "vases", "desc": "Wave-edged platter in deep blue with silver-leaf rim.", "w": 1400, "h": 788},
+    {"file": "decor-iridescent-glass-bowl.jpg", "name": "Iridescent Mosaic Glass Bowl", "group": "vases", "desc": "Rippled art-glass bowl with a pearlescent mosaic finish.", "w": 1400, "h": 788},
+    {"file": "decor-metal-motorcycle.jpg", "name": "Vintage Metal Motorcycle", "group": "figurines", "desc": "Hand-assembled metal motorcycle model with copper detailing.", "w": 1400, "h": 788},
+    {"file": "decor-violin-sculpture.jpg", "name": "Amber Crystal Violin Sculpture", "group": "figurines", "desc": "Copper-toned violin silhouette filled with amber crystals.", "w": 788, "h": 1400},
+    {"file": "decor-white-horse-figurine.jpg", "name": "Rearing White Horse", "group": "figurines", "desc": "Glossy white rearing horse with delicate floral details.", "w": 788, "h": 1400},
+    {"file": "decor-seven-horses-gold.jpg", "name": "Seven Running Horses", "group": "figurines", "desc": "White and gold galloping horses on a black base — a classic symbol of progress.", "w": 1400, "h": 788},
+    {"file": "decor-reader-on-sphere.jpg", "name": "The Reader on an Iridescent Sphere", "group": "figurines", "desc": "Gold figure reading atop a glowing iridescent orb.", "w": 788, "h": 1400},
+    {"file": "decor-thinker-on-sphere.jpg", "name": "The Thinker on a Starry Sphere", "group": "figurines", "desc": "Petite gold figure seated on a midnight-blue sphere.", "w": 788, "h": 1400},
+    {"file": "decor-thinker-on-pedestal.jpg", "name": "The Gold Thinker Pedestal", "group": "figurines", "desc": "Gold seated figure on a deep-blue starry pedestal.", "w": 788, "h": 1400},
+    {"file": "decor-london-telephone-booth.jpg", "name": "London Telephone Booth", "group": "clocks", "desc": "Red telephone-booth collectible with gold accents.", "w": 788, "h": 1400},
+    {"file": "decor-vintage-red-car.jpg", "name": "Vintage Red Roadster", "group": "clocks", "desc": "Red and gold vintage car collectible.", "w": 1400, "h": 788},
+    {"file": "decor-cannon-table-clock.jpg", "name": "Cannon Table Clock", "group": "clocks", "desc": "Bronze-finish cannon with a working clock set into its wheel.", "w": 1400, "h": 788},
+    {"file": "decor-figure-tray-holder.jpg", "name": "Sculpted Figure Trinket Tray", "group": "figurines", "desc": "White sculpted figure balancing a black dish — for keys, rings or trinkets.", "w": 788, "h": 1400},
+    {"file": "decor-footballer-figurine.jpg", "name": "Golden Footballer Figurine", "group": "figurines", "desc": "White and gold footballer kneeling on a black base.", "w": 788, "h": 1400},
+    {"file": "decor-cyclist-sculpture.jpg", "name": "Black Cyclist Sculpture", "group": "figurines", "desc": "Minimal black cyclist silhouette in motion.", "w": 1400, "h": 788},
+    {"file": "decor-face-hands-white.jpg", "name": "White Face & Hands Sculpture", "group": "figurines", "desc": "Glossy white abstract face cradled by sculpted fingers.", "w": 788, "h": 1400},
+    {"file": "decor-face-hands-black.jpg", "name": "Black Face & Hands Sculpture", "group": "figurines", "desc": "Glossy black abstract face-and-hand sculpture.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-traveller.jpg", "name": "Couple Under an Umbrella — The Journey", "group": "figurines", "desc": "Romantic couple with a gold umbrella and travel case.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-seated.jpg", "name": "Couple Under an Umbrella — Together", "group": "figurines", "desc": "Seated couple sharing a gold umbrella.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-bench.jpg", "name": "Couple Under an Umbrella — The Proposal", "group": "figurines", "desc": "Couple on a bench beneath a gold umbrella.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-embrace.jpg", "name": "Couple Under an Umbrella — The Embrace", "group": "figurines", "desc": "Couple in a warm embrace under a gold umbrella.", "w": 788, "h": 1400},
+    {"file": "decor-khanda-ik-onkar-plates.jpg", "name": "Khanda & Ik Onkar Mini Plates", "group": "spiritual", "desc": "A pair of jewelled mini plates with Khanda and Ik Onkar on stands.", "w": 1400, "h": 788},
+    {"file": "decor-sand-glass-flower-bowl.jpg", "name": "Sand Art-Glass Flower Bowl", "group": "vases", "desc": "Sculpted sand-gold glass bowl on a base of ceramic roses.", "w": 1400, "h": 788},
+    {"file": "decor-glass-candle-holders-wood.jpg", "name": "Blown-Glass Candle Holders on Wood", "group": "lighting", "desc": "Organic blown-glass hurricanes resting on natural wood bases.", "w": 1400, "h": 788},
+    {"file": "decor-ganesha-colour-set.jpg", "name": "Jewel-Tone Ganesha Idols", "group": "spiritual", "desc": "Ganesha idols in sapphire, emerald, ruby, aqua and onyx tones.", "w": 1400, "h": 700},
+    {"file": "decor-gold-fruit-stand.jpg", "name": "Gold Ribbon Fruit Stand", "group": "trays", "desc": "Sculptural gold platter on a pedestal with a marble-effect stem.", "w": 1400, "h": 788},
+    {"file": "decor-candle-holders-marble-gold.jpg", "name": "Marble & Gold Candle Holders (Pair)", "group": "lighting", "desc": "Smoked-glass hurricanes on gold stems with marble bases.", "w": 788, "h": 1400},
+    {"file": "decor-candelabra-gold.jpg", "name": "Five-Arm Gold Candelabra", "group": "lighting", "desc": "Ornate gold candelabra with smoked-glass votives.", "w": 788, "h": 1400},
+    {"file": "decor-ivory-vase-gold-roses.jpg", "name": "Ivory Vase with Gilded Roses", "group": "vases", "desc": "Ivory ceramic vase with sculpted roses and gold leaves.", "w": 1050, "h": 1400},
+    {"file": "decor-crystal-hanuman-idol.jpg", "name": "Crystal Hanuman Idol", "group": "spiritual", "desc": "Clear crystal Hanuman with gold detailing on a black base.", "w": 788, "h": 1400},
+    {"file": "decor-lemon-vase-gold-roses.jpg", "name": "Lemon Vase with Gilded Roses", "group": "vases", "desc": "Soft yellow ceramic vase with sculpted roses and gold leaves.", "w": 788, "h": 1400},
+    {"file": "decor-pink-round-vase-roses.jpg", "name": "Blush Round Vase with Roses", "group": "vases", "desc": "Pierced blush-pink vase with sculpted ceramic roses.", "w": 788, "h": 1400},
+    {"file": "decor-pink-tall-vase-roses.jpg", "name": "Blush Tall Vase with Roses", "group": "vases", "desc": "Tall pierced blush-pink vase with sculpted ceramic roses.", "w": 788, "h": 1400},
+    {"file": "decor-crystal-lakshmi-idol.jpg", "name": "Crystal Lakshmi Idol", "group": "spiritual", "desc": "Clear crystal Lakshmi with gold detailing on a black base.", "w": 788, "h": 1400},
+    {"file": "decor-swan-family-small.jpg", "name": "Blue Swan Family (Small)", "group": "figurines", "desc": "Powder-blue swans with gold-tipped feathers.", "w": 788, "h": 1400},
+    {"file": "decor-swan-family-large.jpg", "name": "Blue Swan Family (Large)", "group": "figurines", "desc": "Grand powder-blue swan family with gilded wings.", "w": 1050, "h": 1400}
+  ];
+
   /* ═══════════════════════════════ helpers ═══════════════════════════════ */
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -971,6 +1123,9 @@ const PRODUCTS = [
   const toneVars = p => `--tone:${p.tone[0]};--light:${p.tone[1]};--deep:${p.tone[2]}`;
   const waLink = text => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
+  function mediaHTML(p) {
+    return p.img ? `<img class="photo" src="${p.img}" alt="${esc(p.name)}" loading="lazy" decoding="async">` : vesselHTML(p);
+  }
   function vesselHTML(p) {
     const k = p.pack.toLowerCase();
     let cls = 'vessel';
@@ -1025,7 +1180,7 @@ const PRODUCTS = [
     $('#bagItems').innerHTML = count ? bag.map(l => {
       const p = byId[l.id] || byId[(l.contents || [])[0]];
       return `<div class="line-item" style="${toneVars(p)}">
-        <div class="mini">${vesselHTML(p)}</div>
+        <div class="mini">${mediaHTML(p)}</div>
         <div class="meta">
           <b>${esc(l.name)}</b><small>${esc(l.detail || '')}</small>
           <div class="row">
@@ -1083,7 +1238,7 @@ const PRODUCTS = [
     d.innerHTML = `
       <button class="x" type="button" data-close aria-label="Close"><i class="ph ph-x"></i></button>
       <div class="pd" style="${toneVars(p)}">
-        <div class="art">${vesselHTML(p)}</div>
+        <div class="art">${mediaHTML(p)}</div>
         <div class="pd-info">
           <span class="pd-cat">${esc(catById[p.cat].label)}</span>
           <h2>${esc(p.name)}</h2>
@@ -1150,7 +1305,7 @@ const PRODUCTS = [
       <article class="card" style="${toneVars(p)};animation-delay:${Math.min(i, 12) * 45}ms">
         <div class="art" data-open="${p.id}" role="button" tabindex="0" aria-label="View ${esc(p.name)}">
           <span class="badge">${esc(catById[p.cat].label)}</span>
-          <span class="shadow"></span>${vesselHTML(p)}
+          <span class="shadow"></span>${mediaHTML(p)}
         </div>
         <div class="card-body">
           <h3 data-open="${p.id}">${esc(p.name)}</h3>
@@ -1227,7 +1382,83 @@ const PRODUCTS = [
   $('#ritualList').addEventListener('click', e => { const li = e.target.closest('[data-open-r]'); if (li) openProduct(li.dataset.openR); });
   $('#addRitual').addEventListener('click', () => { RITUAL.forEach(id => addProduct(id, 1, true)); toast('The 4-step skin ritual is in your bag'); });
 
+  /* ═══════════════════════════════ home décor ═══════════════════════════════ */
+  const groupLabel = Object.fromEntries(DECOR_GROUPS.map(g => [g.id, g.label]));
+  let decorGroup = 'all';
+  let decorExpanded = false;
+  let decorList = DECOR;
+  const DECOR_PREVIEW = 12;
+  const decorAsk = d => waLink(`Hi! I'm interested in the ${d.name} from your Home Décor collection. Could you share the price and availability?`);
+
+  function renderDecorChips() {
+    $('#decorChips').innerHTML = [{ id: 'all', label: 'All pieces' }, ...DECOR_GROUPS].map(g => {
+      const n = g.id === 'all' ? DECOR.length : DECOR.filter(d => d.group === g.id).length;
+      return `<button type="button" class="chip ${g.id === decorGroup ? 'active' : ''}" data-dg="${g.id}" aria-pressed="${g.id === decorGroup}">${esc(g.label)}<small>${n}</small></button>`;
+    }).join('');
+  }
+  function renderDecor() {
+    decorList = decorGroup === 'all' ? DECOR : DECOR.filter(d => d.group === decorGroup);
+    const limit = decorGroup === 'all' && !decorExpanded ? DECOR_PREVIEW : decorList.length;
+    $('#decorGrid').innerHTML = decorList.slice(0, limit).map((d, i) => `
+      <button type="button" class="dcard" data-decor="${i}" style="animation-delay:${Math.min(i % DECOR_PREVIEW, 11) * 50}ms" aria-label="View ${esc(d.name)}">
+        <div class="ph-wrap"><img src="images/${d.file}" alt="${esc(d.name)}" loading="lazy" decoding="async" width="${d.w}" height="${d.h}"></div>
+        <div class="dmeta"><small>${esc(groupLabel[d.group])}</small><b>${esc(d.name)}</b></div>
+      </button>`).join('');
+    const more = $('#decorMore');
+    more.parentElement.style.display = limit < decorList.length ? '' : 'none';
+    more.innerHTML = `<i class="ph ph-squares-four"></i> Show all ${decorList.length} pieces`;
+  }
+  $('#decorChips').addEventListener('click', e => {
+    const b = e.target.closest('[data-dg]'); if (!b) return;
+    decorGroup = b.dataset.dg; renderDecorChips(); renderDecor();
+  });
+  $('#decorMore').addEventListener('click', () => { decorExpanded = true; renderDecor(); });
+  $('#decorGrid').addEventListener('click', e => { const c = e.target.closest('[data-decor]'); if (c) openLightbox(Number(c.dataset.decor)); });
+
+  let lbIndex = 0;
+  function openLightbox(i) {
+    lbIndex = (i + decorList.length) % decorList.length;
+    const d = decorList[lbIndex];
+    const box = $('#lightbox');
+    box.innerHTML = `
+      <button class="x" type="button" data-close aria-label="Close"><i class="ph ph-x"></i></button>
+      <div class="lb">
+        <div class="lb-img">
+          <img src="images/${d.file}" alt="${esc(d.name)}" id="lbImg">
+          ${decorList.length > 1 ? `<button class="lb-nav lb-prev" type="button" data-lb="-1" aria-label="Previous piece"><i class="ph ph-caret-left"></i></button>
+          <button class="lb-nav lb-next" type="button" data-lb="1" aria-label="Next piece"><i class="ph ph-caret-right"></i></button>` : ''}
+        </div>
+        <div class="lb-info">
+          <span class="lb-count">${esc(groupLabel[d.group]).toUpperCase()} · ${lbIndex + 1} / ${decorList.length}</span>
+          <h3>${esc(d.name)}</h3>
+          <p>${esc(d.desc)}</p>
+          <p class="note">Price on request · Available at 39 Santushti Shopping Complex, Chanakyapuri</p>
+          <div class="btns">
+            <a class="btn btn-wa" href="${decorAsk(d)}" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i> Ask price on WhatsApp</a>
+            <a class="btn btn-line" href="#visit" data-close><i class="ph ph-map-pin"></i> Visit the store</a>
+          </div>
+        </div>
+      </div>`;
+    $$('[data-lb]', box).forEach(b => b.addEventListener('click', () => openLightbox(lbIndex + Number(b.dataset.lb))));
+    $('#lbImg').addEventListener('click', e => e.currentTarget.classList.toggle('zoom'));
+    openDialog(box);
+  }
+  document.addEventListener('keydown', e => {
+    if (!$('#lightbox').open) return;
+    if (e.key === 'ArrowRight') openLightbox(lbIndex + 1);
+    if (e.key === 'ArrowLeft') openLightbox(lbIndex - 1);
+  });
+  let touchStartX = null;
+  $('#lightbox').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  $('#lightbox').addEventListener('touchend', e => {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) openLightbox(lbIndex + (dx < 0 ? 1 : -1));
+    touchStartX = null;
+  });
+
   /* ═══════════════════════════════ page effects ═══════════════════════════════ */
+  $('#decorCount').textContent = DECOR.length;
   $('#year').textContent = new Date().getFullYear();
   $('#statCount').textContent = PRODUCTS.length;
 
@@ -1254,7 +1485,7 @@ const PRODUCTS = [
     }, { passive: true });
   }
 
-  renderChips(); renderGrid(); renderTrio(); renderBag();
+  renderChips(); renderGrid(); renderTrio(); renderBag(); renderDecorChips(); renderDecor();
   </script>
 </body>
 </html>
