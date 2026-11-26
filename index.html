@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Economics — Everyday Essentials, Beautifully Made</title>
+  <meta name="description" content="Small-batch 3-in-1 body washes, room-freshener floor cleaners, skin care, alcohol-free attars, wellness teas and home décor. Visit us at 39 Santushti Shopping Complex, Chanakyapuri, New Delhi." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="Home Economics — Everyday Essentials, Beautifully Made" />
+  <meta property="og:description" content="Personal care, home care, attars and home décor. Order on WhatsApp or visit us at Santushti, Chanakyapuri." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/logo.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    /* ─────────────────────────────── Tokens ─────────────────────────────── */
+    :root {
+      --white: #ffffff;
+      --gray: #f5f5f7;
+      --gray2: #e8e8ed;
+      --ink: #1d1d1f;
+      --ink2: #424245;
+      --muted: #6e6e73;
+      --line: #d2d2d7;
+      --gold: #9a6a26;
+      --gold-light: #e4c68b;
+      --link: #8a5a1c;
+      --black: #000;
+      --dark-card: #1d1d1f;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html:has(dialog[open]) { overflow: hidden; }
+    body { font-family: var(--font); color: var(--ink); background: var(--white); font-size: 17px; line-height: 1.47; letter-spacing: -0.022em; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
+    button { cursor: pointer; background: none; border: 0; }
+    img { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
+    ::selection { background: #f0dfbd; }
+    .wrap { width: min(1180px, 100% - 44px); margin-inline: auto; }
+    .center { text-align: center; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* Type */
+    .eyebrow { font-size: 17px; font-weight: 600; color: var(--gold); letter-spacing: -0.01em; }
+    .h-xl { font-size: clamp(48px, 8.4vw, 104px); font-weight: 700; letter-spacing: -0.045em; line-height: 1.02; }
+    .h-lg { font-size: clamp(40px, 6vw, 80px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.04; }
+    .h-md { font-size: clamp(30px, 3.8vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; }
+    .sub { font-size: clamp(19px, 2.1vw, 28px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; color: var(--muted); }
+    .gold-text { background: linear-gradient(100deg, #b8862f, #e9c987 45%, #b07a2a 80%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 22px; font-size: 19px; }
+    .more { color: var(--link); font-weight: 500; display: inline-flex; align-items: center; gap: 2px; transition: opacity .2s; }
+    .more::after { content: "›"; font-size: 1.15em; margin-left: 3px; transition: transform .3s var(--ease); }
+    .more:hover { text-decoration: underline; }
+    .more:hover::after { transform: translateX(3px); }
+    .dark .more { color: var(--gold-light); }
+
+    /* Buttons */
+    .pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 980px; font-size: 17px; font-weight: 500;
+      background: var(--ink); color: #fff; transition: background .25s, transform .3s var(--ease); white-space: nowrap; }
+    .pill:hover { background: #333336; }
+    .pill:active { transform: scale(.97); }
+    .pill.light { background: var(--gray2); color: var(--ink); }
+    .pill.light:hover { background: #dcdce1; }
+    .pill.gold { background: linear-gradient(135deg, #d6ac62, #a8772d); color: #fff; }
+    .pill.wa { background: #1f8f4e; }
+    .pill.wa:hover { background: #18773f; }
+    .pill.sm { padding: 8px 16px; font-size: 14px; }
+    .pill i { font-size: 1.15em; }
+    .pill:disabled { opacity: .4; cursor: not-allowed; }
+
+    /* Reveal (Apple-like fade + rise + de-blur) */
+    .rv { opacity: 0; transform: translateY(44px); filter: blur(8px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease); }
+    .rv.in { opacity: 1; transform: none; filter: none; }
+    .rv.pcard, .rv.poster, .rv.value { transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease), box-shadow .6s var(--ease); }
+    .rv.d1 { transition-delay: .1s; } .rv.d2 { transition-delay: .2s; } .rv.d3 { transition-delay: .3s; }
+
+    /* ─────────────────────────────── Global nav (not sticky) ─────────────────────────────── */
+    .gnav { background: rgba(255,255,255,.92); border-bottom: 1px solid rgba(0,0,0,.06); position: relative; z-index: 20; }
+    .gnav .wrap { height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
+    .brand img { width: 34px; height: 34px; border-radius: 50%; transition: transform .6s var(--ease); }
+    .brand:hover img { transform: rotate(-10deg) scale(1.06); }
+    .gnav nav { display: flex; gap: 26px; font-size: 13px; color: rgba(0,0,0,.8); }
+    .gnav nav a { transition: color .2s; }
+    .gnav nav a:hover { color: var(--gold); }
+    .gnav .acts { display: flex; gap: 6px; align-items: center; }
+    .ibtn { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 19px; color: var(--ink2); transition: background .2s; position: relative; }
+    .ibtn:hover { background: var(--gray); }
+    .bagcount { position: absolute; top: 2px; right: 0; min-width: 17px; height: 17px; border-radius: 9px; padding: 0 4px; background: var(--ink); color: #fff;
+      font-size: 10.5px; font-weight: 600; display: grid; place-items: center; transform: scale(0); transition: transform .45s var(--ease); }
+    .bagcount.show { transform: scale(1); }
+    .bagcount.bump { animation: bump .5s var(--ease); }
+    @keyframes bump { 40% { transform: scale(1.4); } }
+    .menu-btn { display: none; }
+    .mnav { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s var(--ease); background: #fff; }
+    .mnav > div { overflow: hidden; }
+    .mnav.open { grid-template-rows: 1fr; border-bottom: 1px solid var(--gray2); }
+    .mnav nav { display: grid; padding: 8px 22px 22px; }
+    .mnav a { font-size: 26px; font-weight: 600; letter-spacing: -0.03em; padding: 8px 0; opacity: 0; transform: translateY(-8px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+    .mnav.open a { opacity: 1; transform: none; }
+    .mnav.open a:nth-child(2) { transition-delay: .04s; } .mnav.open a:nth-child(3) { transition-delay: .08s; } .mnav.open a:nth-child(4) { transition-delay: .12s; }
+    .mnav.open a:nth-child(5) { transition-delay: .16s; } .mnav.open a:nth-child(6) { transition-delay: .2s; } .mnav.open a:nth-child(7) { transition-delay: .24s; }
+
+    .ribbon { background: var(--gray); text-align: center; font-size: 14px; padding: 12px 16px; color: var(--ink2); }
+    .ribbon a { color: var(--link); }
+    .ribbon a:hover { text-decoration: underline; }
+
+    /* ─────────────────────────────── Hero ─────────────────────────────── */
+    .hero { padding: 72px 0 40px; text-align: center; overflow: hidden; }
+    .hero .copy { will-change: transform, opacity; }
+    .hero .h-xl .w { display: inline-block; opacity: 0; filter: blur(14px); transform: translateY(20px); animation: wordIn 1.4s var(--ease) forwards; }
+    .hero .h-xl .w:nth-child(2) { animation-delay: .08s; } .hero .h-xl .w:nth-child(3) { animation-delay: .16s; }
+    .hero .h-xl .w:nth-child(5) { animation-delay: .28s; } .hero .h-xl .w:nth-child(6) { animation-delay: .36s; }
+    @keyframes wordIn { to { opacity: 1; filter: none; transform: none; } }
+    .hero .sub { max-width: 760px; margin: 22px auto 0; }
+    .fade { opacity: 0; transform: translateY(18px); animation: fadeUp 1.2s var(--ease) forwards; }
+    .fade.f1 { animation-delay: .5s; } .fade.f2 { animation-delay: .65s; } .fade.f3 { animation-delay: .85s; }
+    @keyframes fadeUp { to { opacity: 1; transform: none; } }
+    .hero-ctas { display: flex; justify-content: center; align-items: center; gap: 22px; margin-top: 30px; flex-wrap: wrap; }
+
+    /* Moving tiles */
+    .tiles { margin-top: 56px; display: grid; gap: 18px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+    .tile-row { transform: translate3d(var(--shift, 0px), 0, 0); will-change: transform; }
+    .tile-track { display: flex; gap: 18px; width: max-content; animation: drift 70s linear infinite; }
+    .tile-row.rev .tile-track { animation-direction: reverse; animation-duration: 80s; }
+    .tiles:hover .tile-track { animation-play-state: paused; }
+    @keyframes drift { to { transform: translateX(-50%); } }
+    .tile {
+      position: relative; flex: 0 0 auto; width: 230px; height: 290px; border-radius: 28px; overflow: hidden; background: var(--gray);
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: left;
+      transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+    }
+    .tile:hover { transform: scale(1.04); box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); }
+    .tile img { position: absolute; inset: 14px 14px 64px; width: calc(100% - 28px); height: calc(100% - 78px); object-fit: contain; mix-blend-mode: multiply; transition: transform .8s var(--ease); }
+    .tile:hover img { transform: scale(1.06); }
+    .tile.warm { background: radial-gradient(90% 70% at 50% 40%, #fff7e8, #f1e2c4); }
+    .tile.warm img, .tile.decor img { mix-blend-mode: normal; }
+    .tile.decor { background: #fff; border: 1px solid var(--gray2); }
+    .tile.decor img { inset: 0 0 56px; width: 100%; height: calc(100% - 56px); object-fit: cover; }
+    .tile .cap { position: relative; width: 100%; padding: 0 18px 18px; }
+    .tile .cap small { display: block; font-size: 11px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--gold); }
+    .tile .cap b { display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* Chiclet nav */
+    .chiclets { display: flex; justify-content: center; gap: 30px; padding: 54px 0 30px; overflow-x: auto; scrollbar-width: none; }
+    .chiclets::-webkit-scrollbar { display: none; }
+    .chiclet { flex: 0 0 auto; display: grid; justify-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--ink); transition: color .2s; }
+    .chiclet .ic { width: 98px; height: 98px; border-radius: 26px; background: var(--gray); display: grid; place-items: center; overflow: hidden; transition: transform .5s var(--ease), background .3s; }
+    .chiclet .ic img { width: 76%; height: 76%; object-fit: contain; mix-blend-mode: multiply; }
+    .chiclet .ic.warm { background: radial-gradient(circle, #fff7e8, #efdfbd); }
+    .chiclet .ic.warm img, .chiclet .ic.cover img { mix-blend-mode: normal; }
+    .chiclet .ic.cover img { width: 100%; height: 100%; object-fit: cover; }
+    .chiclet .ic i { font-size: 40px; color: var(--gold); }
+    .chiclet:hover .ic { transform: translateY(-4px) scale(1.04); }
+    .chiclet:hover { color: var(--gold); }
+
+    /* ─────────────────────────────── Sections ─────────────────────────────── */
+    section.sec { padding: 120px 0; overflow: hidden; }
+    section.gray { background: var(--gray); }
+    section.dark { background: var(--black); color: #f5f5f7; }
+    section.dark .sub { color: #a1a1a6; }
+    .sec-head { text-align: center; max-width: 860px; margin: 0 auto 56px; }
+    .sec-head .sub { margin-top: 14px; }
+
+    /* Body wash lineup */
+    .lineup { display: flex; justify-content: center; align-items: flex-end; gap: clamp(10px, 3vw, 44px); padding: 0 10px; }
+    .lineup button { display: grid; justify-items: center; gap: 14px; transform: translateY(var(--rise, 0px)); transition: transform .15s linear; }
+    .lineup img { height: clamp(220px, 34vw, 430px); width: auto; mix-blend-mode: multiply; transition: transform .7s var(--ease); }
+    .lineup button:hover img { transform: translateY(-12px) scale(1.03); }
+    .lineup span { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+    .lineup span small { display: block; font-weight: 400; color: var(--muted); text-align: center; }
+
+    /* Carousel */
+    .car-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 26px; }
+    .car-head h3 { font-size: clamp(26px, 3vw, 40px); font-weight: 700; letter-spacing: -0.03em; }
+    .car-nav { display: flex; gap: 10px; }
+    .car-nav button { width: 40px; height: 40px; border-radius: 50%; background: rgba(210,210,215,.64); display: grid; place-items: center; font-size: 18px; transition: background .2s, opacity .2s; }
+    .car-nav button:hover { background: rgba(210,210,215,.95); }
+    .car-nav button:disabled { opacity: .35; cursor: default; }
+    .dark .car-nav button { background: rgba(66,66,69,.72); color: #fff; }
+    .dark .car-nav button:hover { background: rgba(80,80,84,.95); }
+    .car { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none;
+      padding: 10px max(22px, calc((100vw - 1180px) / 2)) 40px; margin: -10px calc(-1 * max(22px, calc((100vw - 1180px) / 2))) -40px; scroll-padding-inline: max(22px, calc((100vw - 1180px) / 2)); }
+    .car::-webkit-scrollbar { display: none; }
+
+    /* Product card */
+    .pcard {
+      flex: 0 0 auto; width: 300px; scroll-snap-align: start; border-radius: 28px; background: #fff; overflow: hidden; display: flex; flex-direction: column;
+      box-shadow: 2px 4px 12px rgba(0,0,0,.08); transition: transform .6s var(--ease), box-shadow .6s var(--ease); text-align: left;
+    }
+    section.sec:not(.gray):not(.dark) .pcard { background: var(--gray); box-shadow: none; }
+    .pcard:hover { transform: scale(1.02); box-shadow: 2px 12px 32px rgba(0,0,0,.14); }
+    .pcard .pimg { position: relative; height: 300px; display: grid; place-items: center; cursor: pointer; overflow: hidden; }
+    .pcard .pimg img { position: absolute; inset: 7% 9%; width: 82%; height: 86%; object-fit: contain; mix-blend-mode: multiply; transition: transform .8s var(--ease); }
+    .pcard:hover .pimg img { transform: scale(1.06); }
+    .pcard .pbody { padding: 4px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+    .pcard .tag { font-size: 12px; font-weight: 600; color: var(--gold); }
+    .pcard h4 { font-size: 21px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-top: 4px; cursor: pointer; }
+    .pcard p { font-size: 14px; color: var(--muted); margin-top: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .pcard .pfoot { margin-top: auto; padding-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .pcard .price { font-size: 17px; font-weight: 600; }
+    .pcard .price small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
+    .add { padding: 8px 16px; border-radius: 980px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 500; transition: background .25s, transform .3s var(--ease); }
+    .add:hover { background: #333336; }
+    .add:active { transform: scale(.95); }
+    .add.done { background: #2e7d4f; }
+    .dark .pcard { background: var(--dark-card); color: #f5f5f7; box-shadow: none; }
+    .dark .pcard .pimg { background: radial-gradient(80% 70% at 50% 45%, #3a2f1f 0%, #1d1d1f 70%); }
+    .dark .pcard .pimg img { mix-blend-mode: normal; inset: 9% 15%; width: 70%; height: 82%; filter: drop-shadow(0 24px 30px rgba(0,0,0,.55)); }
+    .dark .pcard p { color: #a1a1a6; }
+    .dark .pcard .tag { color: var(--gold-light); }
+    .dark .add { background: #f5f5f7; color: var(--ink); }
+    .dark .add:hover { background: #fff; }
+
+    /* Vessel illustrations (used when a product has no photo yet) */
+    .vessel { --liq: #e09f3e; --w: 70px; --h: 168px; position: relative; width: var(--w); height: var(--h); flex-shrink: 0; transition: transform .8s var(--ease); }
+    .pcard:hover .vessel { transform: translateY(-8px) rotate(-3deg); }
+    .vessel .body { position: absolute; inset: 18% 0 0; border-radius: 18px 18px 14px 14px; overflow: hidden;
+      background: linear-gradient(90deg, rgba(255,255,255,.65), rgba(255,255,255,.15) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,.35));
+      border: 1.5px solid rgba(255,255,255,.85); box-shadow: inset 0 0 0 1px rgba(0,0,0,.04), 0 18px 28px -14px rgba(0,0,0,.35); }
+    .vessel .body::before { content: ""; position: absolute; inset: 14% 5% 4%; border-radius: 13px 13px 10px 10px; background: var(--liq); opacity: .9; }
+    .vessel .body::after { content: "HOME ECONOMICS"; position: absolute; left: 14%; right: 14%; top: 44%; padding: 6px 2px; background: #fbf7ef; border-radius: 3px;
+      font: 600 calc(var(--w) * .075)/1 Georgia, serif; letter-spacing: .14em; text-align: center; color: #5a4632; }
+    .vessel .cap { position: absolute; left: 30%; right: 30%; top: 0; height: 13%; border-radius: 5px; background: #17181b; }
+    .vessel.jar { --w: 104px; --h: 104px; }
+    .vessel.jar .cap { left: 4%; right: 4%; height: 26%; border-radius: 8px; background: linear-gradient(180deg, #f3dc9b, #b8893a); }
+    .vessel.jar.wood .cap { background: linear-gradient(180deg, #c08f5e, #8f6034); }
+    .vessel.jar .body { inset: 24% 0 0; border-radius: 16px; background: rgba(255,255,255,.55); }
+    .vessel.jar .body::before { inset: 10% 6% 8%; border-radius: 12px; opacity: .8; }
+    .vessel.jar .body::after { top: 34%; }
+    .vessel.dropper { --w: 62px; --h: 156px; }
+    .vessel.dropper .cap { left: 34%; right: 34%; height: 24%; border-radius: 12px 12px 3px 3px; background: linear-gradient(180deg, #1c1c1c 60%, #d4b06a 60%); }
+    .vessel.dropper .body { inset: 26% 0 0; background: linear-gradient(90deg, #a05a1c, #7a4210); border-color: #8a4b12; }
+    .vessel.dropper .body::before { opacity: .45; }
+    .vessel.spray .cap { left: 24%; right: 18%; height: 14%; border-radius: 4px 10px 3px 3px; background: #f4f4f4; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+    .vessel.pouch { --w: 104px; --h: 140px; }
+    .vessel.pouch .cap { display: none; }
+    .vessel.pouch .body { inset: 0; border-radius: 6px 6px 10px 10px; background: linear-gradient(90deg, #cfae84, #b8935f 60%, #c8a576); border: 0; clip-path: polygon(4% 0, 96% 0, 100% 100%, 0 100%); }
+    .vessel.pouch .body::before { inset: auto 22% 12% 22%; height: 34%; border-radius: 10px; opacity: 1; box-shadow: 0 0 0 2px rgba(255,255,255,.7); }
+    .vessel.pouch .body::after { top: 18%; }
+
+    /* Feature / ritual tile */
+    .feature { margin-top: 80px; border-radius: 32px; background: var(--gray); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; }
+    section.gray .feature { background: #fff; }
+    .feature h3 { font-size: clamp(30px, 3.6vw, 48px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; }
+    .feature p { color: var(--muted); font-size: 19px; margin-top: 12px; }
+    .steps { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .steps li { background: #fff; border-radius: 22px; padding: 16px; display: grid; gap: 8px; cursor: pointer; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+    section.gray .steps li { background: var(--gray); }
+    .steps li:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -18px rgba(0,0,0,.3); }
+    .steps .simg { position: relative; height: 130px; display: grid; place-items: center; }
+    .steps .simg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+    .steps .simg .vessel { transform: scale(.75); }
+    .steps small { font-size: 12px; font-weight: 600; color: var(--gold); }
+    .steps b { font-size: 15px; letter-spacing: -0.015em; line-height: 1.25; }
+
+    /* Big image with scroll zoom */
+    .homesplit { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; margin-bottom: 100px; }
+    .homesplit .stats { grid-template-columns: 1fr; text-align: left; margin: 0; gap: 34px; }
+    .stage { border-radius: 32px; overflow: hidden; position: relative; aspect-ratio: 16 / 8; background: #ddd; }
+    .stage.home { aspect-ratio: 1073 / 1400; }
+    .stage img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--zoom, 1.15)); will-change: transform; }
+    .stage.home img { object-position: 50% 0%; transform-origin: 50% 0%; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 64px 0 90px; text-align: center; }
+    .stats b { display: block; font-size: clamp(44px, 5.5vw, 72px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; }
+    .stats span { color: var(--muted); font-size: 17px; }
+
+    /* Attar hero */
+    .attar-hero { position: relative; display: grid; place-items: center; height: clamp(380px, 52vw, 600px); margin: 0 0 90px; }
+    .attar-hero::before { content: ""; position: absolute; width: min(70vw, 620px); aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(circle, rgba(214,168,86,.42) 0%, rgba(214,168,86,.12) 40%, transparent 70%); filter: blur(10px); animation: glow 6s ease-in-out infinite; }
+    @keyframes glow { 50% { transform: scale(1.08); opacity: .8; } }
+    .attar-hero img { position: relative; height: clamp(300px, 40vw, 500px); width: auto; filter: drop-shadow(0 40px 60px rgba(0,0,0,.7)); transform: translateY(var(--float, 0px)) scale(var(--zoom, 1)); will-change: transform; }
+    .flacon-row { display: flex; justify-content: center; align-items: flex-end; gap: clamp(6px, 2vw, 28px); margin-bottom: 80px; }
+    .flacon-row img { height: clamp(90px, 13vw, 170px); width: auto; filter: drop-shadow(0 18px 22px rgba(0,0,0,.6)); transform: translateY(var(--rise, 0px)); transition: transform .15s linear; }
+    .trio { margin-top: 90px; border-radius: 32px; background: var(--dark-card); padding: clamp(30px, 5vw, 60px); display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
+    .trio h3 { font-size: clamp(30px, 3.6vw, 48px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; }
+    .trio p { color: #a1a1a6; margin-top: 10px; }
+    .trio .price { display: flex; align-items: baseline; gap: 12px; margin: 22px 0; flex-wrap: wrap; }
+    .trio .price b { font-size: 44px; font-weight: 700; letter-spacing: -0.04em; }
+    .trio .price s { color: #86868b; }
+    .trio .save { padding: 5px 12px; border-radius: 980px; background: rgba(228,198,139,.15); color: var(--gold-light); font-size: 13px; font-weight: 600; }
+    .pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .pick button { position: relative; border-radius: 20px; background: #2a2a2d; padding: 12px 8px 12px; display: grid; justify-items: center; gap: 6px; font-size: 13px; color: #f5f5f7;
+      border: 2px solid transparent; transition: border-color .3s, background .3s, transform .4s var(--ease); }
+    .pick button:hover { transform: translateY(-3px); }
+    .pick button.on { border-color: var(--gold-light); background: #332b1f; }
+    .pick button img { height: 74px; width: auto; filter: drop-shadow(0 8px 10px rgba(0,0,0,.5)); }
+    .pick button .tick { position: absolute; top: 8px; right: 8px; width: 20px; height: 20px; border-radius: 50%; background: var(--gold-light); color: #000; font-size: 12px; display: grid; place-items: center; transform: scale(0); transition: transform .35s var(--ease); }
+    .pick button.on .tick { transform: scale(1); }
+
+    /* Wellness grid */
+    .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .grid4 .pcard { width: auto; }
+
+    /* Décor */
+    .posters { display: flex; gap: 20px; }
+    .poster { flex: 0 0 auto; width: min(560px, 82vw); scroll-snap-align: start; border-radius: 28px; overflow: hidden; background: #fff; text-align: left; cursor: zoom-in;
+      box-shadow: 2px 4px 12px rgba(0,0,0,.08); transition: transform .6s var(--ease), box-shadow .6s var(--ease); }
+    .poster:hover { transform: scale(1.015); box-shadow: 2px 14px 34px rgba(0,0,0,.16); }
+    .poster .pimg { aspect-ratio: 3 / 2; overflow: hidden; }
+    .poster .pimg img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+    .poster:hover .pimg img { transform: scale(1.04); }
+    .poster .pcap { padding: 18px 22px 22px; }
+    .poster .pcap small { font-size: 12px; font-weight: 600; color: var(--gold); }
+    .poster .pcap b { display: block; font-size: 21px; letter-spacing: -0.025em; }
+    .chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 4px 2px; margin: 70px 0 26px; }
+    .chips::-webkit-scrollbar { display: none; }
+    .chip { flex: 0 0 auto; padding: 9px 16px; border-radius: 980px; font-size: 14px; font-weight: 500; background: #fff; color: var(--ink2); transition: background .25s, color .25s; }
+    .chip:hover { background: #ececf0; }
+    .chip.active { background: var(--ink); color: #fff; }
+    .chip small { opacity: .55; margin-left: 5px; }
+    .masonry { columns: 4 240px; column-gap: 18px; }
+    .dcard { display: block; width: 100%; break-inside: avoid; margin-bottom: 18px; border-radius: 22px; overflow: hidden; background: #fff; text-align: left; cursor: zoom-in;
+      transition: transform .6s var(--ease), box-shadow .6s var(--ease); opacity: 0; animation: cardIn .8s var(--ease) forwards; }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+    .dcard:hover { transform: translateY(-5px); box-shadow: 0 22px 40px -22px rgba(0,0,0,.35); }
+    .dcard img { width: 100%; height: auto; transition: transform 1s var(--ease); }
+    .dcard:hover img { transform: scale(1.04); }
+    .dcard .dm { padding: 12px 16px 16px; }
+    .dcard .dm small { font-size: 11px; font-weight: 600; color: var(--gold); }
+    .dcard .dm b { display: block; font-size: 16px; letter-spacing: -0.02em; line-height: 1.25; }
+    .more-row { display: flex; justify-content: center; margin-top: 18px; }
+
+    /* Promise */
+    .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .value { background: var(--gray); border-radius: 28px; padding: 30px 26px; transition: transform .6s var(--ease); }
+    .value:hover { transform: translateY(-5px); }
+    .value i { font-size: 38px; color: var(--gold); }
+    .value h4 { font-size: 21px; letter-spacing: -0.025em; margin: 16px 0 8px; }
+    .value p { font-size: 15px; color: var(--muted); }
+
+    /* Founder */
+    .founder { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
+    .portrait { position: relative; aspect-ratio: 1; border-radius: 40px; background: radial-gradient(circle at 50% 40%, #fffaf1, #f1e4cc); display: grid; place-items: center; overflow: hidden; }
+    .portrait img { width: 64%; border-radius: 50%; box-shadow: 0 30px 60px -30px rgba(120,80,20,.45); transform: scale(var(--zoom, 1)); }
+    .portrait .ring { position: absolute; width: 82%; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(154,106,38,.3); animation: spin 50s linear infinite; }
+    .portrait .ring::before { content: ""; position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .founder blockquote { font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.3; margin: 22px 0; }
+    .founder .story p { color: var(--ink2); margin-bottom: 14px; font-size: 18px; }
+    .founder .who { margin-top: 18px; }
+    .founder .who b { font-size: 19px; display: block; }
+    .founder .who span { color: var(--muted); font-size: 15px; }
+    details.letter { margin-top: 26px; border-top: 1px solid var(--line); }
+    details.letter summary { list-style: none; cursor: pointer; padding: 18px 0; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--link); }
+    details.letter summary::-webkit-details-marker { display: none; }
+    details.letter summary i { transition: transform .4s var(--ease); }
+    details.letter[open] summary i { transform: rotate(45deg); }
+    details.letter .lb-body { color: var(--ink2); padding-bottom: 10px; }
+    details.letter .lb-body p { margin-bottom: 12px; }
+
+    /* Visit */
+    .visit { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; }
+    .vcard { background: #fff; border-radius: 32px; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; }
+    .vcard h3 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; margin: 8px 0 20px; }
+    .vcard .addr { display: flex; gap: 12px; font-size: 19px; line-height: 1.4; }
+    .vcard .addr i { color: var(--gold); font-size: 24px; margin-top: 2px; }
+    .vcard ul { list-style: none; display: grid; gap: 10px; margin: 22px 0 28px; }
+    .vcard ul a { display: inline-flex; gap: 10px; align-items: center; color: var(--ink2); transition: color .2s; }
+    .vcard ul a:hover { color: var(--gold); }
+    .vcard ul i { font-size: 20px; color: var(--gold); }
+    .vcard .btns { margin-top: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+    .map { border-radius: 32px; overflow: hidden; min-height: 420px; position: relative; background: var(--gray2); }
+    .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Footer */
+    footer { background: var(--gray); font-size: 12px; color: var(--muted); padding: 20px 0 30px; }
+    .fcta { text-align: center; padding: 90px 0 70px; background: #fff; }
+    .fcta .btns { display: flex; justify-content: center; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+    .fcols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .fcols h5 { color: var(--ink); font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+    .fcols a { display: block; padding: 3px 0; color: var(--ink2); }
+    .fcols a:hover { text-decoration: underline; }
+    .fbottom { padding-top: 14px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+
+    /* Floating bag */
+    .fbag { position: fixed; right: 20px; bottom: 20px; z-index: 30; display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 980px;
+      background: rgba(29,29,31,.92); backdrop-filter: blur(20px); color: #fff; font-size: 15px; font-weight: 500; box-shadow: 0 16px 40px -14px rgba(0,0,0,.5);
+      transform: translateY(150%); opacity: 0; transition: transform .7s var(--ease), opacity .4s; }
+    .fbag.show { transform: none; opacity: 1; }
+    .fbag em { font-style: normal; background: #fff; color: var(--ink); border-radius: 980px; padding: 1px 8px; font-size: 12px; font-weight: 600; }
+
+    /* Dialogs */
+    dialog { border: 0; padding: 0; background: #fff; color: var(--ink); }
+    dialog::backdrop { background: rgba(0,0,0,.45); backdrop-filter: blur(10px); animation: bd .4s ease; }
+    @keyframes bd { from { opacity: 0; } }
+    dialog.modal { width: min(1000px, calc(100% - 24px)); max-height: calc(100dvh - 24px); margin: auto; border-radius: 32px; }
+    dialog.modal[open] { animation: pop .6s var(--ease); }
+    @keyframes pop { from { opacity: 0; transform: translateY(30px) scale(.97); } }
+    dialog.drawer { width: min(440px, 100%); height: 100dvh; max-height: 100dvh; margin: 0 0 0 auto; }
+    dialog.drawer[open] { animation: slide .6s var(--ease); }
+    @keyframes slide { from { transform: translateX(100%); } }
+    .x { position: absolute; top: 16px; right: 16px; z-index: 3; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: rgba(232,232,237,.9); font-size: 17px; transition: background .2s, transform .4s var(--ease); }
+    .x:hover { background: #dcdce1; transform: rotate(90deg); }
+    .pd { display: grid; grid-template-columns: 1fr 1fr; height: min(780px, calc(100dvh - 24px)); }
+    .pd > * { min-height: 0; }
+    .pd-img { background: var(--gray); display: grid; place-items: center; position: relative; overflow: hidden; }
+    .pd-img img { position: absolute; inset: 9% 11%; width: 78%; height: 82%; object-fit: contain; mix-blend-mode: multiply; animation: fadeUp .8s var(--ease) both; }
+    .pd-img.warm { background: radial-gradient(80% 70% at 50% 45%, #3a2f1f, #111 75%); }
+    .pd-img.warm img { mix-blend-mode: normal; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); }
+    .pd-img .vessel { transform: scale(1.5); }
+    .pd-info { padding: 46px 38px 38px; overflow-y: auto; }
+    .pd-info .tag { font-size: 13px; font-weight: 600; color: var(--gold); }
+    .pd-info h2 { font-size: clamp(28px, 3vw, 38px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.1; margin: 6px 0 8px; }
+    .pd-info .lead { color: var(--muted); }
+    .pd-price { font-size: 24px; font-weight: 600; margin: 18px 0 2px; }
+    .pd-price small { font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 6px; }
+    .sibs { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+    .sibs button { padding: 8px 14px; border-radius: 980px; font-size: 13px; border: 1px solid var(--line); display: inline-flex; gap: 7px; align-items: center; transition: border-color .2s; }
+    .sibs button:hover { border-color: var(--ink); }
+    .sibs button.on { border: 2px solid var(--ink); padding: 7px 13px; font-weight: 600; }
+    .sibs i { width: 11px; height: 11px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+    .buy { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 22px 0 6px; }
+    .qty { display: inline-flex; align-items: center; background: var(--gray); border-radius: 980px; }
+    .qty button { width: 40px; height: 44px; font-size: 17px; color: var(--ink2); }
+    .qty span { min-width: 22px; text-align: center; font-weight: 600; }
+    .pd-sec { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--gray2); }
+    .pd-sec h5 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .pd-sec p, .pd-sec li { font-size: 15px; color: var(--ink2); }
+    .ticks { list-style: none; display: grid; gap: 6px; }
+    .ticks li { display: flex; gap: 8px; }
+    .ticks li::before { content: "✓"; color: #2e7d4f; font-weight: 700; }
+    .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .benefits div { background: var(--gray); border-radius: 16px; padding: 14px; }
+    .benefits b { display: block; font-size: 14px; }
+    .benefits span { font-size: 13px; color: var(--muted); }
+    .pyramid div { display: flex; gap: 12px; padding: 4px 0; }
+    .pyramid small { flex: 0 0 70px; font-size: 12px; color: var(--muted); }
+    .pillset { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pillset span { padding: 6px 12px; border-radius: 980px; background: var(--gray); font-size: 13px; color: var(--ink2); }
+    .pd details { margin-top: 22px; border-top: 1px solid var(--gray2); }
+    .pd details summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 600; display: flex; justify-content: space-between; }
+    .pd details summary::-webkit-details-marker { display: none; }
+    .pd details summary i { transition: transform .35s var(--ease); }
+    .pd details[open] summary i { transform: rotate(45deg); }
+    .pd details .gb { display: grid; gap: 8px; font-size: 14px; color: var(--ink2); padding-bottom: 8px; }
+
+    dialog.lightbox { width: min(1120px, calc(100% - 24px)); max-height: calc(100dvh - 24px); margin: auto; border-radius: 32px; }
+    dialog.lightbox[open] { animation: pop .6s var(--ease); }
+    .lb { display: grid; grid-template-columns: 1.45fr .55fr; height: min(780px, calc(100dvh - 24px)); }
+    .lb-img { position: relative; background: #fff; display: grid; place-items: center; overflow: hidden; }
+    .lb-img img { position: absolute; inset: 4% 3%; width: 94%; height: 92%; object-fit: contain; animation: fadeUp .6s var(--ease) both; cursor: zoom-in; transition: transform .7s var(--ease); }
+    .lb-img img.zoom { transform: scale(1.9); cursor: zoom-out; }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(232,232,237,.85); backdrop-filter: blur(10px); display: grid; place-items: center; font-size: 18px; transition: background .2s; }
+    .lb-nav:hover { background: #dcdce1; }
+    .lb-prev { left: 16px; } .lb-next { right: 16px; }
+    .lb-info { padding: 52px 30px 30px; background: var(--gray); display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
+    .lb-info .count { font-size: 12px; font-weight: 600; color: var(--gold); }
+    .lb-info h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; }
+    .lb-info p { color: var(--ink2); font-size: 15px; }
+    .lb-info .note { color: var(--muted); font-size: 13px; }
+    .lb-info .btns { margin-top: auto; display: grid; gap: 10px; }
+
+    .dwrap { display: flex; flex-direction: column; height: 100%; }
+    .dhead { padding: 28px 24px 16px; }
+    .dhead h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.035em; }
+    .dhead p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .ditems { flex: 1; overflow-y: auto; padding: 0 24px; }
+    .li { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--gray2); animation: fadeUp .5s var(--ease) both; }
+    .li .mini { position: relative; width: 64px; height: 76px; flex-shrink: 0; border-radius: 14px; background: var(--gray); overflow: hidden; display: grid; place-items: center; }
+    .li .mini img { width: 86%; height: 86%; object-fit: contain; mix-blend-mode: multiply; }
+    .li .mini.warm { background: radial-gradient(circle, #fff7e8, #efdfbd); }
+    .li .mini.warm img { mix-blend-mode: normal; }
+    .li .mini .vessel { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%) scale(.4); transform-origin: bottom center; }
+    .li .meta { flex: 1; min-width: 0; }
+    .li .meta b { display: block; font-size: 14px; line-height: 1.3; }
+    .li .meta small { display: block; font-size: 12px; color: var(--muted); }
+    .li .row { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+    .li .qty button { width: 32px; height: 32px; }
+    .li .rm { font-size: 12px; color: var(--link); margin-top: 4px; }
+    .dempty { text-align: center; padding: 70px 10px; color: var(--muted); }
+    .dempty i { font-size: 46px; color: var(--line); }
+    .dempty b { display: block; font-size: 24px; color: var(--ink); letter-spacing: -0.03em; margin: 8px 0 4px; }
+    .dfoot { padding: 18px 24px 24px; border-top: 1px solid var(--gray2); display: grid; gap: 10px; }
+    .dfoot .total { display: flex; justify-content: space-between; align-items: baseline; font-size: 17px; }
+    .dfoot .total b { font-size: 26px; letter-spacing: -0.03em; }
+    .dfoot input, .dfoot textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; outline: none; font-size: 15px; transition: border-color .2s, box-shadow .2s; }
+    .dfoot input:focus, .dfoot textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(154,106,38,.12); }
+    .dfoot textarea { resize: vertical; min-height: 60px; }
+    .dfoot small { text-align: center; color: var(--muted); font-size: 12px; }
+
+    .toast { position: fixed; left: 50%; bottom: 24px; z-index: 60; transform: translate(-50%, 160%); opacity: 0; background: rgba(29,29,31,.92); backdrop-filter: blur(20px);
+      color: #fff; padding: 12px 18px; border-radius: 980px; font-size: 14px; display: flex; gap: 8px; align-items: center; transition: transform .6s var(--ease), opacity .3s; pointer-events: none; white-space: nowrap; }
+    .toast.show { transform: translate(-50%, 0); opacity: 1; }
+    .toast i { color: #5fd38d; font-size: 18px; }
+
+    /* ─────────────────────────────── Responsive ─────────────────────────────── */
+    @media (max-width: 1068px) {
+      .gnav nav { display: none; }
+      .menu-btn { display: grid; }
+      .values, .grid4 { grid-template-columns: 1fr 1fr; }
+      .chiclets { justify-content: flex-start; padding-inline: 22px; }
+    }
+    @media (max-width: 834px) {
+      .feature, .trio, .founder, .visit, .pd, .lb, .homesplit { grid-template-columns: 1fr; }
+      .homesplit .stats { grid-template-columns: repeat(3, 1fr); text-align: center; }
+      .homesplit .stats > div:last-child { grid-column: 1 / -1; }
+      .pd { height: auto; max-height: calc(100dvh - 24px); overflow-y: auto; }
+      .pd-img { min-height: 300px; }
+      .pd-info { overflow: visible; padding: 28px 22px 30px; }
+      .lb { grid-template-rows: minmax(0, 1fr) auto; height: calc(100dvh - 24px); }
+      .lb-info { padding: 20px; }
+      .stage { aspect-ratio: 4 / 5; }
+      .stage.home { max-width: 520px; margin-inline: auto; width: 100%; }
+      .fcols { grid-template-columns: 1fr 1fr; }
+      section.sec { padding: 90px 0; }
+      .portrait { max-width: 460px; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: calc(100% - 36px); }
+      body { font-size: 16px; }
+      .hero { padding-top: 54px; }
+      .tile { width: 160px; height: 210px; border-radius: 22px; }
+      .tile img { inset: 10px 10px 56px; width: calc(100% - 20px); height: calc(100% - 66px); }
+      .tile .cap { padding: 0 14px 14px; }
+      .tile .cap b { font-size: 13px; }
+      .tiles, .tile-track { gap: 12px; }
+      .chiclet .ic { width: 76px; height: 76px; border-radius: 20px; }
+      .chiclets { gap: 20px; }
+      .lineup { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; padding-bottom: 10px; }
+      .lineup::-webkit-scrollbar { display: none; }
+      .pcard { width: 260px; }
+      .pcard .pimg { height: 250px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .stats, .homesplit .stats { grid-template-columns: 1fr; gap: 26px; }
+      .values, .grid4 { grid-template-columns: 1fr; }
+      .pick { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .pick button img { height: 56px; }
+      .masonry { columns: 2 140px; column-gap: 12px; }
+      .dcard { margin-bottom: 12px; border-radius: 16px; }
+      .dcard .dm b { font-size: 14px; }
+      .benefits { grid-template-columns: 1fr; }
+      .links { gap: 18px; font-size: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .rv, .fade, .hero .h-xl .w, .dcard { opacity: 1 !important; transform: none !important; filter: none !important; }
+      .tile-track { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Global navigation (scrolls away with the page) -->
+  <header class="gnav">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Home Economics — home"><img src="images/logo.png" alt="" width="34" height="34">Home Economics</a>
+      <nav aria-label="Main">
+        <a href="#personal">Personal Care</a>
+        <a href="#homecare">Home Care</a>
+        <a href="#attars">Attars &amp; Oils</a>
+        <a href="#wellness">Wellness</a>
+        <a href="#decor">Home Décor</a>
+        <a href="#founder">Our Story</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <div class="acts">
+        <a class="ibtn" href="https://wa.me/919435719770" target="_blank" rel="noopener" aria-label="WhatsApp us"><i class="ph ph-whatsapp-logo"></i></a>
+        <button class="ibtn" type="button" data-open-bag aria-label="Open your bag"><i class="ph ph-handbag"></i><span class="bagcount" id="bagCount">0</span></button>
+        <button class="ibtn menu-btn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+  <div class="mnav" id="mnav">
+    <div><nav aria-label="Mobile">
+      <a href="#personal">Personal Care</a><a href="#homecare">Home Care</a><a href="#attars">Attars &amp; Oils</a><a href="#wellness">Wellness</a>
+      <a href="#decor">Home Décor</a><a href="#founder">Our Story</a><a href="#visit">Visit the Store</a>
+    </nav></div>
+  </div>
+  <div class="ribbon">Order on WhatsApp at <a href="https://wa.me/919435719770" target="_blank" rel="noopener">+91 94357 19770</a>, or visit us at <a href="#visit">Santushti, Chanakyapuri</a>.</div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap copy" id="heroCopy">
+        <p class="eyebrow fade">Home Economics</p>
+        <h1 class="h-xl" style="margin-top:10px"><span class="w">Everyday</span> <span class="w">essentials.</span><br><span class="w gold-text">Beautifully</span> <span class="w gold-text">made.</span></h1>
+        <p class="sub fade f1">Small-batch personal care, home care, alcohol-free attars and timeless décor — crafted with care in New Delhi.</p>
+        <div class="hero-ctas fade f2">
+          <a class="pill" href="#personal">Shop now</a>
+          <a class="more" href="#visit">Visit the store</a>
+        </div>
+      </div>
+      <div class="tiles fade f3" id="tiles" aria-label="Featured products">
+        <div class="tile-row" data-speed="0.25"><div class="tile-track" id="row1"></div></div>
+        <div class="tile-row rev" data-speed="-0.25"><div class="tile-track" id="row2"></div></div>
+      </div>
+      <div class="chiclets wrap" id="chiclets" aria-label="Shop by category"></div>
+    </section>
+
+    <!-- PERSONAL CARE -->
+    <section class="sec" id="personal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow rv">Personal Care</p>
+          <h2 class="h-lg rv d1">Gentle on skin.<br>Kind to the senses.</h2>
+          <p class="sub rv d2">3-in-1 washes for body, face and hands — plus skin and hair rituals, poured in small batches.</p>
+          <div class="links rv d3"><a class="more" href="#personalCar">Shop personal care</a><a class="more" href="#ritual">See the 4-step ritual</a></div>
+        </div>
+        <div class="lineup" id="lineup" data-rise></div>
+      </div>
+      <div class="wrap" style="margin-top:100px" id="personalCar">
+        <div class="car-head rv"><h3>The personal care shelf.</h3><div class="car-nav" data-for="carPersonal"><button type="button" data-dir="-1" aria-label="Previous"><i class="ph ph-caret-left"></i></button><button type="button" data-dir="1" aria-label="Next"><i class="ph ph-caret-right"></i></button></div></div>
+        <div class="car" id="carPersonal"></div>
+      </div>
+      <div class="wrap">
+        <div class="feature rv" id="ritual">
+          <div>
+            <p class="eyebrow">Your complete system for happier skin</p>
+            <h3>The 4-step barrier ritual.</h3>
+            <p>Cleanse, quench, dew and nourish — a calm, dewy routine without harsh active overload.</p>
+            <div style="display:flex;gap:18px;align-items:center;margin-top:26px;flex-wrap:wrap">
+              <button class="pill" type="button" id="addRitual">Add all 4 — <span id="ritualTotal"></span></button>
+            </div>
+          </div>
+          <ul class="steps" id="ritualList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME CARE -->
+    <section class="sec gray" id="homecare">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow rv">Home Care</p>
+          <h2 class="h-lg rv d1">A cleaner home<br>that smells like a garden.</h2>
+          <p class="sub rv d2">Room-freshener floor cleaners that clean, deodorise and freshen — powerful yet gentle, for daily use.</p>
+          <div class="links rv d3"><a class="more" href="#homeCar">Shop home care</a></div>
+        </div>
+        <div class="homesplit">
+          <div class="stage home rv" data-zoom><img src="images/floor-cleaners-collection.jpg" alt="The four Home Economics room-freshener floor cleaners lined up on marble" loading="lazy"></div>
+          <div class="stats">
+            <div class="rv"><b>4</b><span>signature colours &amp; scents</span></div>
+            <div class="rv d1"><b>500<small style="font-size:.45em">ml</small></b><span>generous pour bottles</span></div>
+            <div class="rv d2"><b>0</b><span>caustic acids or bleach</span></div>
+            <div class="rv d3"><span style="font-size:19px;color:var(--ink2)">Cleans · Deodorises · Freshens.<br>Gentle on marble, tiles and wood.</span></div>
+          </div>
+        </div>
+        <div id="homeCar">
+          <div class="car-head rv"><h3>The home care shelf.</h3><div class="car-nav" data-for="carHome"><button type="button" data-dir="-1" aria-label="Previous"><i class="ph ph-caret-left"></i></button><button type="button" data-dir="1" aria-label="Next"><i class="ph ph-caret-right"></i></button></div></div>
+          <div class="car" id="carHome"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATTARS & ESSENTIAL OILS -->
+    <section class="sec dark" id="attars">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow rv" style="color:var(--gold-light)">Attars &amp; Essential Oils</p>
+          <h2 class="h-lg rv d1"><span class="gold-text">Liquid gold.</span><br>Distilled the old way.</h2>
+          <p class="sub rv d2">100% alcohol-free perfume oils, hydro-distilled in traditional Kannauj copper degs and poured into ornate 15ml flacons.</p>
+          <div class="links rv d3"><a class="more" href="#attarCar">Explore the attars</a><a class="more" href="#trio">Any 3 for ₹1,299</a></div>
+        </div>
+        <div class="attar-hero" id="attarHero"><img src="images/attar-flacon-coin.webp" alt="An ornate gold Home Economics attar flacon" loading="lazy"></div>
+        <div class="flacon-row" id="flaconRow" data-rise></div>
+        <div id="attarCar">
+          <div class="car-head rv"><h3>The attar vault.</h3><div class="car-nav" data-for="carAttar"><button type="button" data-dir="-1" aria-label="Previous"><i class="ph ph-caret-left"></i></button><button type="button" data-dir="1" aria-label="Next"><i class="ph ph-caret-right"></i></button></div></div>
+          <div class="car" id="carAttar"></div>
+        </div>
+        <div class="trio rv" id="trio">
+          <div>
+            <p class="eyebrow" style="color:var(--gold-light)">Attar Vault Special</p>
+            <h3>Any 3 attars.<br>One special price.</h3>
+            <p>Pick your three favourites — perfect for gifting, or for layering through the day.</p>
+            <div class="price"><b>₹1,299</b><s>₹1,500</s><span class="save">Save ₹201</span></div>
+            <button class="pill gold" type="button" id="addTrio">Add trio to bag</button>
+            <p id="trioHint" style="font-size:14px;margin-top:14px"></p>
+          </div>
+          <div class="pick" id="attarPick"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WELLNESS PANTRY -->
+    <section class="sec" id="wellness">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow rv">Wellness Pantry</p>
+          <h2 class="h-lg rv d1">Whole flowers.<br>Wholesome food.</h2>
+          <p class="sub rv d2">Caffeine-free herbal teas, wild Himalayan berries and slow-roasted, high-protein snacks.</p>
+        </div>
+        <div class="grid4" id="gridWellness"></div>
+      </div>
+    </section>
+
+    <!-- HOME DÉCOR -->
+    <section class="sec gray" id="decor">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow rv">Home Décor &amp; Artefacts</p>
+          <h2 class="h-lg rv d1">Pieces that make<br>a house a home.</h2>
+          <p class="sub rv d2">Sculpted vases, statement figurines, serveware, clocks and collectibles — hand-picked for our Santushti store.</p>
+          <div class="links rv d3"><a class="more" href="#decorGallery">Browse all pieces</a><a class="more" href="#visit">See them in store</a></div>
+        </div>
+        <div class="car-head rv"><h3>Our collections.</h3><div class="car-nav" data-for="carPosters"><button type="button" data-dir="-1" aria-label="Previous"><i class="ph ph-caret-left"></i></button><button type="button" data-dir="1" aria-label="Next"><i class="ph ph-caret-right"></i></button></div></div>
+        <div class="car posters" id="carPosters"></div>
+        <div id="decorGallery">
+          <div class="chips" id="decorChips" role="group" aria-label="Filter décor"></div>
+          <div class="masonry" id="decorGrid"></div>
+          <div class="more-row"><button class="pill light" type="button" id="decorMore"></button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMISE -->
+    <section class="sec" id="promise">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow rv">Our Promise</p>
+          <h2 class="h-lg rv d1">Made in small batches.<br>Made with care.</h2>
+        </div>
+        <div class="values">
+          <div class="value rv"><i class="ph-duotone ph-plant"></i><h4>Pure botanicals.</h4><p>Real plant extracts, floral hydrosols and whole flowers — chosen for what they do, not just how they smell.</p></div>
+          <div class="value rv d1"><i class="ph-duotone ph-flame"></i><h4>Copper-deg attars.</h4><p>Slow-simmered in traditional Kannauj copper degs into sandalwood oil, with zero synthetic alcohol.</p></div>
+          <div class="value rv d2"><i class="ph-duotone ph-drop-half"></i><h4>Gentle home care.</h4><p>Floor cleaners that clean, deodorise and freshen — with no caustic acids or bleach.</p></div>
+          <div class="value rv d3"><i class="ph-duotone ph-hand-heart"></i><h4>Hand-picked décor.</h4><p>Every artefact in our store is chosen personally, for warmth, character and timeless design.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="sec gray" id="founder">
+      <div class="wrap founder">
+        <div class="portrait rv" data-zoom-soft><div class="ring" aria-hidden="true"></div><img src="images/logo.png" alt="Home Economics emblem" loading="lazy"></div>
+        <div>
+          <p class="eyebrow rv">The heart of Home Economics</p>
+          <h2 class="h-md rv d1">Some people keep a house.<br>Nitasha makes a home.</h2>
+          <blockquote class="rv d2">“Creating a product is never just about putting ingredients together. It is about the thought behind every choice.”</blockquote>
+          <div class="story rv d2">
+            <p>For Nitasha Arora, a home has never been just four walls. It is a feeling — built from the small things chosen with care, every single day. Home Economics is that belief, bottled.</p>
+            <p>Driven by a curious mind and a genuine love for homegrown essentials, she brings together the wisdom of nature and the possibilities of science — experimenting and refining until every product is something she would happily welcome into her own home.</p>
+          </div>
+          <div class="who rv d3"><b>Nitasha Arora</b><span>Founder, Home Economics</span></div>
+          <details class="letter rv d3">
+            <summary>Read Nitasha’s note to our community <i class="ph ph-plus"></i></summary>
+            <div class="lb-body">
+              <p>Home Economics was born from something very simple yet deeply meaningful to me — a genuine love for homegrown essentials and a curious mind that has always believed there is more to discover, more to create, and more to bring into everyday life.</p>
+              <p>What began with a passion slowly grew into a vision: to create products that are not only effective, but also thoughtful, purposeful, and made with an understanding of what people truly need.</p>
+              <p>We have poured our time, passion, ideas, and countless moments of experimentation into every product. I hope that when you use Home Economics, you experience not just a product, but the thought, care, and passion that went into creating it.</p>
+              <p>Thank you for welcoming Home Economics into your home and becoming a part of our journey.</p>
+              <p style="color:var(--muted)">With warmth and gratitude,<br><b style="color:var(--ink)">Nitasha Arora</b></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT -->
+    <section class="sec" id="visit">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow rv">Visit Us</p>
+          <h2 class="h-lg rv d1">Come say hello.</h2>
+          <p class="sub rv d2">Smell the attars, feel the textures and find the perfect piece — in person.</p>
+        </div>
+        <div class="visit">
+          <div class="vcard rv" style="background:var(--gray)">
+            <p class="eyebrow">Home Economics Store</p>
+            <h3>Santushti, Chanakyapuri.</h3>
+            <a class="addr" href="https://www.google.com/maps/search/?api=1&amp;query=39%20Santushti%20Shopping%20Complex%2C%20Chanakyapuri%2C%20New%20Delhi%20110003" target="_blank" rel="noopener"><i class="ph-fill ph-map-pin"></i><span>39 Santushti Shopping Complex<br>Chanakyapuri, New Delhi 110003</span></a>
+            <ul>
+              <li><a href="tel:+919435719770"><i class="ph ph-phone"></i>+91 94357 19770</a></li>
+              <li><a href="https://wa.me/919435719770" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i>Chat on WhatsApp</a></li>
+              <li><a href="mailto:homeeconomics2025@gmail.com"><i class="ph ph-envelope-simple"></i>homeeconomics2025@gmail.com</a></li>
+              <li><a href="https://www.instagram.com/homeeconomics2025/" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i>@homeeconomics2025</a></li>
+            </ul>
+            <div class="btns">
+              <a class="pill" href="https://www.google.com/maps/dir/?api=1&amp;destination=39%20Santushti%20Shopping%20Complex%2C%20Chanakyapuri%2C%20New%20Delhi%20110003" target="_blank" rel="noopener"><i class="ph ph-navigation-arrow"></i> Get directions</a>
+              <a class="pill light" href="tel:+919435719770">Call us</a>
+            </div>
+          </div>
+          <div class="map rv d1"><iframe title="Map: 39 Santushti Shopping Complex, Chanakyapuri, New Delhi" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=39%20Santushti%20Shopping%20Complex%2C%20Chanakyapuri%2C%20New%20Delhi%20110003&amp;z=16&amp;output=embed"></iframe></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fcta">
+      <div class="wrap">
+        <h2 class="h-lg rv">Ready when you are.</h2>
+        <p class="sub rv d1" style="margin-top:12px">Add your favourites to the bag and send it to us on WhatsApp. We reply personally.</p>
+        <div class="btns rv d2">
+          <button class="pill" type="button" data-open-bag><i class="ph ph-handbag"></i> View bag</button>
+          <a class="pill wa" href="https://wa.me/919435719770" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i> WhatsApp us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="fcols">
+        <div><h5>Shop</h5><a href="#personal">Personal Care</a><a href="#homecare">Home Care</a><a href="#attars">Attars &amp; Essential Oils</a><a href="#wellness">Wellness Pantry</a><a href="#decor">Home Décor</a></div>
+        <div><h5>Offers</h5><a href="#trio">Any 3 Attars for ₹1,299</a><a href="#ritual">4-Step Skin Ritual</a></div>
+        <div><h5>About</h5><a href="#founder">Our Story</a><a href="#promise">Our Promise</a><a href="#visit">Visit the Store</a></div>
+        <div><h5>Contact</h5><a href="tel:+919435719770">+91 94357 19770</a><a href="https://wa.me/919435719770" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:homeeconomics2025@gmail.com">Email</a><a href="https://www.instagram.com/homeeconomics2025/" target="_blank" rel="noopener">Instagram</a></div>
+      </div>
+      <div class="fbottom"><span>© <span id="year"></span> Home Economics. All rights reserved.</span><span>39 Santushti Shopping Complex, Chanakyapuri, New Delhi 110003</span></div>
+    </div>
+  </footer>
+
+  <button class="fbag" id="fbag" type="button" data-open-bag aria-label="Open your bag"><i class="ph ph-handbag"></i> Bag <em id="fcount">0</em></button>
+  <dialog class="modal" id="productDialog" aria-label="Product details"></dialog>
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer"></dialog>
+  <dialog class="drawer" id="bagDialog" aria-label="Your bag">
+    <div class="dwrap">
+      <button class="x" type="button" data-close aria-label="Close bag"><i class="ph ph-x"></i></button>
+      <div class="dhead"><h3>Your bag.</h3><p>Send your order on WhatsApp — we’ll confirm availability, delivery and payment.</p></div>
+      <div class="ditems" id="bagItems"></div>
+      <div class="dfoot" id="bagFoot">
+        <div class="total"><span>Total</span><b id="bagTotal">₹0</b></div>
+        <input id="custName" type="text" placeholder="Your name (optional)" autocomplete="name" />
+        <textarea id="custAddr" placeholder="Delivery address, or “I’ll pick up from the store” (optional)"></textarea>
+        <a class="pill wa" id="sendOrder" href="#" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i> Send order on WhatsApp</a>
+        <small>Prices include taxes. We confirm every order on WhatsApp before anything is charged.</small>
+      </div>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status"><i class="ph-fill ph-check-circle"></i><span></span></div>
+
+  <script>
+  /* ═══════════════════════════════════════════════════════════════
+     SETTINGS
+     ═══════════════════════════════════════════════════════════════ */
+  const WHATSAPP = '919435719770';
+  const TRIO_PRICE = 1299;
+  const RITUAL = ['body-wash-kesar', 'skincare-aloe-vera-gel', 'skincare-papaya-moisturizer', 'haircare-botanical-serum'];
+  const RITUAL_STEPS = ['Cleanse', 'Quench', 'Dew', 'Nourish'];
+  const CAT_LABEL = { 'body-washes': 'Body Wash', 'floor-cleaners': 'Floor Cleaner', 'skincare-hair': 'Skin & Hair', 'lens-screen': 'Glass & Tech Care', 'wellness-pantry': 'Wellness Pantry', 'attars': 'Attar' };
+
+  /* ═══════════════════════════════════════════════════════════════
+     PRODUCTS — names, prices, photos and descriptions
+     tone = [main colour, light background, dark colour, colour name, liquid colour]
+     ═══════════════════════════════════════════════════════════════ */
+  const ATTAR = {"bestFor": "Luxury daily grooming, meditation & prayer rituals, alcohol-sensitive skin, pulse-point fragrance layering, and 16+ hour all-day projection.", "helps": ["Alcohol-Free & Gentle (Pure Botanical Oils Safe for Skin)", "Long-Lasting Projection (Evolves with Body Heat for 16–24 hrs)", "Spiritual & Cultural Value (Meditation, Prayer & Grooming)", "Aromatherapy & Healing (Therapeutic Botanical Extracts)"], "benefits": [["Alcohol-Free & Gentle", "Unlike commercial spray perfumes that use alcohol (which can dry or irritate the skin), attars are pure botanical oils safe for most skin types."], ["Long-Lasting Projection", "Because they are highly concentrated and use an oil base instead of a volatile alcohol base, a tiny drop lingers for hours, slowly evolving with your body heat."], ["Spiritual & Cultural Value", "In many traditions (such as in Indian culture and Islamic Sunnah), attars are worn for daily grooming, meditation, prayer, and spiritual purity."], ["Aromatherapy & Healing", "Different botanical profiles offer functional benefits—uplifting moods, easing stress, and promoting centered mental focus."]], "ritual": "The Best Way to Apply: Place a single drop onto inner wrists, dab wrists gently together without aggressive friction, and touch to neck pulse points and behind earlobes. If layering (e.g. pairing a woody base like oud with a floral heart like rose), apply heavier base notes first and wait a few minutes before adding lighter notes.", "guide": {"title": "Ways to Use Attar", "overview": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base).", "methods": [["Direct Skin Application (Pulse Points)", "Dab a tiny amount onto warm areas of the body where blood vessels sit close to the surface—such as the wrists, sides of the neck, behind the earlobes, and inner elbows."], ["Hair and Beard", "Gently swipe a microscopic trace onto the tips of your hair or beard so the scent diffuses naturally as you move."], ["Clothing Application", "Apply carefully to hidden fabric areas (such as between shirt buttons, under the collar, or on dark fabrics). Note: Avoid applying directly on light-colored clothes, as pure oils can leave a stain."], ["Aromatherapy & Diffusers", "Add a few drops to a water-filled oil diffuser or a vapor lamp to scent a room."], ["Bathing & Skincare", "Mix a couple of drops into a carrier oil for massage or add to bathwater."]], "best": {"heading": "The Best Way to Apply Attar", "summary": "The best and most authentic way to apply attar is to place a single drop onto your inner wrist, rub your wrists gently together (without aggressive friction), and dab across pulse points at your neck and behind your earlobes.", "steps": [["Apply to Pulse Points", "Place a single drop or roll onto warm pulse points—inner wrists, collarbone, and sides of the neck—where body temperature activates oil diffusion."], ["Gently Dab, Never Crush", "Gently touch wrists together rather than rubbing vigorously, which generates excessive heat and friction that can break down delicate top notes."], ["Layering Technique", "If layering (for example pairing a woody base like oud with a floral heart like rose), apply the heavier base notes first and wait a few minutes before adding lighter notes."]], "timing": "Apply after bathing or morning grooming, before meditation and prayer, or before celebratory evening occasions.", "why": "Body warmth naturally warms and diffuses the concentrated, alcohol-free botanical oil slowly over 16–24 hours without rapid alcohol evaporation."}}};
+const PRODUCTS = [
+  {"id": "body-wash-kesar", "cat": "body-washes", "name": "Sandalwood Golden Radiance Body Wash", "scent": "Sandalwood", "price": 300, "size": "300ml Bottle with Black Cap", "sub": "3-in-1 body, face & hand wash with warm sandalwood in a 300ml bottle with black cap", "tone": ["#E09F3E", "#FFF8EA", "#7A4D10", "Golden Sandalwood Liquid", "#E09F3E"], "desc": "A sandalwood botanical body wash is a gentle 3-in-1 cleanser for body, face and hands, designed to cleanse, hydrate and soften the skin while leaving a warm, woody fragrance.", "texture": "Designed to build a rich, aromatic lather that washes away daily impurities, dirt, and excess oil without stripping the skin's natural moisture barrier.", "bestFor": "All skin types, especially dull, dry, sensitive, or uneven skin", "helps": ["Fading Mild Blemishes & Dullness", "Restoring Natural Luminous Glow", "Post-Shower Dryness & Dehydration", "Skin Irritation, Redness & Sensitivity", "Deep Purification of Daily Impurities"], "benefits": [["Skin Brightening", "Helps fade mild blemishes and promotes a natural, luminous glow over time."], ["Deep Hydration", "Infused with natural moisturizing agents or vegetable glycerine to keep skin soft and supple after showering."], ["Soothing Care", "Utilizes anti-inflammatory botanicals to calm mild skin irritation, redness, or sensitivity."], ["Gentle Purification", "Cleanses deeply making it suitable for all skin types."]], "ritual": "Dispense 2 pumps onto a natural loofah or wet palms. Breathe in the warm sandalwood aroma before cleansing.", "eco": ["Transparent Pump Bottle", "Zero Synthetic Dyes", "Sulfate-Free"], "pack": "300ml Transparent Bottle with Black Cap & Official Home Economics 3-in-1 Label", "img": "images/body-wash-sandalwood.jpg"},
+  {"id": "body-wash-rose", "cat": "body-washes", "name": "Damask Rose Petal Elixir Body Wash", "scent": "Damask Rose", "price": 300, "size": "300ml Bottle with Black Cap", "sub": "Kannauj rose hydro-distillate in 300ml transparent bottle with black cap", "tone": ["#E28585", "#FFF0F2", "#8A3232", "Translucent Pinkish Liquid", "#E28585"], "desc": "A rose petal-infused axillary body wash provides targeted cleansing, soothing, and odor-neutralizing benefits for delicate skin.", "texture": "Designed to build a rich, aromatic lather that washes away daily impurities, dirt, and excess oil without stripping the skin's natural moisture barrier.", "bestFor": "Delicate skin, sensitive axillary (underarm) areas, and skin folds prone to chafing or irritation", "helps": ["Controls Body Odor & Neutralizes Sweat Smells", "Soothes Razor Burn, Redness & Waxing Irritation", "Relieves Heat & Burning Sensations in Skin Folds", "Balances Skin Natural pH & Acidic Barrier", "Delivers Gentle Non-Clogging Hydration"], "benefits": [["Controls Body Odor", "Natural astringent and antibacterial properties in rose petals help neutralize sweat-induced smells and keep the skin fresh."], ["Soothes Irritation", "Anti-inflammatory compounds calm redness, razor burn, and chafing caused by shaving or waxing sensitive axillary skin."], ["Balances Skin pH", "Rose water and extracts help maintain the skin's natural acidic barrier, preventing over-drying."], ["Gentle Hydration", "Acts as a natural humectant that draws moisture into the skin without clogging pores or leaving an oily residue."], ["Refreshes and Cools", "Relieves heat and burning sensations in skin folds while imparting a mild, natural floral fragrance."]], "ritual": "Massage onto damp skin in circular motions. The gentle floral steam soothes racing thoughts and tension.", "notes": ["Dewy Morning Rose Buds", "Crushed Damask Petals & Geranium", "Sheer White Musks & Cedarwood"], "eco": ["Cruelty-Free", "Biodegradable Formula", "Paraben-Free"], "pack": "300ml Transparent Bottle with Black Cap & Official Home Economics 3-in-1 Label", "img": "images/body-wash-rose.jpg"},
+  {"id": "body-wash-musky-dove", "cat": "body-washes", "name": "White Musk Velvet Cream Body Wash", "scent": "White Musk", "price": 300, "size": "300ml Bottle with Black Cap", "sub": "Rice bran ceramides & powdery musk in 300ml transparent bottle with black cap", "tone": ["#B8A692", "#FAF7F3", "#594939", "Marble White Creamy Liquid", "#F2ECE4"], "desc": "The White Musk Velvet cream Body Wash (associated with velvet cream and musky-floral notes) deeply hydrates, gently cleanses, and leaves skin velvety smooth.", "texture": "Creates a soft, plentiful, and creamy lather that washes away impurities cleanly without leaving an unwanted residue.", "bestFor": "Dry, sensitive, rough skin and anyone seeking deep velvet moisture replenishment", "helps": ["Deep Moisturization from First Wash", "Dry & Flaky Skin Nourishment", "Skin Microbiome & Barrier Protection", "Eliminating Post-Shower Tightness", "Velvet Softness Without Residue"], "benefits": [["Deep Moisturization", "Formulated with plant-based moisturisers and glycerin, it infuses skin-natural nutrients to nourish and replenish dry skin starting from the first wash."], ["Gentle Cleansing", "Respects your skin's natural microbiome and moisture barrier without stripping away essential oils."], ["Rich, Luxurious Lather", "Creates a soft, plentiful, and creamy lather that washes away impurities cleanly without leaving an unwanted residue."], ["Pampering Sensory Experience", "Delivers a sensory, pampering shower experience with a comforting musky-floral scent that leaves a subtle, refreshing aroma on the body."]], "ritual": "Ideal for morning showers or calming bedtime baths. Lathers softly like a rich moisturizing milk.", "notes": ["Clean Cotton Blossom & Fresh Air", "Velvet Oat Cream & Powdered Iris", "Subtle Sandalwood & Muted Vanilla"], "eco": ["Hypoallergenic", "Dermatologist Tested", "pH Balanced 5.5"], "pack": "300ml Transparent Bottle with Black Cap & Official Home Economics 3-in-1 Label", "img": "images/body-wash-white-musk.jpg"},
+  {"id": "body-wash-green-deo", "cat": "body-washes", "name": "Green Deo Crisp Herbal Body Wash", "scent": "Green Deo", "price": 300, "size": "300ml Bottle with Black Cap", "sub": "Crushed spearmint, tea tree & vetiver in 300ml transparent bottle with black cap", "tone": ["#4E8752", "#EFF8F1", "#214E25", "Vibrant Green Liquid", "#4E8752"], "desc": "Home Economics Green Deo Body Wash offers several skin-nourishing and odor-fighting benefits.", "texture": "Creates an invigorating, cooling aromatic lather that sweeps away sweat and odor-causing bacteria with an active mint-botanical reset.", "bestFor": "All skin types, active lifestyles, gym-goers, and hot, humid climates", "helps": ["24-Hour Active Moisture Renewal", "Targeting & Preventing Body Odor at the Source", "Neutralizing Odor-Causing Bacteria", "Overheated & Fatigued Post-Workout Skin", "Gentle, Non-Irritating Daily pH-Balanced Cleansing"], "benefits": [["24-Hour Active Moisture Renewal", "Instead of leaving your skin tight or stripped like ordinary soaps, these formulas are packed with millions of MicroMoisture droplets and plant-based moisturizers. This helps continuously nourish and protect your skin’s natural moisture barrier for 24 hours."], ["Long-Lasting Deodorizing Freshness", "It targets and prevents body odor right at the source. The deep-cleansing properties sweep away odor-causing bacteria, keeping you smelling clean, crisp, and completely fresh long after you step out of the shower."], ["Invigorating and Cooling Aromatherapy", "Uplifting blend of crushed spearmint, tea tree, and wild vetiver that recharges your senses and relieves daily heat exhaustion."], ["Gentle, pH-Balanced Cleansing", "The formula is completely sulfate-free and paraben-free. Because it is dermatologically tested and pH-balanced, it gently cleanses dirt and impurities without triggering irritation, making it perfectly safe for daily use on all skin types."]], "ritual": "Lather thoroughly over pulse areas and torso after workout or a long warm day for an instant reset.", "notes": ["Frosted Spearmint & Bergamot Zest", "Crisp Green Herbs & Eucalyptus", "Earthy Vetiver & Damp Forest Pine"], "eco": ["All-Day Odor Protection", "Cooling Mint Zing", "100% Bio-Active"], "pack": "300ml Transparent Bottle with Black Cap & Official Home Economics 3-in-1 Label", "img": "images/body-wash-green.jpg"},
+  {"id": "body-wash-charcoal", "cat": "body-washes", "name": "Activated Charcoal 3-in-1 Wash", "scent": "Activated Charcoal", "price": 300, "size": "300ml Bottle with Black Cap", "sub": "3 in 1 body, face & hand gentle cleansing formula in 300ml sleek obsidian bottle", "tone": ["#2B2F36", "#F3F4F6", "#1F2937", "Deep Amber-Brown Bottle", "#2B2F36"], "desc": "Activated charcoal 3-in-1 wash deeply detoxifies the skin by drawing out trapped dirt, oil, and impurities from the pores across body, face, and hands.", "texture": "Silky obsidian cleansing gel with ultra-fine botanical particles that builds into a velvety micro-lather, sloughing away impurities without stripping moisture.", "bestFor": "Oily, combination, acne-prone, and urban-exposed skin (suitable for body, face, and hands)", "helps": ["Deep Pore Cleansing & Magnetic Impurity Absorption", "Acne & Excess Sebum Oil Control", "Gentle Exfoliation of Dead Skin Cells", "Reducing the Visible Appearance of Pores", "Multi-Use Purification for Body, Face & Hands"], "benefits": [["Deep Pore Cleansing", "Activated charcoal acts like a magnet to absorb pollution particles, toxins, and excess oil from deep within your skin."], ["Acne and Oil Control", "By clearing out excess sebum and bacteria, it helps prevent breakouts, pimples, and blackheads."], ["Gentle Exfoliation", "Formula features fine particles or clay elements that slough away dead skin cells for a smoother texture."], ["Reduced Pore Appearance", "Cleaning out hardened gunk from your pores makes them look smaller and less noticeable."]], "ritual": "Dispense a nickel-sized amount onto wet palms or loofah. Work into a rich velvety micro-lather across face, body, or hands, then rinse with cool or lukewarm water.", "notes": ["Crisp Crushed Eucalyptus & Peppermint", "Smoky Birch & Herbal Sage", "Clean Mineral Earth & Dark Cedar"], "eco": ["3-in-1 Body · Face · Hand", "Pore Purifying Charcoal", "Sulfate & Paraben Free"], "pack": "300ml Sleek Obsidian Black Bottle with Black Cap & Official 3-in-1 Cream Label", "img": "images/body-wash-original.jpg"},
+  {"id": "floor-cleaner-rose", "cat": "floor-cleaners", "name": "Rose Blossom Bio-Enzyme Floor Cleaner", "scent": "Rose Petal", "price": 200, "size": "500ml Regular Bottle", "sub": "500ml transparent bottle with white cap, ruby-rose liquid & rose petal splashes", "tone": ["#E89898", "#FFF2F2", "#8A3232", "Translucent Pink Liquid", "#E89898"], "desc": "Home Economics Rose Floor Cleaner is presented in a 500ml transparent bottle with a white ribbed screw cap and the official Room Freshener Floor Cleaner label. Features radiant ruby rose-red liquid with scattered fresh rose petals and energetic pink splashes in the background.", "bestFor": "All hard floorings: Italian marble, vitrified tiles, polished hardwood, granite & slate", "helps": ["Deodorizing & 24h Room Freshening", "Lifting Grease & Grime Residue", "Streak-Free High Gloss Shine", "Gentle & Pet-Safe Surface Hygiene"], "ritual": "Pour 1 measurement cap (25ml) into half a bucket of water. Mop floors gently; leaves zero sticky residue.", "notes": ["Fresh Cut Pink Rose Petals", "Sweet Geranium & Linden Blossom", "Clean Linen Musks"], "ingredients": ["Fermented Plant Enzymes", "Decyl Glucoside (Coconut Surfactant)", "Rose Hydrosol", "Pure Thyme Extract"], "eco": ["Floor Cleaner Only", "Regular Pour Bottle", "Safe on Marble & Wood"], "pack": "500ml Transparent Bottle with White Screw Cap & Room Freshener Floor Cleaner Label", "img": "images/floor-cleaner-pink.jpg"},
+  {"id": "floor-cleaner-lavender", "cat": "floor-cleaners", "name": "French Lavender Calming Floor Cleaner", "scent": "French Lavender", "price": 200, "size": "500ml Regular Bottle", "sub": "500ml transparent bottle with white cap, blush-lavender liquid & lavender flower splashes", "tone": ["#9E86BA", "#F7F3FC", "#4A2F6E", "Mild Lavender Colour Liquid", "#9E86BA"], "desc": "Home Economics French Lavender Floor Cleaner is formulated in a 500ml transparent cylindrical pour bottle with a white ribbed screw cap and the Room Freshener Floor Cleaner label. Filled with soft blush lavender-colored liquid, surrounded by fresh lavender sprigs and soothing botanical liquid splashes.", "bestFor": "All hard floorings: Italian marble, vitrified tiles, polished hardwood, granite & slate", "helps": ["Calming Evening Aromatherapy & Odor Elimination", "Dissolving Daily Dust & Micro-Impurities", "Zero-Residue Floor Luster", "Safe on Delicate Flooring & Pet-Friendly"], "ritual": "Pour 1 measurement cap into warm mopping water for an evening calming ritual.", "notes": ["Crushed French Lavender Sprigs", "Wild Clary Sage & Rosemary Mist", "Warm Cedarwood Shavings"], "ingredients": ["Pure Lavender Essential Oil", "Clary Sage", "Pine Needle Bio-Solvent", "Biodegradable Soap Bark Extract"], "eco": ["Floor Cleaner Only", "Regular Pour Bottle", "Pet Friendly"], "pack": "500ml Transparent Bottle with White Screw Cap & Room Freshener Floor Cleaner Label", "img": "images/floor-cleaner-violet.jpg"},
+  {"id": "floor-cleaner-orange", "cat": "floor-cleaners", "name": "Zesty Sweet Orange Citrus Floor Cleaner", "scent": "Zesty Orange", "price": 200, "size": "500ml Regular Bottle", "sub": "500ml transparent bottle with white cap, citrus-orange liquid & orange slice splashes", "tone": ["#E8833A", "#FFF6ED", "#8A3E09", "Orange Liquid", "#E8833A"], "desc": "Home Economics Orange Floor Cleaner is a bio-enzyme floor cleaner presented in a 500ml transparent cylindrical pour bottle with a white ribbed screw cap and the Room Freshener Floor Cleaner label. Filled with bright translucent orange liquid, with fresh juicy orange slices and energetic citrus splashes in the background.", "bestFor": "Kitchens, dining areas, and heavily trafficked marble, tile & slate floors", "helps": ["Cutting Through Kitchen Floor Oil & Grease", "Sparkling Citrus Deodorization", "Zero Sticky Residue", "All-Natural Citrus Enzyme Disinfection"], "ritual": "Pour 1 cap into half a bucket of water for daily mopping or pour directly onto grease stains.", "notes": ["Sparkling Valencia Orange Zest", "Sunlit Tangerine & Bitter Neroli", "Warm Sweet Citrus Wood"], "ingredients": ["Cold-Pressed Orange Peel Terpenes (d-Limonene)", "Organic Lemon Juice Ferment", "Plant Surfactants"], "eco": ["Floor Cleaner Only", "Regular Pour Bottle", "Natural Degreaser"], "pack": "500ml Transparent Bottle with White Screw Cap & Room Freshener Floor Cleaner Label", "img": "images/floor-cleaner-orange.jpg"},
+  {"id": "floor-cleaner-jasmine", "cat": "floor-cleaners", "name": "Night Blooming Jasmine Sacred Floor Cleaner", "scent": "Night Jasmine", "price": 200, "size": "500ml Regular Bottle", "sub": "500ml transparent bottle with white cap, golden-yellow liquid & jasmine splashes", "tone": ["#B0A27A", "#FAF8F0", "#594F30", "Yellowish Colour Liquid", "#E4DEC8"], "desc": "Home Economics Jasmine Floor Cleaner is formulated in a 500ml transparent cylindrical pour bottle with a white ribbed screw cap and the Room Freshener Floor Cleaner label. Filled with radiant golden-yellow floral liquid, surrounded by fragrant star jasmine blossoms and soft luminous liquid splashes on clean tile.", "bestFor": "Living rooms, prayer rooms (puja ghars), bedrooms, and all fine hard flooring", "helps": ["Sacred Floral Room Freshening", "Neutralizing Stale Indoor Air", "Streak-Free Shine on Marble & Granite", "Gentle Ayurvedic Neem Disinfection"], "ritual": "Pour 1 cap into clean water for ceremonial and daily home floor freshness.", "notes": ["Nocturnal White Jasmine Buds", "Sweet Mogra & Magnolia", "Clean Green Leaves & Sandalwood"], "ingredients": ["Jasminum Sambac Distillate", "Mogra Floral Oil", "Coconut Glucoside", "Neem Leaf Infusion"], "eco": ["Floor Cleaner Only", "Regular Pour Cap", "100% Biodegradable"], "pack": "500ml Transparent Bottle with White Screw Cap & Room Freshener Floor Cleaner Label", "img": "images/floor-cleaner-clear.jpg"},
+  {"id": "skincare-aloe-vera-gel", "cat": "skincare-hair", "name": "Pure Mountain Aloe Vera Gel (99.4%)", "price": 200, "size": "100ml Glass Jar", "sub": "Non-sticky, fast-absorbing crystal gel in a 100ml glass jar with gold cap", "tone": ["#4A9462", "#EEF8F1", "#1D532F", "Crystal Aloe Clear", "#E2EFE4"], "desc": "Home Economics Pure Mountain Aloe Vera Gel comes in a 100ml clear glass jar with a gold cap, labelled \"ALOE VERA GEL | NON-STICKY • FAST ABSORBING\". Filled with 100% transparent crystal-clear soothing gel without artificial green dyes. Framed with a fresh living green aloe vera plant and succulent sliced aloe leaves with juicy gel pulp.", "bestFor": "Sun-stressed, sensitive, oily, combination, or dehydrated skin & dry scalp", "helps": ["Fast-Absorbing Non-Sticky Hydration", "Calming Sunburn, Razor Burn & Rashes", "Balancing Oily Skin Without Clogging Pores", "Post-Shave & Post-Wax Soothing"], "ritual": "Dip clean fingertips into the gold-capped glass jar and smooth over cleansed face, body, or scalp for fast-absorbing hydration.", "ingredients": ["Cold-Pressed Aloe Barbadensis Leaf Juice (99.4%)", "Organic Cucumber Distillate", "Vegetable Glycerin", "Xanthan Gum", "Natural Vitamin E"], "eco": ["Glass Jar with Gold Cap", "Non Sticky | Fast Absorbing", "Zero Artificial Dyes"], "pack": "100ml Clear Glass Jar with Gold Cap", "img": "images/aloe-vera-gel.jpg"},
+  {"id": "skincare-papaya-moisturizer", "cat": "skincare-hair", "name": "Papaya Enzyme Dew Moisturizer", "price": 200, "size": "100ml Glass Jar", "sub": "Enriched with papaya extract in a 100ml glass jar with gold cap", "tone": ["#E67E42", "#FFF5EE", "#8A380B", "Slight Orange Papaya Cream", "#F4C095"], "desc": "Home Economics Papaya Moisturizer comes in a 100ml clear glass jar with a gold cap, labelled \"PAPAYA MOISTURISER | NATURAL GLOW • EVERYDAY HYDRATION\". Filled with silky, soft peach-orange cream that gently exfoliates with natural enzymes and hydrates deeply. Framed by juicy ripe sliced papaya fruit wedges and dark papaya seeds on textured stone.", "bestFor": "Normal, dry, combination skin seeking gentle enzyme renewal & radiant dewy glow", "helps": ["Fading Dullness & Uneven Skin Tone", "Gentle Daily Fruit Enzyme Exfoliation", "Restoring Plump Dewy Hydration Without Shine", "Softening Dry Patches with Kokum Butter"], "ritual": "Warm a pearl-sized drop from the gold-capped glass jar between fingertips and press gently into face and neck.", "ingredients": ["Papaya Fruit Extract (Carica Papaya)", "Natural Papain Ferment", "Cold-Pressed Kokum Seed Butter", "Niacinamide (Vitamin B3)", "Hyaluronic Acid"], "eco": ["Glass Jar with Gold Cap", "Enriched with Papaya Extract", "Non-Comedogenic"], "pack": "100ml Clear Glass Jar with Gold Cap", "img": "images/papaya-moisturiser.jpg"},
+  {"id": "haircare-botanical-serum", "cat": "skincare-hair", "name": "Fortifying Botanical Hair Elixir Serum", "price": 200, "size": "30 ml Amber Dropper", "sub": "Moroccan argan & rosemary in 30ml amber dropper bottle with gold collar", "tone": ["#C8963E", "#FFF8EA", "#6E4E13", "Golden Amber Argan Elixir", "#C8963E"], "desc": "Home Economics Fortifying Hair Serum is packaged in a 30ml amber glass bottle with a polished metallic gold collar, black rubber bulb dropper, and official Home Economics Hair Serum label. Captured with a golden oil drop suspended from the pipette tip, surrounded by fragrant rosemary sprigs and cold-pressed argan nuts on stone. Smooths frizz and strengthens follicles.", "bestFor": "Frizzy, dry, heat-styled, or thinning hair and flaky scalps", "helps": ["Eliminating Frizz & Flyaways Without Heaviness", "Strengthening Hair Strands with Rosemary & Argan", "Heat Protection & Split-End Sealing", "Silky Gloss & Lightweight Definition"], "ritual": "Draw 3–4 drops with the pipette dropper and massage into damp mid-lengths to ends.", "ingredients": ["Pure Rosemary Essential Oil", "Virgin Argania Spinosa Kernel Oil", "Organic Black Seed Oil", "Golden Jojoba Seed", "Camellia Seed Oil"], "eco": ["30ml Amber Dropper Pipette", "100% Silicone-Free", "Thermal Protection"], "pack": "30 ml Amber Glass Bottle with Polished Gold Collar & Pipette Dropper"},
+  {"id": "tech-lens-screen-cleaner", "cat": "lens-screen", "name": "Pure Clarity Blue Screen & Lens Cleaner", "price": 100, "size": "100 ml Fine Mist Sprayer", "sub": "Vibrant blue alcohol-free botanical mist + plush microfiber cloth", "tone": ["#2A82C7", "#EEF6FC", "#104B78", "Vibrant Azure Blue Liquid", "#2A82C7"], "desc": "Home Economics Blue Screen & Lens Cleaner is recognized by its vibrant azure-blue botanical solution in a 100ml clear cylindrical mist bottle with plush grey cloth. Surrounded by suspended fine blue mist and crystalline splash droplets, it removes smudges from spectacles, camera lenses, and OLED screens without alcohol or ammonia.", "ritual": "Spritz 1–2 times directly onto the included microfiber cloth and wipe gently in circular motions.", "ingredients": ["Deionized Botanical Water", "Bio-based Anti-Static Surfactant", "Mild Grain Ferment", "Distilled Witch Hazel"], "eco": ["Vibrant Blue Mist", "100% Alcohol-Free", "Safe on Anti-Reflective Coatings"], "pack": "100ml Clear Mist Sprayer Bottle with Microfiber Cloth"},
+  {"id": "pantry-blue-butterfly-tea", "cat": "wellness-pantry", "name": "Butterfly Pea Flower Blue Herbal Tea", "price": 125, "size": "50g Zip-Lock Pouch", "sub": "In zip-lock pouch on its own with cup of vibrant blue tea & blue flowers", "tone": ["#2E5B9A", "#EEF4FC", "#133566", "Cobalt Blue Tea Brew", "#2E5B9A"], "desc": "Blue tea (made from the Clitoria ternatea or butterfly pea flower, also known as Aparajita) is a caffeine-free herbal infusion packed with antioxidants called anthocyanins. Home Economics Butterfly Pea Blue Tea is featured on its own in a modern zip-lock pouch, shown beside a delicate glass cup filled with clear, vibrant blue brewed tea with fresh whole blue butterfly pea flowers.", "bestFor": "Antioxidant protection, blood sugar regulation, weight management, glowing skin & hair health, cognitive clarity and evening calm.", "helps": ["Antioxidant & Anti-inflammatory (Anthocyanins & Ternatins)", "Blood Sugar Regulation & Metabolic Support", "Weight Management & Craving Control (0 Caffeine, 0 Sugar)", "Skin Hydration, Collagen Synthesis & Hair Health", "Cognitive Clarity & Relaxing Evening Calm (No Jitters)"], "benefits": [["Antioxidant & Anti-inflammatory", "High levels of delphinidin and ternatins protect cells from oxidative stress and reduce inflammation throughout the body."], ["Blood Sugar Regulation", "Helps slow down sugar absorption in the bloodstream and supports metabolic health and glucose balance."], ["Weight Management", "Free from caffeine, carbs, fats, and cholesterol; it helps curb junk food cravings and supports smooth digestion."], ["Skin and Hair Health", "Promotes skin hydration, collagen synthesis, and hair follicle nourishment thanks to bioflavonoids."], ["Cognitive & Calming Support", "Provides a gentle, caffeine-free mental lift or evening relaxation without jitters or sleep disruption."]], "ritual": "Warm Lemon-Infused Brew: Steep 5–6 dried petals (or 1 tsp) in hot water (85°C–90°C) for 5 minutes. Add fresh lemon juice to trigger the royal purple color transformation and boost antioxidant absorption. Best enjoyed 30 minutes post-meal or as a morning caffeine-free detox.", "guide": {"title": "Ways to Consume Blue Tea", "overview": "A caffeine-free herbal infusion renowned for its cobalt hue, earthy floral flavor, and magical pH-activated violet color shift.", "methods": [["Hot Classic Infusion", "Steeped plain in hot water for a mild, earthy, floral flavor."], ["Lemon-pH Color Changer", "Squeezing fresh lemon or lime juice turns the vibrant blue liquid into a bright purple or violet due to a pH change, while adding vitamin C."], ["Cold-Brewed Iced Tea", "Steeped overnight in cold water and served over ice with mint or honey."], ["Herbal Blends", "Mixed with ingredients like ginger, cinnamon, lemongrass, chamomile (for sleep), or green tea."], ["Latte or Mocktails", "Combined with plant-based milk or layered in aesthetic wellness drinks."]], "best": {"heading": "The Best Way to Consume It", "summary": "The best overall way to maximize its benefits is a warm lemon-infused brew prepared with whole dried flowers.", "steps": [["The Recipe", "Add 1 teaspoon (or 5–6 petals) of dried butterfly pea flowers to hot water (around 185°F–200°F / 85°C–90°C) and steep for 5 minutes."], ["The Enhancement", "Squeeze in a few drops of fresh lemon juice (to boost antioxidant absorption and trigger the purple color shift) and a touch of honey if you prefer sweetness."]], "dose": "1 to 2 cups daily (1 teaspoon or 5–6 whole petals per cup).", "timing": "Drink it about 30 minutes after a meal to aid digestion, or in the morning as a gentle, caffeine-free detox boost.", "why": "Steeping dried flowers at 85°C–90°C preserves delicate antioxidants, while lemon boosts bioavailability of anthocyanins and reveals the iconic purple hue."}}, "ingredients": ["100% Whole Sun-Dried Butterfly Pea Flowers (Clitoria Ternatea / Aparajita) — Rich in Anthocyanins (Delphinidin & Ternatins)"], "eco": ["Zip-Lock Pouch (50g)", "Caffeine-Free Whole Flower", "Rich in Anthocyanins", "pH Color Changing"], "pack": "50g Standup Zip-Lock Kraft Pouch with Window"},
+  {"id": "pantry-chamomile-tea", "cat": "wellness-pantry", "name": "Egyptian Golden Whole Chamomile Tea", "price": 175, "size": "50g Zip-Lock Bag", "sub": "In zip-lock bag on its own with cup of chamomile tea & chamomile flowers", "tone": ["#D4AA2A", "#FFFBEA", "#6B5208", "Golden Chamomile Brew", "#E5C04A"], "desc": "Chamomile tea is a popular herbal infusion made from dried flowers of the Asteraceae plant family (most commonly German chamomile, Matricaria chamomilla). Home Economics Chamomile Tea is presented in a modern standup zip-lock bag on its own, paired with a glass teacup filled with golden chamomile tea. The background is filled with scattered fresh whole chamomile daisy flowerheads.", "bestFor": "Sleep quality, nighttime anxiety, digestive spasms or bloating, and soothing anti-inflammatory wellness.", "helps": ["Sleep & Relaxation (Apigenin Receptors)", "Digestive Relief (Soothes Stomach & Bloating)", "Anti-inflammatory & Pain Relief (Bisabolol & Chamazulene)", "Blood Sugar & Heart Lipid Support"], "benefits": [["Sleep and Relaxation", "Contains an antioxidant called apigenin, which binds to brain receptors to reduce anxiety and improve sleep quality."], ["Digestive Relief", "Soothes the stomach, eases indigestion, gas, and bloating, and relaxes muscle spasms in the digestive tract."], ["Anti-inflammatory & Pain Relief", "Features active compounds like bisabolol and chamazulene that help reduce internal inflammation and ease menstrual cramps."], ["Blood Sugar & Heart Support", "Early research suggests it can help regulate blood sugar levels and support healthy lipid (cholesterol) profiles."]], "ritual": "To preserve its delicate essential oils and maximize its relaxing properties, steep 2 to 3 heaping tsp of whole dried chamomile flowers in 93°C–100°C water covered with a saucer for 5 to 7 minutes. Drink warm, about 30 to 45 minutes before bedtime for sleep, or after a meal for digestion.", "guide": {"title": "Ways to Consume Chamomile", "overview": "A soothing, naturally caffeine-free botanical infusion with delicate floral sweetness and apple-like undertones.", "methods": [["Hot Tea", "The most classic preparation using whole dried flowers or tea bags."], ["Cold Infusion / Iced Tea", "Steeped hot and then chilled with ice for a refreshing summer drink."], ["Gargle or Wash", "Used as a warm liquid rinse to soothe mouth or throat inflammation."], ["Blends & Smoothies", "Combined with other herbs (like mint or lavender) or blended into fruit and coconut milk smoothies."]], "best": {"heading": "The Best Way to Brew Chamomile Tea", "summary": "To preserve its delicate essential oils and maximize its relaxing properties, follow this traditional method:", "steps": [["Choose Whole Flowers", "Use 2 to 3 heaping teaspoons of dried whole chamomile flowers (or 1 good-quality tea bag) per 250 ml cup. Whole flowers generally yield a richer, more aromatic brew than heavily crushed dust in standard tea bags."], ["Use Hot Water", "Pour water heated to just below a full boil (about 93°C to 100°C) over the flowers."], ["Cover the Cup", "Always place a saucer or lid over your mug or teapot while it steeps. Chamomile's active flavor and relaxing oils are volatile and escape easily with the steam if left uncovered."], ["Steep", "Let it steep for 5 to 7 minutes (avoid steeping past 8 minutes to prevent a bitter taste)."], ["Strain and Savor", "Strain out the flowers, and add a small touch of honey or a slice of lemon if desired."]], "dose": "1 to 3 cups daily (2–3 heaping tsp of whole flowers per 250 ml cup).", "timing": "Drink it warm, about 30 to 45 minutes before bedtime for sleep, or after a meal for digestion.", "why": "Covering while steeping traps volatile oils (chamazulene and bisabolol) that otherwise escape in steam, safeguarding relaxation potency and aroma."}}, "ingredients": ["Whole German/Egyptian Chamomile Flowerheads (Matricaria chamomilla)"], "eco": ["Zip-Lock Bag", "Zero Caffeine", "Compostable Botanicals"], "pack": "50g Standup Zip-Lock Bag with Freshness Seal"},
+  {"id": "pantry-sea-buckthorn-berries", "cat": "wellness-pantry", "name": "Wild Himalayan Sea Buckthorn (Eatable Berries & Herbal Tea)", "price": 500, "size": "250g Glass Jar", "sub": "In transparent glass jar with wooden cap & seabuckthorn fruits in background", "tone": ["#EB7E23", "#FFF4EB", "#7D3B07", "Himalayan Sea Buckthorn Orange", "#EB7E23"], "desc": "Dried sea buckthorn berries are a nutrient-dense whole food packed with rare Omega-7 (palmitoleic acid), Omegas 3, 6, and 9, high levels of Vitamin C, antioxidants, and essential amino acids. Home Economics Wild Sea Buckthorn is housed in a clear transparent glass jar topped with a natural wooden cap, filled with whole Himalayan sea buckthorn berries. Both an eatable tart superfood snack and an invigorating brewable tonic.", "bestFor": "Skin barrier hydration, gut mucosal nourishment, seasonal immunity & cellular metabolic health.", "helps": ["Skin & Mucosal Barrier Support (Rare Omega-7)", "Immunity Boost & Vitamin C Antioxidant Defense", "Digestive & Gut Flora Balance", "Metabolic Health & Cellular Vitality"], "benefits": [["Skin and Mucosal Barrier Support", "It is one of the few plant sources containing Omega-7 (palmitoleic acid), which nourishes the skin barrier, gut lining, and eye/vaginal mucous membranes."], ["Immunity Boost", "High concentrations of Vitamin C and polyphenols help fight oxidative stress and support seasonal immune defenses."], ["Digestive and Metabolic Health", "Rich dietary fiber and organic acids assist gut flora and metabolic function."]], "ritual": "Best Way: Steep 8–10 dried berries in 90°C water for 7–10 minutes covered, then eat the softened berries; or blend into morning yogurt or oats. Daily dosage: 8–15 dried berries.", "guide": {"title": "Ways to Consume Dried Sea Buckthorn", "overview": "A nutrient-dense superfood that can be brewed into protective tisanes, folded into breakfast bowls, or enjoyed whole.", "methods": [["Wellness Tea (Infusion)", "Steep 8–10 dried berries in 90°C water (not boiling, to protect Vitamin C) for 7–10 minutes, and cover with a lid."], ["Smoothies & Juices", "Blend them into fruit-heavy smoothies (such as banana, orange, or pineapple) to balance their sharp tartness."], ["Yogurt, Oats & Chia Pudding", "Sprinkle dried berries or mix berry powder directly into morning oatmeal, Greek yogurt, or overnight oats."], ["Trail Mix", "Toss dried berries with almonds, pumpkin seeds, and coconut flakes for a no-cook snack."], ["Chutneys & Jams", "Rehydrate and simmer pulp with honey or jaggery to create a tangy spread."]], "best": {"heading": "What is the Best Way?", "summary": "The best and most effective way to consume dried sea buckthorn berries is by steeping them as a warm herbal tea (at ~90°C) and eating the softened berries afterward, or blending them into your morning yogurt/oats.", "dose": "Stick to about 8 to 15 dried berries (or 1–2 teaspoons if powdered) per day.", "why": "Steeping preserves sensitive compounds like Vitamin C (as long as you avoid boiling water), while consuming the whole rehydrated berry or powder ensures you capture the fiber and rare Omega-7 oils locked in the flesh and skin."}}, "ingredients": ["100% Wild Himalayan Dried Sea Buckthorn Whole Berries (Hippophae Rhamnoides) — Rich in Omega-7, 3, 6, 9, Vitamin C & Antioxidants"], "eco": ["Glass Jar with Wooden Cap", "Nutrient-Dense Whole Food", "Dual Use: Eat or Brew"], "pack": "250g Transparent Glass Jar with Natural Wooden Cap"},
+  {"id": "pantry-roasted-edamame", "cat": "wellness-pantry", "name": "Slow-Roasted Sea Salt Edamame", "price": 500, "size": "250g Zip-Lock Bag", "sub": "In zip-lock bag with green edamame seeds in it and in background", "tone": ["#6F9142", "#F3F7EE", "#344D19", "Roasted Green Edamame Seeds", "#7A9A4E"], "desc": "Dried or dry-roasted edamame seeds (young soybeans that have been dehydrated or dry-roasted) offer a dense nutritional profile: complete plant-based protein with all nine essential amino acids, rich dietary fiber, folate, iron, magnesium, potassium, vitamin K1, calcium, and protective plant isoflavones. Home Economics Slow-Roasted Edamame comes in a standup zip-lock bag packed with wholesome whole green edamame seeds (₹500 for 250g).", "bestFor": "High-protein nutrition, digestive regularity, blood sugar balance, cardiovascular & bone health.", "helps": ["Complete Plant-Based Protein (40g–46g / 100g)", "High Dietary Fiber & Satiety (15g–20g / 100g)", "Heart Health & Cholesterol Balance (Isoflavones)", "Bone Density, Steady Energy & Muscle Recovery"], "benefits": [["Complete Plant-Based Protein", "They deliver about 40g to 46g of protein per 100g, supplying all nine essential amino acids for tissue repair and sustained satiety."], ["High Dietary Fiber", "Rich in fiber (about 15g to 20g per 100g), which supports digestion and helps maintain steady blood sugar levels."], ["Vitamins and Minerals", "Packed with folate, iron, magnesium, potassium, vitamin K1, and calcium for strong bone density and cellular energy."], ["Antioxidants & Isoflavones", "Contain plant isoflavones and saponins that may help lower LDL (\"bad\") cholesterol, ease menopausal symptoms, and support heart and bone health."]], "ritual": "Best Way: Enjoy as a dry-roasted, lightly salted snack in moderation (~25g to 30g serving, 1–3 times daily). Great straight from the bag, in trail mixes, or sprinkled on salads & grain bowls.", "guide": {"title": "Ways to Consume Dried Edamame Seeds", "overview": "Crunchy, savory, and ready-to-eat dried edamame seeds can be enjoyed as a wholesome standalone snack or an easy protein upgrade across meals.", "methods": [["Straight as a Snack", "Grab a handful of dry-roasted edamame right from the pack for a quick, crunchy, high-protein snack."], ["Trail Mix / Nut-and-Fruit Blend", "Mix roasted edamame with almonds, walnuts, pumpkin seeds, and dark chocolate or dried fruit."], ["Salad Topper", "Use seasoned roasted edamame instead of croutons or fried noodles to add a nutty crunch to garden or Caesar salads."], ["Rice and Grain Bowls", "Sprinkle them over quinoa, poke bowls, or stir-fried rice for extra texture and clean protein."], ["Soup Garnishes", "Toss a small scoop onto creamy soups or broths for extra texture and an artisanal crunch."]], "best": {"heading": "What is the Best Way?", "summary": "The best way to consume dried/roasted edamame is as a dry-roasted, lightly salted snack eaten in moderation (about 25g to 30g, or roughly 1–3 servings daily).", "dose": "About 25g to 30g per serving, or roughly 1–3 servings daily.", "why": "Dry-roasting concentrates the nutrients, eliminates the need to shell or boil pods, makes them completely shelf-stable, and preserves a high protein-to-calorie ratio."}}, "ingredients": ["Non-GMO Green Edamame Soybeans", "Cold-Pressed Olive Oil", "Himalayan Pink Rock Salt"], "eco": ["Zip-Lock Bag (250g)", "Complete Plant Protein (40-46g)", "Rich Dietary Fiber (15-20g)", "Non-GMO"], "pack": "250g Standup Zip-Lock Bag with Green Edamame Seeds"},
+  {"id": "attar-white-musk", "cat": "attars", "name": "White Musk Artisanal Attar", "scent": "White Musk", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with white floral petals & marble", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics White Musk Attar is housed in an ornate royal gold-framed glass flacon with a majestic ribbed crown finial cap and crystal tip. Inscribed with \"HOME ECONOMICS\" and \"WHITE MUSK\", filled with luminous golden champagne concentrated attar oil. Soft white petals and subtle silk adorn the marble background.", "notes": ["Clean Fresh Cotton Blossom & Morning Mist", "Powdered Iris & Ethereal White Florals", "Velvet White Musk & Creamy Soft Woods"], "ingredients": ["Pure White Musk Botanical Accord", "Hydro-Distilled Sandalwood Oil", "Iris Root Distillate"], "eco": ["Royal Gold Crown Flacon", "100% Non-Alcoholic Oil", "Lasts 16+ Hours"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-teardrop.webp",...ATTAR},
+  {"id": "attar-mogra", "cat": "attars", "name": "Mogra (Heirloom Arabian Jasmine) Attar", "scent": "Mogra", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with fragrant mogra jasmine blossoms", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Mogra Attar is presented in an ornate royal gold-framed glass flacon with an onion-dome crown cap and crystal tip, inscribed with \"HOME ECONOMICS\" and \"MOGRA\". Filled with concentrated golden champagne perfume oil, surrounded by freshly plucked white Indian Mogra jasmine blossoms on stone.", "notes": ["Fresh Nocturnal Mogra Buds", "Sweet Indian Jasmine & Magnolia", "Warm Mysore Sandalwood & Green Petals"], "ingredients": ["Pure Mogra Blossom Distillate", "Pure Indian Sandalwood Oil Base"], "eco": ["Golden Cap Roll-On", "100% Pure Flower Extract", "Alcohol-Free"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-lotus.webp",...ATTAR},
+  {"id": "attar-polo", "cat": "attars", "name": "Polo Classic Sport Attar", "scent": "Polo", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with pine needles & mountain herbs", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Polo Attar is housed in an ornate royal gold-framed glass flacon with a majestic ribbed crown finial cap and crystal tip, inscribed with \"HOME ECONOMICS\" and \"POLO\". Filled with golden champagne attar oil, set against a background of evergreen pine needles, mountain moss, and herbal oakmoss on dark slate.", "notes": ["Crisp Pine Needle, Juniper & Bergamot", "Thyme, Coriander & Aged Cedarwood", "Rich Leather, Patchouli & Forest Oakmoss"], "ingredients": ["Pine Needle Oil", "Juniper Berry Essence", "Vetiver Extract", "Sandalwood Base", "Oakmoss Accord"], "eco": ["Golden Cap Roll-On", "100% Non-Alcoholic Oil", "Long-Lasting Sillage"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-square.webp",...ATTAR},
+  {"id": "attar-blue-pulse", "cat": "attars", "name": "Blue Pulse Aquatic Breeze Attar", "scent": "Blue Pulse", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with sea salt & coastal breeze", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Blue Pulse Attar features a luxury gold-framed glass flacon with a ribbed minaret crown finial cap and crystal tip, inscribed with \"HOME ECONOMICS\" and \"BLUE PULSE\". Filled with precious golden champagne attar oil, set against cool coastal sea salt minerals and refreshing ocean mist.", "notes": ["Ocean Sea Spray, Crushed Mint & Zesty Bergamot", "Water Lily, Rosemary & Crisp Sea Salt", "Sun-Bleached Driftwood & Oceanic Amber"], "ingredients": ["Marine Algae & Sea Salt Accords", "Sicilian Bergamot Essence", "Crushed Mint Leaf Oil", "Clear Amber Extract"], "eco": ["Golden Cap Roll-On", "100% Non-Alcoholic Oil", "Travel Friendly"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-hexagonal.webp",...ATTAR},
+  {"id": "attar-whiskey", "cat": "attars", "name": "Whiskey Reserve Smoky Oak Attar", "scent": "Whiskey", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with charred oak & tonka bean", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Whiskey Reserve Attar is presented in an ornate royal gold-framed glass flacon with a majestic ribbed crown finial cap and crystal tip, inscribed with \"HOME ECONOMICS\" and \"WHISKEY\". Filled with precious golden champagne attar oil, set against charred oak barrel wood and roasted tonka bean notes.", "notes": ["Spiced Cinnamon Bark & Toasted Malt", "Charred White Oak & Smoked Bourbon Vanilla", "Golden Amber Resin & Sweet Caramelized Tonka"], "ingredients": ["Oakwood Hydro-Distillate", "Natural Vanillin & Tonka Bean", "Cinnamon Bark Oil", "Smoked Ambergris Accord"], "eco": ["Royal Gold Crown Flacon", "100% Non-Alcoholic Oil", "15ml Pure Perfume"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-octagonal.webp",...ATTAR},
+  {"id": "attar-amber", "cat": "attars", "name": "Amber Golden Resin Artisanal Attar", "scent": "Amber", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with amber resin & sandalwood", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Amber Attar is encased in an ornate royal gold-framed glass flacon with a majestic ribbed crown finial cap and crystal tip, inscribed cleanly with \"HOME ECONOMICS\" and \"AMBER\". Filled with golden champagne concentrated attar oil, framed with raw natural golden amber resin crystals and sandalwood shavings on dark marble.", "notes": ["Sunlit Labdanum Resin & Frankincense Spark", "Warm Golden Amber & Sweet Benzoin", "Creamy Mysore Sandalwood & Bourbon Vanilla"], "ingredients": ["Natural Fossilized Amber Accord", "Styrax Benzoin Resin", "Mysore Sandalwood Heartwood Oil", "Vanilla Bean Infusion"], "eco": ["Royal Gold Crown Flacon", "100% Non-Alcoholic Oil", "Lasts 24+ Hours"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-globe.webp",...ATTAR},
+  {"id": "attar-jasmine", "cat": "attars", "name": "Jasmine Grandiflorum Crystal Attar", "scent": "Jasmine", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with white star jasmine blossoms", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Jasmine Attar is presented in an ornate royal gold-framed glass flacon with a ribbed minaret crown finial cap and crystal tip, inscribed with \"HOME ECONOMICS\" and \"JASMINE\". Filled with golden champagne attar oil, surrounded by fragrant star-shaped jasmine blossoms on white marble.", "notes": ["Crisp Dewy Green Jasmine Buds", "Intoxicating Imperial Jasmine Petals & Orange Blossom", "Velvety Warm Sandalwood & Sheer Musks"], "ingredients": ["Royal Jasmine Grandiflorum Blossom Extract", "Sambac Jasmine Floral Wax", "Pure Indian Sandalwood Oil"], "eco": ["Royal Gold Crown Flacon", "Single-Origin Dawn Bloom", "Alcohol-Free Perfume Oil"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-arc.webp",...ATTAR},
+  {"id": "attar-eternity", "cat": "attars", "name": "Eternity Imperial Lotus Attar", "scent": "Eternity", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with saffron threads & aged oud", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Eternity Attar is housed in an ornate royal gold-framed glass flacon with a majestic ribbed crown finial cap and crystal tip, inscribed cleanly with \"HOME ECONOMICS\" and \"ETERNITY\". Filled with golden champagne attar oil, blending Kashmiri saffron, sacred lotus, royal oud, and ambergris on dark slate.", "notes": ["Saffron Suede & Cardamom Flower", "Sacred Lotus Blossom & Regal Taif Rose", "Noble White Oud, Cashmere Wood & Amber"], "ingredients": ["Kashmiri Saffron Stigmas", "Sacred White Lotus Extract", "Wild Assam Agarwood (Oud)", "Ambergris Accord"], "eco": ["Royal Gold Crown Flacon", "Heritage Distillation", "Over 18 Hours Longevity"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-baluster.webp",...ATTAR},
+  {"id": "attar-malaka", "cat": "attars", "name": "Malaka Royal Floral Wreath Attar", "scent": "Malaka", "price": 500, "size": "15ml Royal Flacon", "sub": "Golden champagne attar in royal gold crown flacon with damask rose & frankincense", "tone": ["#D4AF37", "#FFFDF5", "#664C0A", "Golden Champagne Attar", "#D4AF37"], "desc": "Attar (ittar) is a natural, alcohol-free perfume oil extracted from botanical sources like flowers, herbs, spices, and woods through traditional hydro- or steam distillation (often aged in a sandalwood oil base). Home Economics Malaka Attar is presented in an ornate royal gold-framed glass flacon with a majestic ribbed crown finial cap and crystal tip, inscribed cleanly with \"HOME ECONOMICS\" and \"MALAKA\". Filled with precious golden champagne attar oil, blending Bulgarian and Indian damask rose, sacred frankincense, golden saffron, and honeyed amber.", "notes": ["Velvet Crimson Rose Petals & Golden Saffron", "Sacred Frankincense Tears & Honeyed Amber", "Smoky Guaiacwood & Creamy Imperial Sandalwood"], "ingredients": ["Centifolia & Damascena Rose Absolutes", "Oman Frankincense Resin", "Royal Saffron Infusion", "Golden Honey Accord"], "eco": ["Royal Gold Crown Flacon", "Royal Court Recipe", "Zero Alcohol Concentrate"], "pack": "15ml Luxury Gold-Framed Glass Flacon with Ornate Minaret Crown Cap & Crystal Finial", "img": "images/attar-flacon-cylinder.webp",...ATTAR}
+];
+
+  /* ═══════════════════════════════════════════════════════════════
+     HOME DÉCOR — collection posters and individual pieces
+     ═══════════════════════════════════════════════════════════════ */
+  const DECOR_COLLECTIONS = [
+    { file: 'decor-collection-vintage-collectibles.jpg', name: 'Vintage Collectibles', desc: 'Art, figurines and décor with nostalgic charm — sewing machines, gramophones, radios, lanterns and more.' },
+    { file: 'decor-collection-artistic-accents.jpg', name: 'Artistic Accents', desc: 'Art figurines, glass & crystal, horse & swan collections, vases and décor to elevate every space.' },
+    { file: 'decor-collection-glass-horses-vases.jpg', name: 'Glass, Horses & Vases', desc: 'Hand-crafted glass and crystal, majestic horse and swan figures, and vases with floral décor.' },
+    { file: 'decor-collection-artificial-flowers.jpg', name: 'Artificial Flowers & Pots', desc: 'Everlasting blooms and flower pots — beauty that stays fresh, all year round.' },
+    { file: 'decor-collection-wall-decor-clocks.jpg', name: 'Wall Décor, Clocks & Luxury Accents', desc: 'Luxury trays, golden candle holders, wall clocks, sculptures and accessories.' },
+    { file: 'decor-collection-officer-mess.jpg', name: 'Officer Mess Collection', desc: 'A tribute to courage — military-themed décor, models, desk accessories and mementos for those who serve.' },
+  ];
+  const DECOR_GROUPS = [
+    { id: 'vases', label: 'Vases & Bowls' }, { id: 'figurines', label: 'Figurines & Sculptures' }, { id: 'trays', label: 'Trays & Serveware' },
+    { id: 'lighting', label: 'Candles & Lighting' }, { id: 'clocks', label: 'Clocks & Collectibles' }, { id: 'spiritual', label: 'Spiritual & Sacred' }, { id: 'gifting', label: 'Gift Sets' },
+  ];
+  const DECOR = [
+    {"file": "decor-green-ceramic-flower-bowl.jpg", "name": "Jade Ceramic Flower Bowl", "group": "vases", "desc": "Glazed jade-green bowl with sculpted ceramic roses on a gilded base.", "w": 1400, "h": 788},
+    {"file": "decor-champagne-glass-flower-bowl.jpg", "name": "Champagne Art-Glass Bowl", "group": "vases", "desc": "Free-form champagne glass bowl resting on a bed of ceramic roses.", "w": 1400, "h": 788},
+    {"file": "gift-bicycle-hamper-tray.jpg", "name": "Bicycle Gift Hamper Tray", "group": "gifting", "desc": "Woven tray with a miniature bicycle — ready to style as a festive gift hamper.", "w": 1400, "h": 788},
+    {"file": "gift-gold-glassware-set.jpg", "name": "Gilded Glassware Gift Set", "group": "gifting", "desc": "Glass jug with a gold handle and a set of gilded animal-head accents, gift-boxed.", "w": 1400, "h": 788},
+    {"file": "gift-lion-glasses-set.jpg", "name": "Lion Crest Glasses (Set of 2)", "group": "gifting", "desc": "A pair of glasses with sculpted lion heads, presented in a satin-lined box.", "w": 1400, "h": 788},
+    {"file": "gift-enamel-rose-wine-glasses.jpg", "name": "Enamel Rose Wine Glasses (Pair)", "group": "gifting", "desc": "Hand-painted rose stems on a pair of wine glasses, in a royal-blue satin box.", "w": 1400, "h": 933},
+    {"file": "decor-gold-glass-bowls-pair.jpg", "name": "Gold Footed Glass Bowls (Pair)", "group": "vases", "desc": "A pair of shimmering gold glass bowls on pedestal feet.", "w": 1400, "h": 788},
+    {"file": "decor-wall-clock-songbird.jpg", "name": "Songbird Floral Wall Clock", "group": "clocks", "desc": "Ivory dial with hand-painted songbirds and blossoms and raised gold numerals.", "w": 1400, "h": 788},
+    {"file": "decor-wall-clock-gold-mandala.jpg", "name": "Gold Mandala Wall Clock", "group": "clocks", "desc": "Ivory and gold mandala dial with a layered sunburst centre.", "w": 1400, "h": 788},
+    {"file": "decor-trays-tan-croc.jpg", "name": "Tan Croc-Texture Trays (Set)", "group": "trays", "desc": "Nesting serving trays in tan croc texture with gold handles.", "w": 1400, "h": 788},
+    {"file": "decor-round-tray-black-mandala.jpg", "name": "Black Mandala Round Tray", "group": "trays", "desc": "Glossy black round tray with a fine gold mandala.", "w": 1400, "h": 788},
+    {"file": "decor-trays-brown-leatherette.jpg", "name": "Espresso Leatherette Trays (Set)", "group": "trays", "desc": "Nesting trays in deep brown textured finish with gold handles.", "w": 1400, "h": 788},
+    {"file": "decor-trays-marble-gold.jpg", "name": "Marble & Gold Key Trays (Set)", "group": "trays", "desc": "Marble-effect trays framed with a gold Greek-key border.", "w": 1400, "h": 933},
+    {"file": "decor-trays-terrazzo-gold.jpg", "name": "Blush Terrazzo Trays (Set)", "group": "trays", "desc": "Blush terrazzo centre with a gold Greek-key frame.", "w": 1400, "h": 788},
+    {"file": "decor-mandala-tray-sunset.jpg", "name": "Sunset Mandala Wooden Tray", "group": "trays", "desc": "Wooden tray with a vivid hand-painted orange mandala under a glossy finish.", "w": 1197, "h": 1315},
+    {"file": "decor-mandala-tray-peacock.jpg", "name": "Peacock Mandala Wooden Tray", "group": "trays", "desc": "Wooden tray with an intricate blue-and-orange mandala.", "w": 1178, "h": 1335},
+    {"file": "decor-blue-silver-glass-platter.jpg", "name": "Ocean Blue Glass Platter", "group": "vases", "desc": "Wave-edged platter in deep blue with silver-leaf rim.", "w": 1400, "h": 788},
+    {"file": "decor-iridescent-glass-bowl.jpg", "name": "Iridescent Mosaic Glass Bowl", "group": "vases", "desc": "Rippled art-glass bowl with a pearlescent mosaic finish.", "w": 1400, "h": 788},
+    {"file": "decor-metal-motorcycle.jpg", "name": "Vintage Metal Motorcycle", "group": "figurines", "desc": "Hand-assembled metal motorcycle model with copper detailing.", "w": 1400, "h": 788},
+    {"file": "decor-violin-sculpture.jpg", "name": "Amber Crystal Violin Sculpture", "group": "figurines", "desc": "Copper-toned violin silhouette filled with amber crystals.", "w": 788, "h": 1400},
+    {"file": "decor-white-horse-figurine.jpg", "name": "Rearing White Horse", "group": "figurines", "desc": "Glossy white rearing horse with delicate floral details.", "w": 788, "h": 1400},
+    {"file": "decor-seven-horses-gold.jpg", "name": "Seven Running Horses", "group": "figurines", "desc": "White and gold galloping horses on a black base — a classic symbol of progress.", "w": 1400, "h": 788},
+    {"file": "decor-reader-on-sphere.jpg", "name": "The Reader on an Iridescent Sphere", "group": "figurines", "desc": "Gold figure reading atop a glowing iridescent orb.", "w": 788, "h": 1400},
+    {"file": "decor-thinker-on-sphere.jpg", "name": "The Thinker on a Starry Sphere", "group": "figurines", "desc": "Petite gold figure seated on a midnight-blue sphere.", "w": 788, "h": 1400},
+    {"file": "decor-thinker-on-pedestal.jpg", "name": "The Gold Thinker Pedestal", "group": "figurines", "desc": "Gold seated figure on a deep-blue starry pedestal.", "w": 788, "h": 1400},
+    {"file": "decor-london-telephone-booth.jpg", "name": "London Telephone Booth", "group": "clocks", "desc": "Red telephone-booth collectible with gold accents.", "w": 788, "h": 1400},
+    {"file": "decor-vintage-red-car.jpg", "name": "Vintage Red Roadster", "group": "clocks", "desc": "Red and gold vintage car collectible.", "w": 1400, "h": 788},
+    {"file": "decor-cannon-table-clock.jpg", "name": "Cannon Table Clock", "group": "clocks", "desc": "Bronze-finish cannon with a working clock set into its wheel.", "w": 1400, "h": 788},
+    {"file": "decor-figure-tray-holder.jpg", "name": "Sculpted Figure Trinket Tray", "group": "figurines", "desc": "White sculpted figure balancing a black dish — for keys, rings or trinkets.", "w": 788, "h": 1400},
+    {"file": "decor-footballer-figurine.jpg", "name": "Golden Footballer Figurine", "group": "figurines", "desc": "White and gold footballer kneeling on a black base.", "w": 788, "h": 1400},
+    {"file": "decor-cyclist-sculpture.jpg", "name": "Black Cyclist Sculpture", "group": "figurines", "desc": "Minimal black cyclist silhouette in motion.", "w": 1400, "h": 788},
+    {"file": "decor-face-hands-white.jpg", "name": "White Face & Hands Sculpture", "group": "figurines", "desc": "Glossy white abstract face cradled by sculpted fingers.", "w": 788, "h": 1400},
+    {"file": "decor-face-hands-black.jpg", "name": "Black Face & Hands Sculpture", "group": "figurines", "desc": "Glossy black abstract face-and-hand sculpture.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-traveller.jpg", "name": "Couple Under an Umbrella — The Journey", "group": "figurines", "desc": "Romantic couple with a gold umbrella and travel case.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-seated.jpg", "name": "Couple Under an Umbrella — Together", "group": "figurines", "desc": "Seated couple sharing a gold umbrella.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-bench.jpg", "name": "Couple Under an Umbrella — The Proposal", "group": "figurines", "desc": "Couple on a bench beneath a gold umbrella.", "w": 788, "h": 1400},
+    {"file": "decor-couple-umbrella-embrace.jpg", "name": "Couple Under an Umbrella — The Embrace", "group": "figurines", "desc": "Couple in a warm embrace under a gold umbrella.", "w": 788, "h": 1400},
+    {"file": "decor-khanda-ik-onkar-plates.jpg", "name": "Khanda & Ik Onkar Mini Plates", "group": "spiritual", "desc": "A pair of jewelled mini plates with Khanda and Ik Onkar on stands.", "w": 1400, "h": 788},
+    {"file": "decor-sand-glass-flower-bowl.jpg", "name": "Sand Art-Glass Flower Bowl", "group": "vases", "desc": "Sculpted sand-gold glass bowl on a base of ceramic roses.", "w": 1400, "h": 788},
+    {"file": "decor-glass-candle-holders-wood.jpg", "name": "Blown-Glass Candle Holders on Wood", "group": "lighting", "desc": "Organic blown-glass hurricanes resting on natural wood bases.", "w": 1400, "h": 788},
+    {"file": "decor-ganesha-colour-set.jpg", "name": "Jewel-Tone Ganesha Idols", "group": "spiritual", "desc": "Ganesha idols in sapphire, emerald, ruby, aqua and onyx tones.", "w": 1400, "h": 700},
+    {"file": "decor-gold-fruit-stand.jpg", "name": "Gold Ribbon Fruit Stand", "group": "trays", "desc": "Sculptural gold platter on a pedestal with a marble-effect stem.", "w": 1400, "h": 788},
+    {"file": "decor-candle-holders-marble-gold.jpg", "name": "Marble & Gold Candle Holders (Pair)", "group": "lighting", "desc": "Smoked-glass hurricanes on gold stems with marble bases.", "w": 788, "h": 1400},
+    {"file": "decor-candelabra-gold.jpg", "name": "Five-Arm Gold Candelabra", "group": "lighting", "desc": "Ornate gold candelabra with smoked-glass votives.", "w": 788, "h": 1400},
+    {"file": "decor-ivory-vase-gold-roses.jpg", "name": "Ivory Vase with Gilded Roses", "group": "vases", "desc": "Ivory ceramic vase with sculpted roses and gold leaves.", "w": 1050, "h": 1400},
+    {"file": "decor-crystal-hanuman-idol.jpg", "name": "Crystal Hanuman Idol", "group": "spiritual", "desc": "Clear crystal Hanuman with gold detailing on a black base.", "w": 788, "h": 1400},
+    {"file": "decor-lemon-vase-gold-roses.jpg", "name": "Lemon Vase with Gilded Roses", "group": "vases", "desc": "Soft yellow ceramic vase with sculpted roses and gold leaves.", "w": 788, "h": 1400},
+    {"file": "decor-pink-round-vase-roses.jpg", "name": "Blush Round Vase with Roses", "group": "vases", "desc": "Pierced blush-pink vase with sculpted ceramic roses.", "w": 788, "h": 1400},
+    {"file": "decor-pink-tall-vase-roses.jpg", "name": "Blush Tall Vase with Roses", "group": "vases", "desc": "Tall pierced blush-pink vase with sculpted ceramic roses.", "w": 788, "h": 1400},
+    {"file": "decor-crystal-lakshmi-idol.jpg", "name": "Crystal Lakshmi Idol", "group": "spiritual", "desc": "Clear crystal Lakshmi with gold detailing on a black base.", "w": 788, "h": 1400},
+    {"file": "decor-swan-family-small.jpg", "name": "Blue Swan Family (Small)", "group": "figurines", "desc": "Powder-blue swans with gold-tipped feathers.", "w": 788, "h": 1400},
+    {"file": "decor-swan-family-large.jpg", "name": "Blue Swan Family (Large)", "group": "figurines", "desc": "Grand powder-blue swan family with gilded wings.", "w": 1050, "h": 1400}
+  ];
+
+  /* ═══════════════════════════════ helpers ═══════════════════════════════ */
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
+  const inr = n => '₹' + Math.round(n).toLocaleString('en-IN');
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const waLink = t => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+  const isCutout = p => p.img && p.img.endsWith('.webp');
+  const shortName = n => n.replace(/\s*\(.*\)$/, '');
+
+  function vesselHTML(p) {
+    const k = p.pack.toLowerCase();
+    let cls = 'vessel';
+    if (k.includes('dropper')) cls += ' dropper';
+    else if (k.includes('sprayer') || k.includes('mist')) cls += ' spray';
+    else if (k.includes('zip-lock') || k.includes('pouch')) cls += ' pouch';
+    else if (k.includes('wooden cap')) cls += ' jar wood';
+    else if (k.includes('jar')) cls += ' jar';
+    return `<div class="${cls}" style="--liq:${p.tone[4]}"><div class="cap"></div><div class="body"></div></div>`;
+  }
+  const media = (p, lazy = true) => p.img ? `<img src="${p.img}" alt="${esc(p.name)}"${lazy ? ' loading="lazy"' : ''} decoding="async">` : vesselHTML(p);
+
+  let toastT;
+  function toast(m) { const t = $('#toast'); $('span', t).textContent = m; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2400); }
+  function openDialog(d) { if (!d.open) d.showModal(); }
+  $$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d || e.target.closest('[data-close]')) d.close(); }));
+
+  /* ═══════════════════════════════ bag ═══════════════════════════════ */
+  let bag = [];
+  try { bag = JSON.parse(localStorage.getItem('he_bag_v2')) || []; } catch (e) { bag = []; }
+  const saveBag = () => { try { localStorage.setItem('he_bag_v2', JSON.stringify(bag)); } catch (e) {} };
+  function addLine(line) { const f = bag.find(l => l.key === line.key); if (f) f.qty += line.qty; else bag.push(line); saveBag(); renderBag(true); }
+  function addProduct(id, qty = 1, silent = false) { const p = byId[id]; addLine({ key: p.id, id: p.id, name: p.name, detail: p.size, price: p.price, qty }); if (!silent) toast(`Added ${shortName(p.name)}`); }
+  function renderBag(bump) {
+    const count = bag.reduce((n, l) => n + l.qty, 0), total = bag.reduce((n, l) => n + l.qty * l.price, 0);
+    const b = $('#bagCount'); b.textContent = count; b.classList.toggle('show', count > 0);
+    if (bump) { b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
+    $('#fcount').textContent = count; $('#fbag').classList.toggle('show', count > 0);
+    $('#bagTotal').textContent = inr(total); $('#bagFoot').style.display = count ? '' : 'none';
+    $('#bagItems').innerHTML = count ? bag.map(l => {
+      const p = byId[l.id] || byId[(l.contents || [])[0]];
+      return `<div class="li"><div class="mini ${isCutout(p) ? 'warm' : ''}">${media(p)}</div><div class="meta"><b>${esc(l.name)}</b><small>${esc(l.detail || '')}</small>
+        <div class="row"><div class="qty"><button type="button" data-q="${esc(l.key)}" data-d="-1" aria-label="Decrease">−</button><span>${l.qty}</span><button type="button" data-q="${esc(l.key)}" data-d="1" aria-label="Increase">+</button></div><b>${inr(l.qty * l.price)}</b></div>
+        <button class="rm" type="button" data-rm="${esc(l.key)}">Remove</button></div></div>`;
+    }).join('') : `<div class="dempty"><i class="ph ph-handbag"></i><b>Your bag is empty.</b>Add a few favourites to get started.</div>`;
+    updateOrderLink();
+  }
+  function updateOrderLink() {
+    const total = bag.reduce((n, l) => n + l.qty * l.price, 0), name = $('#custName').value.trim(), addr = $('#custAddr').value.trim();
+    const lines = bag.map(l => `• ${l.qty} × ${l.name}${l.detail ? ` (${l.detail})` : ''} — ${inr(l.qty * l.price)}`).join('\n');
+    $('#sendOrder').href = waLink(`Hello Home Economics! I'd like to place an order:\n\n${lines}\n\nTotal: ${inr(total)}` + (name ? `\n\nName: ${name}` : '') + (addr ? `\nDelivery: ${addr}` : '') + `\n\n(Sent from homeeconomics.in)`);
+  }
+  $('#bagItems').addEventListener('click', e => {
+    const q = e.target.closest('[data-q]'), rm = e.target.closest('[data-rm]');
+    if (q) { const l = bag.find(x => x.key === q.dataset.q); l.qty += +q.dataset.d; if (l.qty <= 0) bag = bag.filter(x => x !== l); }
+    else if (rm) bag = bag.filter(x => x.key !== rm.dataset.rm); else return;
+    saveBag(); renderBag();
+  });
+  $('#custName').addEventListener('input', updateOrderLink); $('#custAddr').addEventListener('input', updateOrderLink);
+  $('#sendOrder').addEventListener('click', () => toast('Opening WhatsApp — just press send!'));
+  $$('[data-open-bag]').forEach(b => b.addEventListener('click', () => { $$('dialog[open]').forEach(d => d.close()); openDialog($('#bagDialog')); }));
+
+  /* ═══════════════════════════════ product details ═══════════════════════════════ */
+  function openProduct(id) {
+    const p = byId[id], d = $('#productDialog'), g = p.guide;
+    const sibs = p.scent ? PRODUCTS.filter(x => x.cat === p.cat && x.scent) : [];
+    let qty = 1;
+    d.innerHTML = `<button class="x" type="button" data-close aria-label="Close"><i class="ph ph-x"></i></button>
+      <div class="pd"><div class="pd-img ${isCutout(p) ? 'warm' : ''}">${media(p, false)}</div>
+      <div class="pd-info">
+        <span class="tag">${esc(CAT_LABEL[p.cat])}</span><h2>${esc(p.name)}</h2><p class="lead">${esc(p.sub)}</p>
+        <div class="pd-price">${inr(p.price)}<small>${esc(p.size)}</small></div>
+        ${sibs.length > 1 ? `<div class="sibs">${sibs.map(s => `<button type="button" class="${s.id === p.id ? 'on' : ''}" data-sib="${s.id}" style="--c:${s.tone[0]}"><i></i>${esc(s.scent)}</button>`).join('')}</div>` : ''}
+        <div class="buy"><div class="qty"><button type="button" data-pq="-1" aria-label="Decrease">−</button><span id="pdQty">1</span><button type="button" data-pq="1" aria-label="Increase">+</button></div>
+          <button class="pill" type="button" id="pdAdd">Add to bag — <span id="pdTotal">${inr(p.price)}</span></button>
+          <a class="more" target="_blank" rel="noopener" href="${waLink(`Hi! I'd like to order: ${p.name} (${p.size}) — ${inr(p.price)}`)}">Ask on WhatsApp</a></div>
+        <div class="pd-sec"><p>${esc(p.desc)}</p>${p.texture ? `<p style="margin-top:10px">${esc(p.texture)}</p>` : ''}</div>
+        ${p.bestFor ? `<div class="pd-sec"><h5>Works best for</h5><p>${esc(p.bestFor)}</p></div>` : ''}
+        ${p.helps ? `<div class="pd-sec"><h5>Helps with</h5><ul class="ticks">${p.helps.map(h => `<li>${esc(h)}</li>`).join('')}</ul></div>` : ''}
+        ${p.benefits ? `<div class="pd-sec"><h5>Key benefits</h5><div class="benefits">${p.benefits.map(b => `<div><b>${esc(b[0])}</b><span>${esc(b[1])}</span></div>`).join('')}</div></div>` : ''}
+        ${p.notes ? `<div class="pd-sec"><h5>Scent notes</h5><div class="pyramid">${['Top', 'Heart', 'Base'].map((n, i) => `<div><small>${n}</small><span>${esc(p.notes[i])}</span></div>`).join('')}</div></div>` : ''}
+        ${p.ingredients ? `<div class="pd-sec"><h5>Key ingredients</h5><div class="pillset">${p.ingredients.map(x => `<span>${esc(x)}</span>`).join('')}</div></div>` : ''}
+        ${p.ritual ? `<div class="pd-sec"><h5>How to use</h5><p>${esc(p.ritual)}</p></div>` : ''}
+        ${g ? `<details><summary>${esc(g.title)} <i class="ph ph-plus"></i></summary><div class="gb"><p>${esc(g.overview)}</p>${g.methods.map(m => `<p><b>${esc(m[0])}:</b> ${esc(m[1])}</p>`).join('')}
+          ${g.best ? `<p><b>${esc(g.best.heading)}:</b> ${esc(g.best.summary)}</p>${(g.best.steps || []).map(s => `<p><b>${esc(s[0])}:</b> ${esc(s[1])}</p>`).join('')}${g.best.dose ? `<p><b>Daily amount:</b> ${esc(g.best.dose)}</p>` : ''}${g.best.timing ? `<p><b>Best timing:</b> ${esc(g.best.timing)}</p>` : ''}` : ''}</div></details>` : ''}
+        <div class="pd-sec"><div class="pillset">${p.eco.map(x => `<span>${esc(x)}</span>`).join('')}</div></div>
+      </div></div>`;
+    const setQty = n => { qty = Math.max(1, Math.min(99, n)); $('#pdQty').textContent = qty; $('#pdTotal').textContent = inr(p.price * qty); };
+    $$('[data-pq]', d).forEach(b => b.addEventListener('click', () => setQty(qty + +b.dataset.pq)));
+    $('#pdAdd').addEventListener('click', () => {
+      addProduct(p.id, qty, true); toast(`Added ${qty > 1 ? qty + ' × ' : ''}${shortName(p.name)}`);
+      const btn = $('#pdAdd'); btn.innerHTML = '<i class="ph ph-check"></i> Added — view bag'; btn.onclick = () => { d.close(); openDialog($('#bagDialog')); };
+    });
+    $$('[data-sib]', d).forEach(b => b.addEventListener('click', () => openProduct(b.dataset.sib)));
+    openDialog(d); const info = $('.pd-info', d); if (info) info.scrollTop = 0;
+  }
+
+  /* ═══════════════════════════════ renderers ═══════════════════════════════ */
+  function cardHTML(p) {
+    return `<article class="pcard rv"><div class="pimg" data-open="${p.id}" role="button" tabindex="0" aria-label="View ${esc(p.name)}">${media(p)}</div>
+      <div class="pbody"><span class="tag">${esc(p.scent || CAT_LABEL[p.cat])}</span><h4 data-open="${p.id}">${esc(shortName(p.name))}</h4><p>${esc(p.sub)}</p>
+      <div class="pfoot"><span class="price">${inr(p.price)}<small>${esc(p.size)}</small></span><button class="add" type="button" data-add="${p.id}" aria-label="Add ${esc(p.name)} to bag">Add</button></div></div></article>`;
+  }
+  const inCat = (...cats) => PRODUCTS.filter(p => cats.includes(p.cat));
+  $('#carPersonal').innerHTML = [...inCat('body-washes'), ...inCat('skincare-hair')].map(cardHTML).join('');
+  $('#carHome').innerHTML = inCat('floor-cleaners', 'lens-screen').map(cardHTML).join('');
+  $('#carAttar').innerHTML = inCat('attars').map(cardHTML).join('');
+  $('#gridWellness').innerHTML = inCat('wellness-pantry').map(cardHTML).join('');
+
+  // Body wash lineup
+  $('#lineup').innerHTML = inCat('body-washes').map((p, i) => `<button type="button" data-open="${p.id}" style="--i:${i}"><img src="${p.img}" alt="${esc(p.name)}" loading="lazy"><span>${esc(p.scent)}<small>${inr(p.price)}</small></span></button>`).join('');
+  // Attar flacon row
+  $('#flaconRow').innerHTML = inCat('attars').map((p, i) => `<button type="button" data-open="${p.id}" aria-label="${esc(p.name)}" style="--i:${i}"><img src="${p.img}" alt="" loading="lazy"></button>`).join('');
+
+  // Hero moving tiles
+  const tile = (p) => `<button type="button" class="tile ${isCutout(p) ? 'warm' : ''}" data-open="${p.id}"><img src="${p.img}" alt="" loading="lazy"><span class="cap"><small>${esc(CAT_LABEL[p.cat])}</small><b>${esc(p.scent || shortName(p.name))}</b></span></button>`;
+  const dtile = (d, i) => `<button type="button" class="tile decor" data-dtile="${i}"><img src="images/${d.file}" alt="" loading="lazy"><span class="cap"><small>Home Décor</small><b>${esc(d.name)}</b></span></button>`;
+  const withImg = PRODUCTS.filter(p => p.img);
+  const row1 = [...withImg.filter(p => !isCutout(p))].map(tile);
+  const pickDecor = [0, 20, 51, 22, 43, 44, 9, 45, 16, 47].filter(i => DECOR[i]);
+  const row2 = [];
+  withImg.filter(isCutout).forEach((p, i) => { row2.push(tile(p)); if (pickDecor[i] !== undefined) row2.push(dtile(DECOR[pickDecor[i]], pickDecor[i])); });
+  $('#row1').innerHTML = row1.join('') + row1.join('');
+  $('#row2').innerHTML = row2.join('') + row2.join('');
+
+  // Category chiclets
+  const chic = [
+    ['#personal', 'Personal Care', `<div class="ic"><img src="images/body-wash-rose.jpg" alt=""></div>`],
+    ['#homecare', 'Home Care', `<div class="ic"><img src="images/floor-cleaner-violet.jpg" alt=""></div>`],
+    ['#attars', 'Attars & Oils', `<div class="ic warm"><img src="images/attar-flacon-teardrop.webp" alt=""></div>`],
+    ['#wellness', 'Wellness', `<div class="ic"><i class="ph-duotone ph-leaf"></i></div>`],
+    ['#decor', 'Home Décor', `<div class="ic cover"><img src="images/decor-swan-family-small.jpg" alt=""></div>`],
+    ['#visit', 'Visit Store', `<div class="ic"><i class="ph-duotone ph-storefront"></i></div>`],
+  ];
+  $('#chiclets').innerHTML = chic.map(([h, l, ic]) => `<a class="chiclet" href="${h}">${ic}${l}</a>`).join('');
+
+  // Ritual
+  $('#ritualList').innerHTML = RITUAL.map((id, i) => { const p = byId[id]; return `<li data-open="${id}" tabindex="0"><div class="simg">${media(p)}</div><small>Step ${i + 1} · ${RITUAL_STEPS[i]}</small><b>${esc(shortName(p.name))}</b><span style="font-size:14px;color:var(--muted)">${inr(p.price)}</span></li>`; }).join('');
+  $('#ritualTotal').textContent = inr(RITUAL.reduce((n, id) => n + byId[id].price, 0));
+  $('#addRitual').addEventListener('click', () => { RITUAL.forEach(id => addProduct(id, 1, true)); toast('The 4-step ritual is in your bag'); });
+
+  // Global click handling for product opens & adds
+  document.addEventListener('click', e => {
+    const add = e.target.closest('[data-add]');
+    if (add) { addProduct(add.dataset.add); add.classList.add('done'); add.textContent = 'Added'; setTimeout(() => { add.classList.remove('done'); add.textContent = 'Add'; }, 1500); return; }
+    const open = e.target.closest('[data-open]');
+    if (open && !e.target.closest('dialog')) { openProduct(open.dataset.open); return; }
+    const dt = e.target.closest('[data-dtile]');
+    if (dt) openLightbox(DECOR.map(decorItem), +dt.dataset.dtile);
+  });
+  document.addEventListener('keydown', e => {
+    const open = e.target.closest && e.target.closest('[data-open]');
+    if (open && (e.key === 'Enter' || e.key === ' ') && open.tagName !== 'BUTTON') { e.preventDefault(); openProduct(open.dataset.open); }
+  });
+
+  // Carousels
+  $$('.car-nav').forEach(nav => {
+    const car = document.getElementById(nav.dataset.for);
+    const [prev, next] = $$('button', nav);
+    const update = () => { prev.disabled = car.scrollLeft < 10; next.disabled = car.scrollLeft + car.clientWidth > car.scrollWidth - 10; };
+    nav.addEventListener('click', e => { const b = e.target.closest('[data-dir]'); if (b) car.scrollBy({ left: +b.dataset.dir * car.clientWidth * 0.8 }); });
+    car.addEventListener('scroll', update, { passive: true }); window.addEventListener('resize', update); setTimeout(update, 300);
+  });
+
+  /* ═══════════════════════════════ attar trio ═══════════════════════════════ */
+  const attars = inCat('attars');
+  let trio = ['attar-white-musk', 'attar-mogra', 'attar-polo'];
+  function renderTrio() {
+    $('#attarPick').innerHTML = attars.map(a => `<button type="button" class="${trio.includes(a.id) ? 'on' : ''}" data-attar="${a.id}" aria-pressed="${trio.includes(a.id)}"><span class="tick"><i class="ph-bold ph-check"></i></span><img src="${a.img}" alt="" loading="lazy">${esc(a.scent)}</button>`).join('');
+    const left = 3 - trio.length;
+    $('#trioHint').textContent = left ? `Choose ${left} more attar${left > 1 ? 's' : ''}.` : 'Your trio: ' + trio.map(id => byId[id].scent).join(', ') + '. Tap to swap.';
+    $('#addTrio').disabled = trio.length !== 3;
+  }
+  $('#attarPick').addEventListener('click', e => {
+    const b = e.target.closest('[data-attar]'); if (!b) return; const id = b.dataset.attar;
+    trio = trio.includes(id) ? trio.filter(x => x !== id) : trio.length < 3 ? [...trio, id] : [...trio.slice(1), id]; renderTrio();
+  });
+  $('#addTrio').addEventListener('click', () => {
+    addLine({ key: 'trio-' + [...trio].sort().join('+'), contents: [...trio], name: 'Attar Trio (3 × 15ml)', detail: trio.map(id => byId[id].scent).join(' · '), price: TRIO_PRICE, qty: 1 });
+    toast('Attar trio added — you saved ₹201');
+  });
+
+  /* ═══════════════════════════════ décor ═══════════════════════════════ */
+  const groupLabel = Object.fromEntries(DECOR_GROUPS.map(g => [g.id, g.label]));
+  const decorItem = d => ({ src: 'images/' + d.file, name: d.name, label: groupLabel[d.group], desc: d.desc });
+  const posterItems = DECOR_COLLECTIONS.map(c => ({ src: 'images/' + c.file, name: c.name, label: 'Collection', desc: c.desc }));
+  $('#carPosters').innerHTML = DECOR_COLLECTIONS.map((c, i) => `<button type="button" class="poster rv" data-poster="${i}"><div class="pimg"><img src="images/${c.file}" alt="${esc(c.name)}" loading="lazy"></div><div class="pcap"><small>Collection</small><b>${esc(c.name)}</b></div></button>`).join('');
+  $('#carPosters').addEventListener('click', e => { const b = e.target.closest('[data-poster]'); if (b) openLightbox(posterItems, +b.dataset.poster); });
+
+  let decorGroup = 'all', decorExpanded = false, decorList = DECOR;
+  const PREVIEW = 12;
+  function renderDecorChips() {
+    $('#decorChips').innerHTML = [{ id: 'all', label: 'All pieces' }, ...DECOR_GROUPS].map(g => {
+      const n = g.id === 'all' ? DECOR.length : DECOR.filter(d => d.group === g.id).length;
+      return `<button type="button" class="chip ${g.id === decorGroup ? 'active' : ''}" data-dg="${g.id}" aria-pressed="${g.id === decorGroup}">${esc(g.label)}<small>${n}</small></button>`;
+    }).join('');
+  }
+  function renderDecor() {
+    decorList = decorGroup === 'all' ? DECOR : DECOR.filter(d => d.group === decorGroup);
+    const limit = decorGroup === 'all' && !decorExpanded ? PREVIEW : decorList.length;
+    $('#decorGrid').innerHTML = decorList.slice(0, limit).map((d, i) => `<button type="button" class="dcard" data-decor="${i}" style="animation-delay:${(i % PREVIEW) * 45}ms"><img src="images/${d.file}" alt="${esc(d.name)}" loading="lazy" width="${d.w}" height="${d.h}"><div class="dm"><small>${esc(groupLabel[d.group])}</small><b>${esc(d.name)}</b></div></button>`).join('');
+    $('#decorMore').parentElement.style.display = limit < decorList.length ? '' : 'none';
+    $('#decorMore').textContent = `Show all ${decorList.length} pieces`;
+  }
+  $('#decorChips').addEventListener('click', e => { const b = e.target.closest('[data-dg]'); if (!b) return; decorGroup = b.dataset.dg; renderDecorChips(); renderDecor(); });
+  $('#decorMore').addEventListener('click', () => { decorExpanded = true; renderDecor(); });
+  $('#decorGrid').addEventListener('click', e => { const c = e.target.closest('[data-decor]'); if (c) openLightbox(decorList.map(decorItem), +c.dataset.decor); });
+
+  let lbItems = [], lbIndex = 0;
+  function openLightbox(items, i) {
+    lbItems = items; lbIndex = (i + items.length) % items.length;
+    const it = items[lbIndex], box = $('#lightbox');
+    box.innerHTML = `<button class="x" type="button" data-close aria-label="Close"><i class="ph ph-x"></i></button>
+      <div class="lb"><div class="lb-img"><img src="${it.src}" alt="${esc(it.name)}" id="lbImg">
+        ${items.length > 1 ? `<button class="lb-nav lb-prev" type="button" data-lb="-1" aria-label="Previous"><i class="ph ph-caret-left"></i></button><button class="lb-nav lb-next" type="button" data-lb="1" aria-label="Next"><i class="ph ph-caret-right"></i></button>` : ''}</div>
+      <div class="lb-info"><span class="count">${esc(it.label)} · ${lbIndex + 1} of ${items.length}</span><h3>${esc(it.name)}</h3><p>${esc(it.desc)}</p>
+        <p class="note">Price on request · Available at 39 Santushti Shopping Complex, Chanakyapuri.</p>
+        <div class="btns"><a class="pill wa" href="${waLink(`Hi! I'm interested in the ${it.name} from your Home Décor collection. Could you share the price and availability?`)}" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i> Ask price on WhatsApp</a>
+        <a class="pill light" href="#visit" data-close>Visit the store</a></div></div></div>`;
+    $$('[data-lb]', box).forEach(b => b.addEventListener('click', () => openLightbox(lbItems, lbIndex + +b.dataset.lb)));
+    $('#lbImg').addEventListener('click', e => e.currentTarget.classList.toggle('zoom'));
+    openDialog(box);
+  }
+  document.addEventListener('keydown', e => {
+    if (!$('#lightbox').open) return;
+    if (e.key === 'ArrowRight') openLightbox(lbItems, lbIndex + 1);
+    if (e.key === 'ArrowLeft') openLightbox(lbItems, lbIndex - 1);
+  });
+  let tx = null;
+  $('#lightbox').addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  $('#lightbox').addEventListener('touchend', e => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) openLightbox(lbItems, lbIndex + (dx < 0 ? 1 : -1)); tx = null; });
+
+  /* ═══════════════════════════════ motion ═══════════════════════════════ */
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+
+  const heroCopy = $('#heroCopy'), rows = $$('.tile-row'), zooms = $$('[data-zoom]'), rises = $$('[data-rise]'), attarHero = $('#attarHero img'), portrait = $('[data-zoom-soft] img');
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  // 0 when the element's top is at the bottom of the viewport, 1 when its top reaches the top
+  const progress = el => { const r = el.getBoundingClientRect(); return clamp(1 - r.top / innerHeight, 0, 1.5); };
+  let ticking = false;
+  function onScroll() {
+    ticking = false;
+    const y = scrollY, vh = innerHeight;
+    if (y < vh * 1.2) {
+      const p = clamp(y / (vh * .7), 0, 1);
+      heroCopy.style.transform = `translateY(${p * 60}px) scale(${1 - p * .06})`;
+      heroCopy.style.opacity = 1 - p * .85;
+      rows.forEach(r => r.style.setProperty('--shift', `${y * +r.dataset.speed * -1}px`));
+    }
+    zooms.forEach(el => { const p = clamp(progress(el), 0, 1); el.style.setProperty('--zoom', (1.18 - p * .18).toFixed(4)); });
+    rises.forEach(el => { const p = clamp(progress(el) * 1.25, 0, 1);
+      [...el.children].forEach((c, i) => { const local = clamp(p * 1.6 - i * .12, 0, 1); c.style.setProperty('--rise', `${(1 - local) * 90}px`); c.style.opacity = .25 + local * .75; }); });
+    if (attarHero) { const p = clamp(progress(attarHero.parentElement), 0, 1.3); attarHero.style.setProperty('--zoom', (0.82 + Math.min(p, 1) * .18).toFixed(4)); attarHero.style.setProperty('--float', `${(1 - Math.min(p, 1)) * 60}px`); }
+    if (portrait) { const p = clamp(progress(portrait), 0, 1); portrait.style.setProperty('--zoom', (0.9 + p * .1).toFixed(4)); }
+  }
+  if (!reduce) {
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    window.addEventListener('resize', onScroll); onScroll();
+  }
+
+  /* ═══════════════════════════════ misc ═══════════════════════════════ */
+  $('#year').textContent = new Date().getFullYear();
+  const menuBtn = $('#menuBtn'), mnav = $('#mnav');
+  menuBtn.addEventListener('click', () => { const o = mnav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); menuBtn.innerHTML = o ? '<i class="ph ph-x"></i>' : '<i class="ph ph-list"></i>'; });
+  $$('a', mnav).forEach(a => a.addEventListener('click', () => menuBtn.click()));
+
+  renderBag(); renderTrio(); renderDecorChips(); renderDecor();
+  // Cards inserted after the observer was set up
+  $$('.rv:not(.in)').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
